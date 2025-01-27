@@ -2,12 +2,15 @@ import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { notFound } from "next/navigation";
 import React from "react";
+import { ThemeProvider } from "@/components/theme-provider";
+
 interface LocaleLayoutProps {
     params: Promise<{
         locale: string;
     }>;
-    children: React.ReactNode; // تایپ children مشخص شده که باید یک ReactNode باشد
+    children: React.ReactNode
 }
+
 export default async function LocaleLayout(props: LocaleLayoutProps) {
     const { locale } = await props.params;
     let isRtl;
@@ -22,9 +25,18 @@ export default async function LocaleLayout(props: LocaleLayoutProps) {
 
     return (
         <html lang={locale} dir={isRtl ? "rtl" : "ltr"}>
-            <body>
-                <NextIntlClientProvider messages={messages}>{props.children}</NextIntlClientProvider>
-            </body>
+        <body>
+        <NextIntlClientProvider messages={messages}>
+            <ThemeProvider
+                attribute="class"
+                defaultTheme="system"
+                enableSystem
+                disableTransitionOnChange
+            >
+                {props.children}
+            </ThemeProvider>
+        </NextIntlClientProvider>
+        </body>
         </html>
     );
 }
