@@ -8,10 +8,10 @@ interface LocaleLayoutProps {
     }>;
     children: React.ReactNode; // تایپ children مشخص شده که باید یک ReactNode باشد
 }
-export default async function LocaleLayout(props:LocaleLayoutProps) {
+export default async function LocaleLayout(props: LocaleLayoutProps) {
     const { locale } = await props.params;
-    let isRtl
-    let messages
+    let isRtl;
+    let messages;
     try {
         messages = await getMessages();
         isRtl = locale === "fa";
