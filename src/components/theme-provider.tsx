@@ -4,7 +4,7 @@ import { ThemeProvider as NextThemesProvider, ThemeProviderProps } from "next-th
 type Props = ThemeProviderProps & {
     children: React.ReactNode;
 };
-export function ThemeProvider({ children, ...props }:Props) {
+export function ThemeProvider({ children, ...props }: Props) {
     const [mounted, setMounted] = React.useState(false);
     React.useEffect(() => {
         setMounted(true);
