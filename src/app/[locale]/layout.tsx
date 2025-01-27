@@ -11,13 +11,15 @@ export default async function LocaleLayout({
     children: React.ReactNode;
     params: { locale: string };
 }) {
+    let isRtl
     if (!routing.locales.includes(locale as any)) {
         notFound();
     }
     const messages = await getMessages();
+    isRtl = locale === "fa";
 
     return (
-        <html lang={locale}>
+        <html lang={locale} dir={isRtl ? "rtl" : "ltr"}>
             <body>
                 <NextIntlClientProvider messages={messages}>{children}</NextIntlClientProvider>
             </body>
