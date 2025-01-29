@@ -4,9 +4,9 @@ import * as motion from "motion/react-client"
 
 export default function Home() {
     const t = useTranslations();
+
     return (
         <div className="min-h-screen bg-gradient-to-b from-gray-100 to-gray-200">
-            {/* Hero Section */}
             <section className="flex flex-col items-center justify-center h-screen text-center">
                 <motion.h1
                     className="text-5xl font-bold text-gray-800 md:text-7xl"
@@ -25,7 +25,6 @@ export default function Home() {
                 >
                     Build fast, modern, and elegant web experiences.
                 </motion.p>
-
                 <motion.div
                     className="mt-8 flex space-x-4"
                     animate={{ opacity: 1, scale: 1 }}
