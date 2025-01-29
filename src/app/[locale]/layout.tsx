@@ -3,7 +3,8 @@ import { getMessages } from "next-intl/server";
 import { notFound } from "next/navigation";
 import "../globals.css";
 import React from "react";
-import { ThemeProvider } from "@/components/theme-provider";
+import { ThemeProvider } from "@/core/theme-provider";
+import { Toaster } from "@/components/ui/toaster";
 
 interface LocaleLayoutProps {
     params: Promise<{
@@ -29,7 +30,9 @@ export default async function LocaleLayout(props: LocaleLayoutProps) {
             <body>
                 <NextIntlClientProvider messages={messages}>
                     <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-                        {props.children}
+
+                        <main>{props.children}</main>
+                        <Toaster />
                     </ThemeProvider>
                 </NextIntlClientProvider>
             </body>

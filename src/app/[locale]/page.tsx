@@ -1,9 +1,29 @@
+"use client"
 import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/button";
 import * as motion from "motion/react-client"
+import useRequest from "@/lib/hooks/useRequest";
 
 export default function Home() {
     const t = useTranslations();
+    const requestServer = useRequest({ notification: true });
+    const handleClick = async () => {
+        requestServer("/api/fake-sign-in", "post", {
+            data: {
+                phone_number: "0913",
+                password: "123",
+            },
+            success: {
+                notification: { show: true },
+            },
+        })
+            .then((response) => {
+                console.log(response);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    }
 
     return (
         <div className="min-h-screen bg-gradient-to-b from-gray-100 to-gray-200">
@@ -31,7 +51,7 @@ export default function Home() {
                     initial={{ opacity: 0, scale: 0.8 }}
                     transition={{ duration: 0.5, delay: 0.4 }}
                 >
-                    <Button variant="default" className="px-6 py-3">
+                    <Button onClick={handleClick} variant="default" className="px-6 py-3">
                         Get Started
                     </Button>
                     <Button variant="outline" className="px-6 py-3">
