@@ -5,7 +5,6 @@ import * as motion from "motion/react-client";
 import useRequest from "@/lib/hooks/useRequest";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { loginFormSchema } from "@/lib/utils/schemas";
 import { Form, FormControl, FormField, FormItem, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { LogIn } from "lucide-react";
