@@ -1,27 +1,40 @@
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { notFound } from "next/navigation";
-import { routing } from "@/i18n/routing";
+import "../globals.css";
 import React from "react";
+import { ThemeProvider } from "@/core/theme-provider";
+import { Toaster } from "@/components/ui/toaster";
 
-export default async function LocaleLayout({
-    children,
-    params: { locale },
-}: {
+interface LocaleLayoutProps {
+    params: Promise<{
+        locale: string;
+    }>;
     children: React.ReactNode;
-    params: { locale: string };
-}) {
-    let isRtl
-    if (!routing.locales.includes(locale as any)) {
+}
+
+export default async function LocaleLayout(props: LocaleLayoutProps) {
+    const { locale } = await props.params;
+    let isRtl;
+    let messages;
+    try {
+        messages = await getMessages();
+        isRtl = locale === "fa";
+    } catch (e) {
+        console.log(e);
         notFound();
     }
-    const messages = await getMessages();
-    isRtl = locale === "fa";
 
     return (
         <html lang={locale} dir={isRtl ? "rtl" : "ltr"}>
             <body>
-                <NextIntlClientProvider messages={messages}>{children}</NextIntlClientProvider>
+                <NextIntlClientProvider messages={messages}>
+                    <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+
+                        <main>{props.children}</main>
+                        <Toaster />
+                    </ThemeProvider>
+                </NextIntlClientProvider>
             </body>
         </html>
     );

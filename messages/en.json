@@ -2,5 +2,50 @@
   "HomePage": {
     "title": "Hello world!",
     "about": "Go to the about page"
+  },
+  "Notifications": {
+    "code": "Code",
+    "error": "Error",
+    "warning": "Warning",
+    "success": "Success",
+    "error_static_text": "Your operation encountered an error",
+    "warning_static_text": "Server error",
+    "success_static_text": "Your operation was successful",
+    "pending": "pending..."
+  },
+  "LoginPage": {
+    "title": "Login Page",
+    "Required": "Required",
+    "error_max": "can not be more than {max}",
+    "phone_number": "Phone Number",
+    "password": "Password",
+    "submit": "Submit",
+    "login": "Login",
+    "minimum_character": "Password should be at least 6 characters long",
+    "remember": "remember me",
+    "forget": "forgot everything?",
+    "noAccount": "no account?",
+    "createHere": "create here!"
+  },
+  "RegisterPage": {
+    "title": "Register Page",
+    "Required": "Required",
+    "error_max": "can not be more than {max}",
+    "phone_number": "Phone Number",
+    "submit": "Submit",
+    "login": "Login",
+    "loginHere": "Login here!",
+    "haveAccount": "Have account?",
+    "user_name": "User Name",
+    "last_name": "Last Name",
+    "ask_otp": "receive verification code"
+  },
+  "OtpPage": {
+    "otp": "Enter the verification code:",
+    "timer": "Resend?",
+    "pin_required": "Your one-time password must be 5 characters.",
+    "change_number": "Change number",
+    "Required": "Required",
+    "submit": "Submit"
   }
 }

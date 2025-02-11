@@ -1,0 +1,105 @@
+"use client";
+import axios from "axios";
+import Notifications from "@/core/components/notifications";
+import { successRequest } from "@/lib/utils/successHandler";
+import { errorRequest, errorResponse, errorSetting } from "@/lib/utils/errorHandler";
+import { useTranslations } from "next-intl";
+import useUserStore from "@/lib/utils/userStore";
+import ToastStore from "@/lib/utils/ToastStore";
+
+interface RequestOptions {
+    auth?: boolean;
+    data?: Record<string, string>;
+    requestOptions?: {
+        headers?: Record<string, string>;
+    };
+    notification?: boolean;
+    pending?: boolean;
+    success?: {
+        notification: {
+            show: boolean;
+        };
+    };
+    failed?: {
+        notification: {
+            show: boolean;
+        };
+    };
+}
+const defaultOptions : RequestOptions = {
+    auth: false,
+    data: {},
+    requestOptions: {
+        headers: {},
+    },
+    notification: true,
+    pending: true,
+    success: {
+        notification: {
+            show: true,
+        },
+    },
+    failed: {
+        notification: {
+            show: true,
+        },
+    },
+};
+const useRequest = (initOptions : RequestOptions) => {
+    const t = useTranslations();
+    const { token, clearToken } = useUserStore();
+    const { pushToastList, dismissToastList } = ToastStore();
+    let _options = { ...defaultOptions, ...initOptions };
+
+    function requestServer(url = "", method = "get", options:RequestOptions) {
+        _options = { ..._options, ...options };
+        if (_options.auth)
+            _options = {
+                ..._options,
+                requestOptions: {
+                    ...(_options.requestOptions || {}),
+                    headers: { ...( _options.requestOptions?.headers || {} ), authorization: `Bearer ${token}` },
+                },
+            };
+
+        return new Promise((resolve) => {
+            if (
+                (_options.notification ?? true) &&  // Ensures notification is always boolean
+                (_options.failed?.notification?.show ?? true) && // Ensures failed.notification.show is always boolean
+                (_options.pending ?? true) // Ensures pending is always boolean
+            ) {
+                dismissToastList(["pending", "warning", "error", "success"]);
+                Notifications(pushToastList, "pending", t);
+            }
+
+            axios({
+                url: url,
+                method: method,
+                data: _options.data,
+                ..._options.requestOptions,
+            })
+                .then((response) => {
+                    successRequest(pushToastList, dismissToastList, response, t, _options);
+                    resolve(response);
+                })
+                .catch((error) => {
+                    if (error.response) {
+                        errorResponse(
+                            pushToastList,
+                            dismissToastList,
+                            error.response,
+                            clearToken,
+                            t,
+                            (_options.notification ?? true) && (_options.failed?.notification?.show ?? true)
+                        );
+                    } else if (error.request) {
+                        errorRequest(dismissToastList, t, (_options.notification ?? true) && (_options.failed?.notification?.show ?? true));
+                    } else {
+                        errorSetting(dismissToastList, t, (_options.notification ?? true) && (_options.failed?.notification?.show ?? true));
+                    }
+                });
+        });
+    }
+    return requestServer;
+};
+export default useRequest;
