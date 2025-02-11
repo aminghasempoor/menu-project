@@ -26,9 +26,7 @@ export default function Home() {
         },
     })
 
-    function onSubmit(values) {
-        console.log(values);
-    }
+    function onSubmit() {}
     const handleClick = async () => {
         requestServer("/api/fake-sign-in", "post", {
             data: {
