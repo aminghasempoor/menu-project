@@ -30,7 +30,6 @@ export default async function LocaleLayout(props: LocaleLayoutProps) {
             <body>
                 <NextIntlClientProvider messages={messages}>
                     <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-
                         <main>{props.children}</main>
                         <Toaster />
                     </ThemeProvider>
