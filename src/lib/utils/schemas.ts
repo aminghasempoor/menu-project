@@ -1,5 +1,5 @@
 import { z } from "zod";
-export const loginFormSchema = (t:(key: string, params?: Record<string, unknown>) => string) =>
+export const loginFormSchema = (t: (key: string, params?: Record<string, unknown>) => string) =>
     z.object({
         phone_number: z
             .string()
@@ -12,20 +12,20 @@ export const loginFormSchema = (t:(key: string, params?: Record<string, unknown>
             .max(10),
     });
 
-export const RegisterFormSchema = (t:(key: string, params?: Record<string, unknown>) => string) =>
+export const RegisterFormSchema = (t: (key: string, params?: Record<string, unknown>) => string) =>
     z.object({
         phone_number: z
             .string()
             .min(1, { message: t("RegisterPage.Required") })
             .max(11, { message: t("RegisterPage.error_max", { max: 11 }) }),
     });
-export const OtpFormSchema = (t:(key: string) => string) =>
+export const OtpFormSchema = (t: (key: string) => string) =>
     z.object({
         pin: z.string().min(5, {
             message: t("OtpPage.pin_required"),
         }),
     });
-export const UserDataFormSchema = (t:(key: string) => string) =>
+export const UserDataFormSchema = (t: (key: string) => string) =>
     z.object({
         first_name: z.string().min(1, {
             message: t("UserDataPage.first_name_required"),

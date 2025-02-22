@@ -2,9 +2,11 @@ import { toast } from "@/hooks/use-toast";
 import { Check } from "lucide-react";
 import React from "react";
 type ToastType = "pending" | "error" | "warning" | "success";
-const PendingNotification = (pushToastList: (toast_type: ToastType, toast_id: string) => void,
-                             notificationType: "pending" | "warning" | "error" | "success",
-                             t: (key: string) => string) => {
+const PendingNotification = (
+    pushToastList: (toast_type: ToastType, toast_id: string) => void,
+    notificationType: "pending" | "warning" | "error" | "success",
+    t: (key: string) => string
+) => {
     const toastId = toast({
         title: "You're Request has been sent",
         description: (
