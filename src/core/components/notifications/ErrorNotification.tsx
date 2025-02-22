@@ -4,12 +4,13 @@ import { Check } from "lucide-react";
 import React from "react";
 type ToastType = "pending" | "error" | "warning" | "success";
 
-const ErrorNotification = (pushToastList: (toast_type: ToastType, toast_id: string) => void,
-                           notificationType: "pending" | "warning" | "error" | "success",
-                           t: (key: string) => string,
-                           status?: number,
-                           message?: string) => {
-
+const ErrorNotification = (
+    pushToastList: (toast_type: ToastType, toast_id: string) => void,
+    notificationType: "pending" | "warning" | "error" | "success",
+    t: (key: string) => string,
+    status?: number,
+    message?: string
+) => {
     const toastId = toast({
         title: "You're Request has been sent",
         description: (

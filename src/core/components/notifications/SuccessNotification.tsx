@@ -5,10 +5,12 @@ import React from "react";
 // import {ToastAction} from "@/components/ui/toast";
 type ToastType = "pending" | "error" | "warning" | "success";
 
-const SuccessNotification = (pushToastList: (toast_type: ToastType, toast_id: string) => void,
-                             notificationType: "pending" | "warning" | "error" | "success",
-                             t: (key: string) => string,
-                             status?: number,) => {
+const SuccessNotification = (
+    pushToastList: (toast_type: ToastType, toast_id: string) => void,
+    notificationType: "pending" | "warning" | "error" | "success",
+    t: (key: string) => string,
+    status?: number
+) => {
     const toastId = toast({
         title: "You're Request has been sent",
         description: (

@@ -26,7 +26,7 @@ interface RequestOptions {
         };
     };
 }
-const defaultOptions : RequestOptions = {
+const defaultOptions: RequestOptions = {
     auth: false,
     data: {},
     requestOptions: {
@@ -45,26 +45,26 @@ const defaultOptions : RequestOptions = {
         },
     },
 };
-const useRequest = (initOptions : RequestOptions) => {
+const useRequest = (initOptions: RequestOptions) => {
     const t = useTranslations();
     const { token, clearToken } = useUserStore();
     const { pushToastList, dismissToastList } = ToastStore();
     let _options = { ...defaultOptions, ...initOptions };
 
-    function requestServer(url = "", method = "get", options:RequestOptions) {
+    function requestServer(url = "", method = "get", options: RequestOptions) {
         _options = { ..._options, ...options };
         if (_options.auth)
             _options = {
                 ..._options,
                 requestOptions: {
                     ...(_options.requestOptions || {}),
-                    headers: { ...( _options.requestOptions?.headers || {} ), authorization: `Bearer ${token}` },
+                    headers: { ...(_options.requestOptions?.headers || {}), authorization: `Bearer ${token}` },
                 },
             };
 
         return new Promise((resolve) => {
             if (
-                (_options.notification ?? true) &&  // Ensures notification is always boolean
+                (_options.notification ?? true) && // Ensures notification is always boolean
                 (_options.failed?.notification?.show ?? true) && // Ensures failed.notification.show is always boolean
                 (_options.pending ?? true) // Ensures pending is always boolean
             ) {
@@ -93,9 +93,17 @@ const useRequest = (initOptions : RequestOptions) => {
                             (_options.notification ?? true) && (_options.failed?.notification?.show ?? true)
                         );
                     } else if (error.request) {
-                        errorRequest(dismissToastList, t, (_options.notification ?? true) && (_options.failed?.notification?.show ?? true));
+                        errorRequest(
+                            dismissToastList,
+                            t,
+                            (_options.notification ?? true) && (_options.failed?.notification?.show ?? true)
+                        );
                     } else {
-                        errorSetting(dismissToastList, t, (_options.notification ?? true) && (_options.failed?.notification?.show ?? true));
+                        errorSetting(
+                            dismissToastList,
+                            t,
+                            (_options.notification ?? true) && (_options.failed?.notification?.show ?? true)
+                        );
                     }
                 });
         });
