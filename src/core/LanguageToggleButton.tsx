@@ -25,7 +25,7 @@ const LanguageSwitcher = () => {
     return (
         <DropdownMenu>
             <DropdownMenuTrigger>
-                <Earth className=" w-14 h-14" />
+                <Earth className=" w-5 h-5" />
             </DropdownMenuTrigger>
             <DropdownMenuContent className="w-32">
                 {locales.map((locale) => (
