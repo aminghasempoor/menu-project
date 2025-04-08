@@ -26,24 +26,29 @@ export default async function LocaleLayout(props: LocaleLayoutProps) {
     }
 
     return (
-        <html className={"bg-background text-foreground"} lang={locale} dir={isRtl ? "rtl" : "ltr"} suppressHydrationWarning>
-        <body>
-        <NextIntlClientProvider messages={messages}>
-            <ThemeProvider
-                attribute="class"
-                defaultTheme="light"
-                enableSystem
-                disableTransitionOnChange
-                value={{
-                    light: "light",
-                    dark: "dark",
-                }}
-            >
-                <main>{props.children}</main>
-                <Toaster />
-            </ThemeProvider>
-        </NextIntlClientProvider>
-        </body>
+        <html
+            className={"bg-background text-foreground"}
+            lang={locale}
+            dir={isRtl ? "rtl" : "ltr"}
+            suppressHydrationWarning
+        >
+            <body>
+                <NextIntlClientProvider messages={messages}>
+                    <ThemeProvider
+                        attribute="class"
+                        defaultTheme="light"
+                        enableSystem
+                        disableTransitionOnChange
+                        value={{
+                            light: "light",
+                            dark: "dark",
+                        }}
+                    >
+                        <main>{props.children}</main>
+                        <Toaster />
+                    </ThemeProvider>
+                </NextIntlClientProvider>
+            </body>
         </html>
     );
 }

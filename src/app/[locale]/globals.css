@@ -2,28 +2,30 @@
 @tailwind components;
 @tailwind utilities;
 @font-face {
-    font-family: 'Shabnam';
-    src: url('/fonts/Shabnam.woff2') format('woff2'),
-    url('/fonts/Shabnam.woff') format('woff');
+    font-family: "Shabnam";
+    src:
+        url("/fonts/Shabnam.woff2") format("woff2"),
+        url("/fonts/Shabnam.woff") format("woff");
     font-weight: 400;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'Sahel';
-    src: url('/fonts/Sahel.woff2') format('woff2'),
-    url('/fonts/Sahel.woff') format('woff');
+    font-family: "Sahel";
+    src:
+        url("/fonts/Sahel.woff2") format("woff2"),
+        url("/fonts/Sahel.woff") format("woff");
     font-weight: 400;
     font-display: swap;
 }
 
 /* Apply globally */
 html[dir="rtl"] {
-    font-family: 'Sahel', sans-serif;
+    font-family: "Sahel", sans-serif;
 }
 
 html[dir="ltr"] {
-    font-family: 'Shabnam', sans-serif;
+    font-family: "Shabnam", sans-serif;
 }
 
 @layer base {
@@ -113,4 +115,3 @@ html[dir="ltr"] {
         --sidebar-ring: 84 11% 63%;
     }
 }
-

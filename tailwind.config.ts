@@ -39,8 +39,8 @@ const config: Config = {
 					foreground: "hsl(var(--accent-foreground))",
 				},
 				fontFamily: {
-					shabnam: ['Shabnam', 'ui-sans-serif', 'system-ui'],
-					sahel: ['Sahel', 'ui-sans-serif', 'system-ui'],
+					shabnam: '"Shabnam", ui-sans-serif, system-ui',
+					sahel: '"Sahel", ui-sans-serif, system-ui',
 				},
 				destructive: {
 					DEFAULT: "hsl(var(--destructive))",

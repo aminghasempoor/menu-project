@@ -1,16 +1,5 @@
 import LanguageSwitcher from "@/core/LanguageToggleButton";
 import { ModeToggle } from "@/core/ThemeToggleButton";
-import { AlignCenter } from "lucide-react";
-import {
-    Sheet, SheetClose,
-    SheetContent,
-    SheetDescription,
-    SheetFooter,
-    SheetHeader,
-    SheetTitle,
-    SheetTrigger,
-} from "@/components/ui/sheet";
-import { Button } from "@/components/ui/button";
 
 export function Navbar() {
     return (
