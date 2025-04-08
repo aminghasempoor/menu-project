@@ -1,3 +1,7 @@
+import { FirstPage } from "@/components/FirstPage";
+
 export default function Home() {
-    return <div className="flex flex-row items-center justify-center my-10 w-full">hello</div>;
+    return <div>
+        <FirstPage />
+    </div>;
 }
