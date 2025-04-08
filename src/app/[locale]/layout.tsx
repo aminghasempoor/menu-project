@@ -5,6 +5,7 @@ import "./globals.css";
 import React from "react";
 import { ThemeProvider } from "@/core/theme-provider";
 import { Toaster } from "@/components/ui/toaster";
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 interface LocaleLayoutProps {
     params: Promise<{
@@ -48,6 +49,7 @@ export default async function LocaleLayout(props: LocaleLayoutProps) {
                         <Toaster />
                     </ThemeProvider>
                 </NextIntlClientProvider>
+                <SpeedInsights />
             </body>
         </html>
     );
