@@ -32,13 +32,13 @@ export function BannerCarousel() {
                 direction: currentDirection === "fa" ? "rtl" : "ltr",
                 dragFree: true,
             }}
-            className="w-full max-w-4xl px-4"
+            className="w-full max-w-4xl lg:max-w-7xl px-4"
         >
             <CarouselContent className="-ml-2">
                 {items.map((item, index) => (
-                    <CarouselItem key={index} className="basis-1/3 sm:basis-1/5 pl-2">
+                    <CarouselItem key={index} className="basis-1/2 sm:basis-1/3 lg:basis-1/6 pl-2">
                         <Card className="rounded-xl border bg-white/40 backdrop-blur-md shadow-sm hover:shadow-md transition">
-                            <CardContent className="flex items-center justify-center gap-1 p-4">
+                            <CardContent className="flex items-center justify-center gap-1 p-2">
                                 {item.icon}
                                 <span className="text-sm font-medium">{t(item.labelKey)}</span>{" "}
                                 {/* ترجمه متن با استفاده از کلید */}
