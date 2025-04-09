@@ -1,12 +1,5 @@
 "use client";
-import { useTranslation } from "react-i18next";
-import {
-    Carousel,
-    CarouselContent,
-    CarouselItem,
-    CarouselNext,
-    CarouselPrevious,
-} from "@/components/ui/carousel";
+import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import { Card, CardContent } from "@/components/ui/card";
 import { Pizza, IceCream, Salad, CupSoda, Sandwich, Fish, Drumstick, Beef } from "lucide-react";
 import { usePathname } from "next/navigation";
@@ -25,7 +18,7 @@ const items = [
 ];
 
 export function BannerCarousel() {
-    const t = useTranslations("Banner")  // استفاده از useTranslation برای دسترسی به متون ترجمه‌شده
+    const t = useTranslations("Banner");
     const pathname = usePathname();
     const locales = ["en", "fa"];
     const segments = pathname.split("/").filter(Boolean);
@@ -37,7 +30,7 @@ export function BannerCarousel() {
                 align: "start",
                 loop: true,
                 direction: currentDirection === "fa" ? "rtl" : "ltr",
-                dragFree : true
+                dragFree: true,
             }}
             className="w-full max-w-4xl px-4"
         >
@@ -47,7 +40,8 @@ export function BannerCarousel() {
                         <Card className="rounded-xl border bg-white/40 backdrop-blur-md shadow-sm hover:shadow-md transition">
                             <CardContent className="flex items-center justify-center gap-1 p-4">
                                 {item.icon}
-                                <span className="text-sm font-medium">{t(item.labelKey)}</span> {/* ترجمه متن با استفاده از کلید */}
+                                <span className="text-sm font-medium">{t(item.labelKey)}</span>{" "}
+                                {/* ترجمه متن با استفاده از کلید */}
                             </CardContent>
                         </Card>
                     </CarouselItem>
