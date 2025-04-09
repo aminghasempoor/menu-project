@@ -11,6 +11,10 @@ const config: Config = {
 	],
 	theme: {
 		extend: {
+			fontFamily: {
+				doran: ['var(--font-doran)'],
+				pinar: ['var(--font-pinar)'],
+			},
 			colors: {
 				background: "hsl(var(--background))",
 				foreground: "hsl(var(--foreground))",
@@ -37,10 +41,6 @@ const config: Config = {
 				accent: {
 					DEFAULT: "hsl(var(--accent))",
 					foreground: "hsl(var(--accent-foreground))",
-				},
-				fontFamily: {
-					shabnam: '"Shabnam", ui-sans-serif, system-ui',
-					sahel: '"Sahel", ui-sans-serif, system-ui',
 				},
 				destructive: {
 					DEFAULT: "hsl(var(--destructive))",

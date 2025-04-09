@@ -6,6 +6,19 @@ import React from "react";
 import { ThemeProvider } from "@/core/theme-provider";
 import { Toaster } from "@/components/ui/toaster";
 import { SpeedInsights } from '@vercel/speed-insights/next';
+import localFont from "next/font/local"
+
+const pinar = localFont({
+    src: '../../fonts/Pinar-Regular.woff2',
+    display: 'swap',
+    variable: '--font-pinar',
+})
+
+const doran = localFont({
+    src: '../../fonts/Doran-Medium.woff2',
+    display: 'swap',
+    variable: '--font-doran',
+})
 
 interface LocaleLayoutProps {
     params: Promise<{
@@ -28,12 +41,12 @@ export default async function LocaleLayout(props: LocaleLayoutProps) {
 
     return (
         <html
-            className={"bg-background text-foreground"}
+            className={`bg-background ${pinar.variable} ${doran.variable}`}
             lang={locale}
             dir={isRtl ? "rtl" : "ltr"}
             suppressHydrationWarning
         >
-            <body>
+            <body className="font-doran">
                 <NextIntlClientProvider messages={messages}>
                     <ThemeProvider
                         attribute="class"

@@ -1,6 +1,23 @@
 {
   "HomePage": {
-    "title": "Hello world!",
-    "about": "Go to the about page"
+    "title": "منولیتا",
+    "about": "بازگشت به صفحه درباره ما"
+  },
+  "NavBar": {
+    "title": "منولیتا",
+    "about": "بازگشت به صفحه درباره ما"
+  },
+  "Banner": {
+    "title": "هر انتخاب، یه تجربه ی خوشمزه",
+    "search": "جستجو...",
+    "pizza": "پیتزا",
+    "burger": "برگر",
+    "sushi": "سوشی",
+    "kebab": "کباب",
+    "seafood": "غذای دریایی",
+    "salad": "سالاد",
+    "sandwich": "ساندویچ",
+    "dessert": "دسر",
+    "milkshake": "میلک‌شیک"
   }
 }

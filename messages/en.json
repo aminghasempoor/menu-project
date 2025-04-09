@@ -3,6 +3,23 @@
     "title": "Hello world!",
     "about": "Go to the about page"
   },
+  "NavBar": {
+    "title": "menulita",
+    "about": "Go to the about page"
+  },
+  "Banner": {
+    "title": "every choice, a delicious experience",
+    "search": "search...",
+    "pizza": "Pizza",
+    "burger": "Burger",
+    "sushi": "Sushi",
+    "kebab": "Kebab",
+    "seafood": "Seafood",
+    "salad": "Salad",
+    "sandwich": "Sandwich",
+    "dessert": "Dessert",
+    "milkshake": "Milkshake"
+  },
   "Notifications": {
     "code": "Code",
     "error": "Error",

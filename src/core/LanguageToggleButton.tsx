@@ -12,23 +12,28 @@ const LanguageSwitcher = () => {
     const router = useRouter();
     const pathname = usePathname();
     const locales = ["en", "fa"];
+
+    const segments = pathname.split("/").filter(Boolean);
+    const currentLocale = locales.includes(segments[0]) ? segments[0] : "fa";
+
     const changeLanguage = (locale: string) => {
-        const segments = pathname.split("/").filter(Boolean);
-        if (locales.includes(segments[0])) {
-            segments.shift();
+        const newSegments = [...segments];
+        if (locales.includes(newSegments[0])) {
+            newSegments.shift(); // remove old locale
         }
-        const newPath = `/${locale}/${segments.join("/")}`;
+        const newPath = `/${locale}/${newSegments.join("/")}`;
         router.push(newPath);
     };
 
     return (
         <DropdownMenu>
-            <DropdownMenuTrigger>
-                <Earth className=" w-5 h-5" />
+            <DropdownMenuTrigger className="flex items-center gap-x-2">
+                {currentLocale === "en" ? "English" : "فارسی"}
+                <Earth className="text-primary w-5 h-5 p-1" />
             </DropdownMenuTrigger>
             <DropdownMenuContent className="w-32">
                 {locales.map((locale) => (
-                    <DropdownMenuItem className={"text-center"} key={locale} onClick={() => changeLanguage(locale)}>
+                    <DropdownMenuItem className="text-center" key={locale} onClick={() => changeLanguage(locale)}>
                         {locale === "en" ? "English" : "فارسی"}
                     </DropdownMenuItem>
                 ))}
@@ -36,4 +41,5 @@ const LanguageSwitcher = () => {
         </DropdownMenu>
     );
 };
+
 export default LanguageSwitcher;
