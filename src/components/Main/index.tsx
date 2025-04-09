@@ -1,7 +1,6 @@
 import { useTranslations } from "next-intl";
 import { RecommendedItem } from "./RecommendedItem";
 import { CardItems } from "@/components/Main/CardItems";
-import Picture from "../../../public/burger.jpg";
 const items = [
     { picture: "/pizza.jpg", title: "پیتزا هاوالین", description: "پنیر، سس، اناناس", price: "800000 تومان" },
     { picture: "/burger.jpg", title: "پیتزا مارگاریتا", description: "پنیر، گوجه، ریحان", price: "2200 تومان" },
@@ -22,7 +21,7 @@ export function Main() {
                 {items.map((item, index) => (
                     <CardItems
                         key={index}
-                        picture={Picture}
+                        picture={item.picture}
                         title={item.title}
                         description={item.description}
                         price={item.price}
