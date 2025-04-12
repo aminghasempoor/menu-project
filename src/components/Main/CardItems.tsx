@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import {
     Drawer,
     DrawerContent,
@@ -8,10 +8,13 @@ import {
     DrawerTrigger,
 } from "@/components/ui/drawer";
 import React from "react";
-import { useMediaQuery } from "@/hooks/use-media-query"
+import { useMediaQuery } from "@/hooks/use-media-query";
 import {
     Dialog,
-    DialogContent, DialogDescription, DialogHeader, DialogTitle,
+    DialogContent,
+    DialogDescription,
+    DialogHeader,
+    DialogTitle,
     DialogTrigger,
 } from "@/components/ui/dialog";
 import { CardContentComponent } from "./CardContentComponent";
@@ -20,18 +23,18 @@ import Image from "next/image";
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 
 export function CardItems({
-                              picture,
-                              title,
-                              description,
-                              price,
-                          }: {
+    picture,
+    title,
+    description,
+    price,
+}: {
     picture: string;
     title: string;
     description: string;
     price: string;
 }) {
-    const [open, setOpen] = React.useState(false)
-    const isDesktop = useMediaQuery("(min-width: 768px)")
+    const [open, setOpen] = React.useState(false);
+    const isDesktop = useMediaQuery("(min-width: 768px)");
 
     if (isDesktop) {
         return (
@@ -47,19 +50,19 @@ export function CardItems({
                         <DialogDescription>{description}</DialogDescription>
                     </VisuallyHidden>
                     <div className="flex items-center gap-4 p-4 text-center">
-                        <Image  src={Picture} alt={title} className="w-60 h-60 rounded-lg object-cover" />
+                        <Image src={Picture} alt={title} className="w-60 h-60 rounded-lg object-cover" />
                         <div>
-                        <h2 className="text-xl font-bold">{title}</h2>
-                        <p className="text-sm text-muted-foreground">{description}</p>
-                        <p className="text-lg font-extrabold text-green-600">{price}</p>
+                            <h2 className="text-xl font-bold">{title}</h2>
+                            <p className="text-sm text-muted-foreground">{description}</p>
+                            <p className="text-lg font-extrabold text-green-600">{price}</p>
                         </div>
                     </div>
                 </DialogContent>
             </Dialog>
-        )
+        );
     }
 
-        return (
+    return (
         <Drawer>
             <DrawerTrigger>
                 <CardContentComponent picture={picture} title={title} description={description} price={price} />

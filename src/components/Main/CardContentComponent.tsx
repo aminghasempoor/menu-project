@@ -3,20 +3,19 @@ import Picture from "../../../public/burger.jpg";
 import { Card, CardContent } from "@/components/ui/card";
 import React from "react";
 
-export function CardContentComponent ({
-                                 picture,
-                                 title,
-                                 description,
-                                 price,
-                             }: {
+export function CardContentComponent({
+    picture,
+    title,
+    description,
+    price,
+}: {
     picture: string;
     title: string;
     description: string;
     price: string;
 }) {
-    return(
-        <Card
-            className="transition-all duration-300 ease-in-out hover:shadow-xl hover:scale-[1.02] cursor-pointer">
+    return (
+        <Card className="transition-all duration-300 ease-in-out hover:shadow-xl hover:scale-[1.02] cursor-pointer">
             <CardContent className="p-0 flex items-center gap-x-6 justify-between">
                 <div className={"max-w-[150px] sm:max-w-[600px] max-h-[180px] sm:max-h-[200px]"}>
                     <Image
@@ -36,5 +35,5 @@ export function CardContentComponent ({
                 </div>
             </CardContent>
         </Card>
-    )
+    );
 }
