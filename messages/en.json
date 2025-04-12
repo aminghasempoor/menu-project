@@ -20,6 +20,17 @@
     "dessert": "Dessert",
     "milkshake": "Milkshake"
   },
+  "Main": {
+    "pizza": "Pizza",
+    "burger": "Burger",
+    "sushi": "Sushi",
+    "kebab": "Kebab",
+    "seafood": "Seafood",
+    "salad": "Salad",
+    "sandwich": "Sandwich",
+    "dessert": "Dessert",
+    "milkshake": "Milkshake"
+  },
   "Notifications": {
     "code": "Code",
     "error": "Error",
