@@ -12,12 +12,12 @@ export function Main() {
     return (
         <div className={"mx-5"}>
             <div className="flex items-center pb-5">
-                <div className="border-t-2 flex-grow mr-2" />
+                <div className="border-t-2 flex-grow mr-2 border-black" />
                 <h1 className="scroll-m-20 text-3xl font-bold tracking-tight lg:text-4xl px-4">{t("pizza")}</h1>
-                <div className="border-t-2 flex-grow ml-2" />
+                <div className="border-t-2 flex-grow ml-2 border-black" />
             </div>
-            <RecommendedItem />
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <RecommendedItem />
                 {items.map((item, index) => (
                     <CardItems
                         key={index}
