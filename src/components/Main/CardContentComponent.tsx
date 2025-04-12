@@ -4,7 +4,6 @@ import { Card, CardContent } from "@/components/ui/card";
 import React from "react";
 
 export function CardContentComponent({
-    picture,
     title,
     description,
     price,
