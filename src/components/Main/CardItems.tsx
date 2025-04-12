@@ -1,37 +1,75 @@
-import { Card, CardContent } from "@/components/ui/card";
+"use client"
+import {
+    Drawer,
+    DrawerContent,
+    DrawerDescription,
+    DrawerHeader,
+    DrawerTitle,
+    DrawerTrigger,
+} from "@/components/ui/drawer";
+import React from "react";
+import { useMediaQuery } from "@/hooks/use-media-query"
+import {
+    Dialog,
+    DialogContent, DialogDescription, DialogHeader, DialogTitle,
+    DialogTrigger,
+} from "@/components/ui/dialog";
+import { CardContentComponent } from "./CardContentComponent";
+import Picture from "../../../public/burger.jpg";
 import Image from "next/image";
+import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 
 export function CardItems({
-    picture,
-    title,
-    description,
-    price,
-}: {
+                              picture,
+                              title,
+                              description,
+                              price,
+                          }: {
     picture: string;
     title: string;
     description: string;
     price: string;
 }) {
-    return (
-        <>
-            <Card className="transition-all duration-300 ease-in-out hover:shadow-xl hover:scale-[1.02] cursor-pointer">
-                <CardContent className="p-0 flex items-center gap-x-6 justify-between">
-                    <div className={"max-w-[150px] sm:max-w-[600px] max-h-[180px] sm:max-h-[200px]"}>
-                        <Image
-                            loading={"lazy"}
-                            className="rounded-lg"
-                            style={{ width: "100%", height: 150 }}
-                            src={picture}
-                            alt="picture"
-                        />
+    const [open, setOpen] = React.useState(false)
+    const isDesktop = useMediaQuery("(min-width: 768px)")
+
+    if (isDesktop) {
+        return (
+            <Dialog open={open} onOpenChange={setOpen}>
+                <DialogTrigger asChild>
+                    <div onClick={() => setOpen(true)}>
+                        <CardContentComponent picture={picture} title={title} description={description} price={price} />
                     </div>
-                    <div className="flex-grow px-2">
-                        <h4 className="text-sm sm:text-xl font-bold lg:font-semibold tracking-tight pt-2">{title}</h4>
-                        <p className="text-sm leading-6 mt-2">{description}</p>
-                        <h3 className="text-sm sm:text-2xl font-semibold text-left mt-2 pb-2">{price}</h3>
+                </DialogTrigger>
+                <DialogContent className="sm:max-w-[425px]">
+                    <VisuallyHidden>
+                        <DialogTitle>{title}</DialogTitle>
+                        <DialogDescription>{description}</DialogDescription>
+                    </VisuallyHidden>
+                    <div className="flex items-center gap-4 p-4 text-center">
+                        <Image  src={Picture} alt={title} className="w-60 h-60 rounded-lg object-cover" />
+                        <div>
+                        <h2 className="text-xl font-bold">{title}</h2>
+                        <p className="text-sm text-muted-foreground">{description}</p>
+                        <p className="text-lg font-extrabold text-green-600">{price}</p>
+                        </div>
                     </div>
-                </CardContent>
-            </Card>
-        </>
+                </DialogContent>
+            </Dialog>
+        )
+    }
+
+        return (
+        <Drawer>
+            <DrawerTrigger>
+                <CardContentComponent picture={picture} title={title} description={description} price={price} />
+            </DrawerTrigger>
+            <DrawerContent className="w-full max-w-md mx-auto rounded-t-xl">
+                <DrawerHeader>
+                    <DrawerTitle>Are you absolutely sure?</DrawerTitle>
+                    <DrawerDescription>This action cannot be undone.</DrawerDescription>
+                </DrawerHeader>
+            </DrawerContent>
+        </Drawer>
     );
 }
