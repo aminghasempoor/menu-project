@@ -20,6 +20,12 @@
     "dessert": "دسر",
     "milkshake": "میلک‌شیک"
   },
+  "RecommendedItem" : {
+    "name" : "آیتم پیشنهادی"
+  },
+  "ScrollToTopButton" : {
+    "title" : "بازگشت به بالا"
+  },
   "Main": {
     "pizza": "پیتزا",
     "burger": "برگر",

@@ -31,6 +31,12 @@
     "dessert": "Dessert",
     "milkshake": "Milkshake"
   },
+  "RecommendedItem" : {
+    "name" : "recommended item"
+  },
+  "ScrollToTopButton" : {
+    "title" : "back to top"
+  },
   "Notifications": {
     "code": "Code",
     "error": "Error",
