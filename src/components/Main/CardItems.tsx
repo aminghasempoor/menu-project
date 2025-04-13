@@ -9,13 +9,7 @@ import {
 } from "@/components/ui/drawer";
 import React from "react";
 import { useMediaQuery } from "@/hooks/use-media-query";
-import {
-    Dialog,
-    DialogContent,
-    DialogDescription,
-    DialogTitle,
-    DialogTrigger,
-} from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogDescription, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { CardContentComponent } from "./CardContentComponent";
 import Picture from "../../../public/burger.jpg";
 import Image from "next/image";

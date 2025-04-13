@@ -6,17 +6,17 @@ import {
     pizzaItems,
     recommendedBurgerItem,
     recommendedPizzaItem,
-    recommendedSushiItem, sushiItems,
+    recommendedSushiItem,
+    sushiItems,
 } from "@/core/utils/foodItems";
 export function FirstPage() {
-
     return (
         <>
             <Navbar />
             <Banner />
             <Main title={"pizza"} recommendedItems={recommendedPizzaItem} foodItem={pizzaItems} />
-            <Main title={"burger"} recommendedItems={recommendedBurgerItem} foodItem={burgerItems}/>
-            <Main title={"sushi"} recommendedItems={recommendedSushiItem} foodItem={sushiItems}/>
+            <Main title={"burger"} recommendedItems={recommendedBurgerItem} foodItem={burgerItems} />
+            <Main title={"sushi"} recommendedItems={recommendedSushiItem} foodItem={sushiItems} />
         </>
     );
 }

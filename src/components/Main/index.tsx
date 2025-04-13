@@ -2,7 +2,15 @@ import { useTranslations } from "next-intl";
 import { RecommendedItem } from "./RecommendedItem";
 import { CardItems } from "@/components/Main/CardItems";
 
-export function Main({title, recommendedItems, foodItem} : {title : string, recommendedItems : object[] , foodItem : object[]}) {
+export function Main({
+    title,
+    recommendedItems,
+    foodItem,
+}: {
+    title: string;
+    recommendedItems: object[];
+    foodItem: object[];
+}) {
     const t = useTranslations("Main");
     return (
         <div className={"m-5"}>

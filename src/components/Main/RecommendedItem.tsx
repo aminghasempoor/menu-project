@@ -3,17 +3,17 @@ import Image from "next/image";
 import { useTranslations } from "next-intl";
 
 export function RecommendedItem({
-                                    picture,
-                                    title,
-                                    description,
-                                    price,
-                                }: {
+    picture,
+    title,
+    description,
+    price,
+}: {
     picture: string;
     title: string;
     description: string;
     price: string;
 }) {
-    const t = useTranslations("RecommendedItem")
+    const t = useTranslations("RecommendedItem");
     return (
         <div className={"flex items-center justify-center"}>
             <div className="relative w-full max-w-[600px] h-[160px] rounded-2xl overflow-hidden shadow-md mb-4">
