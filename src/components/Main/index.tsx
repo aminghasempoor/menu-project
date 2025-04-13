@@ -1,6 +1,7 @@
 import { useTranslations } from "next-intl";
 import { RecommendedItem } from "./RecommendedItem";
 import { CardItems } from "@/components/Main/CardItems";
+import { foodItemType } from "@/core/utils/foodItems";
 
 export function Main({
     title,
@@ -8,8 +9,8 @@ export function Main({
     foodItem,
 }: {
     title: string;
-    recommendedItems: object[];
-    foodItem: object[];
+    recommendedItems: foodItemType[];
+    foodItem: foodItemType[];
 }) {
     const t = useTranslations("Main");
     return (
@@ -20,9 +21,10 @@ export function Main({
                 <div className="border-t-2 flex-grow ml-2 border-black" />
             </div>
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                {recommendedItems.map((item) => (
+                {recommendedItems.map((item, index) => (
                     <RecommendedItem
-                        picture={item.picture}
+                        key={index}
+                        // picture={item.picture}
                         title={item.title}
                         description={item.description}
                         price={item.price}

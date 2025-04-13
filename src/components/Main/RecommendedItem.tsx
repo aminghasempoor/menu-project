@@ -3,12 +3,12 @@ import Image from "next/image";
 import { useTranslations } from "next-intl";
 
 export function RecommendedItem({
-    picture,
+    // picture,
     title,
     description,
     price,
 }: {
-    picture: string;
+    // picture : string,
     title: string;
     description: string;
     price: string;

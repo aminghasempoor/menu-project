@@ -1,3 +1,9 @@
+export type foodItemType = {
+    picture: string;
+    title: string;
+    description: string;
+    price: string;
+};
 export const pizzaItems = [
     { picture: "/pizza.jpg", title: "پیتزا هاوالین", description: "پنیر، سس، اناناس", price: "800000 تومان" },
     { picture: "/burger.jpg", title: "پیتزا مارگاریتا", description: "پنیر، گوجه، ریحان", price: "2200 تومان" },
