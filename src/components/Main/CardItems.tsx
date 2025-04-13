@@ -45,7 +45,7 @@ export function CardItems({
                     <div className="flex items-center gap-4 p-4 text-center">
                         <Image src={Picture} alt={title} className="w-60 h-60 rounded-lg object-cover" />
                         <div>
-                            <h2 className="text-xl font-bold">{title}</h2>
+                            <h2 className="text-md lg:text-xl font-bold">{title}</h2>
                             <p className="text-sm text-muted-foreground">{description}</p>
                             <p className="text-lg font-extrabold text-green-600">{price}</p>
                         </div>
