@@ -16,7 +16,7 @@ export function RecommendedItem({
     const t = useTranslations("RecommendedItem");
     return (
         <div className={"flex items-center justify-center"}>
-            <div className="relative w-full max-w-[600px] h-[160px] rounded-2xl overflow-hidden shadow-md mb-4">
+            <div className="relative w-full sm:min-w-[300px] h-[150px] sm:h-[130px] lg:h-[150px] rounded-2xl overflow-hidden shadow-md">
                 <Image src={Picture} alt="pizza" fill className="object-fill" />
                 <div className="absolute inset-0 bg-gradient-to-l from-[#fce5cd]/90 via-[#fce5cd]/70 to-transparent" />
                 <div className="absolute right-4 top-4 text-right space-y-1">

@@ -38,7 +38,8 @@
     "title" : "back to top"
   },
   "CardItem" : {
-    "ingredient" : "ingredient :"
+    "ingredient" : "ingredient :",
+    "description" : "Printers and texts, but also newspapers and magazines in columns and rows as necessary..."
   },
   "Notifications": {
     "code": "Code",

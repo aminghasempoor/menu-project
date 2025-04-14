@@ -11,7 +11,7 @@ export const ScrollToTopButton = () => {
 
     useEffect(() => {
         const toggleVisibility = () => {
-            if (window.scrollY > 100) {
+            if (window.scrollY > 300) {
                 setVisible(true);
             } else {
                 setVisible(false);
@@ -32,11 +32,13 @@ export const ScrollToTopButton = () => {
     return (
         <Button
             onClick={scrollToTop}
+            style={{ bottom: "24px" }}
             className={cn(
                 "fixed bottom-0 left-1/2 -translate-x-1/2 z-50 bg-primary text-white hover:bg-primary/90 transition-opacity duration-300",
                 visible ? "opacity-100" : "opacity-0 pointer-events-none"
             )}
             variant="secondary"
+            size={"lg"}
         >
             {t("title")}
             <ArrowUp className="ml-2 h-5 w-5" />
