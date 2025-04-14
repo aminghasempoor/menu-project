@@ -4,12 +4,12 @@ import { CardItems } from "@/components/Main/CardItems";
 import { foodItemType } from "@/core/utils/foodItems";
 
 export function Main({
-                         id,
-                         title,
-                         recommendedItems,
-                         foodItem,
-                         isLast,
-                     }: {
+    id,
+    title,
+    recommendedItems,
+    foodItem,
+    isLast,
+}: {
     id: string;
     title: string;
     recommendedItems: foodItemType[];
