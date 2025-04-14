@@ -31,6 +31,16 @@
     "dessert": "Dessert",
     "milkshake": "Milkshake"
   },
+  "RecommendedItem" : {
+    "name" : "recommended item"
+  },
+  "ScrollToTopButton" : {
+    "title" : "back to top"
+  },
+  "CardItem" : {
+    "ingredient" : "ingredient :",
+    "description" : "Printers and texts, but also newspapers and magazines in columns and rows as necessary..."
+  },
   "Notifications": {
     "code": "Code",
     "error": "Error",

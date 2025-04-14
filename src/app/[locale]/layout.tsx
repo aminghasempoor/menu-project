@@ -7,6 +7,7 @@ import { ThemeProvider } from "@/core/theme-provider";
 import { Toaster } from "@/components/ui/toaster";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import localFont from "next/font/local";
+import { ScrollToTopButton } from "@/core/ScrollToTopButton";
 
 const pinar = localFont({
     src: "../../fonts/Pinar-Regular.woff2",
@@ -59,6 +60,7 @@ export default async function LocaleLayout(props: LocaleLayoutProps) {
                         }}
                     >
                         <main>{props.children}</main>
+                        <ScrollToTopButton />
                         <Toaster />
                     </ThemeProvider>
                 </NextIntlClientProvider>

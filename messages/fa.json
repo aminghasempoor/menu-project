@@ -20,6 +20,16 @@
     "dessert": "دسر",
     "milkshake": "میلک‌شیک"
   },
+  "RecommendedItem" : {
+    "name" : "آیتم پیشنهادی"
+  },
+  "ScrollToTopButton" : {
+    "title" : "بازگشت به بالا"
+  },
+  "CardItem" : {
+    "ingredient" : "محتویات :",
+    "description" : "چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است..."
+  },
   "Main": {
     "pizza": "پیتزا",
     "burger": "برگر",
