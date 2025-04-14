@@ -14,9 +14,9 @@ export function FirstPage() {
         <>
             <Navbar />
             <Banner />
-            <Main title={"pizza"} recommendedItems={recommendedPizzaItem} foodItem={pizzaItems} />
-            <Main title={"burger"} recommendedItems={recommendedBurgerItem} foodItem={burgerItems} />
-            <Main title={"sushi"} recommendedItems={recommendedSushiItem} foodItem={sushiItems} />
+            <Main id="pizza" title={"pizza"} recommendedItems={recommendedPizzaItem} foodItem={pizzaItems} />
+            <Main id="burger" title={"burger"} recommendedItems={recommendedBurgerItem} foodItem={burgerItems} />
+            <Main id="sushi" title={"sushi"} recommendedItems={recommendedSushiItem} foodItem={sushiItems} />
         </>
     );
 }

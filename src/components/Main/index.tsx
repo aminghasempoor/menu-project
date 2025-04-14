@@ -4,17 +4,19 @@ import { CardItems } from "@/components/Main/CardItems";
 import { foodItemType } from "@/core/utils/foodItems";
 
 export function Main({
+    id,
     title,
     recommendedItems,
     foodItem,
 }: {
+    id: string;
     title: string;
     recommendedItems: foodItemType[];
     foodItem: foodItemType[];
 }) {
     const t = useTranslations("Main");
     return (
-        <div className={"m-5"}>
+        <div id={id} className={"m-5"}>
             <div className="flex items-center pb-5">
                 <div className="border-t-2 flex-grow mr-2 border-black" />
                 <h1 className="scroll-m-20 text-3xl font-bold tracking-tight lg:text-4xl px-4">{t(`${title}`)}</h1>
