@@ -28,9 +28,7 @@ const LanguageSwitcher = () => {
     return (
         <DropdownMenu>
             <DropdownMenuTrigger className="flex gap-x-2">
-                <p>
-                    {currentLocale === "en" ? "English" : "فارسی"}
-                </p>
+                <p>{currentLocale === "en" ? "English" : "فارسی"}</p>
                 <Earth className="text-primary w-5 h-5 p-1" />
             </DropdownMenuTrigger>
             <DropdownMenuContent className="w-32">

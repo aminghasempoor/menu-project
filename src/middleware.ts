@@ -7,5 +7,5 @@ export default createMiddleware({
 
 export const config = {
     // مسیرهایی که باید بررسی بشن
-    matcher: ['/((?!_next|favicon.ico).*)'],
+    matcher: ["/((?!_next|favicon.ico).*)"],
 };
