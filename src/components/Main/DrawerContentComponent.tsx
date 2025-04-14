@@ -32,10 +32,9 @@ export function DrawerContentComponent({
             </DrawerTrigger>
             <DrawerContent className="w-full max-w-md mx-auto rounded-t-3xl pb-6">
                 <DrawerHeader className="flex items-center justify-around text-center">
-                    <Image src={Picture} alt={title} className="w-48 h-48 rounded-xl object-cover mb-4 shadow-md" />
+                    <Image src={Picture} alt={title} className="w-36 h-36 rounded-xl object-cover mb-4 shadow-md" />
                     <DrawerTitle className="text-xl font-bold">{title}</DrawerTitle>
                 </DrawerHeader>
-
                 <div className="px-10 space-y-4">
                     <div>
                         <p className="text-sm font-medium">محتویات</p>
