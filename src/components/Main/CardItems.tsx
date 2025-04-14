@@ -18,8 +18,8 @@ export function CardItems({
     const isDesktop = useMediaQuery("(min-width: 768px)");
 
     if (isDesktop) {
-        return (<DialogContentComponent title={title} description={description} price={price} picture={picture} />)
+        return <DialogContentComponent title={title} description={description} price={price} picture={picture} />;
     }
 
-    return (<DrawerContentComponent picture={picture} title={title} description={description} price={price} />)
+    return <DrawerContentComponent picture={picture} title={title} description={description} price={price} />;
 }

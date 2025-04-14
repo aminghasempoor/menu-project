@@ -13,35 +13,26 @@ import Picture from "../../../public/burger.jpg";
 import React from "react";
 import { useTranslations } from "next-intl";
 
-export function DrawerContentComponent ({
-                                            picture,
-                                            title,
-                                            description,
-                                            price,
-                                        }: {
+export function DrawerContentComponent({
+    picture,
+    title,
+    description,
+    price,
+}: {
     picture: string;
     title: string;
     description: string;
     price: string;
 }) {
-    const t = useTranslations("CardItem")
-    return(
+    const t = useTranslations("CardItem");
+    return (
         <Drawer>
             <DrawerTrigger>
-                <CardContentComponent
-                    picture={picture}
-                    title={title}
-                    description={description}
-                    price={price}
-                />
+                <CardContentComponent picture={picture} title={title} description={description} price={price} />
             </DrawerTrigger>
             <DrawerContent className="w-full max-w-md mx-auto rounded-t-3xl pb-6">
                 <DrawerHeader className="flex items-center justify-around text-center">
-                    <Image
-                        src={Picture}
-                        alt={title}
-                        className="w-48 h-48 rounded-xl object-cover mb-4 shadow-md"
-                    />
+                    <Image src={Picture} alt={title} className="w-48 h-48 rounded-xl object-cover mb-4 shadow-md" />
                     <DrawerTitle className="text-xl font-bold">{title}</DrawerTitle>
                 </DrawerHeader>
 
@@ -50,16 +41,12 @@ export function DrawerContentComponent ({
                         <p className="text-sm font-medium">محتویات</p>
                         <p className="font-semibold text-sm">{description}</p>
                     </div>
-                    <DrawerDescription className="text-sm leading-relaxed">
-                        {t("description")}
-                    </DrawerDescription>
+                    <DrawerDescription className="text-sm leading-relaxed">{t("description")}</DrawerDescription>
                     <DrawerFooter className="flex justify-between items-center pt-4">
-                        <div className="bg-gray-100 text-green-700 px-4 py-2 rounded-lg text-lg font-bold">
-                            {price}
-                        </div>
+                        <div className="bg-gray-100 text-green-700 px-4 py-2 rounded-lg text-lg font-bold">{price}</div>
                     </DrawerFooter>
                 </div>
             </DrawerContent>
         </Drawer>
-    )
+    );
 }
