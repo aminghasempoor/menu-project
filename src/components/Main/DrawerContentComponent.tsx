@@ -36,7 +36,7 @@ export function DrawerContentComponent({
                     <DrawerTitle className="text-xl font-bold">{title}</DrawerTitle>
                 </DrawerHeader>
 
-                <div className="px-10 text-right space-y-4">
+                <div className="px-10 space-y-4">
                     <div>
                         <p className="text-sm font-medium">محتویات</p>
                         <p className="font-semibold text-sm">{description}</p>
