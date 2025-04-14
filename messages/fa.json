@@ -26,6 +26,9 @@
   "ScrollToTopButton" : {
     "title" : "بازگشت به بالا"
   },
+  "CardItem" : {
+    "ingredient" : "محتویات :"
+  },
   "Main": {
     "pizza": "پیتزا",
     "burger": "برگر",

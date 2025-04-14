@@ -33,7 +33,7 @@ export const ScrollToTopButton = () => {
         <Button
             onClick={scrollToTop}
             className={cn(
-                "fixed bottom-6 left-1/2 -translate-x-1/2 z-50 bg-primary text-white hover:bg-primary/90 transition-opacity duration-300",
+                "fixed bottom-0 left-1/2 -translate-x-1/2 z-50 bg-primary text-white hover:bg-primary/90 transition-opacity duration-300",
                 visible ? "opacity-100" : "opacity-0 pointer-events-none"
             )}
             variant="secondary"

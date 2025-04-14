@@ -37,6 +37,9 @@
   "ScrollToTopButton" : {
     "title" : "back to top"
   },
+  "CardItem" : {
+    "ingredient" : "ingredient :"
+  },
   "Notifications": {
     "code": "Code",
     "error": "Error",

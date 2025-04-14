@@ -14,6 +14,7 @@ import { CardContentComponent } from "./CardContentComponent";
 import Picture from "../../../public/burger.jpg";
 import Image from "next/image";
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
+import { useTranslations } from "next-intl";
 
 export function CardItems({
     picture,
@@ -26,6 +27,7 @@ export function CardItems({
     description: string;
     price: string;
 }) {
+    const t = useTranslations("CardItem")
     const [open, setOpen] = React.useState(false);
     const isDesktop = useMediaQuery("(min-width: 768px)");
 
@@ -37,16 +39,17 @@ export function CardItems({
                         <CardContentComponent picture={picture} title={title} description={description} price={price} />
                     </div>
                 </DialogTrigger>
-                <DialogContent className="sm:max-w-[425px]">
+                <DialogContent className="sm:max-w-2xl">
                     <VisuallyHidden>
                         <DialogTitle>{title}</DialogTitle>
                         <DialogDescription>{description}</DialogDescription>
                     </VisuallyHidden>
                     <div className="flex items-center gap-4 p-4 text-center">
-                        <Image src={Picture} alt={title} className="w-60 h-60 rounded-lg object-cover" />
-                        <div>
-                            <h2 className="text-xl font-bold">{title}</h2>
-                            <p className="text-sm text-muted-foreground">{description}</p>
+                        <Image src={Picture} alt={title} className="w-80 h-80 rounded-lg object-cover" />
+                        <div className={"w-full h-full flex flex-col items-start gap-y-3"}>
+                            <h2 className="text-2xl font-bold">{title}</h2>
+                            <p className="text-sm text-muted-foreground capitalize">{t("ingredient")}</p>
+                            <p className="text-md font-semibold text-muted-foreground">{description}</p>
                             <p className="text-lg font-extrabold text-green-600">{price}</p>
                         </div>
                     </div>
