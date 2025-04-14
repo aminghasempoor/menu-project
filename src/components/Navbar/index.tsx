@@ -28,7 +28,7 @@ export function Navbar() {
             {/*        </SheetFooter>*/}
             {/*    </SheetContent>*/}
             {/*</Sheet>*/}
-            <div className={"flex gap-x-6"}>
+            <div className={"flex gap-x-4 justify-center items-center"}>
                 <ModeToggle />
                 <LanguageSwitcher />
             </div>

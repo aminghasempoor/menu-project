@@ -37,7 +37,13 @@ export function BannerCarousel() {
             <CarouselContent className="-ml-2">
                 {items.map((item, index) => (
                     <CarouselItem key={index} className="basis-1/2 sm:basis-1/3 lg:basis-1/6 pl-2">
-                        <Card className="rounded-xl border bg-white/40 backdrop-blur-md shadow-sm hover:shadow-md transition">
+                        <Card
+                            onClick={() => {
+                                const section = document.getElementById(item.labelKey);
+                                section?.scrollIntoView({ behavior: "smooth" });
+                            }}
+                            className="rounded-xl border bg-white/40 backdrop-blur-md shadow-sm hover:shadow-md transition cursor-pointer"
+                        >
                             <CardContent className="flex items-center justify-center gap-1 p-2">
                                 {item.icon}
                                 <span className="text-sm font-medium">{t(item.labelKey)}</span>{" "}
