@@ -5,5 +5,5 @@ export default function Dashboard() {
         <>
             <DashboardComponent />
         </>
-    )
+    );
 }

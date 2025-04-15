@@ -1,22 +1,10 @@
-"use client"
+"use client";
 
-import { TrendingUp } from "lucide-react"
-import { CartesianGrid, Line, LineChart, XAxis } from "recharts"
+import { TrendingUp } from "lucide-react";
+import { CartesianGrid, Line, LineChart, XAxis } from "recharts";
 
-import {
-    Card,
-    CardContent,
-    CardDescription,
-    CardFooter,
-    CardHeader,
-    CardTitle,
-} from "@/components/ui/card"
-import {
-    ChartConfig,
-    ChartContainer,
-    ChartTooltip,
-    ChartTooltipContent,
-} from "@/components/ui/chart"
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { ChartConfig, ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart";
 import { useTranslations } from "next-intl";
 
 const chartData = [
@@ -26,17 +14,16 @@ const chartData = [
     { month: "April", desktop: 73 },
     { month: "May", desktop: 209 },
     { month: "June", desktop: 214 },
-]
-
+];
 
 export function LineChartComponent() {
-    const t = useTranslations("LineChart")
-const chartConfig = {
-    desktop: {
-        label: `${t("label")}`,
-        color: "hsl(var(--chart-1))",
-    },
-} satisfies ChartConfig
+    const t = useTranslations("LineChart");
+    const chartConfig = {
+        desktop: {
+            label: `${t("label")}`,
+            color: "hsl(var(--chart-1))",
+        },
+    } satisfies ChartConfig;
     return (
         <Card className={"mt-5"}>
             <CardHeader>
@@ -61,10 +48,7 @@ const chartConfig = {
                             tickMargin={8}
                             tickFormatter={(value) => value.slice(0, 3)}
                         />
-                        <ChartTooltip
-                            cursor={false}
-                            content={<ChartTooltipContent hideLabel />}
-                        />
+                        <ChartTooltip cursor={false} content={<ChartTooltipContent hideLabel />} />
                         <Line
                             dataKey="desktop"
                             type="linear"
@@ -84,5 +68,5 @@ const chartConfig = {
             {/*    </div>*/}
             {/*</CardFooter>*/}
         </Card>
-    )
+    );
 }

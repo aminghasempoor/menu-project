@@ -27,8 +27,7 @@ export function MostViewed() {
                     {burgerItems.map((item, index) => {
                         return (
                             <CarouselItem key={index} className="basis-1/2 sm:basis-1/5 lg:basis-1/6 pl-2">
-                                <Card
-                                    className="rounded-xl border bg-white/40 backdrop-blur-md shadow-sm hover:shadow-md transition cursor-pointer">
+                                <Card className="rounded-xl border bg-white/40 backdrop-blur-md shadow-sm hover:shadow-md transition cursor-pointer">
                                     <CardContent className="flex flex-col items-center justify-center gap-1 p-2">
                                         <Image
                                             loading={"lazy"}

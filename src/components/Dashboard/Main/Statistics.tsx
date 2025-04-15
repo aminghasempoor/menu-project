@@ -4,8 +4,8 @@ const stats = [
     { label: "کل آیتم‌ها", value: "52" },
     { label: "دسته‌بندی‌ها", value: "11" },
 ];
-export function Statistics () {
-    return(
+export function Statistics() {
+    return (
         <Card className="w-full max-w-xl mx-auto rounded-2xl shadow-md mt-5">
             <CardContent className="flex justify-between items-center p-4 gap-4 text-center text-sm font-medium">
                 {stats.map((stat, index) => (
@@ -16,5 +16,5 @@ export function Statistics () {
                 ))}
             </CardContent>
         </Card>
-    )
+    );
 }

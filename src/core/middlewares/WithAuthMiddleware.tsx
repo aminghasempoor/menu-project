@@ -15,18 +15,17 @@ function WithAuthMiddleware({ children }: { children: React.ReactNode }) {
         if (!initAuthState) return;
 
         if (!isAuth) {
-            router.replace(
-                `${process.env.NEXT_PUBLIC_API_URL}/login?_back=${encodeURIComponent(pathName)}`,
-            );
+            router.replace(`${process.env.NEXT_PUBLIC_API_URL}/login?_back=${encodeURIComponent(pathName)}`);
         }
     }, [isAuth, initAuthState, pathName, router]);
 
-    if (!initAuthState || !isAuth) return (
-        <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center text-center space-y-4">
-            <SvgAuth width={200} height={200} />
-            <p className="text-lg text-foreground">شما دسترسی لازم به این صفحه را ندارید...</p>
-        </div>
-    );
+    if (!initAuthState || !isAuth)
+        return (
+            <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center text-center space-y-4">
+                <SvgAuth width={200} height={200} />
+                <p className="text-lg text-foreground">شما دسترسی لازم به این صفحه را ندارید...</p>
+            </div>
+        );
 
     return <>{children}</>;
 }
