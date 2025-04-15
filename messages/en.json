@@ -41,6 +41,15 @@
     "ingredient" : "ingredient :",
     "description" : "Printers and texts, but also newspapers and magazines in columns and rows as necessary..."
   },
+  "Dashboard" : {
+    "title" : "dashboard",
+    "most_view" : "most viewed items"
+  },
+  "LineChart" : {
+    "title" : "total menu visit",
+    "description" : "from past days",
+    "label" : "num"
+  },
   "Notifications": {
     "code": "Code",
     "error": "Error",
