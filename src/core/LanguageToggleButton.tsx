@@ -7,9 +7,12 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { usePathname, useRouter } from "next/navigation";
 import { Earth } from "lucide-react";
+// import useRequest from "@/lib/hooks/useRequest";
+// import { CHANGE_LANGUAGE } from "@/lib/utils/apiRoutes";
 
 const LanguageSwitcher = () => {
     const router = useRouter();
+    // const requestServer = useRequest({ notification: false })
     const pathname = usePathname();
     const locales = ["en", "fa"];
 
@@ -24,9 +27,13 @@ const LanguageSwitcher = () => {
         const newPath = `/${locale}/${newSegments.join("/")}`;
         router.push(newPath);
     };
-    const handleToggle = () => {
-
-    }
+    // const handleToggle = async (currentLocale :string) => {
+    //     try {
+    //         const response = await requestServer(`${CHANGE_LANGUAGE}?language=${currentLocale}`, "get", {});
+    //     } catch (error) {
+    //         console.log(error);
+    //     }
+    // }
 
     return (
         <DropdownMenu>
@@ -34,7 +41,10 @@ const LanguageSwitcher = () => {
                 <p>{currentLocale === "en" ? "English" : "فارسی"}</p>
                 <Earth className="text-primary w-5 h-5 p-1" />
             </DropdownMenuTrigger>
-            <DropdownMenuContent onClick={handleToggle} className="w-32">
+            <DropdownMenuContent
+                // onClick={()=>handleToggle(currentLocale)}
+                className="w-32"
+            >
                 {locales.map((locale) => (
                     <DropdownMenuItem className="text-center" key={locale} onClick={() => changeLanguage(locale)}>
                         {locale === "en" ? "English" : "فارسی"}
