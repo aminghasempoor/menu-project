@@ -8,6 +8,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import localFont from "next/font/local";
 import { ScrollToTopButton } from "@/core/ScrollToTopButton";
+import { Navbar } from "@/components/Navbar";
 
 const pinar = localFont({
     src: "../../fonts/Pinar-Regular.woff2",
@@ -59,6 +60,7 @@ export default async function LocaleLayout(props: LocaleLayoutProps) {
                             dark: "dark",
                         }}
                     >
+                        <Navbar />
                         <main>{props.children}</main>
                         <ScrollToTopButton />
                         <Toaster />
