@@ -6,7 +6,7 @@ import SvgAuth from "@/core/components/svgs/SvgAuth";
 import { useTranslations } from "next-intl";
 
 function WithoutAuthMiddleware({ children }: { children: React.ReactNode }) {
-    const t = useTranslations("NotAuthMiddleware")
+    const t = useTranslations("NotAuthMiddleware");
     const router = useRouter();
 
     const isAuth = useUserStore((state) => state.isAuth);
@@ -18,7 +18,7 @@ function WithoutAuthMiddleware({ children }: { children: React.ReactNode }) {
             router.replace("/dashboard");
         }
     }, [isAuth, initAuthState, router]);
-    if (!initAuthState) return null
+    if (!initAuthState) return null;
     if (isAuth)
         return (
             <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center text-center space-y-4">

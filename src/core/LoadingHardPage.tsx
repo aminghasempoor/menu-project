@@ -18,15 +18,15 @@ type LoadingHardPageProps = {
 };
 
 const LoadingHardPage = ({
-                             children,
-                             loading,
-                             authState,
-                             icon = null,
-                             width = 200,
-                             height = 200,
-                             label = "",
-                             className = "",
-                         }: LoadingHardPageProps) => {
+    children,
+    loading,
+    authState,
+    icon = null,
+    width = 200,
+    height = 200,
+    label = "",
+    className = "",
+}: LoadingHardPageProps) => {
     const { theme } = useTheme();
 
     if (!loading) return <>{children}</>;
@@ -40,10 +40,7 @@ const LoadingHardPage = ({
         >
             <Card className="flex flex-col items-center space-y-4 bg-transparent border-none shadow-none">
                 <div
-                    className={cn(
-                        "flex items-center justify-center",
-                        !authState && "animate-pulse"
-                    )}
+                    className={cn("flex items-center justify-center", !authState && "animate-pulse")}
                     style={{ width, height }}
                 >
                     {icon ? (
@@ -51,16 +48,9 @@ const LoadingHardPage = ({
                             {icon}
                         </div>
                     ) : authState ? (
-                        <SvgLoading
-                            width={width}
-                            height={height}
-                        />
+                        <SvgLoading width={width} height={height} />
                     ) : (
-                        <SvgLoading
-                            className="text-primary animate-spin"
-                            width={width}
-                            height={height}
-                        />
+                        <SvgLoading className="text-primary animate-spin" width={width} height={height} />
                     )}
                 </div>
                 {label && (

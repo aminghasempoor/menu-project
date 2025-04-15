@@ -20,8 +20,7 @@ const ErrorNotification = (
                     <div className="flex">
                         <h6 className={"pr-2"}>{message}</h6>
                         <h1 className="text-xl">
-                            {t("Notifications.error")} :
-                            {status}
+                            {t("Notifications.error")} :{status}
                         </h1>
                     </div>
                 </div>

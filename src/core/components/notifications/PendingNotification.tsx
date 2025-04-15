@@ -14,9 +14,7 @@ const PendingNotification = (
                 <div className="flex items-center">
                     <Check />
                     <div className="flex">
-                        <h1 className="text-xl">
-                            {t("Notifications.pending")}
-                        </h1>
+                        <h1 className="text-xl">{t("Notifications.pending")}</h1>
                     </div>
                 </div>
             </div>

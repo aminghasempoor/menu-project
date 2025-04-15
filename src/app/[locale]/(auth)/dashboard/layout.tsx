@@ -28,11 +28,11 @@ const Layout = ({ children }) => {
             />
         );
 
-    return <WithAuthMiddleware>
-        <div className={"px-10"}>
-            {children}
-        </div>
-    </WithAuthMiddleware>;
+    return (
+        <WithAuthMiddleware>
+            <div className={"px-10"}>{children}</div>
+        </WithAuthMiddleware>
+    );
 };
 
 export default Layout;

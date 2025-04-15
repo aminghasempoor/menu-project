@@ -5,7 +5,7 @@ import { GET_USER_ROUTE } from "@/lib/utils/apiRoutes";
 
 interface UserStoreState {
     isAuth: boolean;
-    errorState : { status: null, message: "" },
+    errorState: { status: null; message: "" };
     userChangedLanguage: boolean;
     initAuthState: boolean;
     token: string | null;
@@ -26,7 +26,7 @@ const useUserStore = create<UserStoreState>((set, get) => ({
     isAuth: false,
     userChangedLanguage: false,
     initAuthState: false,
-    errorState : { status: null, message: "" },
+    errorState: { status: null, message: "" },
     token: localStorage.getItem("_token") || null,
     user: {},
 
@@ -48,29 +48,32 @@ const useUserStore = create<UserStoreState>((set, get) => ({
     clearToken: () => {
         localStorage.removeItem("_token");
         set({ token: null });
-        set({initAuthState : true})
+        set({ initAuthState: true });
     },
 
     setToken: (token: string) => {
         localStorage.setItem("_token", token);
         set({ token });
-        set({initAuthState : true})
+        set({ initAuthState: true });
     },
 
     getUser: async () => {
         const token = get().token;
         try {
-          const { data } = await axios.get(GET_USER_ROUTE, {
-            headers: { authorization: `Bearer ${token}` },
-          });
-          set({ user: data, isAuth: true, initAuthState : true, errorState : false });
-
+            const { data } = await axios.get(GET_USER_ROUTE, {
+                headers: { authorization: `Bearer ${token}` },
+            });
+            set({ user: data, isAuth: true, initAuthState: true, errorState: false });
         } catch (error) {
             let status = error.response && error.response.status ? error.response.status : "نامشخص";
-              if (error.response && error.response.status === 401) {
+            if (error.response && error.response.status === 401) {
                 get().clearToken();
-              }
-            set({ isAuth: true, initAuthState : true, errorState : { status, message: " مشکلی در احراز هویت رخ داده است . دقایقی بعد امتحان کنید!!!" } });
+            }
+            set({
+                isAuth: true,
+                initAuthState: true,
+                errorState: { status, message: " مشکلی در احراز هویت رخ داده است . دقایقی بعد امتحان کنید!!!" },
+            });
         }
     },
 

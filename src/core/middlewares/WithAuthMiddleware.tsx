@@ -6,7 +6,7 @@ import SvgAuth from "@/core/components/svgs/SvgAuth";
 import { useTranslations } from "next-intl";
 
 function WithAuthMiddleware({ children }: { children: React.ReactNode }) {
-    const t = useTranslations("AuthMiddleware")
+    const t = useTranslations("AuthMiddleware");
     const router = useRouter();
     const pathName = usePathname();
 
@@ -17,7 +17,7 @@ function WithAuthMiddleware({ children }: { children: React.ReactNode }) {
         if (!initAuthState) return;
 
         if (!isAuth) {
-            router.replace('/login');
+            router.replace("/login");
         }
     }, [isAuth, initAuthState, pathName, router]);
     if (!initAuthState || !isAuth)

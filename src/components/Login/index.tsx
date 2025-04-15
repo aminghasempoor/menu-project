@@ -15,10 +15,7 @@ import { LogIn } from "lucide-react";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { GET_LOGIN_ROUTE } from "@/lib/utils/apiRoutes";
 
-export function LoginForm({
-                              className,
-                              ...props
-                          }: React.ComponentPropsWithoutRef<"div">) {
+export function LoginForm({ className, ...props }: React.ComponentPropsWithoutRef<"div">) {
     const t = useTranslations();
     const { setToken, getUser } = useUserStore();
     const requestServer = useRequest({ notification: true });
@@ -65,10 +62,7 @@ export function LoginForm({
                                 render={({ field }) => (
                                     <FormItem>
                                         <FormControl>
-                                            <Input
-                                                placeholder={t("LoginPage.user_name")}
-                                                {...field}
-                                            />
+                                            <Input placeholder={t("LoginPage.user_name")} {...field} />
                                         </FormControl>
                                         <FormMessage />
                                     </FormItem>
@@ -80,11 +74,7 @@ export function LoginForm({
                                 render={({ field }) => (
                                     <FormItem>
                                         <FormControl>
-                                            <Input
-                                                type="password"
-                                                placeholder={t("LoginPage.password")}
-                                                {...field}
-                                            />
+                                            <Input type="password" placeholder={t("LoginPage.password")} {...field} />
                                         </FormControl>
                                         <FormMessage />
                                     </FormItem>
@@ -97,10 +87,7 @@ export function LoginForm({
                                         {t("LoginPage.remember")}
                                     </label>
                                 </div>
-                                <Link
-                                    href=""
-                                    className="hover:underline"
-                                >
+                                <Link href="" className="hover:underline">
                                     {t("LoginPage.forget")}
                                 </Link>
                             </div>
