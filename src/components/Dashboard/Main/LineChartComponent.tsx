@@ -24,7 +24,7 @@ export function LineChartComponent() {
     } satisfies ChartConfig;
     return (
         <Card className={"mt-5"}>
-            <CardHeader>
+            <CardHeader className={"capitalize"}>
                 <CardTitle>{t("title")}</CardTitle>
                 <CardDescription>{t("description")}</CardDescription>
             </CardHeader>
