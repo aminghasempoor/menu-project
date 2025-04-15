@@ -12,16 +12,15 @@ const SuccessNotification = (
     status?: number
 ) => {
     const toastId = toast({
-        title: "You're Request has been sent",
+        title: `${t("Notifications.title")}`,
         description: (
             <div className="flex flex-col items-start justify-start">
                 <div className="flex items-center">
                     <Check />
                     <div className="flex">
-                        <h1 className="text-green-600">
-                            {t("HomePage.title")}
-                            Use your class for success color
-                            {status}
+                        <h1 className="text-green-600 text-xl">
+                            {t("Notifications.success")}
+                            {/*{status}*/}
                         </h1>
                     </div>
                 </div>

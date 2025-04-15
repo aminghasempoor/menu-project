@@ -24,6 +24,9 @@ const LanguageSwitcher = () => {
         const newPath = `/${locale}/${newSegments.join("/")}`;
         router.push(newPath);
     };
+    const handleToggle = () => {
+
+    }
 
     return (
         <DropdownMenu>
@@ -31,7 +34,7 @@ const LanguageSwitcher = () => {
                 <p>{currentLocale === "en" ? "English" : "فارسی"}</p>
                 <Earth className="text-primary w-5 h-5 p-1" />
             </DropdownMenuTrigger>
-            <DropdownMenuContent className="w-32">
+            <DropdownMenuContent onClick={handleToggle} className="w-32">
                 {locales.map((locale) => (
                     <DropdownMenuItem className="text-center" key={locale} onClick={() => changeLanguage(locale)}>
                         {locale === "en" ? "English" : "فارسی"}

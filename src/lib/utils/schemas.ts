@@ -1,10 +1,9 @@
 import { z } from "zod";
 export const loginFormSchema = (t: (key: string, params?: Record<string, unknown>) => string) =>
     z.object({
-        phone_number: z
+        user_name: z
             .string()
-            .min(1, { message: t("LoginPage.Required") })
-            .max(11, { message: t("LoginPage.error_max", { max: 11 }) }),
+            .min(1, { message: t("LoginPage.Required") }),
         password: z
             .string()
             .min(1, { message: t("LoginPage.Required") })
