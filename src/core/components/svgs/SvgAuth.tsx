@@ -1,4 +1,4 @@
-const SvgAuth = ({ width, height, color }: { width: number; height: number; color?: string }) => {
+const SvgAuth = ({ width, height }: { width: number; height: number; color?: string }) => {
     //default color = #927777
     return (
         <svg width={width} height={height} viewBox="0 0 543.21934 633.6012" role="img">

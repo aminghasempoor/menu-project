@@ -1,4 +1,4 @@
-const SvgLoading = ({ width, height, color }: { width: number; height: number; color?: string }) => {
+const SvgLoading = ({ width, height }: { width: number; height: number; color?: string }) => {
     //default color = #927777
     return (
         <svg width={width} height={height} viewBox="0 0 559.28577 465.37852" role="img">

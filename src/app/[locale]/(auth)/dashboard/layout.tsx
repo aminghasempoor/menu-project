@@ -1,5 +1,5 @@
 import React from "react";
-import WithAuthMiddleware from "@/core/middlewares/WithAuthMiddleware";
+// import WithAuthMiddleware from "@/core/middlewares/WithAuthMiddleware";
 
 export default async function DashboardLayout({ children }: { children: React.ReactNode }) {
     return (

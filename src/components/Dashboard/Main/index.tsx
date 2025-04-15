@@ -1,7 +1,7 @@
 import { useTranslations } from "next-intl";
 import { LineChartComponent } from "./LineChartComponent";
-import { Statistics } from "@/components/Dashboard/Main/Statistics";
-import { MostViewed } from "@/components/Dashboard/Main/MostViewed";
+import { Statistics } from "./Statistics";
+import { MostViewed } from "./MostViewed";
 
 export function DashboardComponent() {
     const t = useTranslations("Dashboard");
