@@ -17,11 +17,11 @@ const ErrorNotification = (
             <div className="flex flex-col items-start justify-start text-red-600">
                 <div className="flex items-center">
                     <Check />
-                    <div className="flex">
-                        <h6 className={"pr-2"}>{message}</h6>
+                    <div>
                         <h1 className="text-xl">
-                            {t("Notifications.error")} :{status}
+                            {t("Notifications.error")} : {status}
                         </h1>
+                        <h6 className={"pr-2"}>{message}</h6>
                     </div>
                 </div>
             </div>

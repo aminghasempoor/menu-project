@@ -79,7 +79,7 @@ const errorClient = (
             break;
         case 422:
             if (response.data?.message) {
-                Notifications(pushToastList, "error", t, response.status);
+                Notifications(pushToastList, "error", t, response.status, response.data.message as string);
                 break;
             }
             errorValidation(pushToastList, response, t, notification);
