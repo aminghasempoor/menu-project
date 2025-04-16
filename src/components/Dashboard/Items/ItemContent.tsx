@@ -4,10 +4,10 @@ import { Card, CardContent } from "@/components/ui/card";
 import React from "react";
 
 export function ItemContent({
-                                         title,
-                                         description,
-                                         price,
-                                     }: {
+    title,
+    description,
+    price,
+}: {
     picture: string;
     title: string;
     description: string;
@@ -17,14 +17,8 @@ export function ItemContent({
         <Card className="transition-all duration-300 ease-in-out hover:shadow-xl hover:scale-[1.02] cursor-pointer">
             <CardContent className="p-0 flex flex-row items-stretch gap-x-2">
                 <div className="w-1/2 relative aspect-[4/3]">
-                <Image
-                    loading="lazy"
-                    fill
-                    className="object-cover rounded-lg"
-                    src={Picture}
-                    alt="picture"
-                />
-                 </div>
+                    <Image loading="lazy" fill className="object-cover rounded-lg" src={Picture} alt="picture" />
+                </div>
                 <div className="w-1/2 px-1 flex flex-col justify-between">
                     <div>
                         <h4 className="text-start text-sm sm:text-md lg:text-xl font-bold lg:font-semibold tracking-tight pt-2">

@@ -17,7 +17,7 @@ export function Navbar() {
                 <LanguageSwitcher />
                 <Link className={"text-md flex"} href={"/login"}>
                     <p className={"p-0 text-sm sm:text-md"}>{t("login")}</p>
-                    <KeyRound className={"w-4 h-4 sm:w-5 sm:h-5"}/>
+                    <KeyRound className={"w-4 h-4 sm:w-5 sm:h-5"} />
                 </Link>
             </div>
         </div>

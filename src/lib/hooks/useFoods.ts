@@ -1,10 +1,10 @@
-"use client"
+"use client";
 import { useEffect, useState } from "react";
 import useRequest from "@/lib/hooks/useRequest";
 import { GET_FOODS } from "@/lib/utils/apiRoutes";
 
 const useFoods = () => {
-    const requestServer = useRequest({ notification: false, auth : true });
+    const requestServer = useRequest({ notification: false, auth: true });
     const [foods, setFoods] = useState([]);
     const [loadingFoods, setLoadingFoods] = useState(true);
     const [errorFoods, setErrorFoods] = useState(null);

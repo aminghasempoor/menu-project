@@ -11,18 +11,20 @@ export function ItemsComponent() {
         <>
             <h1>{t("title")}</h1>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                {loadingFoods ? (<SkeletonCard />) : (
-                    errorFoods ? (<>error</>) : (
-                        foods.map((food) => (
-                            <ItemContent
-                                key={food.id}
-                                picture={food.image}
-                                title={food.name}
-                                description={food.description}
-                                price={food.price}
-                            />
-                        ))
-                    )
+                {loadingFoods ? (
+                    <SkeletonCard />
+                ) : errorFoods ? (
+                    <>error</>
+                ) : (
+                    foods.map((food) => (
+                        <ItemContent
+                            key={food.id}
+                            picture={food.image}
+                            title={food.name}
+                            description={food.description}
+                            price={food.price}
+                        />
+                    ))
                 )}
             </div>
         </>
