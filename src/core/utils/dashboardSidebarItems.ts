@@ -1,28 +1,30 @@
 import { Calendar, Home, Inbox, WalletCards, Settings } from "lucide-react";
-export const DashboardSidebarItems = [
-    {
-        title: "Home",
-        url: "/",
-        icon: Home,
-    },
-    {
-        title: "Profile",
-        url: "/dashboard",
-        icon: Inbox,
-    },
-    {
-        title: "Appointment",
-        url: "#",
-        icon: Calendar,
-    },
-    {
-        title: "Wallet",
-        url: "#",
-        icon: WalletCards,
-    },
-    {
-        title: "Settings",
-        url: "#",
-        icon: Settings,
-    },
-];
+export function getDashboardSidebarItems(t: (key: string) => string) {
+    return [
+        {
+            title: t("home"),
+            url: "/",
+            icon: Home,
+        },
+        {
+            title: t("profile"),
+            url: "/dashboard",
+            icon: Inbox,
+        },
+        {
+            title: t("items"),
+            url: "#",
+            icon: Calendar,
+        },
+        {
+            title: t("category"),
+            url: "#",
+            icon: WalletCards,
+        },
+        {
+            title: t("settings"),
+            url: "#",
+            icon: Settings,
+        },
+    ];
+}

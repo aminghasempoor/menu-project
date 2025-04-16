@@ -29,6 +29,12 @@ interface LocaleLayoutProps {
     }>;
     children: React.ReactNode;
 }
+export const metadata = {
+    title: {
+        template: "%s | منولیتا",
+        default: "منولیتا",
+    },
+};
 
 export default async function LocaleLayout(props: LocaleLayoutProps) {
     const { locale } = await props.params;

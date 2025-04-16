@@ -44,7 +44,16 @@
   },
   "Sidebar" : {
     "sidebar" : "sidebar",
-    "title" : "dashboard"
+    "title" : "dashboard",
+    "home": "Home",
+    "profile": "Profile",
+    "items": "Items",
+    "category": "Category",
+    "log_out": "Log Out",
+    "settings": "Settings",
+    "application": "Application",
+    "global_title": "menulita",
+    "footer": "Footer"
   },
   "AuthMiddleware" : {
     "title" : "you don not have permission to this page..."

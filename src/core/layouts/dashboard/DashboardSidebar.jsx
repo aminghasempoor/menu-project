@@ -16,9 +16,12 @@ import Link from "next/link";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import SidebarHeaderComponent from "./SidebarHeader";
 import SidebarFooterComponent from "./SidebarFooter";
-import { DashboardSidebarItems } from "../../utils/dashboardSidebarItems";
+import { useTranslations } from "next-intl";
+import { getDashboardSidebarItems } from "@/core/utils/dashboardSidebarItems";
 
 export function DashboardSidebar() {
+    const t = useTranslations("Sidebar");
+    const items = getDashboardSidebarItems(t);
     const pathname = usePathname();
     const segments = pathname.split("/").filter(Boolean);
     return (
@@ -26,10 +29,10 @@ export function DashboardSidebar() {
             <SidebarHeaderComponent title={"Logo"} />
             <SidebarContent>
                 <SidebarGroup>
-                    <SidebarGroupLabel>Application</SidebarGroupLabel>
+                    <SidebarGroupLabel className={"text-2xl mb-2"}>{t("global_title")}</SidebarGroupLabel>
                     <SidebarGroupContent>
                         <SidebarMenu>
-                            {DashboardSidebarItems.map((item) => (
+                            {items.map((item) => (
                                 <Collapsible key={item.title} defaultOpen className="group/collapsible">
                                     <SidebarMenuItem>
                                         <CollapsibleTrigger asChild>
@@ -52,7 +55,7 @@ export function DashboardSidebar() {
                     </SidebarGroupContent>
                 </SidebarGroup>
             </SidebarContent>
-            <SidebarFooterComponent title={"footer"} />
+            <SidebarFooterComponent />
         </Sidebar>
     );
 }

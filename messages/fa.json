@@ -36,7 +36,16 @@
   },
   "Sidebar" : {
     "sidebar" : "داشبورد",
-    "title" : "داشبورد"
+    "title" : "داشبورد",
+    "home": "خانه",
+    "profile": "پروفایل",
+    "items": "آیتم ها",
+    "category": "دسته بندی ها",
+    "log_out": "خروج",
+    "settings": "تنظیمات",
+    "application": "برنامه",
+    "global_title": "منولیتا",
+    "footer": "پاورقی"
   },
   "NotAuthMiddleware" : {
     "title" : "شما دسترسی لازم به این صفحه را دارید و نیاز به ورود مجدد نیست..."

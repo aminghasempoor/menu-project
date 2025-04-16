@@ -15,14 +15,14 @@ export function ModeToggle() {
 
     return (
         <DropdownMenu>
-            <DropdownMenuTrigger>
+            <DropdownMenuTrigger asChild>
                 {theme === "light" ? (
-                    <Moon className="text-primary w-5 h-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+                    <Moon className={"cursor-pointer w-5 h-5"} />
                 ) : (
-                    <Sun className="text-primary w-5 h-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+                    <Sun className={"cursor-pointer w-5 h-5"} />
                 )}
             </DropdownMenuTrigger>
-            <DropdownMenuContent align="end">
+            <DropdownMenuContent align="center">
                 <DropdownMenuItem onClick={() => setTheme("light")}>Light</DropdownMenuItem>
                 <DropdownMenuItem onClick={() => setTheme("dark")}>Dark</DropdownMenuItem>
                 <DropdownMenuItem onClick={() => setTheme("system")}>System</DropdownMenuItem>
