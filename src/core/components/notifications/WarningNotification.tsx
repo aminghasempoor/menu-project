@@ -16,8 +16,7 @@ const WarningNotification = (
                     <Check />
                     <div className="flex">
                         <h1 className="text-xl">
-                            {t("Notifications.warning")}
-                            {/*{status}*/}
+                            {t("Notifications.warning")} : {status}
                         </h1>
                     </div>
                 </div>

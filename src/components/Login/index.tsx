@@ -14,8 +14,10 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { LogIn } from "lucide-react";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { GET_LOGIN_ROUTE } from "@/lib/utils/apiRoutes";
+import { z } from "zod"; // اگر نداری اضافه کن
+type LoginFormType = z.infer<ReturnType<typeof loginFormSchema>>;
 
-export function LoginForm({ className, ...props }: React.ComponentPropsWithoutRef<"div">) {
+export function LoginForm() {
     const t = useTranslations();
     const { setToken, getUser } = useUserStore();
     const requestServer = useRequest({ notification: true });
@@ -28,9 +30,9 @@ export function LoginForm({ className, ...props }: React.ComponentPropsWithoutRe
         },
     });
 
-    async function onSubmit(values) {
+    async function onSubmit(values: LoginFormType) {
         try {
-            const response = await requestServer(GET_LOGIN_ROUTE, "post", {
+            const response = (await requestServer(GET_LOGIN_ROUTE, "post", {
                 data: {
                     username: values.user_name,
                     password: values.password,
@@ -38,9 +40,9 @@ export function LoginForm({ className, ...props }: React.ComponentPropsWithoutRe
                 success: {
                     notification: { show: true },
                 },
-            });
+            })) as { data: { data: { token: string } } };
             setToken(response.data.data.token);
-            await getUser(); // حالا اینجا مجاز به استفاده از await هستی
+            await getUser();
         } catch (error) {
             console.log(error);
         }

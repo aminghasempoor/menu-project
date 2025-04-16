@@ -19,8 +19,7 @@ const SuccessNotification = (
                     <Check />
                     <div className="flex">
                         <h1 className="text-green-600 text-xl">
-                            {t("Notifications.success")}
-                            {/*{status}*/}
+                            {t("Notifications.success")} : {status}
                         </h1>
                     </div>
                 </div>

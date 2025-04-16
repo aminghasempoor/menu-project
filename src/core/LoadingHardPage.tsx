@@ -3,7 +3,6 @@
 import { ReactNode } from "react";
 import { cn } from "@/lib/utils";
 import { Card } from "@/components/ui/card";
-import { useTheme } from "next-themes";
 import SvgLoading from "@/core/components/svgs/SvgLoading";
 
 type LoadingHardPageProps = {
@@ -11,9 +10,9 @@ type LoadingHardPageProps = {
     loading: boolean;
     authState?: boolean;
     icon?: ReactNode;
-    width?: number;
-    height?: number;
-    label?: string;
+    width: number;
+    height: number;
+    label: ReactNode;
     className?: string;
 };
 
@@ -24,11 +23,9 @@ const LoadingHardPage = ({
     icon = null,
     width = 200,
     height = 200,
-    label = "",
+    label,
     className = "",
 }: LoadingHardPageProps) => {
-    const { theme } = useTheme();
-
     if (!loading) return <>{children}</>;
 
     return (
@@ -47,22 +44,13 @@ const LoadingHardPage = ({
                         <div className="text-primary" style={{ width, height }}>
                             {icon}
                         </div>
-                    ) : authState ? (
-                        <SvgLoading width={width} height={height} />
                     ) : (
-                        <SvgLoading className="text-primary animate-spin" width={width} height={height} />
+                        <SvgLoading width={width} height={height} />
                     )}
                 </div>
-                {label && (
-                    <div
-                        className={cn(
-                            "text-center text-sm font-medium",
-                            authState ? "text-destructive" : "text-primary"
-                        )}
-                    >
-                        {label}
-                    </div>
-                )}
+                <div className={cn("text-center text-sm font-medium", authState ? "text-destructive" : "text-primary")}>
+                    {label}
+                </div>
             </Card>
         </div>
     );
