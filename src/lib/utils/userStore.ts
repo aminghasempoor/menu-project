@@ -1,8 +1,11 @@
 "use client";
 import { create } from "zustand";
+import axios from "axios";
+import { GET_USER_ROUTE } from "@/lib/utils/apiRoutes";
 
 interface UserStoreState {
     isAuth: boolean;
+    errorState: boolean;
     userChangedLanguage: boolean;
     initAuthState: boolean;
     token: string | null;
@@ -11,6 +14,7 @@ interface UserStoreState {
     changeUser: (user: Record<string, string>) => void;
     changeUserLanguage: (language: string) => void;
     changeAuthState: (isAuth: boolean) => void;
+    changeInitAuth: (initAuthState: boolean) => void;
     changeLanguageState: (userChangedLanguage: boolean) => void;
     clearToken: () => void;
     setToken: (token: string) => void;
@@ -22,6 +26,7 @@ const useUserStore = create<UserStoreState>((set, get) => ({
     isAuth: false,
     userChangedLanguage: false,
     initAuthState: false,
+    errorState: false,
     token: localStorage.getItem("_token") || null,
     user: {},
 
@@ -36,33 +41,41 @@ const useUserStore = create<UserStoreState>((set, get) => ({
 
     changeAuthState: (isAuth: boolean) => set({ isAuth }),
 
+    changeInitAuth: (initAuthState: boolean) => set({ initAuthState }),
+
     changeLanguageState: (userChangedLanguage: boolean) => set({ userChangedLanguage }),
 
     clearToken: () => {
         localStorage.removeItem("_token");
         set({ token: null });
+        set({ initAuthState: true });
     },
 
     setToken: (token: string) => {
         localStorage.setItem("_token", token);
         set({ token });
+        set({ initAuthState: true });
     },
 
     getUser: async () => {
         const token = get().token;
-        if (!token) return;
-
-        // Uncomment and implement your API call logic here
-        // try {
-        //   const { data } = await axios.get(GET_USER_ROUTE, {
-        //     headers: { authorization: `Bearer ${token}` },
-        //   });
-        //   set({ user: data, isAuth: true, userChangedLanguage: true });
-        // } catch (error) {
-        //   if (error.response && error.response.status === 401) {
-        //     get().clearToken();
-        //   }
-        // }
+        try {
+            const { data } = await axios.get(GET_USER_ROUTE, {
+                headers: { authorization: `Bearer ${token}` },
+            });
+            set({ user: data, isAuth: true, initAuthState: true, errorState: false });
+        } catch (error: unknown) {
+            if (axios.isAxiosError(error)) {
+                if (error.response && error.response.status === 401) {
+                    get().clearToken();
+                }
+            }
+            set({
+                isAuth: true,
+                initAuthState: true,
+                errorState: true,
+            });
+        }
     },
 
     // Initialize the token and user data on load
@@ -71,6 +84,7 @@ const useUserStore = create<UserStoreState>((set, get) => ({
         if (!token) {
             get().clearUser();
             get().changeAuthState(false);
+            get().changeInitAuth(true);
             get().changeLanguageState(false);
             return;
         }

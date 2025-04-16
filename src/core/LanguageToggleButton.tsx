@@ -19,7 +19,7 @@ const LanguageSwitcher = () => {
     const changeLanguage = (locale: string) => {
         const newSegments = [...segments];
         if (locales.includes(newSegments[0])) {
-            newSegments.shift(); // remove old locale
+            newSegments.shift();
         }
         const newPath = `/${locale}/${newSegments.join("/")}`;
         router.push(newPath);

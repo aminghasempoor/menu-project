@@ -1,7 +1,15 @@
 {
+  "unknown_error" : "something went wrong while authentication...",
+  "authenticating" : "authenticating...",
   "HomePage": {
     "title": "Hello world!",
     "about": "Go to the about page"
+  },
+  "Global": {
+    "appName": "menulita",
+    "back": "back",
+    "motto": "great out",
+    "language": "فا"
   },
   "NavBar": {
     "title": "menulita",
@@ -34,6 +42,12 @@
   "RecommendedItem" : {
     "name" : "recommended item"
   },
+  "AuthMiddleware" : {
+    "title" : "you don not have permission to this page..."
+  },
+  "NotAuthMiddleware" : {
+    "title" : "you have permission to this page don not need to login again..."
+  },
   "ScrollToTopButton" : {
     "title" : "back to top"
   },
@@ -52,6 +66,7 @@
   },
   "Notifications": {
     "code": "Code",
+    "title": "You're Request has been sent",
     "error": "Error",
     "warning": "Warning",
     "success": "Success",
@@ -67,6 +82,7 @@
     "phone_number": "Phone Number",
     "password": "Password",
     "submit": "Submit",
+    "user_name": "User Name",
     "login": "Login",
     "minimum_character": "Password should be at least 6 characters long",
     "remember": "remember me",

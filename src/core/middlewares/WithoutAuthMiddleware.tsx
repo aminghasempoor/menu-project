@@ -1,26 +1,25 @@
 "use client";
-import { useRouter, usePathname } from "next/navigation";
+import { useRouter } from "next/navigation";
 import React, { useEffect } from "react";
 import useUserStore from "@/lib/utils/userStore";
 import SvgAuth from "@/core/components/svgs/SvgAuth";
 import { useTranslations } from "next-intl";
 
-function WithAuthMiddleware({ children }: { children: React.ReactNode }) {
-    const t = useTranslations("AuthMiddleware");
+function WithoutAuthMiddleware({ children }: { children: React.ReactNode }) {
+    const t = useTranslations("NotAuthMiddleware");
     const router = useRouter();
-    const pathName = usePathname();
 
     const isAuth = useUserStore((state) => state.isAuth);
     const initAuthState = useUserStore((state) => state.initAuthState);
-
     useEffect(() => {
         if (!initAuthState) return;
 
-        if (!isAuth) {
-            router.replace("/login");
+        if (isAuth) {
+            router.replace("/dashboard");
         }
-    }, [isAuth, initAuthState, pathName, router]);
-    if (!initAuthState || !isAuth)
+    }, [isAuth, initAuthState, router]);
+    if (!initAuthState) return null;
+    if (isAuth)
         return (
             <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center text-center space-y-4">
                 <SvgAuth width={200} height={200} />
@@ -31,4 +30,4 @@ function WithAuthMiddleware({ children }: { children: React.ReactNode }) {
     return <>{children}</>;
 }
 
-export default WithAuthMiddleware;
+export default WithoutAuthMiddleware;
