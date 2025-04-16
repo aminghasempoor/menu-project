@@ -13,7 +13,8 @@
   },
   "NavBar": {
     "title": "menulita",
-    "about": "Go to the about page"
+    "about": "Go to the about page",
+    "login" : "Login"
   },
   "Banner": {
     "title": "every choice, a delicious experience",
@@ -41,6 +42,12 @@
   },
   "RecommendedItem" : {
     "name" : "recommended item"
+  },
+  "Loading" : {
+    "title" : "Loading..."
+  },
+  "NotFound" : {
+    "title" : "Not Found..."
   },
   "Sidebar" : {
     "sidebar" : "sidebar",

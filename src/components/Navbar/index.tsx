@@ -1,36 +1,24 @@
 import LanguageSwitcher from "@/core/LanguageToggleButton";
 import { ModeToggle } from "@/core/ThemeToggleButton";
 import { useTranslations } from "next-intl";
+import Link from "next/link";
+import { LogIn } from "lucide-react";
 
 export function Navbar() {
     const t = useTranslations("NavBar");
     return (
-        <div className={"flex justify-between items-center py-6 px-10 z-50"}>
+        <div className={"flex justify-between px-5 items-center py-6 sm:px-10 z-50"}>
             <h3 className="scroll-m-20 capitalize text-2xl tracking-tight lg:text-4xl align-baseline">
                 {t("title")}
                 <small className={"text-neutral-600"}>.</small>
             </h3>
-            {/*<Sheet>*/}
-            {/*    <SheetTrigger>*/}
-            {/*        <AlignCenter />*/}
-            {/*    </SheetTrigger>*/}
-            {/*    <SheetContent>*/}
-            {/*        <SheetHeader>*/}
-            {/*            <SheetTitle>Edit profile</SheetTitle>*/}
-            {/*            <SheetDescription>*/}
-            {/*                Make changes to your profile here. Click save when you're done.*/}
-            {/*            </SheetDescription>*/}
-            {/*        </SheetHeader>*/}
-            {/*        <SheetFooter>*/}
-            {/*            <SheetClose asChild>*/}
-            {/*                <Button type="submit">Save changes</Button>*/}
-            {/*            </SheetClose>*/}
-            {/*        </SheetFooter>*/}
-            {/*    </SheetContent>*/}
-            {/*</Sheet>*/}
-            <div className={"flex gap-x-4 justify-center items-center"}>
+            <div className={"flex gap-x-3 justify-center items-center"}>
                 <ModeToggle />
                 <LanguageSwitcher />
+                <Link className={"text-md flex"} href={"/login"}>
+                    <p className={"p-0 text-sm sm:text-md"}>{t("login")}</p>
+                    <LogIn className={"w-4 h-4 sm:w-5 sm:h-5"} />
+                </Link>
             </div>
         </div>
     );

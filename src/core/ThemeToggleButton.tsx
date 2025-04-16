@@ -17,12 +17,12 @@ export function ModeToggle() {
         <DropdownMenu>
             <DropdownMenuTrigger asChild>
                 {theme === "light" ? (
-                    <Moon className={"cursor-pointer w-5 h-5"} />
+                    <Moon className={"cursor-pointer w-4 h-4 sm:w-5 sm:h-5"} />
                 ) : (
-                    <Sun className={"cursor-pointer w-5 h-5"} />
+                    <Sun className={"cursor-pointer w-4 h-4 sm:w-5 sm:h-5"} />
                 )}
             </DropdownMenuTrigger>
-            <DropdownMenuContent align="center">
+            <DropdownMenuContent className="text-center">
                 <DropdownMenuItem onClick={() => setTheme("light")}>Light</DropdownMenuItem>
                 <DropdownMenuItem onClick={() => setTheme("dark")}>Dark</DropdownMenuItem>
                 <DropdownMenuItem onClick={() => setTheme("system")}>System</DropdownMenuItem>

@@ -29,7 +29,7 @@ export function DashboardSidebar() {
             <SidebarHeaderComponent title={"Logo"} />
             <SidebarContent>
                 <SidebarGroup>
-                    <SidebarGroupLabel className={"text-2xl mb-2"}>{t("global_title")}</SidebarGroupLabel>
+                    <SidebarGroupLabel className={"text-2xl mb-2 capitalize"}>{t("global_title")}</SidebarGroupLabel>
                     <SidebarGroupContent>
                         <SidebarMenu>
                             {items.map((item) => (
