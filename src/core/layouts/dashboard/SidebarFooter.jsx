@@ -12,7 +12,7 @@ const SidebarFooterComponent = () => {
     const t = useTranslations("Sidebar");
     const { logout } = useUserStore();
     const router = useRouter();
-    const requestServer = useRequest({ notification: false, auth : true })
+    const requestServer = useRequest({ notification: false, auth: true });
     const handleLogOut = async () => {
         try {
             await requestServer(GET_LOGOUT_ROUTE, "post");
@@ -21,15 +21,13 @@ const SidebarFooterComponent = () => {
         } catch (error) {
             console.log(error);
         }
-    }
+    };
     return (
         <SidebarFooter>
             <SidebarMenu>
                 <SidebarMenuButton asChild>
                     <Button onClick={handleLogOut}>
-                        <p className={"text-md md:hidden"}>
-                            {t("log_out")}
-                        </p>
+                        <p className={"text-md md:hidden"}>{t("log_out")}</p>
                         <Power />
                     </Button>
                 </SidebarMenuButton>

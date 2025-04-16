@@ -3,7 +3,7 @@ import { DashboardSidebar } from "./DashboardSidebar";
 
 export default function DashboardLayout({ children }) {
     return (
-        <SidebarProvider >
+        <SidebarProvider>
             <DashboardSidebar />
             <SidebarInset>
                 <main>
