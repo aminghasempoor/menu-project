@@ -16,6 +16,11 @@
     "about": "بازگشت به صفحه درباره ما",
     "login" : "ورود"
   },
+  "Items": {
+    "title": "آیتم ها",
+    "about": "Go to the about page",
+    "login" : "Login"
+  },
   "Banner": {
     "title": "هر انتخاب، یه تجربه ی خوشمزه",
     "search": "جستجو...",

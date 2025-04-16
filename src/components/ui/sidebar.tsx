@@ -232,7 +232,7 @@ const SidebarTrigger = React.forwardRef<React.ElementRef<typeof Button>, React.C
         const t = useTranslations("Sidebar");
 
         return (
-            <div className={"flex items-center gap-x-3 px-10 py-4"}>
+            <div className={"flex items-center gap-x-1 sm:gap-x-2 px-10 py-4"}>
                 <Button
                     ref={ref}
                     data-sidebar="trigger"
@@ -247,7 +247,7 @@ const SidebarTrigger = React.forwardRef<React.ElementRef<typeof Button>, React.C
                 >
                     <PanelLeft />
                 </Button>
-                <h1 className="text-md scroll-m-20 sm:text-2xl font-bold tracking-tight capitalize">{t("title")}</h1>
+                <h1 className="text-xl scroll-m-20 sm:text-2xl font-bold tracking-tight capitalize">{t("title")}</h1>
                 <div className="border-t-2 flex-grow ml-2 border-black/75" />
             </div>
         );

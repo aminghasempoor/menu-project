@@ -2,7 +2,7 @@ import LanguageSwitcher from "@/core/LanguageToggleButton";
 import { ModeToggle } from "@/core/ThemeToggleButton";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
-import { LogIn } from "lucide-react";
+import { KeyRound } from "lucide-react";
 
 export function Navbar() {
     const t = useTranslations("NavBar");
@@ -17,7 +17,7 @@ export function Navbar() {
                 <LanguageSwitcher />
                 <Link className={"text-md flex"} href={"/login"}>
                     <p className={"p-0 text-sm sm:text-md"}>{t("login")}</p>
-                    <LogIn className={"w-4 h-4 sm:w-5 sm:h-5"} />
+                    <KeyRound className={"w-4 h-4 sm:w-5 sm:h-5"}/>
                 </Link>
             </div>
         </div>

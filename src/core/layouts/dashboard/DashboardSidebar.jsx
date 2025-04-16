@@ -36,7 +36,7 @@ export function DashboardSidebar() {
                                 <Collapsible key={item.title} defaultOpen className="group/collapsible">
                                     <SidebarMenuItem>
                                         <CollapsibleTrigger asChild>
-                                            <SidebarMenuButton asChild isActive={`${item.url === `/${segments[1]}`}`}>
+                                            <SidebarMenuButton asChild isActive={`${item.url === `/${segments[1]}${segments[2] ? `/${segments[2]}` : ''}`}`}>
                                                 <Link href={item.url}>
                                                     <item.icon />
                                                     <span>{item.title}</span>

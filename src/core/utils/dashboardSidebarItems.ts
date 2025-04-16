@@ -13,7 +13,7 @@ export function getDashboardSidebarItems(t: (key: string) => string) {
         },
         {
             title: t("items"),
-            url: "#",
+            url: "/dashboard/items",
             icon: Calendar,
         },
         {
