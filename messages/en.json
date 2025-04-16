@@ -42,6 +42,10 @@
   "RecommendedItem" : {
     "name" : "recommended item"
   },
+  "Sidebar" : {
+    "sidebar" : "sidebar",
+    "title" : "dashboard"
+  },
   "AuthMiddleware" : {
     "title" : "you don not have permission to this page..."
   },

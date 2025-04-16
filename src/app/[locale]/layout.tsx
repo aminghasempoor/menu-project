@@ -1,7 +1,7 @@
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { notFound } from "next/navigation";
-import "./globals.css";
+import "../globals.css";
 import React from "react";
 import { ThemeProvider } from "@/core/theme-provider";
 import { Toaster } from "@/components/ui/toaster";

@@ -4,6 +4,7 @@ import WithAuthMiddleware from "@/core/middlewares/WithAuthMiddleware";
 import LoadingHardPage from "@/core/LoadingHardPage";
 import { useTranslations } from "next-intl";
 import React from "react";
+import DashboardLayout from "@/core/layouts/dashboard";
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
     const t = useTranslations();
@@ -32,7 +33,9 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
 
     return (
         <WithAuthMiddleware>
-            <div className={"px-10"}>{children}</div>
+            <DashboardLayout>
+                <div className={"px-10"}>{children}</div>
+            </DashboardLayout>
         </WithAuthMiddleware>
     );
 };
