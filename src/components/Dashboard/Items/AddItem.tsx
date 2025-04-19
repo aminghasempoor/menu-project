@@ -25,7 +25,7 @@ export function AddItem() {
             ingredients: "",
             description: "",
             is_recommended: false,
-            image: null,
+            image: undefined,
             category_id: "",
         },
     });
