@@ -1,6 +1,9 @@
 import {
     Dialog,
-    DialogContent, DialogDescription, DialogFooter, DialogTitle,
+    DialogContent,
+    DialogDescription,
+    DialogFooter,
+    DialogTitle,
     DialogTrigger,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
@@ -31,7 +34,7 @@ export function DialogContentComponent() {
             price: "",
             ingredients: "",
             description: "",
-            is_recommended: "",
+            is_recommended: false,
             image: "",
             category_id: "",
         },
@@ -62,8 +65,7 @@ export function DialogContentComponent() {
                 <Form {...form}>
                     <form onSubmit={form.handleSubmit(onSubmit)} className="grid grid-cols-1 md:grid-cols-3 gap-4">
                         <div className="flex flex-col gap-4 py-3 px-10">
-                            <div
-                                className="aspect-square bg-muted rounded-md flex justify-center items-center relative overflow-hidden">
+                            <div className="aspect-square bg-muted rounded-md flex justify-center items-center relative overflow-hidden">
                                 <FormField
                                     control={form.control}
                                     name="name"
@@ -88,7 +90,7 @@ export function DialogContentComponent() {
                                 <FormField
                                     control={form.control}
                                     name="price"
-                                    render={({ field }) => (
+                                    render={({}) => (
                                         <FormItem>
                                             <FormControl>
                                                 <Input placeholder={t("hezar_toman")} />
@@ -105,7 +107,7 @@ export function DialogContentComponent() {
                                 <FormField
                                     control={form.control}
                                     name="ingredients"
-                                    render={({ field }) => (
+                                    render={({}) => (
                                         <FormItem>
                                             <FormControl>
                                                 <Input placeholder={t("ingredient")} />
@@ -119,7 +121,7 @@ export function DialogContentComponent() {
                                 <FormField
                                     control={form.control}
                                     name="description"
-                                    render={({ field }) => (
+                                    render={({}) => (
                                         <FormItem>
                                             <FormControl>
                                                 <Textarea rows={6} placeholder={t("description")} />
@@ -134,7 +136,7 @@ export function DialogContentComponent() {
                                 <FormField
                                     control={form.control}
                                     name="category_id"
-                                    render={({ field }) => (
+                                    render={({}) => (
                                         <FormItem>
                                             <FormControl>
                                                 <Select>
@@ -156,7 +158,7 @@ export function DialogContentComponent() {
                                 <FormField
                                     control={form.control}
                                     name="is_recommended"
-                                    render={({ field }) => (
+                                    render={({}) => (
                                         <FormItem>
                                             <FormControl>
                                                 <Switch id="featured" />
@@ -169,7 +171,9 @@ export function DialogContentComponent() {
                             </div>
                         </div>
                         <DialogFooter className={"items-start"}>
-                            <Button className="capitalize text-md font-semibold" type="submit">{t("add_item")}</Button>
+                            <Button className="capitalize text-md font-semibold" type="submit">
+                                {t("add_item")}
+                            </Button>
                         </DialogFooter>
                     </form>
                 </Form>

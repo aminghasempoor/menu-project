@@ -7,7 +7,6 @@ import React from "react";
 import DashboardLayout from "@/core/layouts/dashboard";
 import { AddItem } from "@/components/Dashboard/Items/AddItem";
 
-
 const Layout = ({ children }: { children: React.ReactNode }) => {
     const t = useTranslations();
     const isAuth = useUserStore((state) => state.isAuth);

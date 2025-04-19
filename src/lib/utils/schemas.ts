@@ -17,7 +17,7 @@ export const RegisterFormSchema = (t: (key: string, params?: Record<string, unkn
             .min(1, { message: t("RegisterPage.Required") })
             .max(11, { message: t("RegisterPage.error_max", { max: 11 }) }),
     });
-export const addItemSchema = (t: (key: string, params?: Record<string, unknown>) => string) =>
+export const addItemSchema = (t: (key: string, params?: TranslationValues) => string) =>
     z.object({
         name: z.string().min(1, { message: t("required") }),
         price: z
@@ -26,10 +26,13 @@ export const addItemSchema = (t: (key: string, params?: Record<string, unknown>)
             .min(1, { message: t("required") }),
         ingredients: z.string().min(1, { message: t("required") }),
         description: z.string().min(1, { message: t("required") }),
-        is_recommended: z.boolean().or(z.string().transform(val => val === "true" || val === "1")).optional(),
+        is_recommended: z
+            .boolean()
+            .or(z.string().transform((val) => val === "true" || val === "1"))
+            .optional(),
         image: z
             .any()
-            .refine(file => file instanceof File || (typeof window !== "undefined" && file instanceof Blob), {
+            .refine((file) => file instanceof File || (typeof window !== "undefined" && file instanceof Blob), {
                 message: t("upload_image"),
             }),
         category_id: z.string().min(1, { message: t("required") }),

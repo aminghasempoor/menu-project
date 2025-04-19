@@ -16,9 +16,9 @@ export function ItemsComponent() {
                 ) : errorFoods ? (
                     <>error</>
                 ) : (
-                    foods.map((food) => (
+                    foods.map((food, index) => (
                         <ItemContent
-                            key={food.id}
+                            key={index}
                             picture={food.image}
                             title={food.name}
                             description={food.description}
