@@ -18,8 +18,13 @@ import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 import { Textarea } from "@/components/ui/textarea";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import ImageUpload from "@/components/Dashboard/Items/ImageUpload ";
-import { DialogContentComponentProps } from "./AddItem";
+import { AddItemFormValues } from "@/components/Dashboard/Items/AddItem";
+import { UseFormReturn } from "react-hook-form";
 
+type DialogContentComponentProps = {
+    form: UseFormReturn<AddItemFormValues>;
+    onSubmit: (values: AddItemFormValues) => void;
+};
 export function DialogContentComponent({ form, onSubmit }: DialogContentComponentProps) {
     const t = useTranslations("Items");
 

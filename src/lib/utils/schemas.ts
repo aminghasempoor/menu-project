@@ -26,15 +26,10 @@ export const addItemSchema = (t: (key: string, params?: TranslationValues) => st
             .min(1, { message: t("required") }),
         ingredients: z.string().min(1, { message: t("required") }),
         description: z.string().min(1, { message: t("required") }),
-        is_recommended: z
-            .boolean()
-            .or(z.string().transform((val) => val === "true" || val === "1"))
-            .optional(),
-        image: z
-            .any()
-            .refine((file) => file instanceof File || (typeof window !== "undefined" && file instanceof Blob), {
-                message: t("upload_image_err"),
-            }),
+        is_recommended: z.boolean().or(z.string().transform((val) => val === "true" || val === "1")),
+        image: z.any().refine((file) => file === null || file instanceof File || file === undefined, {
+            message: t("upload_image_err"),
+        }),
         category_id: z.string().min(1, { message: t("required") }),
     });
 export const OtpFormSchema = (t: (key: string) => string) =>

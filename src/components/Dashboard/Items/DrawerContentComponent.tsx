@@ -11,14 +11,19 @@ import { useTranslations } from "next-intl";
 import { CirclePlus } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import { Form, FormControl, FormField, FormItem, FormMessage } from "@/components/ui/form";
 import ImageUpload from "@/components/Dashboard/Items/ImageUpload ";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Switch } from "@/components/ui/switch";
-import { DialogContentComponentProps } from "./AddItem";
+import { AddItemFormValues } from "./AddItem";
+import { UseFormReturn } from "react-hook-form";
+type DialogContentComponentProps = {
+    form: UseFormReturn<AddItemFormValues>;
+    onSubmit: (values: AddItemFormValues) => void;
+};
 
 export function DrawerContentComponent({ form, onSubmit }: DialogContentComponentProps) {
     const t = useTranslations("Items");
