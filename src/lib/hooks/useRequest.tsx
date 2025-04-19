@@ -9,7 +9,7 @@ import ToastStore from "@/lib/utils/ToastStore";
 
 interface RequestOptions {
     auth?: boolean;
-    data?: Record<string, string>;
+    data?: Record<string, string> | FormData;
     requestOptions?: {
         headers?: Record<string, string>;
     };
@@ -59,11 +59,16 @@ const useRequest = (initOptions: RequestOptions) => {
         _options = { ..._options, ...options };
 
         if (_options.auth) {
+            const isFormData = _options.data instanceof FormData;
             _options = {
                 ..._options,
                 requestOptions: {
                     ...(_options.requestOptions || {}),
-                    headers: { ...(_options.requestOptions?.headers || {}), authorization: `Bearer ${token}` },
+                    headers: {
+                        ...(_options.requestOptions?.headers || {}),
+                        ...(isFormData ? {} : { "Content-Type": "application/json" }), // فقط اگه FormData نیست
+                        authorization: `Bearer ${token}`,
+                    },
                 },
             };
         }
