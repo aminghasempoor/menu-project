@@ -26,6 +26,7 @@
     "ingredient": "Ingredient",
     "description": "Description",
     "choose": "Choose",
+    "name": "Name",
     "choose_category": "Choose Category",
     "set_recommended": "Set As Recommended",
     "required": "Required",

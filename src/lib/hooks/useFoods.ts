@@ -40,7 +40,7 @@ const useFoods = (): UseFoodsResponse => {
         };
 
         fetchProvinces();
-    }, [requestServer]);
+    }, []);
 
     return { foods, loadingFoods, errorFoods };
 };
