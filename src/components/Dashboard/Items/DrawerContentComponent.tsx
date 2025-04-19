@@ -47,7 +47,7 @@ export function DrawerContentComponent({ form, onSubmit }: DialogContentComponen
                 </VisuallyHidden>
                 <Form {...form}>
                     <form onSubmit={form.handleSubmit(onSubmit)}>
-                        <div className="">
+                        <div>
                             <div className="flex flex-col gap-4 py-3 px-10">
                                 <div>
                                     <Label>{t("upload_image")}</Label>
@@ -56,9 +56,6 @@ export function DrawerContentComponent({ form, onSubmit }: DialogContentComponen
                                         name="image"
                                         render={({ field }) => (
                                             <FormItem className={"border rounded-xl"}>
-                                                {/*<FormLabel className="text-sm font-medium text-muted-foreground">*/}
-                                                {/*    {t("upload_image")}*/}
-                                                {/*</FormLabel>*/}
                                                 <FormControl>
                                                     <ImageUpload value={field.value} onChange={field.onChange} />
                                                 </FormControl>
@@ -145,8 +142,8 @@ export function DrawerContentComponent({ form, onSubmit }: DialogContentComponen
                                                             <SelectValue placeholder={t("choose")} />
                                                         </SelectTrigger>
                                                         <SelectContent>
-                                                            <SelectItem value="cat1">دسته ۱</SelectItem>
-                                                            <SelectItem value="cat2">دسته ۲</SelectItem>
+                                                            <SelectItem value="1">دسته ۱</SelectItem>
+                                                            <SelectItem value="2">دسته ۲</SelectItem>
                                                         </SelectContent>
                                                     </Select>
                                                 </FormControl>

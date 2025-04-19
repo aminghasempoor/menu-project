@@ -16,7 +16,7 @@ import React from "react";
 import { useTranslations } from "next-intl";
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 import { Textarea } from "@/components/ui/textarea";
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import { Form, FormControl, FormField, FormItem, FormMessage } from "@/components/ui/form";
 import ImageUpload from "@/components/Dashboard/Items/ImageUpload ";
 import { AddItemFormValues } from "@/components/Dashboard/Items/AddItem";
 import { UseFormReturn } from "react-hook-form";
@@ -50,19 +50,17 @@ export function DialogContentComponent({ form, onSubmit }: DialogContentComponen
                     <form onSubmit={form.handleSubmit(onSubmit)}>
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                             <div className="flex flex-col gap-4 py-3 px-10">
-                                <div className="border rounded-xl">
+                                <div>
+                                    <Label>{t("upload_image")}</Label>
                                     <FormField
                                         control={form.control}
                                         name="image"
                                         render={({ field }) => (
-                                            <FormItem>
-                                                <FormLabel className="text-sm font-medium text-muted-foreground">
-                                                    {t("upload_image")}
-                                                </FormLabel>
+                                            <FormItem className={"border rounded-xl"}>
                                                 <FormControl>
                                                     <ImageUpload value={field.value} onChange={field.onChange} />
                                                 </FormControl>
-                                                <FormMessage />
+                                                <FormMessage className={"px-2"} />
                                             </FormItem>
                                         )}
                                     />
@@ -145,8 +143,8 @@ export function DialogContentComponent({ form, onSubmit }: DialogContentComponen
                                                             <SelectValue placeholder={t("choose")} />
                                                         </SelectTrigger>
                                                         <SelectContent>
-                                                            <SelectItem value="cat1">دسته ۱</SelectItem>
-                                                            <SelectItem value="cat2">دسته ۲</SelectItem>
+                                                            <SelectItem value="1">دسته ۱</SelectItem>
+                                                            <SelectItem value="2">دسته ۲</SelectItem>
                                                         </SelectContent>
                                                     </Select>
                                                 </FormControl>

@@ -21,14 +21,10 @@ export function ItemContent({
                 </div>
                 <div className="w-1/2 px-1 flex flex-col justify-between">
                     <div>
-                        <h4 className="text-start text-sm sm:text-md lg:text-xl font-bold lg:font-semibold tracking-tight pt-2">
-                            {title}
-                        </h4>
-                        <p className="font-pinar text-start text-xs sm:text-sm leading-6 mt-2 line-clamp-2">
-                            {description}
-                        </p>
+                        <h4 className="text-start text-sm sm:text-md lg:text-xl pt-2 line-clamp-1">{title}</h4>
+                        <p className="font-pinar text-start text-xs sm:text-sm line-clamp-2">{description}</p>
                     </div>
-                    <h3 className="text-sm sm:text-md sm:font-semibold text-left mt-2 pb-2 px-2">{price}</h3>
+                    <h3 className="text-sm sm:text-md text-left mt-2 pb-2 px-2">{price}</h3>
                 </div>
             </CardContent>
         </Card>
