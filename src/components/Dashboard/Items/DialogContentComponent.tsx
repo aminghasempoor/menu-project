@@ -22,7 +22,6 @@ import { addItemSchema } from "@/lib/utils/schemas";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { z } from "zod";
 import ImageUpload from "@/components/Dashboard/Items/ImageUpload ";
-import UploadSystem from "@/core/UploadSystem";
 
 type addItemSchema = z.infer<ReturnType<typeof addItemSchema>>;
 
@@ -65,7 +64,7 @@ export function DialogContentComponent() {
                     <DialogDescription>{t("add_item")}</DialogDescription>
                 </VisuallyHidden>
                 <Form {...form}>
-                    <form onSubmit={form.handleSubmit(onSubmit)} >
+                    <form onSubmit={form.handleSubmit(onSubmit)}>
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                             <div className="flex flex-col gap-4 py-3 px-10">
                                 <div className="border rounded-xl">
@@ -90,7 +89,7 @@ export function DialogContentComponent() {
                                     <FormField
                                         control={form.control}
                                         name="price"
-                                        render={({field}) => (
+                                        render={({ field }) => (
                                             <FormItem>
                                                 <FormControl>
                                                     <Input placeholder={t("hezar_toman")} onChange={field.onChange} />
@@ -107,10 +106,10 @@ export function DialogContentComponent() {
                                     <FormField
                                         control={form.control}
                                         name="name"
-                                        render={({field}) => (
+                                        render={({ field }) => (
                                             <FormItem>
                                                 <FormControl>
-                                                    <Input placeholder={t("name")}  onChange={field.onChange}/>
+                                                    <Input placeholder={t("name")} onChange={field.onChange} />
                                                 </FormControl>
                                                 <FormMessage />
                                             </FormItem>
@@ -122,7 +121,7 @@ export function DialogContentComponent() {
                                     <FormField
                                         control={form.control}
                                         name="ingredients"
-                                        render={({field}) => (
+                                        render={({ field }) => (
                                             <FormItem>
                                                 <FormControl>
                                                     <Input placeholder={t("ingredient")} onChange={field.onChange} />
@@ -136,10 +135,14 @@ export function DialogContentComponent() {
                                     <FormField
                                         control={form.control}
                                         name="description"
-                                        render={({field}) => (
+                                        render={({ field }) => (
                                             <FormItem>
                                                 <FormControl>
-                                                    <Textarea rows={6} placeholder={t("description")} onChange={field.onChange}/>
+                                                    <Textarea
+                                                        rows={6}
+                                                        placeholder={t("description")}
+                                                        onChange={field.onChange}
+                                                    />
                                                 </FormControl>
                                                 <FormMessage />
                                             </FormItem>
@@ -151,7 +154,7 @@ export function DialogContentComponent() {
                                     <FormField
                                         control={form.control}
                                         name="category_id"
-                                        render={({field}) => (
+                                        render={({ field }) => (
                                             <FormItem>
                                                 <FormControl>
                                                     <Select onValueChange={field.onChange}>
@@ -173,7 +176,7 @@ export function DialogContentComponent() {
                                     <FormField
                                         control={form.control}
                                         name="is_recommended"
-                                        render={({field}) => (
+                                        render={({ field }) => (
                                             <FormItem>
                                                 <FormControl>
                                                     <Switch id="featured" onCheckedChange={field.onChange} />

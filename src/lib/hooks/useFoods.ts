@@ -40,6 +40,7 @@ const useFoods = (): UseFoodsResponse => {
         };
 
         fetchProvinces();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     return { foods, loadingFoods, errorFoods };

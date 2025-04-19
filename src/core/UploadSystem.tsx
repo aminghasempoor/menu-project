@@ -1,14 +1,15 @@
-import { useRef } from "react";
+import React, { useRef } from "react";
 import { Card } from "@/components/ui/card";
 import { Plus } from "lucide-react";
+interface UploadSystemProps {
+    selectedImage: string | null;
+    handleUploadChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+    fileType: string | null;
+    showAddIcon: boolean;
+}
 
-const UploadSystem = ({
-                          selectedImage,
-                          handleUploadChange,
-                          fileType,
-                          showAddIcon,
-                      }) => {
-    const fileInputRef = useRef(null);
+const UploadSystem: React.FC<UploadSystemProps> = ({ selectedImage, handleUploadChange, fileType, showAddIcon }) => {
+    const fileInputRef = useRef<HTMLInputElement>(null);
 
     const handleClick = () => {
         fileInputRef.current?.click();
@@ -42,13 +43,7 @@ const UploadSystem = ({
                 )
             )}
 
-            <input
-                type="file"
-                accept="image/*"
-                className="hidden"
-                onChange={handleUploadChange}
-                ref={fileInputRef}
-            />
+            <input type="file" accept="image/*" className="hidden" onChange={handleUploadChange} ref={fileInputRef} />
         </div>
     );
 };

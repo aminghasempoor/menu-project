@@ -1,11 +1,17 @@
 import React, { useEffect, useState } from "react";
 import UploadSystem from "@/core/UploadSystem";
 
-const ImageUpload = ({ value, onChange }) => {
-    const [beforeImg, setBeforeImg] = useState(value ? value : null);
-    const [beforeFileType, setBeforeFileType] = useState(value ? "image/" : null);
-    const [beforeFileName, setBeforeFileName] = useState(null);
-    const [showBeforeImage, setShowBeforeImage] = useState(!value);
+interface ImageUploadProps {
+    value: string | File | null;
+    onChange: (file: File) => void;
+}
+
+const ImageUpload: React.FC<ImageUploadProps> = ({ value, onChange }) => {
+    const [beforeImg, setBeforeImg] = useState<string | null>(
+        value ? (typeof value === "string" ? value : URL.createObjectURL(value)) : null
+    );
+    const [beforeFileType, setBeforeFileType] = useState<string | null>(value ? "image/" : null);
+    const [showBeforeImage, setShowBeforeImage] = useState<boolean>(!value);
 
     useEffect(() => {
         if (value) {
@@ -20,14 +26,12 @@ const ImageUpload = ({ value, onChange }) => {
         }
     }, [value]);
 
-    const handleFileChange = (event) => {
+    const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const uploadedFile = event.target?.files?.[0];
         if (uploadedFile) {
             const fileType = uploadedFile.type;
-            const fileName = uploadedFile.name;
             setBeforeImg(URL.createObjectURL(uploadedFile));
             setBeforeFileType(fileType);
-            setBeforeFileName(fileName);
             onChange(uploadedFile);
             setShowBeforeImage(false);
         }
@@ -38,12 +42,10 @@ const ImageUpload = ({ value, onChange }) => {
             selectedImage={beforeImg}
             handleUploadChange={handleFileChange}
             fileType={beforeFileType}
-            fileName={beforeFileName}
-            setSelectedImage={setBeforeImg}
             // imageSize={[250, 150]}
-            setShowAddIcon={setShowBeforeImage}
             showAddIcon={showBeforeImage}
         />
     );
 };
+
 export default ImageUpload;
