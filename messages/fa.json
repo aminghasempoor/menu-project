@@ -22,6 +22,7 @@
     "add_item": "افزودن آیتم",
     "hezar_toman": "هزار تومان",
     "upload_image": "بارگذاری تصویر",
+    "upload_image_err": "تصویر ضروریست",
     "price": "قیمت",
     "name": "نام",
     "ingredient": "محتویات",
@@ -29,7 +30,7 @@
     "choose": "انتخاب کنید",
     "choose_category": "انتخاب دسته بندی",
     "set_recommended": "تنظیم به عنوان آیتم ویژه",
-    "required": "Required",
+    "required": "ضروری",
     "error_max": "error_max",
     "price_should_be_number": "قیمت باید عدد باشد",
     "login" : "ورود"

@@ -33,7 +33,7 @@ export const addItemSchema = (t: (key: string, params?: TranslationValues) => st
         image: z
             .any()
             .refine((file) => file instanceof File || (typeof window !== "undefined" && file instanceof Blob), {
-                message: t("upload_image"),
+                message: t("upload_image_err"),
             }),
         category_id: z.string().min(1, { message: t("required") }),
     });

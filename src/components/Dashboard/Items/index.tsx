@@ -9,7 +9,7 @@ export function ItemsComponent() {
     const { foods, loadingFoods, errorFoods } = useFoods();
     return (
         <>
-            <h1 className="text-xl scroll-m-20 sm:text-2xl font-bold tracking-tight capitalize">{t("title")}</h1>
+            <h1 className="text-xl scroll-m-20 sm:text-2xl font-bold tracking-tight capitalize py-2">{t("title")}</h1>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {loadingFoods ? (
                     <SkeletonCard />

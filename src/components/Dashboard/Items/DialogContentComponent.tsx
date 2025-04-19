@@ -16,40 +16,18 @@ import React from "react";
 import { useTranslations } from "next-intl";
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 import { Textarea } from "@/components/ui/textarea";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { addItemSchema } from "@/lib/utils/schemas";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
-import { z } from "zod";
 import ImageUpload from "@/components/Dashboard/Items/ImageUpload ";
+import { DialogContentComponentProps } from "./AddItem";
 
-type addItemSchema = z.infer<ReturnType<typeof addItemSchema>>;
-
-export function DialogContentComponent() {
+export function DialogContentComponent({form, onSubmit} : DialogContentComponentProps) {
     const t = useTranslations("Items");
-    const form = useForm({
-        resolver: zodResolver(addItemSchema(t)),
-        mode: "all",
-        defaultValues: {
-            name: "",
-            price: "",
-            ingredients: "",
-            description: "",
-            is_recommended: false,
-            image: "",
-            category_id: "",
-        },
-    });
-
-    async function onSubmit(values: addItemSchema) {
-        console.log(values);
-    }
 
     return (
         <Dialog>
             <DialogTrigger asChild>
                 <Button
-                    variant="outline"
+                    variant="secondary"
                     className="fixed bottom-4 left-1/2 -translate-x-1/2 z-50 capitalize text-xl font-semibold"
                 >
                     <div className="py-4 px-2 flex items-center justify-center gap-x-3">

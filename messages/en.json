@@ -22,6 +22,7 @@
     "add_item": "add item",
     "hezar_toman": "Hezar Toman",
     "upload_image": "Upload Image",
+    "upload_image_err": "Image Required",
     "price": "Price",
     "ingredient": "Ingredient",
     "description": "Description",
