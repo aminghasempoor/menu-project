@@ -10,6 +10,7 @@ import {
     SidebarMenuItem,
     SidebarMenuSub,
     SidebarMenuSubItem,
+    useSidebar
 } from "@/components/ui/sidebar";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
@@ -24,6 +25,7 @@ export function DashboardSidebar() {
     const items = getDashboardSidebarItems(t);
     const pathname = usePathname();
     const segments = pathname.split("/").filter(Boolean);
+    const { toggleSidebar } = useSidebar();
     return (
         <Sidebar collapsible="icon" variant="inset" side={`${segments[0] === "en" ? "left" : "right"}`}>
             <SidebarHeaderComponent title={"Logo"} />
@@ -40,7 +42,7 @@ export function DashboardSidebar() {
                                                 asChild
                                                 isActive={`${item.url === `/${segments[1]}${segments[2] ? `/${segments[2]}` : ""}`}`}
                                             >
-                                                <Link href={item.url}>
+                                                <Link onClick={toggleSidebar} href={item.url}>
                                                     <item.icon />
                                                     <span>{item.title}</span>
                                                 </Link>

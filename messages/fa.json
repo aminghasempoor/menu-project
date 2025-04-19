@@ -19,7 +19,19 @@
   "Items": {
     "title": "آیتم ها",
     "about": "Go to the about page",
-    "login" : "Login"
+    "add_item": "افزودن آیتم",
+    "hezar_toman": "هزار تومان",
+    "upload_image": "بارگذاری تصویر",
+    "price": "قیمت",
+    "ingredient": "محتویات",
+    "description": "توضیحات",
+    "choose": "انتخاب کنید",
+    "choose_category": "انتخاب دسته بندی",
+    "set_recommended": "تنظیم به عنوان آیتم ویژه",
+    "required": "Required",
+    "error_max": "error_max",
+    "price_should_be_number": "قیمت باید عدد باشد",
+    "login" : "ورود"
   },
   "Banner": {
     "title": "هر انتخاب، یه تجربه ی خوشمزه",

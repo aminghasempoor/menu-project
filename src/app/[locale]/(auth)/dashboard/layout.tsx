@@ -5,6 +5,8 @@ import LoadingHardPage from "@/core/LoadingHardPage";
 import { useTranslations } from "next-intl";
 import React from "react";
 import DashboardLayout from "@/core/layouts/dashboard";
+import { AddItem } from "@/components/Dashboard/Items/AddItem";
+
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
     const t = useTranslations();
@@ -35,6 +37,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
         <WithAuthMiddleware>
             <DashboardLayout>
                 <div className={"px-10"}>{children}</div>
+                <AddItem />
             </DashboardLayout>
         </WithAuthMiddleware>
     );

@@ -17,6 +17,23 @@ export const RegisterFormSchema = (t: (key: string, params?: Record<string, unkn
             .min(1, { message: t("RegisterPage.Required") })
             .max(11, { message: t("RegisterPage.error_max", { max: 11 }) }),
     });
+export const addItemSchema = (t: (key: string, params?: Record<string, unknown>) => string) =>
+    z.object({
+        name: z.string().min(1, { message: t("required") }),
+        price: z
+            .string()
+            .regex(/^\d+$/, { message: t("price_should_be_number") })
+            .min(1, { message: t("required") }),
+        ingredients: z.string().min(1, { message: t("required") }),
+        description: z.string().min(1, { message: t("required") }),
+        is_recommended: z.boolean().or(z.string().transform(val => val === "true" || val === "1")).optional(),
+        image: z
+            .any()
+            .refine(file => file instanceof File || (typeof window !== "undefined" && file instanceof Blob), {
+                message: t("upload_image"),
+            }),
+        category_id: z.string().min(1, { message: t("required") }),
+    });
 export const OtpFormSchema = (t: (key: string) => string) =>
     z.object({
         pin: z.string().min(5, {

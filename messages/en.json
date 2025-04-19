@@ -19,6 +19,18 @@
   "Items": {
     "title": "Items",
     "about": "Go to the about page",
+    "add_item": "add item",
+    "hezar_toman": "Hezar Toman",
+    "upload_image": "Upload Image",
+    "price": "Price",
+    "ingredient": "Ingredient",
+    "description": "Description",
+    "choose": "Choose",
+    "choose_category": "Choose Category",
+    "set_recommended": "Set As Recommended",
+    "required": "Required",
+    "price_should_be_number": "Price Should Be Number",
+    "error_max": "error_max",
     "login" : "Login"
   },
   "Banner": {
