@@ -20,7 +20,7 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import ImageUpload from "@/components/Dashboard/Items/ImageUpload ";
 import { DialogContentComponentProps } from "./AddItem";
 
-export function DialogContentComponent({form, onSubmit} : DialogContentComponentProps) {
+export function DialogContentComponent({ form, onSubmit }: DialogContentComponentProps) {
     const t = useTranslations("Items");
 
     return (

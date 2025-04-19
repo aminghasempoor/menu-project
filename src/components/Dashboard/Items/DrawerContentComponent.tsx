@@ -20,7 +20,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Switch } from "@/components/ui/switch";
 import { DialogContentComponentProps } from "./AddItem";
 
-export function DrawerContentComponent({form, onSubmit} : DialogContentComponentProps) {
+export function DrawerContentComponent({ form, onSubmit }: DialogContentComponentProps) {
     const t = useTranslations("Items");
     return (
         <Drawer>
