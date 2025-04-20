@@ -18,7 +18,7 @@ export function getDashboardSidebarItems(t: (key: string) => string) {
         },
         {
             title: t("category"),
-            url: "#",
+            url: "/dashboard/categories",
             icon: WalletCards,
         },
         {

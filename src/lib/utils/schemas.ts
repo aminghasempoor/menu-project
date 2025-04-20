@@ -32,6 +32,13 @@ export const addItemSchema = (t: (key: string, params?: TranslationValues) => st
         }),
         category_id: z.string().min(1, { message: t("required") }),
     });
+export const addCategorySchema = (t: (key: string, params?: TranslationValues) => string) =>
+    z.object({
+        name: z.string().min(1, { message: t("required") }),
+        image: z.any().refine((file) => file instanceof File, {
+            message: t("upload_image_err"),
+        }),
+    });
 export const OtpFormSchema = (t: (key: string) => string) =>
     z.object({
         pin: z.string().min(5, {
