@@ -9,7 +9,7 @@ import ToastStore from "@/lib/utils/ToastStore";
 
 interface RequestOptions {
     auth?: boolean;
-    data?: Record<string, string>;
+    data?: Record<string, string> | FormData;
     requestOptions?: {
         headers?: Record<string, string>;
     };
@@ -26,6 +26,7 @@ interface RequestOptions {
         };
     };
 }
+
 const defaultOptions: RequestOptions = {
     auth: false,
     data: {},
@@ -45,28 +46,38 @@ const defaultOptions: RequestOptions = {
         },
     },
 };
+
 const useRequest = (initOptions: RequestOptions) => {
     const t = useTranslations();
     const { token, clearToken } = useUserStore();
     const { pushToastList, dismissToastList } = ToastStore();
+
+    // Merge options with default options
     let _options = { ...defaultOptions, ...initOptions };
 
-    function requestServer(url = "", method = "get", options: RequestOptions) {
+    function requestServer(url: string, method: string = "get", options?: RequestOptions) {
         _options = { ..._options, ...options };
-        if (_options.auth)
+
+        if (_options.auth) {
+            const isFormData = _options.data instanceof FormData;
             _options = {
                 ..._options,
                 requestOptions: {
                     ...(_options.requestOptions || {}),
-                    headers: { ...(_options.requestOptions?.headers || {}), authorization: `Bearer ${token}` },
+                    headers: {
+                        ...(_options.requestOptions?.headers || {}),
+                        ...(isFormData ? {} : { "Content-Type": "application/json" }), // فقط اگه FormData نیست
+                        authorization: `Bearer ${token}`,
+                    },
                 },
             };
+        }
 
         return new Promise((resolve) => {
             if (
-                (_options.notification ?? true) && // Ensures notification is always boolean
-                (_options.failed?.notification?.show ?? true) && // Ensures failed.notification.show is always boolean
-                (_options.pending ?? true) // Ensures pending is always boolean
+                (_options.notification ?? true) &&
+                (_options.failed?.notification?.show ?? true) &&
+                (_options.pending ?? true)
             ) {
                 dismissToastList(["pending", "warning", "error", "success"]);
                 Notifications(pushToastList, "pending", t);
@@ -108,6 +119,8 @@ const useRequest = (initOptions: RequestOptions) => {
                 });
         });
     }
+
     return requestServer;
 };
+
 export default useRequest;

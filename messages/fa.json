@@ -13,7 +13,27 @@
   },
   "NavBar": {
     "title": "منولیتا",
-    "about": "بازگشت به صفحه درباره ما"
+    "about": "بازگشت به صفحه درباره ما",
+    "login" : "ورود"
+  },
+  "Items": {
+    "title": "آیتم ها",
+    "about": "Go to the about page",
+    "add_item": "افزودن آیتم",
+    "hezar_toman": "هزار تومان",
+    "upload_image": "بارگذاری تصویر",
+    "upload_image_err": "تصویر ضروریست",
+    "price": "قیمت",
+    "name": "نام",
+    "ingredient": "محتویات",
+    "description": "توضیحات",
+    "choose": "انتخاب کنید",
+    "choose_category": "انتخاب دسته بندی",
+    "set_recommended": "تنظیم به عنوان آیتم ویژه",
+    "required": "ضروری",
+    "error_max": "error_max",
+    "price_should_be_number": "قیمت باید عدد باشد",
+    "login" : "ورود"
   },
   "Banner": {
     "title": "هر انتخاب، یه تجربه ی خوشمزه",
@@ -33,6 +53,25 @@
   },
   "AuthMiddleware" : {
     "title" : "شما دسترسی لازم به این صفحه را ندارید..."
+  },
+  "Sidebar" : {
+    "sidebar" : "داشبورد",
+    "title" : "داشبورد",
+    "home": "خانه",
+    "profile": "پروفایل",
+    "items": "آیتم ها",
+    "category": "دسته بندی ها",
+    "log_out": "خروج",
+    "settings": "تنظیمات",
+    "application": "برنامه",
+    "global_title": "منولیتا",
+    "footer": "پاورقی"
+  },
+  "Loading" : {
+    "title" : "درحال احراز هویت..."
+  },
+  "NotFound" : {
+    "title" : "صفحه مورد نظر یافت نشد..."
   },
   "NotAuthMiddleware" : {
     "title" : "شما دسترسی لازم به این صفحه را دارید و نیاز به ورود مجدد نیست..."

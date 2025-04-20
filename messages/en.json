@@ -13,7 +13,27 @@
   },
   "NavBar": {
     "title": "menulita",
-    "about": "Go to the about page"
+    "about": "Go to the about page",
+    "login" : "Login"
+  },
+  "Items": {
+    "title": "Items",
+    "about": "Go to the about page",
+    "add_item": "add item",
+    "hezar_toman": "Hezar Toman",
+    "upload_image": "Upload Image",
+    "upload_image_err": "Image Required",
+    "price": "Price",
+    "ingredient": "Ingredient",
+    "description": "Description",
+    "choose": "Choose",
+    "name": "Name",
+    "choose_category": "Choose Category",
+    "set_recommended": "Set As Recommended",
+    "required": "Required",
+    "price_should_be_number": "Price Should Be Number",
+    "error_max": "error_max",
+    "login" : "Login"
   },
   "Banner": {
     "title": "every choice, a delicious experience",
@@ -41,6 +61,25 @@
   },
   "RecommendedItem" : {
     "name" : "recommended item"
+  },
+  "Loading" : {
+    "title" : "Loading..."
+  },
+  "NotFound" : {
+    "title" : "Not Found..."
+  },
+  "Sidebar" : {
+    "sidebar" : "sidebar",
+    "title" : "dashboard",
+    "home": "Home",
+    "profile": "Profile",
+    "items": "Items",
+    "category": "Category",
+    "log_out": "Log Out",
+    "settings": "Settings",
+    "application": "Application",
+    "global_title": "menulita",
+    "footer": "Footer"
   },
   "AuthMiddleware" : {
     "title" : "you don not have permission to this page..."

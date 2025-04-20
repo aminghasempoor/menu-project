@@ -1,7 +1,7 @@
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { notFound } from "next/navigation";
-import "./globals.css";
+import "../globals.css";
 import React from "react";
 import { ThemeProvider } from "@/core/theme-provider";
 import { Toaster } from "@/components/ui/toaster";
@@ -29,6 +29,12 @@ interface LocaleLayoutProps {
     }>;
     children: React.ReactNode;
 }
+export const metadata = {
+    title: {
+        template: "%s | منولیتا",
+        default: "منولیتا",
+    },
+};
 
 export default async function LocaleLayout(props: LocaleLayoutProps) {
     const { locale } = await props.params;

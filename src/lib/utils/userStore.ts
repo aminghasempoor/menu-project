@@ -57,6 +57,13 @@ const useUserStore = create<UserStoreState>((set, get) => ({
         set({ initAuthState: true });
     },
 
+    logout: () => {
+        get().clearUser();
+        get().changeAuthState(false);
+        get().changeInitAuth(true);
+        get().clearToken();
+    },
+
     getUser: async () => {
         const token = get().token;
         try {
