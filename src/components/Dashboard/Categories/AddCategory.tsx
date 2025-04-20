@@ -8,7 +8,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { addCategorySchema } from "@/lib/utils/schemas";
 import { useTranslations } from "next-intl";
 import { z } from "zod";
-import { CREATE_ITEM } from "@/lib/utils/apiRoutes";
+import { CREATE_CATEGORIES } from "@/lib/utils/apiRoutes";
 import useRequest from "@/lib/hooks/useRequest";
 export type AddCategoryFormValues = z.infer<ReturnType<typeof addCategorySchema>>;
 
@@ -33,8 +33,9 @@ export function AddCategory() {
         console.log(values);
         const formData = new FormData();
         formData.append("name", values.name);
+        formData.append("image", values.image);
         try {
-            const response = (await requestServer(CREATE_ITEM, "post", {
+            const response = (await requestServer(CREATE_CATEGORIES, "post", {
                 data: formData,
                 success: {
                     notification: { show: true },

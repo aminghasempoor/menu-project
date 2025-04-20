@@ -6,7 +6,7 @@ import { CategoryContent } from "./CategoryContent";
 
 export function CategoryComponent() {
     const t = useTranslations("Categories");
-    const { categories, loadingCategories, errorCategories } = useCategories()
+    const { categories, loadingCategories, errorCategories } = useCategories();
     return (
         <>
             <h1 className="text-xl scroll-m-20 sm:text-2xl font-bold tracking-tight capitalize py-2">{t("title")}</h1>
@@ -16,13 +16,11 @@ export function CategoryComponent() {
                 ) : errorCategories ? (
                     <>error</>
                 ) : (
-                    categories.slice(0, 10).map((category, index) => (
-                        <CategoryContent
-                            key={index}
-                            picture={category.image}
-                            title={category.name}
-                        />
-                    ))
+                    categories
+                        .slice(0, 10)
+                        .map((category, index) => (
+                            <CategoryContent key={index} picture={category.image} title={category.name} />
+                        ))
                 )}
             </div>
         </>
