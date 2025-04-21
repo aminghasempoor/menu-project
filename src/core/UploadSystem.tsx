@@ -19,7 +19,7 @@ const UploadSystem: React.FC<UploadSystemProps> = ({ selectedImage, handleUpload
         <div className="w-full">
             {showAddIcon ? (
                 <div
-                    className="flex flex-col items-center justify-center p-3 h-[150px] cursor-pointer"
+                    className="flex flex-col items-center justify-center p-3 h-[100px] cursor-pointer"
                     onClick={handleClick}
                 >
                     <Plus className="text-gray-400 w-6 h-6" />
