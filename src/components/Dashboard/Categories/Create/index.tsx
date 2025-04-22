@@ -5,49 +5,37 @@ import { DialogContentComponent } from "./DialogContentComponent";
 import { DrawerContentComponent } from "./DrawerContentComponent";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { addItemSchema } from "@/lib/utils/schemas";
+import { addCategorySchema } from "@/lib/utils/schemas";
 import { useTranslations } from "next-intl";
 import { z } from "zod";
-import { CREATE_ITEM } from "@/lib/utils/apiRoutes";
+import { CREATE_CATEGORIES } from "@/lib/utils/apiRoutes";
 import useRequest from "@/lib/hooks/useRequest";
-export type AddItemFormValues = z.infer<ReturnType<typeof addItemSchema>>;
+export type AddCategoryFormValues = z.infer<ReturnType<typeof addCategorySchema>>;
 
-export function AddItem() {
-    const t = useTranslations("Items");
+export function Create() {
+    const t = useTranslations("Categories");
     const requestServer = useRequest({ notification: true, auth: true });
     const isDesktop = useMediaQuery("(min-width: 768px)");
 
-    const schema = addItemSchema(t);
-    type AddItemFormValues = z.infer<typeof schema>;
+    const schema = addCategorySchema(t);
+    type AddCategoryFormValues = z.infer<typeof schema>;
 
-    const form = useForm<AddItemFormValues>({
+    const form = useForm<AddCategoryFormValues>({
         resolver: zodResolver(schema),
         mode: "all",
         defaultValues: {
             name: "",
-            price: "",
-            ingredients: "",
-            description: "",
-            is_recommended: false,
             image: undefined,
-            category_id: "",
         },
     });
 
-    async function onSubmit(values: AddItemFormValues) {
+    async function onSubmit(values: AddCategoryFormValues) {
         console.log(values);
         const formData = new FormData();
-        Object.entries(values).forEach(([key, value]) => {
-            if (value instanceof File) {
-                formData.append(key, value);
-            } else if (typeof value === "boolean") {
-                formData.append(key, value ? "1" : "0");
-            } else if (value !== undefined && value !== null) {
-                formData.append(key, value);
-            }
-        });
+        formData.append("name", values.name);
+        formData.append("image", values.image);
         try {
-            const response = (await requestServer(CREATE_ITEM, "post", {
+            const response = (await requestServer(CREATE_CATEGORIES, "post", {
                 data: formData,
                 success: {
                     notification: { show: true },

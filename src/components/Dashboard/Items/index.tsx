@@ -1,6 +1,6 @@
 "use client";
 import { useTranslations } from "next-intl";
-import { ItemContent } from "@/components/Dashboard/Items/ItemContent";
+import { ItemContent } from "./ItemContent";
 import useFoods from "@/lib/hooks/useFoods";
 import { SkeletonCard } from "@/core/SkeletonCard";
 

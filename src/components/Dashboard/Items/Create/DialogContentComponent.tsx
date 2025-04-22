@@ -1,53 +1,54 @@
 import {
-    Drawer,
-    DrawerContent,
-    DrawerDescription,
-    DrawerFooter,
-    DrawerTitle,
-    DrawerTrigger,
-} from "@/components/ui/drawer";
-import React from "react";
-import { useTranslations } from "next-intl";
-import { CirclePlus } from "lucide-react";
+    Dialog,
+    DialogContent,
+    DialogDescription,
+    DialogFooter,
+    DialogTitle,
+    DialogTrigger,
+} from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
-import { Form, FormControl, FormField, FormItem, FormMessage } from "@/components/ui/form";
-import ImageUpload from "@/components/Dashboard/Items/ImageUpload ";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Switch } from "@/components/ui/switch";
-import { AddItemFormValues } from "./AddItem";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { CirclePlus } from "lucide-react";
+import React from "react";
+import { useTranslations } from "next-intl";
+import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
+import { Textarea } from "@/components/ui/textarea";
+import { Form, FormControl, FormField, FormItem, FormMessage } from "@/components/ui/form";
+import ImageUpload from "./ImageUpload";
+import { AddItemFormValues } from "@/components/Dashboard/Items/Create/index";
 import { UseFormReturn } from "react-hook-form";
+
 type DialogContentComponentProps = {
     form: UseFormReturn<AddItemFormValues>;
     onSubmit: (values: AddItemFormValues) => void;
 };
-
-export function DrawerContentComponent({ form, onSubmit }: DialogContentComponentProps) {
+export function DialogContentComponent({ form, onSubmit }: DialogContentComponentProps) {
     const t = useTranslations("Items");
+
     return (
-        <Drawer>
-            <DrawerTrigger asChild>
+        <Dialog>
+            <DialogTrigger asChild>
                 <Button
                     variant="secondary"
                     className="fixed bottom-4 left-1/2 -translate-x-1/2 z-50 capitalize text-xl font-semibold"
                 >
-                    <div className={"py-2 flex items-center justify-center gap-x-3"}>
+                    <div className="py-4 px-2 flex items-center justify-center gap-x-3">
                         {t("add_item")}
                         <CirclePlus />
                     </div>
                 </Button>
-            </DrawerTrigger>
-            <DrawerContent className="w-full max-w-md mx-auto rounded-t-3xl pb-6">
+            </DialogTrigger>
+            <DialogContent className="sm:max-w-[900px]">
                 <VisuallyHidden>
-                    <DrawerTitle>{t("add_item")}</DrawerTitle>
-                    <DrawerDescription>{t("add_item")}</DrawerDescription>
+                    <DialogTitle>{t("add_item")}</DialogTitle>
+                    <DialogDescription>{t("add_item")}</DialogDescription>
                 </VisuallyHidden>
                 <Form {...form}>
                     <form onSubmit={form.handleSubmit(onSubmit)}>
-                        <div>
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                             <div className="flex flex-col gap-4 py-3 px-10">
                                 <div>
                                     <Label>{t("upload_image")}</Label>
@@ -80,7 +81,7 @@ export function DrawerContentComponent({ form, onSubmit }: DialogContentComponen
                                     />
                                 </div>
                             </div>
-                            <div className="flex flex-col gap-2 px-10">
+                            <div className="md:col-span-2 flex flex-col gap-4 py-3 px-10">
                                 <div>
                                     <Label>{t("name")}</Label>
                                     <FormField
@@ -169,14 +170,14 @@ export function DrawerContentComponent({ form, onSubmit }: DialogContentComponen
                                 </div>
                             </div>
                         </div>
-                        <DrawerFooter>
+                        <DialogFooter className={"items-start"}>
                             <Button className="capitalize text-md font-semibold" type="submit">
                                 {t("add_item")}
                             </Button>
-                        </DrawerFooter>
+                        </DialogFooter>
                     </form>
                 </Form>
-            </DrawerContent>
-        </Drawer>
+            </DialogContent>
+        </Dialog>
     );
 }

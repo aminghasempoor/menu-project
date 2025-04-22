@@ -14,9 +14,9 @@ import React from "react";
 import { useTranslations } from "next-intl";
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 import { Form, FormControl, FormField, FormItem, FormMessage } from "@/components/ui/form";
-import ImageUpload from "@/components/Dashboard/Items/ImageUpload ";
 import { UseFormReturn } from "react-hook-form";
-import { AddCategoryFormValues } from "./AddCategory";
+import { AddCategoryFormValues } from "./index";
+import ImageUpload from "./ImageUpload";
 
 type DialogContentComponentProps = {
     form: UseFormReturn<AddCategoryFormValues>;
