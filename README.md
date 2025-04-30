@@ -27,7 +27,7 @@ pnpm dev
 ```bash
 src/
 ├───app/
-│   └───[locale]/           # پشتیبانی از زبان‌های مختلف (مثلاً fa, en)
+│   └───[locale]/           # پشتیبانی از زبان‌های مختلف (fa, en)
 │       └───(auth)/         # مسیرهای احراز هویت
 │           ├───login/      # صفحه ورود
 │           └───dashboard/  # پنل مدیریتی
@@ -46,19 +46,15 @@ src/
 │   └───ui/                 # اجزای UI سفارشی شده (shadcn)
 ├───core/
 │   ├───components/
-│   │   ├───DataTable/      # جدول داده با قابلیت محلی‌سازی
-│   │   │   └───localization/
-│   │   │       └───fa/
 │   │   ├───notifications/
 │   │   └───svgs/
 │   ├───layouts/            # چیدمان‌ها
 │   │   └───dashboard/
 │   ├───middlewares/
 │   └───utils/
-├───fonts/                  # فونت‌های سفارشی (مثلاً Sahel و Shabnam)
+├───fonts/                  # فونت‌های سفارشی
 ├───hooks/                  # هوک‌های عمومی
 ├───i18n/                   # تنظیمات و فایل‌های ترجمه
 └───lib/
-    ├───contexts/           # React Contexts
     ├───hooks/              # هوک‌های خاص کتابخانه‌ها
     └───utils/              # توابع کمکی عمومی
