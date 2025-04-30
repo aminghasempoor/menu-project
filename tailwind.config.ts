@@ -20,6 +20,11 @@ const config: Config = {
     				'var(--font-pinar)'
     			]
     		},
+			screens : {
+				'tablet': '500px',
+				'tablet_big': '600px',
+				'desktop': '1024px',
+			},
     		colors: {
     			background: 'hsl(var(--background))',
     			foreground: 'hsl(var(--foreground))',

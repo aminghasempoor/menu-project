@@ -47,8 +47,8 @@ export function DrawerContentComponent({ form, onSubmit }: DialogContentComponen
                 </VisuallyHidden>
                 <Form {...form}>
                     <form onSubmit={form.handleSubmit(onSubmit)}>
-                        <div>
-                            <div className="flex flex-col gap-4 py-3 px-10">
+                        <div className={"max-h-[650px] overflow-y-scroll"}>
+                            <div className="flex flex-col gap-4 py-1 px-5">
                                 <div>
                                     <Label>{t("upload_image")}</Label>
                                     <FormField
@@ -80,7 +80,7 @@ export function DrawerContentComponent({ form, onSubmit }: DialogContentComponen
                                     />
                                 </div>
                             </div>
-                            <div className="flex flex-col gap-2 px-10">
+                            <div className="flex flex-col gap-2 px-5">
                                 <div>
                                     <Label>{t("name")}</Label>
                                     <FormField
@@ -119,7 +119,7 @@ export function DrawerContentComponent({ form, onSubmit }: DialogContentComponen
                                             <FormItem>
                                                 <FormControl>
                                                     <Textarea
-                                                        rows={6}
+                                                        rows={1}
                                                         placeholder={t("description")}
                                                         onChange={field.onChange}
                                                     />
@@ -169,7 +169,7 @@ export function DrawerContentComponent({ form, onSubmit }: DialogContentComponen
                                 </div>
                             </div>
                         </div>
-                        <DrawerFooter>
+                        <DrawerFooter className={"pb-0"}>
                             <Button className="capitalize text-md font-semibold" type="submit">
                                 {t("add_item")}
                             </Button>

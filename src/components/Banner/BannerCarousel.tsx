@@ -36,7 +36,7 @@ export function BannerCarousel() {
         >
             <CarouselContent className="-ml-2">
                 {items.map((item, index) => (
-                    <CarouselItem key={index} className="basis-1/2 sm:basis-1/3 lg:basis-1/6 pl-2">
+                    <CarouselItem key={index} className="basis-1/2 tablet:basis-1/3 tablet_big:basis-1/4 lg:basis-1/6 pl-2">
                         <Card
                             onClick={() => {
                                 const section = document.getElementById(item.labelKey);

@@ -41,7 +41,7 @@ export function DialogContentComponent({ form, onSubmit }: DialogContentComponen
                     </div>
                 </Button>
             </DialogTrigger>
-            <DialogContent className="sm:max-w-[900px]">
+            <DialogContent className="sm:max-w-[700px] px-2">
                 <VisuallyHidden>
                     <DialogTitle>{t("add_item")}</DialogTitle>
                     <DialogDescription>{t("add_item")}</DialogDescription>
@@ -49,7 +49,7 @@ export function DialogContentComponent({ form, onSubmit }: DialogContentComponen
                 <Form {...form}>
                     <form onSubmit={form.handleSubmit(onSubmit)}>
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                            <div className="flex flex-col gap-4 py-3 px-10">
+                            <div className="flex flex-col gap-4 py-3 px-2">
                                 <div>
                                     <Label>{t("upload_image")}</Label>
                                     <FormField
@@ -81,7 +81,7 @@ export function DialogContentComponent({ form, onSubmit }: DialogContentComponen
                                     />
                                 </div>
                             </div>
-                            <div className="md:col-span-2 flex flex-col gap-4 py-3 px-10">
+                            <div className="md:col-span-2 flex flex-col gap-4 py-3 px-2">
                                 <div>
                                     <Label>{t("name")}</Label>
                                     <FormField
@@ -140,9 +140,9 @@ export function DialogContentComponent({ form, onSubmit }: DialogContentComponen
                                                 <FormControl>
                                                     <Select onValueChange={field.onChange}>
                                                         <SelectTrigger>
-                                                            <SelectValue placeholder={t("choose")} />
+                                                            <SelectValue className={"text-right"} placeholder={t("choose")} />
                                                         </SelectTrigger>
-                                                        <SelectContent>
+                                                        <SelectContent dir={"rtl"}>
                                                             <SelectItem value="1">دسته ۱</SelectItem>
                                                             <SelectItem value="2">دسته ۲</SelectItem>
                                                         </SelectContent>

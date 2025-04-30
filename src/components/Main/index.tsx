@@ -25,24 +25,31 @@ export function Main({
                 <div className="border-t-2 flex-grow ml-2 border-black" />
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                {recommendedItems.map((item, index) => (
-                    <RecommendedItem
-                        key={index}
-                        // picture={item.picture}
-                        title={item.title}
-                        description={item.description}
-                        price={item.price}
-                    />
-                ))}
-                {foodItem.map((item, index) => (
-                    <CardItems
-                        key={index}
-                        picture={item.picture}
-                        title={item.title}
-                        description={item.description}
-                        price={item.price}
-                    />
-                ))}
+                {recommendedItems.length > 0 && (
+                    <>
+                        {recommendedItems.map((item, index) => (
+                            <RecommendedItem
+                                key={`recommended-${index}`}
+                                title={item.title}
+                                description={item.description}
+                                price={item.price}
+                            />
+                        ))}
+                    </>
+                )}
+                {foodItem.length > 0 && (
+                    <>
+                        {foodItem.map((item, index) => (
+                            <CardItems
+                                key={`food-${index}`}
+                                picture={item.picture}
+                                title={item.title}
+                                description={item.description}
+                                price={item.price}
+                            />
+                        ))}
+                    </>
+                )}
             </div>
         </div>
     );
