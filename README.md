@@ -1,36 +1,64 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 📦 Menulita
 
-## Getting Started
+یک پروژه ساخته‌شده با [Next.js 15](https://nextjs.org/), [React 19](https://react.dev/), [shadcn/ui](https://ui.shadcn.com/), و [TypeScript](https://www.typescriptlang.org/).
 
-First, run the development server:
+## 🛠️ تکنولوژی‌ها
+
+- [Next.js 15](https://nextjs.org/)
+- [React 19](https://react.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [shadcn/ui](https://ui.shadcn.com/)
+- [Tailwind CSS](https://tailwindcss.com/) (استایل پایه برای shadcn)
+- [pnpm](https://pnpm.io/) (برای مدیریت بسته‌ها)
+
+## ⚙️ نصب و راه‌اندازی
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+git clone https://github.com/your-username/your-repo-name.git
+cd your-repo-name
+pnpm install
 pnpm dev
-# or
-bun dev
+
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🧱 ساختار پروژه
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+src/
+├───app/
+│   └───[locale]/           # پشتیبانی از زبان‌های مختلف (مثلاً fa, en)
+│       └───(auth)/         # مسیرهای احراز هویت
+│           ├───login/      # صفحه ورود
+│           └───dashboard/  # پنل مدیریتی
+│               ├───categories/
+│               └───items/
+├───components/             # کامپوننت‌های بازاستفاده‌پذیر
+│   ├───Banner/
+│   ├───FirstPage/
+│   ├───Login/
+│   ├───Main/
+│   ├───Navbar/
+│   ├───Dashboard/          # اجزای پنل مدیریت
+│   │   ├───Categories/
+│   │   ├───Items/
+│   │   └───Main/
+│   └───ui/                 # اجزای UI سفارشی شده (shadcn)
+├───core/
+│   ├───components/
+│   │   ├───DataTable/      # جدول داده با قابلیت محلی‌سازی
+│   │   │   └───localization/
+│   │   │       └───fa/
+│   │   ├───notifications/
+│   │   └───svgs/
+│   ├───layouts/            # چیدمان‌ها
+│   │   └───dashboard/
+│   ├───middlewares/
+│   └───utils/
+├───fonts/                  # فونت‌های سفارشی (مثلاً Sahel و Shabnam)
+├───hooks/                  # هوک‌های عمومی
+├───i18n/                   # تنظیمات و فایل‌های ترجمه
+└───lib/
+    ├───contexts/           # React Contexts
+    ├───hooks/              # هوک‌های خاص کتابخانه‌ها
+    └───utils/              # توابع کمکی عمومی
