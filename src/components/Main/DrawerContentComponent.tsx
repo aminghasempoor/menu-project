@@ -42,7 +42,9 @@ export function DrawerContentComponent({
                     </div>
                     <DrawerDescription className="text-sm leading-relaxed">{t("description")}</DrawerDescription>
                     <DrawerFooter className="flex justify-between items-center pt-4">
-                        <div className="bg-gray-100 text-green-700 px-4 py-2 rounded-lg text-lg font-bold">{(parseInt(price)).toLocaleString()}</div>
+                        <div className="bg-gray-100 text-green-700 px-4 py-2 rounded-lg text-lg font-bold">
+                            {parseInt(price).toLocaleString()}
+                        </div>
                     </DrawerFooter>
                 </div>
             </DrawerContent>

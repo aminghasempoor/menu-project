@@ -140,7 +140,10 @@ export function DialogContentComponent({ form, onSubmit }: DialogContentComponen
                                                 <FormControl>
                                                     <Select onValueChange={field.onChange}>
                                                         <SelectTrigger>
-                                                            <SelectValue className={"text-right"} placeholder={t("choose")} />
+                                                            <SelectValue
+                                                                className={"text-right"}
+                                                                placeholder={t("choose")}
+                                                            />
                                                         </SelectTrigger>
                                                         <SelectContent dir={"rtl"}>
                                                             <SelectItem value="1">دسته ۱</SelectItem>

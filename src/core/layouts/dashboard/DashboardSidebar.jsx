@@ -42,9 +42,12 @@ export function DashboardSidebar() {
                                                 asChild
                                                 isActive={`${item.url === `/${segments[1]}${segments[2] ? `/${segments[2]}` : ""}`}`}
                                             >
-                                                <Link onClick={()=> {
-                                                    if (isMobile) toggleSidebar();
-                                                }} href={item.url}>
+                                                <Link
+                                                    onClick={() => {
+                                                        if (isMobile) toggleSidebar();
+                                                    }}
+                                                    href={item.url}
+                                                >
                                                     <item.icon />
                                                     <span>{item.title}</span>
                                                 </Link>
