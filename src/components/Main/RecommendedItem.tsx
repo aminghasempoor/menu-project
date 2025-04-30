@@ -18,21 +18,22 @@ export function RecommendedItem({
 
     const t = useTranslations("RecommendedItem");
     return (
-        <div className={"flex items-center justify-center"}>
-            <div className="relative w-full sm:min-w-[300px] h-[150px] sm:h-[130px] lg:h-[150px] rounded-2xl overflow-hidden shadow-md">
-                <Image src={Picture} alt="pizza" fill className="object-fill" />
-                <div
-                    className={`absolute inset-0 ${
-                        isRTL
-                            ? "bg-gradient-to-l from-[#fce5cd]/90 via-[#fce5cd]/70 to-transparent"
-                            : "bg-gradient-to-r from-[#fce5cd]/90 via-[#fce5cd]/70 to-transparent"
-                    }`}
-                />
-                <div className={`absolute ${isRTL ? "right-4 text-right" : "left-4 text-left"} top-4 space-y-1`}>
-                    <p className="text-[13px] text-gray-500">{t("name")}</p>
-                    <h2 className="text-lg font-bold flex items-center text-black gap-1">{title}</h2>
-                    <p className="text-sm text-gray-600">{description}</p>
-                    <p className="font-bold text-lg text-gray-800">{price}</p>
+        <div className="relative w-full h-[100px] sm:h-auto rounded-xl overflow-hidden shadow-md hover:scale-[1.02] transition-transform duration-300 bg-cover bg-center">
+            <Image src={Picture} alt="picture" fill className="object-cover rounded-lg" />
+            <div
+                className={`absolute inset-0 ${
+                    isRTL
+                        ? "bg-gradient-to-l from-[#fce5cd]/90 via-[#fce5cd]/70 to-transparent"
+                        : "bg-gradient-to-r from-[#fce5cd]/90 via-[#fce5cd]/70 to-transparent"
+                }`}
+            >
+                <div className={`p-2 z-50 ${isRTL ? "right-3 text-right" : "left-3 text-left"} text-black space-y-0.5`}>
+                    <p className="text-sm sm:text-xs text-gray-600">{t("name")}</p>
+                    <h2 className="text-sm sm:text-base font-bold sm:font-normal lg:font-bold leading-tight">
+                        {title}
+                    </h2>
+                    <p className="sm:text-sm text-gray-700 leading-snug">{description}</p>
+                    <p className="font-bold text-sm text-gray-800">{price}</p>
                 </div>
             </div>
         </div>

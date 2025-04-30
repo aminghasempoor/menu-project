@@ -46,7 +46,7 @@ export function DialogContentComponent({ form, onSubmit }: DialogContentComponen
                 </VisuallyHidden>
                 <Form {...form}>
                     <form onSubmit={form.handleSubmit(onSubmit)}>
-                        <div className="flex w-full items-center justify-around gap-4 py-3 px-10">
+                        <div className=" w-full items-center justify-around gap-4 py-3 px-10">
                             <div>
                                 <Label>{t("upload_image")}</Label>
                                 <FormField
@@ -78,7 +78,7 @@ export function DialogContentComponent({ form, onSubmit }: DialogContentComponen
                                 />
                             </div>
                         </div>
-                        <DialogFooter className={"items-start"}>
+                        <DialogFooter className={"items-start p-3"}>
                             <Button className="capitalize text-md font-semibold" type="submit">
                                 {t("add_item")}
                             </Button>
