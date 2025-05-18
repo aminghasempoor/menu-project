@@ -15,10 +15,11 @@ import {
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
-import SidebarHeaderComponent from "./SidebarHeader";
 import SidebarFooterComponent from "./SidebarFooter";
 import { useTranslations } from "next-intl";
 import { getDashboardSidebarItems } from "@/core/utils/dashboardSidebarItems";
+import Image from "next/image";
+import IconLogo from "../../../../public/icon-logo.svg";
 
 export function DashboardSidebar() {
     const t = useTranslations("Sidebar");
@@ -28,10 +29,20 @@ export function DashboardSidebar() {
     const { toggleSidebar, isMobile } = useSidebar();
     return (
         <Sidebar collapsible="icon" variant="inset" side={`${segments[0] === "en" ? "left" : "right"}`}>
-            <SidebarHeaderComponent title={"Logo"} />
             <SidebarContent>
                 <SidebarGroup>
-                    <SidebarGroupLabel className={"text-2xl mb-2 capitalize"}>{t("global_title")}</SidebarGroupLabel>
+                    <SidebarGroupLabel className={"text-2xl mb-2 capitalize mt-2"}>
+                        <Image
+                            src={IconLogo}
+                            alt={"logo"}
+                            width={20}
+                            height={20}
+                            className="pointer-events-none"
+                        />
+                        <div className={"mx-2"}>
+                        {t("global_title")}
+                        </div>
+                    </SidebarGroupLabel>
                     <SidebarGroupContent>
                         <SidebarMenu>
                             {items.map((item) => (
@@ -40,7 +51,7 @@ export function DashboardSidebar() {
                                         <CollapsibleTrigger asChild>
                                             <SidebarMenuButton
                                                 asChild
-                                                isActive={`${item.url === `/${segments[1]}${segments[2] ? `/${segments[2]}` : ""}`}`}
+                                                isActive={item.url === `/${segments[1]}${segments[2] ? `/${segments[2]}` : ""}`}
                                             >
                                                 <Link
                                                     onClick={() => {
@@ -61,11 +72,12 @@ export function DashboardSidebar() {
                                     </SidebarMenuItem>
                                 </Collapsible>
                             ))}
+                            <SidebarFooterComponent />
                         </SidebarMenu>
                     </SidebarGroupContent>
                 </SidebarGroup>
             </SidebarContent>
-            <SidebarFooterComponent />
+
         </Sidebar>
     );
 }

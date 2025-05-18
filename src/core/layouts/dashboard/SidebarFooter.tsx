@@ -25,10 +25,10 @@ const SidebarFooterComponent = () => {
     return (
         <SidebarFooter>
             <SidebarMenu>
-                <SidebarMenuButton asChild>
-                    <Button onClick={handleLogOut}>
-                        <p className={"text-md md:hidden"}>{t("log_out")}</p>
+                <SidebarMenuButton asChild className={"p-0"}>
+                    <Button className={"justify-start text-red-600 hover:text-red-600"} variant={"ghost"} onClick={handleLogOut}>
                         <Power />
+                        <p className={"text-md"}>{t("log_out")}</p>
                     </Button>
                 </SidebarMenuButton>
             </SidebarMenu>

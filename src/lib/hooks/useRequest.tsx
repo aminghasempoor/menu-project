@@ -7,7 +7,7 @@ import { useTranslations } from "next-intl";
 import useUserStore from "@/lib/utils/userStore";
 import ToastStore from "@/lib/utils/ToastStore";
 
-interface RequestOptions {
+export interface RequestOptions {
     auth?: boolean;
     data?: Record<string, string> | FormData;
     requestOptions?: {

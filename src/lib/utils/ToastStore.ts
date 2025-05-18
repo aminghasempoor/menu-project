@@ -2,7 +2,7 @@
 import { create } from "zustand";
 import { toast } from "@/hooks/use-toast";
 
-type ToastType = "pending" | "error" | "warning" | "success";
+export type ToastType = "pending" | "error" | "warning" | "success";
 
 interface ToastStoreState {
     toastLists: {

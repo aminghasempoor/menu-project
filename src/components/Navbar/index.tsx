@@ -1,11 +1,14 @@
+"use client"
 import LanguageSwitcher from "@/core/LanguageToggleButton";
 import { ModeToggle } from "@/core/ThemeToggleButton";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
-import { KeyRound } from "lucide-react";
+import { KeyRound, User } from "lucide-react";
+import useUserStore from "@/lib/utils/userStore";
 
 export function Navbar() {
     const t = useTranslations("NavBar");
+    const user = useUserStore((state) => state.user);
     return (
         <div className={"flex justify-between px-5 items-center py-6 sm:px-10 z-50"}>
             <Link
@@ -18,10 +21,17 @@ export function Navbar() {
             <div className={"flex gap-x-3 justify-center items-center"}>
                 <ModeToggle />
                 <LanguageSwitcher />
-                <Link className={"text-md flex gap-x-1"} href={"/login"}>
-                    <p className={"p-0 text-sm sm:text-md"}>{t("login")}</p>
-                    <KeyRound className={"w-4 h-4 sm:w-5 sm:h-5"} />
-                </Link>
+                {user ? (
+                    <Link className={"text-md flex gap-x-1"} href={"/dashboard"}>
+                        <p className={"p-0 text-sm sm:text-md"}>{t("dashboard")}</p>
+                        <User className={"w-4 h-4 sm:w-5 sm:h-5"} />
+                    </Link>
+                    ) : (
+                    <Link className={"text-md flex gap-x-1"} href={"/login"}>
+                        <p className={"p-0 text-sm sm:text-md"}>{t("login")}</p>
+                        <KeyRound className={"w-4 h-4 sm:w-5 sm:h-5"} />
+                    </Link>
+                )}
             </div>
         </div>
     );

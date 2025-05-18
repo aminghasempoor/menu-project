@@ -17,6 +17,7 @@ interface UserStoreState {
     changeInitAuth: (initAuthState: boolean) => void;
     changeLanguageState: (userChangedLanguage: boolean) => void;
     clearToken: () => void;
+    logout : () => Promise<void>;
     setToken: (token: string) => void;
     getUser: () => Promise<void>;
     initialize: () => Promise<void>;
@@ -57,7 +58,7 @@ const useUserStore = create<UserStoreState>((set, get) => ({
         set({ initAuthState: true });
     },
 
-    logout: () => {
+    logout: async() => {
         get().clearUser();
         get().changeAuthState(false);
         get().changeInitAuth(true);
@@ -78,7 +79,7 @@ const useUserStore = create<UserStoreState>((set, get) => ({
                 }
             }
             set({
-                isAuth: true,
+                isAuth: false,
                 initAuthState: true,
                 errorState: true,
             });

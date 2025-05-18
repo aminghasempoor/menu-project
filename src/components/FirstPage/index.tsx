@@ -9,6 +9,7 @@ import {
     sushiItems,
 } from "@/core/utils/foodItems";
 export function FirstPage() {
+
     return (
         <>
             <Banner />

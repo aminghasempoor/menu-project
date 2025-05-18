@@ -1,6 +1,6 @@
-FROM node:18-alpine
+FROM docker.arvancloud.ir/node:18-alpine
 
-RUN corepack enable && corepack prepare pnpm@10.10.0 --activate
+RUN npm install -g pnpm@10.10.0
 
 WORKDIR /app
 
@@ -12,4 +12,4 @@ COPY . .
 
 EXPOSE 3000
 
-CMD ["pnpm", "dev"]
+CMD pnpm build && pnpm start

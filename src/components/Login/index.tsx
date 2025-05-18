@@ -23,7 +23,7 @@ export function LoginForm() {
     const requestServer = useRequest({ notification: true });
     const form = useForm({
         resolver: zodResolver(loginFormSchema(t)),
-        mode: "all",
+        mode: "onBlur",
         defaultValues: {
             user_name: "",
             password: "",
