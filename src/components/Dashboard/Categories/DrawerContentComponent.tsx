@@ -12,7 +12,7 @@ import { CirclePlus } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 import { Form, FormControl, FormField, FormItem, FormMessage } from "@/components/ui/form";
-import ImageUpload from "@/components/Dashboard/Items/ImageUpload ";
+import ImageUpload from "@/components/Dashboard/Items/ImageUpload";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { AddCategoryFormValues } from "./AddCategory";
@@ -23,7 +23,7 @@ type DialogContentComponentProps = {
     onSubmit: (values: AddCategoryFormValues) => void;
 };
 
-export function DrawerContentComponent({ form, onSubmit }: DialogContentComponentProps) {
+export default function DrawerContentComponent({ form, onSubmit }: DialogContentComponentProps) {
     const t = useTranslations("Categories");
     return (
         <Drawer>

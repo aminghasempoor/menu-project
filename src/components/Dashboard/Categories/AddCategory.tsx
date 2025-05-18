@@ -1,8 +1,6 @@
 "use client";
 import React from "react";
 import { useMediaQuery } from "@/hooks/use-media-query";
-import { DialogContentComponent } from "./DialogContentComponent";
-import { DrawerContentComponent } from "./DrawerContentComponent";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { addCategorySchema } from "@/lib/utils/schemas";
@@ -10,6 +8,15 @@ import { useTranslations } from "next-intl";
 import { z } from "zod";
 import { CREATE_CATEGORIES } from "@/lib/utils/apiRoutes";
 import useRequest from "@/lib/hooks/useRequest";
+import dynamic from "next/dynamic";
+
+const DialogContentComponent = dynamic(() => import("./DialogContentComponent"), {
+    ssr: false,
+});
+
+const DrawerContentComponent = dynamic(() => import("./DrawerContentComponent"), {
+    ssr: false,
+});
 export type AddCategoryFormValues = z.infer<ReturnType<typeof addCategorySchema>>;
 
 export function AddCategory() {

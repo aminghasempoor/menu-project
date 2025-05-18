@@ -6,7 +6,7 @@ interface ImageUploadProps {
     onChange: (file: File) => void;
 }
 
-const ImageUpload: React.FC<ImageUploadProps> = ({ value, onChange }) => {
+const ImageUpload:React.FC<ImageUploadProps>= ({ value, onChange }) => {
     const [beforeImg, setBeforeImg] = useState<string | null>(
         value ? (typeof value === "string" ? value : URL.createObjectURL(value)) : null
     );

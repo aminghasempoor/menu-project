@@ -1,5 +1,5 @@
 import { ItemsComponent } from "@/components/Dashboard/Items";
-import { AddItem } from "@/components/Dashboard/Items/AddItem";
+import { AddItem } from "@/components/Dashboard/Items/Create/AddItem";
 import React from "react";
 export const metadata = {
     title: "آیتم ها",

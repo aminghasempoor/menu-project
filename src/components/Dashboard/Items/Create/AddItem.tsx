@@ -1,8 +1,6 @@
 "use client";
 import React from "react";
 import { useMediaQuery } from "@/hooks/use-media-query";
-import { DialogContentComponent } from "./DialogContentComponent";
-import { DrawerContentComponent } from "./DrawerContentComponent";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { addItemSchema } from "@/lib/utils/schemas";
@@ -10,6 +8,15 @@ import { useTranslations } from "next-intl";
 import { z } from "zod";
 import { CREATE_ITEM } from "@/lib/utils/apiRoutes";
 import useRequest from "@/lib/hooks/useRequest";
+import dynamic from "next/dynamic";
+
+const DialogContentController = dynamic(() => import("./DialogContentController"), {
+    ssr: false,
+});
+
+const DrawerContentController = dynamic(() => import("./DrawerContentController"), {
+    ssr: false,
+});
 export type AddItemFormValues = z.infer<ReturnType<typeof addItemSchema>>;
 
 export function AddItem() {
@@ -60,8 +67,8 @@ export function AddItem() {
     }
 
     if (isDesktop) {
-        return <DialogContentComponent form={form} onSubmit={onSubmit} />;
+        return <DialogContentController form={form} onSubmit={onSubmit} />;
     }
 
-    return <DrawerContentComponent form={form} onSubmit={onSubmit} />;
+    return <DrawerContentController form={form} onSubmit={onSubmit} />;
 }

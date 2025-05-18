@@ -5,6 +5,7 @@ import { GET_FOODS } from "@/lib/utils/apiRoutes";
 interface Food {
     image: string;
     name: string;
+    id:number;
     description: string;
     price: string;
 }
