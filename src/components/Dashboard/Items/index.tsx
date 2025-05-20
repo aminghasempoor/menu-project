@@ -38,7 +38,7 @@ export function ItemsComponent() {
             {isOpen && (
                 <>
                     loading ? (
-
+                    <SkeletonCard />
                     ) : (
                     <EditItem data={data!} />
                     )

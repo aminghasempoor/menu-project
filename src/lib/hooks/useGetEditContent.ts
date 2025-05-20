@@ -1,14 +1,22 @@
 import { useEffect, useState } from "react";
 import useRequest from "@/lib/hooks/useRequest";
 
-type FetchState<T> = {
-    data: T | null;
+type FetchState = {
+    data: {
+        name: string;
+        price:string
+        ingredients:string
+        description:string
+        is_recommended : boolean
+        image:string
+        category_id:string
+    } | null;
     loading: boolean;
 };
 
-export function useGetEditContent<T>(url: string | null) {
+export function useGetEditContent(url: string | null) {
     const requestServer = useRequest({auth : true, notification : false});
-    const [state, setState] = useState<FetchState<T>>({ data: null, loading: false });
+    const [state, setState] = useState({ data: null, loading: false });
 
     useEffect(() => {
         if (!url) return;

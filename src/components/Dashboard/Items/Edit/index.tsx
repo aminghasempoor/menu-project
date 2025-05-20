@@ -9,8 +9,6 @@ import { z } from "zod";
 import { CREATE_ITEM, GET_EDIT_ITEM } from "@/lib/utils/apiRoutes";
 import useRequest from "@/lib/hooks/useRequest";
 import dynamic from "next/dynamic";
-import { useGetEditContent } from "@/lib/hooks/useGetEditContent";
-import { useEditItemStore } from "@/lib/utils/useEditItemStore";
 
 const DialogContentController = dynamic(() => import("./DialogContentController"), {
     ssr: false,
@@ -20,16 +18,16 @@ const DrawerContentController = dynamic(() => import("./DrawerContentController"
     ssr: false,
 });
 export type EditItemFormValues = z.infer<ReturnType<typeof addItemSchema>>;
-interface Props{
+export interface EditItemProps{
     name: string;
     price:string
     ingredients:string
     description:string
     is_recommended : boolean
-    image:string
+    image:string | File
     category_id:string
 }
-export function EditItem({data}: {data: Props}) {
+export function EditItem({data}: {data: EditItemProps}) {
     const t = useTranslations("Items");
     const requestServer = useRequest({ notification: true, auth: true });
     const isDesktop = useMediaQuery("(min-width: 768px)");
@@ -43,13 +41,13 @@ export function EditItem({data}: {data: Props}) {
         resolver: zodResolver(schema),
         mode: "onBlur",
         defaultValues: {
-            name: data.name | "",
-            price: data.price | "",
-            ingredients: data.ingredients | "",
-            description: data.description | "",
-            is_recommended: data.is_recommended | false,
-            image: data.image | undefined,
-            category_id: data.category_id | "",
+            name: data.name || "",
+            price: data.price || "",
+            ingredients: data.ingredients || "",
+            description: data.description || "",
+            is_recommended: data.is_recommended || false,
+            image: data.image || undefined,
+            category_id: data.category_id || "",
         },
     });
 

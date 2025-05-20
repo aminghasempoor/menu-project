@@ -3,11 +3,11 @@ import { useTranslations } from "next-intl";
 import { Dialog, DialogContent, DialogDescription, DialogTitle} from "@/components/ui/dialog";
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 import React from "react";
-import { EditItemFormValues } from "./index";
+import { EditItemProps } from "./index";
 import { useEditItemStore } from "@/lib/utils/useEditItemStore";
 
 export type DialogContentComponentProps = {
-    form: UseFormReturn<EditItemFormValues>;
+    form: UseFormReturn<EditItemProps>;
     onSubmit: (values: EditItemFormValues) => void;
 
 };
