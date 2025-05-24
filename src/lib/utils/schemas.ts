@@ -20,7 +20,7 @@ export const RegisterFormSchema = (t: (key: string, params?: Record<string, unkn
     });
 export const addItemSchema = (t: (key: string, params?: TranslationValues) => string) =>
     z.object({
-        name: z.string().min(1, { message: t("required") }),
+        name_fa: z.string().min(1, { message: t("required") }),
         price: z
             .string()
             .regex(/^\d+$/, { message: t("price_should_be_number") })

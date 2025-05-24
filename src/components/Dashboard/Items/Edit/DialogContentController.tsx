@@ -29,7 +29,7 @@ export default function DialogContentController({ form, onSubmit }: DialogConten
                     <DialogTitle>{t("add_item")}</DialogTitle>
                     <DialogDescription>{t("add_item")}</DialogDescription>
                 </VisuallyHidden>
-                <DialogContentComponent form={form} onSubmit={onSubmit} />
+                <DialogContentComponent isEdit={true} form={form} onSubmit={onSubmit} />
             </DialogContent>
         </Dialog>
     );

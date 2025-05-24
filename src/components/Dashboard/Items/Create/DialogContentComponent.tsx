@@ -10,9 +10,26 @@ import { Textarea } from "@/components/ui/textarea";
 import { Form, FormControl, FormField, FormItem, FormMessage } from "@/components/ui/form";
 import ImageUpload from "@/components/Dashboard/Items/ImageUpload";
 import { DialogContentComponentProps } from "./DialogContentController";
+import { DELETE_ITEM } from "@/lib/utils/apiRoutes";
+import useRequest from "@/lib/hooks/useRequest";
+import { useEditItemStore } from "@/lib/utils/useEditItemStore";
 
-export default function DialogContentComponent({ form, onSubmit }: DialogContentComponentProps) {
+export default function DialogContentComponent({ form, onSubmit, isEdit }: DialogContentComponentProps) {
     const t = useTranslations("Items");
+    const requestServer = useRequest({ notification: true, auth: true });
+    const deleteID = useEditItemStore((state) => state.id);
+    const handleDelete = async () => {
+        try {
+            const response = (await requestServer(`${DELETE_ITEM}/${deleteID}`, "delete", {
+                success: {
+                    notification: { show: true },
+                },
+            }));
+            console.log(response);
+        } catch (error) {
+            console.log(error);
+        }
+    };
     return (
         <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)}>
@@ -55,7 +72,7 @@ export default function DialogContentComponent({ form, onSubmit }: DialogContent
                             <Label>{t("name")}</Label>
                             <FormField
                                 control={form.control}
-                                name="name"
+                                name="name_fa"
                                 render={({ field }) => (
                                     <FormItem>
                                         <FormControl>
@@ -146,8 +163,22 @@ export default function DialogContentComponent({ form, onSubmit }: DialogContent
                         </div>
                     </div>
                 </div>
-                <DialogFooter className={"items-start"}>
-                    <Button className="capitalize text-md font-semibold" type="submit">
+                <DialogFooter className={"items-start gap-x-2"}>
+                    {isEdit && (
+                        <Button
+                            onClick={handleDelete}
+                            variant={"ghost"}
+                            className="capitalize text-md font-semibold text-red-500 hover:text-red-600 hover:bg-background"
+                            id={"delete_item"}
+                        >
+                            {t("delete_item")}
+                        </Button>
+                    )}
+                    <Button
+                        disabled={form.formState.isSubmitting}
+                        className="capitalize text-md font-semibold"
+                        type="submit"
+                    >
                         {t("add_item")}
                     </Button>
                 </DialogFooter>

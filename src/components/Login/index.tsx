@@ -96,7 +96,7 @@ export function LoginForm() {
                         </CardContent>
 
                         <CardFooter className="flex flex-col gap-4">
-                            <Button type="submit" className="w-full">
+                            <Button disabled={form.formState.isSubmitting} type="submit" className="w-full">
                                 {t("LoginPage.login")}
                                 <LogIn className="ml-2" />
                             </Button>

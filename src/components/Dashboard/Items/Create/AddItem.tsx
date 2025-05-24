@@ -31,7 +31,7 @@ export function AddItem() {
         resolver: zodResolver(schema),
         mode: "all",
         defaultValues: {
-            name: "",
+            name_fa: "",
             price: "",
             ingredients: "",
             description: "",

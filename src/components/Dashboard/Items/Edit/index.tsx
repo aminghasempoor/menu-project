@@ -1,14 +1,15 @@
 "use client";
-import React, { useEffect } from "react";
+import React from "react";
 import { useMediaQuery } from "@/hooks/use-media-query";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { addItemSchema } from "@/lib/utils/schemas";
 import { useTranslations } from "next-intl";
 import { z } from "zod";
-import { CREATE_ITEM, GET_EDIT_ITEM } from "@/lib/utils/apiRoutes";
+import { GET_EDIT_ITEM } from "@/lib/utils/apiRoutes";
 import useRequest from "@/lib/hooks/useRequest";
 import dynamic from "next/dynamic";
+import { useEditItemStore } from "@/lib/utils/useEditItemStore";
 
 const DialogContentController = dynamic(() => import("./DialogContentController"), {
     ssr: false,
@@ -20,7 +21,8 @@ const DrawerContentController = dynamic(() => import("./DrawerContentController"
 export type EditItemFormValues = z.infer<ReturnType<typeof addItemSchema>>;
 
 export interface EditItemProps {
-    name: string;
+    id?: number;
+    name_fa: string;
     price: string;
     ingredients: string;
     description: string;
@@ -32,6 +34,7 @@ export interface EditItemProps {
 export function EditItem({ data }: { data: EditItemProps }) {
     const t = useTranslations("Items");
     const requestServer = useRequest({ notification: true, auth: true });
+    const editID = useEditItemStore((state) => state.id);
     const isDesktop = useMediaQuery("(min-width: 768px)");
 
     const schema = addItemSchema(t);
@@ -41,7 +44,7 @@ export function EditItem({ data }: { data: EditItemProps }) {
         resolver: zodResolver(schema),
         mode: "onBlur",
         defaultValues: {
-            name: data.name || "",
+            name_fa: data.name_fa || "",
             price: data.price || "",
             ingredients: data.ingredients || "",
             description: data.description || "",
@@ -52,7 +55,6 @@ export function EditItem({ data }: { data: EditItemProps }) {
     });
 
     async function onSubmit(values: EditItemFormValues) {
-        console.log(values);
         const formData = new FormData();
         Object.entries(values).forEach(([key, value]) => {
             if (value instanceof File) {
@@ -64,12 +66,12 @@ export function EditItem({ data }: { data: EditItemProps }) {
             }
         });
         try {
-            const response = (await requestServer(CREATE_ITEM, "post", {
+            const response = (await requestServer(`${GET_EDIT_ITEM}/${editID}`, "post", {
                 data: formData,
                 success: {
                     notification: { show: true },
                 },
-            })) as { data: { data: { token: string } } };
+            }));
             console.log(response);
         } catch (error) {
             console.log(error);

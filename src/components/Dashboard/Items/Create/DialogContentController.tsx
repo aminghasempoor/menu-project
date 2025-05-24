@@ -16,6 +16,7 @@ import React from "react";
 import DialogContentComponent from "./DialogContentComponent";
 
 export type DialogContentComponentProps = {
+    isEdit?: boolean;
     form: UseFormReturn<AddItemFormValues>;
     onSubmit: (values: AddItemFormValues) => void;
 };

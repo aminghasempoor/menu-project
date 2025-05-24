@@ -27,6 +27,7 @@
   "Items": {
     "title": "آیتم ها",
     "loading": "درحال دریافت اطلاعات...",
+    "delete_item": "حذف",
     "add_item": "افزودن آیتم",
     "hezar_toman": "هزار تومان",
     "upload_image": "بارگذاری تصویر",

@@ -12,7 +12,7 @@ export function useGetEditContent(id?: null | number) {
             setState({ data: null, loading: true });
             try {
                 const response = await requestServer(`${GET_EDIT_ITEM}/${id}`);
-                // @ts-ignore
+                // @ts-expect-error
                 setState({ data: response.data.data, loading: false });
             } catch (error) {
                 console.error(error);

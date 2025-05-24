@@ -27,6 +27,7 @@
   "Items": {
     "title": "Items",
     "loading": "Loading...",
+    "delete_item": "Delete",
     "add_item": "add item",
     "hezar_toman": "Hezar Toman",
     "upload_image": "Upload Image",

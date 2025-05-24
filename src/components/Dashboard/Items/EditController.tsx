@@ -1,8 +1,6 @@
 import { useEditItemStore } from "@/lib/utils/useEditItemStore";
-import { SkeletonCard } from "@/core/SkeletonCard";
 import { EditItem } from "./Edit";
 import { useGetEditContent } from "@/lib/hooks/useGetEditContent";
-import LoadingHardPage from "@/core/LoadingHardPage";
 import { useTranslations } from "next-intl";
 import { Loader2 } from "lucide-react";
 
