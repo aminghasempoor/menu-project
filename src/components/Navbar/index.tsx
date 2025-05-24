@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import LanguageSwitcher from "@/core/LanguageToggleButton";
 import { ModeToggle } from "@/core/ThemeToggleButton";
 import { useTranslations } from "next-intl";
@@ -26,7 +26,7 @@ export function Navbar() {
                         <p className={"p-0 text-sm sm:text-md"}>{t("dashboard")}</p>
                         <User className={"w-4 h-4 sm:w-5 sm:h-5"} />
                     </Link>
-                    ) : (
+                ) : (
                     <Link className={"text-md flex gap-x-1"} href={"/login"}>
                         <p className={"p-0 text-sm sm:text-md"}>{t("login")}</p>
                         <KeyRound className={"w-4 h-4 sm:w-5 sm:h-5"} />

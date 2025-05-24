@@ -23,5 +23,5 @@ export default function DrawerContentController({ form, onSubmit }: DialogConten
                 {/*<DrawerContentComponent form={form} onSubmit={onSubmit} />*/}
             </DrawerContent>
         </Drawer>
-    )
+    );
 }

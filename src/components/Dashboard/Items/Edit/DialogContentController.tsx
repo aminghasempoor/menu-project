@@ -11,7 +11,6 @@ import { X } from "lucide-react";
 export type DialogContentComponentProps = {
     form: UseFormReturn<EditItemProps>;
     onSubmit: (values: EditItemFormValues) => void;
-
 };
 export default function DialogContentController({ form, onSubmit }: DialogContentComponentProps) {
     const isOpen = useEditItemStore((state) => state.isOpen);
@@ -21,9 +20,13 @@ export default function DialogContentController({ form, onSubmit }: DialogConten
         <Dialog open={isOpen}>
             <DialogContent className="sm:max-w-[700px] px-2">
                 <DialogClose asChild>
-                    <X onClick={() => {
-                        closeEditDialog();
-                    }} size={20} className={"absolute top-2 end-2 cursor-pointer"} />
+                    <X
+                        onClick={() => {
+                            closeEditDialog();
+                        }}
+                        size={20}
+                        className={"absolute top-2 end-2 cursor-pointer"}
+                    />
                 </DialogClose>
                 <VisuallyHidden>
                     <DialogTitle>{t("add_item")}</DialogTitle>

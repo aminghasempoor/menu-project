@@ -32,16 +32,8 @@ export function DashboardSidebar() {
             <SidebarContent>
                 <SidebarGroup>
                     <SidebarGroupLabel className={"text-2xl mb-2 capitalize mt-2"}>
-                        <Image
-                            src={IconLogo}
-                            alt={"logo"}
-                            width={20}
-                            height={20}
-                            className="pointer-events-none"
-                        />
-                        <div className={"mx-2"}>
-                        {t("global_title")}
-                        </div>
+                        <Image src={IconLogo} alt={"logo"} width={20} height={20} className="pointer-events-none" />
+                        <div className={"mx-2"}>{t("global_title")}</div>
                     </SidebarGroupLabel>
                     <SidebarGroupContent>
                         <SidebarMenu>
@@ -51,7 +43,10 @@ export function DashboardSidebar() {
                                         <CollapsibleTrigger asChild>
                                             <SidebarMenuButton
                                                 asChild
-                                                isActive={item.url === `/${segments[1]}${segments[2] ? `/${segments[2]}` : ""}`}
+                                                isActive={
+                                                    item.url ===
+                                                    `/${segments[1]}${segments[2] ? `/${segments[2]}` : ""}`
+                                                }
                                             >
                                                 <Link
                                                     onClick={() => {
@@ -77,7 +72,6 @@ export function DashboardSidebar() {
                     </SidebarGroupContent>
                 </SidebarGroup>
             </SidebarContent>
-
         </Sidebar>
     );
 }

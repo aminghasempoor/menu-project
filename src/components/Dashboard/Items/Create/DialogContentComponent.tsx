@@ -20,11 +20,11 @@ export default function DialogContentComponent({ form, onSubmit, isEdit }: Dialo
     const deleteID = useEditItemStore((state) => state.id);
     const handleDelete = async () => {
         try {
-            const response = (await requestServer(`${DELETE_ITEM}/${deleteID}`, "delete", {
+            const response = await requestServer(`${DELETE_ITEM}/${deleteID}`, "delete", {
                 success: {
                     notification: { show: true },
                 },
-            }));
+            });
             console.log(response);
         } catch (error) {
             console.log(error);
@@ -58,8 +58,11 @@ export default function DialogContentComponent({ form, onSubmit, isEdit }: Dialo
                                 render={({ field }) => (
                                     <FormItem>
                                         <FormControl>
-                                            <Input value={field.value} placeholder={t("hezar_toman")}
-                                                   onChange={field.onChange} />
+                                            <Input
+                                                value={field.value}
+                                                placeholder={t("hezar_toman")}
+                                                onChange={field.onChange}
+                                            />
                                         </FormControl>
                                         <FormMessage />
                                     </FormItem>
@@ -76,8 +79,11 @@ export default function DialogContentComponent({ form, onSubmit, isEdit }: Dialo
                                 render={({ field }) => (
                                     <FormItem>
                                         <FormControl>
-                                            <Input value={field.value} placeholder={t("name")}
-                                                   onChange={field.onChange} />
+                                            <Input
+                                                value={field.value}
+                                                placeholder={t("name")}
+                                                onChange={field.onChange}
+                                            />
                                         </FormControl>
                                         <FormMessage />
                                     </FormItem>
@@ -92,8 +98,11 @@ export default function DialogContentComponent({ form, onSubmit, isEdit }: Dialo
                                 render={({ field }) => (
                                     <FormItem>
                                         <FormControl>
-                                            <Input value={field.value} placeholder={t("ingredient")}
-                                                   onChange={field.onChange} />
+                                            <Input
+                                                value={field.value}
+                                                placeholder={t("ingredient")}
+                                                onChange={field.onChange}
+                                            />
                                         </FormControl>
                                         <FormMessage />
                                     </FormItem>
@@ -129,10 +138,7 @@ export default function DialogContentComponent({ form, onSubmit, isEdit }: Dialo
                                         <FormControl>
                                             <Select value={field.value} onValueChange={field.onChange}>
                                                 <SelectTrigger>
-                                                    <SelectValue
-                                                        className={"text-right"}
-                                                        placeholder={t("choose")}
-                                                    />
+                                                    <SelectValue className={"text-right"} placeholder={t("choose")} />
                                                 </SelectTrigger>
                                                 <SelectContent dir={"rtl"}>
                                                     <SelectItem value="1">دسته ۱</SelectItem>
@@ -152,8 +158,11 @@ export default function DialogContentComponent({ form, onSubmit, isEdit }: Dialo
                                 render={({ field }) => (
                                     <FormItem>
                                         <FormControl>
-                                            <Switch checked={field.value} id="featured"
-                                                    onCheckedChange={field.onChange} />
+                                            <Switch
+                                                checked={field.value}
+                                                id="featured"
+                                                onCheckedChange={field.onChange}
+                                            />
                                         </FormControl>
                                         <FormMessage />
                                     </FormItem>

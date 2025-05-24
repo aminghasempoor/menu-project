@@ -56,8 +56,8 @@ export default async function LocaleLayout(props: LocaleLayoutProps) {
             dir={isRtl ? "rtl" : "ltr"}
             suppressHydrationWarning
         >
-        <body className={`font-doran ${isRtl ? "fa_num" : ""}`}>
-        <NextTopLoader color="#283618" />
+            <body className={`font-doran ${isRtl ? "fa_num" : ""}`}>
+                <NextTopLoader color="#283618" />
                 <NextIntlClientProvider messages={messages}>
                     <ThemeProvider
                         attribute="class"

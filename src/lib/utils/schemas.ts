@@ -28,15 +28,15 @@ export const addItemSchema = (t: (key: string, params?: TranslationValues) => st
         ingredients: z.string().min(1, { message: t("required") }),
         description: z.string().min(1, { message: t("required") }),
         is_recommended: z.boolean().or(z.string().transform((val) => val === "true" || val === "1")),
-        image: z.union([
-            z.instanceof(File),
-            z.string().url(),
-        ]).refine((val) => {
-            if (typeof val === "string") return val.length > 0;
-            return val instanceof File;
-        }, {
-            message: t("upload_image_err"),
-        }),
+        image: z.union([z.instanceof(File), z.string().url()]).refine(
+            (val) => {
+                if (typeof val === "string") return val.length > 0;
+                return val instanceof File;
+            },
+            {
+                message: t("upload_image_err"),
+            }
+        ),
         category_id: z.string().min(1, { message: t("required") }),
     });
 export const addCategorySchema = (t: (key: string, params?: TranslationValues) => string) =>
@@ -70,7 +70,7 @@ export const UserDataFormSchema = (t: (key: string) => string) =>
             })
             .refine(
                 (value) => !isNaN(Date.parse(value)), // Ensure it's a valid date string
-                { message: t("UserDataPage.birthday_invalid") },
+                { message: t("UserDataPage.birthday_invalid") }
             ),
         gender: z.string().min(1, {
             message: t("UserDataPage.gender_required"),

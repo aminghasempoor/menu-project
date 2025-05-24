@@ -33,7 +33,9 @@ export function RecommendedItem({
                         {title}
                     </h2>
                     <p className="sm:text-sm text-gray-700 leading-snug">{description}</p>
-                    <p className="font-bold text-sm text-gray-800">{price} {t("unit")}</p>
+                    <p className="font-bold text-sm text-gray-800">
+                        {price} {t("unit")}
+                    </p>
                 </div>
             </div>
         </div>

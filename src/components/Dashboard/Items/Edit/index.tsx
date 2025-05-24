@@ -66,12 +66,12 @@ export function EditItem({ data }: { data: EditItemProps }) {
             }
         });
         try {
-            const response = (await requestServer(`${GET_EDIT_ITEM}/${editID}`, "post", {
+            const response = await requestServer(`${GET_EDIT_ITEM}/${editID}`, "post", {
                 data: formData,
                 success: {
                     notification: { show: true },
                 },
-            }));
+            });
             console.log(response);
         } catch (error) {
             console.log(error);

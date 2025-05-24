@@ -2,7 +2,7 @@ import { SidebarInset, SidebarProvider, SidebarTrigger } from "@/components/ui/s
 import { DashboardSidebar } from "./DashboardSidebar";
 import React from "react";
 
-export default function DashboardLayout({ children } : {children : React.ReactNode}) {
+export default function DashboardLayout({ children }: { children: React.ReactNode }) {
     return (
         <SidebarProvider>
             <DashboardSidebar />
