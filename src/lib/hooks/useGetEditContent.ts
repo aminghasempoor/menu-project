@@ -1,32 +1,19 @@
 import { useEffect, useState } from "react";
 import useRequest from "@/lib/hooks/useRequest";
+import { GET_EDIT_ITEM } from "@/lib/utils/apiRoutes";
 
-type FetchState = {
-    data: {
-        name: string;
-        price:string
-        ingredients:string
-        description:string
-        is_recommended : boolean
-        image:string
-        category_id:string
-    } | null;
-    loading: boolean;
-};
-
-export function useGetEditContent(url: string | null) {
-    const requestServer = useRequest({auth : true, notification : false});
-    const [state, setState] = useState({ data: null, loading: false });
+export function useGetEditContent(id?: null | number) {
+    const requestServer = useRequest({ auth: true, notification: false });
+    const [state, setState] = useState({ data: null, loading: true });
 
     useEffect(() => {
-        if (!url) return;
-
+        if (!id) return;
         const fetchData = async () => {
             setState({ data: null, loading: true });
             try {
-                const response = await requestServer(url);
+                const response = await requestServer(`${GET_EDIT_ITEM}/${id}`);
                 // @ts-ignore
-                setState({ data: response.data, loading: false });
+                setState({ data: response.data.data, loading: false });
             } catch (error) {
                 console.error(error);
                 setState({ data: null, loading: false });
@@ -34,7 +21,7 @@ export function useGetEditContent(url: string | null) {
         };
 
         fetchData();
-    }, [url]);
+    }, [id]);
 
     return state;
 }

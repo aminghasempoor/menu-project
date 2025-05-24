@@ -1,9 +1,16 @@
 import { UseFormReturn } from "react-hook-form";
 import { AddItemFormValues } from "./AddItem";
 import { useTranslations } from "next-intl";
-import { Dialog, DialogContent, DialogDescription, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import {
+    Dialog,
+    DialogClose,
+    DialogContent,
+    DialogDescription,
+    DialogTitle,
+    DialogTrigger,
+} from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import { CirclePlus } from "lucide-react";
+import { CirclePlus, X } from "lucide-react";
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 import React from "react";
 import DialogContentComponent from "./DialogContentComponent";
@@ -28,6 +35,9 @@ export default function DialogContentController({ form, onSubmit }: DialogConten
                 </Button>
             </DialogTrigger>
             <DialogContent className="sm:max-w-[700px] px-2">
+                <DialogClose asChild>
+                    <X size={20} className={"absolute top-2 end-2 cursor-pointer"} />
+                </DialogClose>
                 <VisuallyHidden>
                     <DialogTitle>{t("add_item")}</DialogTitle>
                     <DialogDescription>{t("add_item")}</DialogDescription>
@@ -35,5 +45,5 @@ export default function DialogContentController({ form, onSubmit }: DialogConten
                 <DialogContentComponent form={form} onSubmit={onSubmit} />
             </DialogContent>
         </Dialog>
-    )
+    );
 }

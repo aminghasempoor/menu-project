@@ -1,6 +1,6 @@
 {
-  "unknown_error" : "مشکلی در احراز هویت رخ داده است . دقایقی بعد امتحان کنید!!!",
-  "authenticating" : "درحال احراز هویت...",
+  "unknown_error": "مشکلی در احراز هویت رخ داده است . دقایقی بعد امتحان کنید!!!",
+  "authenticating": "درحال احراز هویت...",
   "unit": "هزار تومان",
   "logo": "منولیتا",
   "HomePage": {
@@ -22,10 +22,11 @@
     "title": "منولیتا",
     "about": "بازگشت به صفحه درباره ما",
     "dashboard": "داشبورد",
-    "login" : "ادمین"
+    "login": "ادمین"
   },
   "Items": {
     "title": "آیتم ها",
+    "loading": "درحال دریافت اطلاعات...",
     "add_item": "افزودن آیتم",
     "hezar_toman": "هزار تومان",
     "upload_image": "بارگذاری تصویر",
@@ -41,7 +42,7 @@
     "required": "ضروری",
     "error_max": "error_max",
     "price_should_be_number": "قیمت باید عدد باشد",
-    "login" : "ورود"
+    "login": "ورود"
   },
   "Categories": {
     "title": "دسته بندی ها",
@@ -60,7 +61,7 @@
     "required": "ضروری",
     "error_max": "error_max",
     "price_should_be_number": "قیمت باید عدد باشد",
-    "login" : "ورود"
+    "login": "ورود"
   },
   "Banner": {
     "title": "هر انتخاب، یه تجربه ی خوشمزه",
@@ -76,20 +77,20 @@
     "dessert": "دسر",
     "milkshake": "میلک‌شیک"
   },
-  "RecommendedItem" : {
-    "name" : "آیتم پیشنهادی",
+  "RecommendedItem": {
+    "name": "آیتم پیشنهادی",
     "unit": "هزار تومان"
   },
-  "AuthMiddleware" : {
-    "title" : "شما دسترسی لازم به این صفحه را ندارید..."
+  "AuthMiddleware": {
+    "title": "شما دسترسی لازم به این صفحه را ندارید..."
   },
-  "Sidebar" : {
-    "sidebar" : "داشبورد",
-    "title" : "داشبورد",
+  "Sidebar": {
+    "sidebar": "داشبورد",
+    "title": "داشبورد",
     "home": "خانه",
     "profile": "پروفایل",
     "items": "آیتم ها",
-    "logo" : "منولیتا",
+    "logo": "منولیتا",
     "unit": "هزار تومان",
     "category": "دسته بندی ها",
     "log_out": "خروج",
@@ -98,31 +99,31 @@
     "global_title": "منولیتا",
     "footer": "پاورقی"
   },
-  "Loading" : {
-    "title" : "درحال احراز هویت..."
+  "Loading": {
+    "title": "درحال احراز هویت..."
   },
-  "NotFound" : {
-    "title" : "صفحه مورد نظر یافت نشد..."
+  "NotFound": {
+    "title": "صفحه مورد نظر یافت نشد..."
   },
-  "NotAuthMiddleware" : {
-    "title" : "شما دسترسی لازم به این صفحه را دارید و نیاز به ورود مجدد نیست..."
+  "NotAuthMiddleware": {
+    "title": "شما دسترسی لازم به این صفحه را دارید و نیاز به ورود مجدد نیست..."
   },
-  "ScrollToTopButton" : {
-    "title" : "بازگشت به بالا"
+  "ScrollToTopButton": {
+    "title": "بازگشت به بالا"
   },
-  "CardItem" : {
-    "ingredient" : "محتویات :",
-    "description" : "چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است...",
+  "CardItem": {
+    "ingredient": "محتویات :",
+    "description": "چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است...",
     "items": "محتویات"
   },
-  "Dashboard" : {
-    "title" : "داشبورد",
-    "most_view" : "پر بازدید ترین آیتم ها"
+  "Dashboard": {
+    "title": "داشبورد",
+    "most_view": "پر بازدید ترین آیتم ها"
   },
-  "LineChart" : {
-    "title" : "تعداد بازدید از منو",
-    "description" : "طی چند روز قبل",
-    "label" : "تعداد"
+  "LineChart": {
+    "title": "تعداد بازدید از منو",
+    "description": "طی چند روز قبل",
+    "label": "تعداد"
   },
   "Main": {
     "pizza": "پیتزا",

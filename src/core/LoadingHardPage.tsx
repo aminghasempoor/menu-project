@@ -17,22 +17,22 @@ type LoadingHardPageProps = {
 };
 
 const LoadingHardPage = ({
-    children,
-    loading,
-    authState,
-    icon = null,
-    width = 200,
-    height = 200,
-    label,
-    className = "",
-}: LoadingHardPageProps) => {
+                             children,
+                             loading,
+                             authState,
+                             icon = null,
+                             width = 200,
+                             height = 200,
+                             label,
+                             className = "",
+                         }: LoadingHardPageProps) => {
     if (!loading) return <>{children}</>;
 
     return (
         <div
             className={cn(
-                "fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full px-4 max-w-md capitalize",
-                className
+                "fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full px-4 max-w-md capitalize z-50",
+                className,
             )}
         >
             <Card className="flex flex-col items-center space-y-4 bg-transparent border-none shadow-none">

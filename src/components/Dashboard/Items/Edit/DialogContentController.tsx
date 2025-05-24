@@ -1,10 +1,12 @@
 import { UseFormReturn } from "react-hook-form";
 import { useTranslations } from "next-intl";
-import { Dialog, DialogContent, DialogDescription, DialogTitle} from "@/components/ui/dialog";
+import { Dialog, DialogClose, DialogContent, DialogDescription, DialogTitle } from "@/components/ui/dialog";
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 import React from "react";
-import { EditItemProps } from "./index";
+import { EditItemFormValues, EditItemProps } from "./index";
 import { useEditItemStore } from "@/lib/utils/useEditItemStore";
+import DialogContentComponent from "../Create/DialogContentComponent";
+import { X } from "lucide-react";
 
 export type DialogContentComponentProps = {
     form: UseFormReturn<EditItemProps>;
@@ -12,17 +14,23 @@ export type DialogContentComponentProps = {
 
 };
 export default function DialogContentController({ form, onSubmit }: DialogContentComponentProps) {
-    const { isOpen } = useEditItemStore();
+    const isOpen = useEditItemStore((state) => state.isOpen);
+    const closeEditDialog = useEditItemStore((state) => state.closeEditDialog);
     const t = useTranslations("Items");
     return (
         <Dialog open={isOpen}>
             <DialogContent className="sm:max-w-[700px] px-2">
+                <DialogClose asChild>
+                    <X onClick={() => {
+                        closeEditDialog();
+                    }} size={20} className={"absolute top-2 end-2 cursor-pointer"} />
+                </DialogClose>
                 <VisuallyHidden>
                     <DialogTitle>{t("add_item")}</DialogTitle>
                     <DialogDescription>{t("add_item")}</DialogDescription>
                 </VisuallyHidden>
-                {/*<DialogContentComponent form={form} onSubmit={onSubmit} />*/}
+                <DialogContentComponent form={form} onSubmit={onSubmit} />
             </DialogContent>
         </Dialog>
-    )
+    );
 }

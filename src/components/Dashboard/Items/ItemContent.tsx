@@ -6,11 +6,11 @@ import { useTranslations } from "next-intl";
 import { useEditItemStore } from "@/lib/utils/useEditItemStore";
 
 export function ItemContent({
-    title,
-    id,
-    description,
-    price,
-}: {
+                                title,
+                                id,
+                                description,
+                                price,
+                            }: {
     picture: string;
     title: string;
     id: number;
@@ -18,9 +18,11 @@ export function ItemContent({
     price: string;
 }) {
     const t = useTranslations();
-    const openEditDialog = useEditItemStore((state) => state.openEditDialog)
+    const openEditDialog = useEditItemStore((state) => state.openEditDialog);
+    
     return (
-        <Card onClick={()=>openEditDialog(id)} className="transition-all duration-300 ease-in-out hover:shadow-xl hover:scale-[1.02] cursor-pointer">
+        <Card onClick={() => openEditDialog(id)}
+              className="transition-all duration-300 ease-in-out hover:shadow-xl hover:scale-[1.02] cursor-pointer">
             <CardContent className="p-0 flex flex-row items-stretch gap-x-2">
                 <div className="w-1/2 relative aspect-[4/3]">
                     <Image loading="lazy" fill className="object-cover rounded-lg" src={Picture} alt="picture" />

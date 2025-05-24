@@ -13,7 +13,6 @@ import { DialogContentComponentProps } from "./DialogContentController";
 
 export default function DialogContentComponent({ form, onSubmit }: DialogContentComponentProps) {
     const t = useTranslations("Items");
-
     return (
         <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)}>
@@ -42,7 +41,8 @@ export default function DialogContentComponent({ form, onSubmit }: DialogContent
                                 render={({ field }) => (
                                     <FormItem>
                                         <FormControl>
-                                            <Input placeholder={t("hezar_toman")} onChange={field.onChange} />
+                                            <Input value={field.value} placeholder={t("hezar_toman")}
+                                                   onChange={field.onChange} />
                                         </FormControl>
                                         <FormMessage />
                                     </FormItem>
@@ -59,7 +59,8 @@ export default function DialogContentComponent({ form, onSubmit }: DialogContent
                                 render={({ field }) => (
                                     <FormItem>
                                         <FormControl>
-                                            <Input placeholder={t("name")} onChange={field.onChange} />
+                                            <Input value={field.value} placeholder={t("name")}
+                                                   onChange={field.onChange} />
                                         </FormControl>
                                         <FormMessage />
                                     </FormItem>
@@ -74,7 +75,8 @@ export default function DialogContentComponent({ form, onSubmit }: DialogContent
                                 render={({ field }) => (
                                     <FormItem>
                                         <FormControl>
-                                            <Input placeholder={t("ingredient")} onChange={field.onChange} />
+                                            <Input value={field.value} placeholder={t("ingredient")}
+                                                   onChange={field.onChange} />
                                         </FormControl>
                                         <FormMessage />
                                     </FormItem>
@@ -89,6 +91,7 @@ export default function DialogContentComponent({ form, onSubmit }: DialogContent
                                     <FormItem>
                                         <FormControl>
                                             <Textarea
+                                                value={field.value}
                                                 rows={6}
                                                 placeholder={t("description")}
                                                 onChange={field.onChange}
@@ -107,7 +110,7 @@ export default function DialogContentComponent({ form, onSubmit }: DialogContent
                                 render={({ field }) => (
                                     <FormItem>
                                         <FormControl>
-                                            <Select onValueChange={field.onChange}>
+                                            <Select value={field.value} onValueChange={field.onChange}>
                                                 <SelectTrigger>
                                                     <SelectValue
                                                         className={"text-right"}
@@ -132,7 +135,8 @@ export default function DialogContentComponent({ form, onSubmit }: DialogContent
                                 render={({ field }) => (
                                     <FormItem>
                                         <FormControl>
-                                            <Switch id="featured" onCheckedChange={field.onChange} />
+                                            <Switch checked={field.value} id="featured"
+                                                    onCheckedChange={field.onChange} />
                                         </FormControl>
                                         <FormMessage />
                                     </FormItem>

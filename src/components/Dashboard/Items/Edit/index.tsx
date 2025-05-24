@@ -18,24 +18,24 @@ const DrawerContentController = dynamic(() => import("./DrawerContentController"
     ssr: false,
 });
 export type EditItemFormValues = z.infer<ReturnType<typeof addItemSchema>>;
-export interface EditItemProps{
+
+export interface EditItemProps {
     name: string;
-    price:string
-    ingredients:string
-    description:string
-    is_recommended : boolean
-    image:string | File
-    category_id:string
+    price: string;
+    ingredients: string;
+    description: string;
+    is_recommended: boolean;
+    image: string | File;
+    category_id: string;
 }
-export function EditItem({data}: {data: EditItemProps}) {
+
+export function EditItem({ data }: { data: EditItemProps }) {
     const t = useTranslations("Items");
     const requestServer = useRequest({ notification: true, auth: true });
     const isDesktop = useMediaQuery("(min-width: 768px)");
 
     const schema = addItemSchema(t);
     type EditItemFormValues = z.infer<typeof schema>;
-    console.log(data);
-
 
     const form = useForm<EditItemFormValues>({
         resolver: zodResolver(schema),
@@ -47,7 +47,7 @@ export function EditItem({data}: {data: EditItemProps}) {
             description: data.description || "",
             is_recommended: data.is_recommended || false,
             image: data.image || undefined,
-            category_id: data.category_id || "",
+            category_id: String(data.category_id) || "",
         },
     });
 

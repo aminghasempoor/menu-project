@@ -1,6 +1,6 @@
 {
-  "unknown_error" : "something went wrong while authentication...",
-  "authenticating" : "authenticating...",
+  "unknown_error": "something went wrong while authentication...",
+  "authenticating": "authenticating...",
   "unit": "hezar toman",
   "logo": "Menulita",
   "HomePage": {
@@ -22,10 +22,11 @@
     "title": "menulita",
     "about": "Go to the about page",
     "dashboard": "Dashboard",
-    "login" : "Login"
+    "login": "Login"
   },
   "Items": {
     "title": "Items",
+    "loading": "Loading...",
     "add_item": "add item",
     "hezar_toman": "Hezar Toman",
     "upload_image": "Upload Image",
@@ -41,7 +42,7 @@
     "price_should_be_number": "Price Should Be Number",
     "error_max": "error_max",
     "unit": "hezar toman",
-    "login" : "Login"
+    "login": "Login"
   },
   "Categories": {
     "title": "Categories",
@@ -60,7 +61,7 @@
     "price_should_be_number": "Price Should Be Number",
     "error_max": "error_max",
     "unit": "hezar toman",
-    "login" : "Login"
+    "login": "Login"
   },
   "Banner": {
     "title": "every choice, a delicious experience",
@@ -88,20 +89,20 @@
     "dessert": "Dessert",
     "milkshake": "Milkshake"
   },
-  "RecommendedItem" : {
-    "name" : "recommended item",
+  "RecommendedItem": {
+    "name": "recommended item",
     "unit": "hezar toman"
   },
-  "Loading" : {
-    "title" : "Loading..."
+  "Loading": {
+    "title": "Loading..."
   },
-  "NotFound" : {
-    "title" : "Not Found..."
+  "NotFound": {
+    "title": "Not Found..."
   },
-  "Sidebar" : {
-    "sidebar" : "sidebar",
-    "title" : "dashboard",
-    "logo" : "Menulita",
+  "Sidebar": {
+    "sidebar": "sidebar",
+    "title": "dashboard",
+    "logo": "Menulita",
     "home": "Home",
     "profile": "Profile",
     "items": "Items",
@@ -112,28 +113,28 @@
     "global_title": "menulita",
     "footer": "Footer"
   },
-  "AuthMiddleware" : {
-    "title" : "you don not have permission to this page..."
+  "AuthMiddleware": {
+    "title": "you don not have permission to this page..."
   },
-  "NotAuthMiddleware" : {
-    "title" : "you have permission to this page don not need to login again..."
+  "NotAuthMiddleware": {
+    "title": "you have permission to this page don not need to login again..."
   },
-  "ScrollToTopButton" : {
-    "title" : "back to top"
+  "ScrollToTopButton": {
+    "title": "back to top"
   },
-  "CardItem" : {
-    "ingredient" : "ingredient :",
-    "description" : "Printers and texts, but also newspapers and magazines in columns and rows as necessary...",
+  "CardItem": {
+    "ingredient": "ingredient :",
+    "description": "Printers and texts, but also newspapers and magazines in columns and rows as necessary...",
     "items": "ingredient"
   },
-  "Dashboard" : {
-    "title" : "dashboard",
-    "most_view" : "most viewed items"
+  "Dashboard": {
+    "title": "dashboard",
+    "most_view": "most viewed items"
   },
-  "LineChart" : {
-    "title" : "total menu visit",
-    "description" : "from past days",
-    "label" : "num"
+  "LineChart": {
+    "title": "total menu visit",
+    "description": "from past days",
+    "label": "num"
   },
   "Notifications": {
     "code": "Code",
