@@ -12,7 +12,7 @@ export function useGetEditContent(id?: null | number) {
             setState({ data: null, loading: true });
             try {
                 const response = await requestServer(`${GET_EDIT_ITEM}/${id}`);
-                // @ts-expect-error
+                // @ts-expect-error typing will be fixed later
                 setState({ data: response.data.data, loading: false });
             } catch (error) {
                 console.error(error);
@@ -21,6 +21,7 @@ export function useGetEditContent(id?: null | number) {
         };
 
         fetchData();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [id]);
 
     return state;
