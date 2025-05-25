@@ -10,9 +10,26 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Switch } from "@/components/ui/switch";
 import { DialogContentComponentProps } from "./DrawerContentController";
+import { DELETE_ITEM } from "@/lib/utils/apiRoutes";
+import useRequest from "@/lib/hooks/useRequest";
+import { useEditItemStore } from "@/lib/utils/useEditItemStore";
 
-export default function DrawerContentComponent({ form, onSubmit }: DialogContentComponentProps) {
+export default function DrawerContentComponent({ form, onSubmit, isEdit }: DialogContentComponentProps) {
     const t = useTranslations("Items");
+    const requestServer = useRequest({ notification: true, auth: true });
+    const deleteID = useEditItemStore((state) => state.id);
+    const handleDelete = async () => {
+        try {
+            const response = await requestServer(`${DELETE_ITEM}/${deleteID}`, "delete", {
+                success: {
+                    notification: { show: true },
+                },
+            });
+            console.log(response);
+        } catch (error) {
+            console.log(error);
+        }
+    };
     return (
         <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)}>
@@ -41,7 +58,11 @@ export default function DrawerContentComponent({ form, onSubmit }: DialogContent
                                 render={({ field }) => (
                                     <FormItem>
                                         <FormControl>
-                                            <Input placeholder={t("hezar_toman")} onChange={field.onChange} />
+                                            <Input
+                                                value={field.value}
+                                                placeholder={t("hezar_toman")}
+                                                onChange={field.onChange}
+                                            />
                                         </FormControl>
                                         <FormMessage />
                                     </FormItem>
@@ -54,11 +75,15 @@ export default function DrawerContentComponent({ form, onSubmit }: DialogContent
                             <Label>{t("name")}</Label>
                             <FormField
                                 control={form.control}
-                                name="name"
+                                name="name_fa"
                                 render={({ field }) => (
                                     <FormItem>
                                         <FormControl>
-                                            <Input placeholder={t("name")} onChange={field.onChange} />
+                                            <Input
+                                                value={field.value}
+                                                placeholder={t("name")}
+                                                onChange={field.onChange}
+                                            />
                                         </FormControl>
                                         <FormMessage />
                                     </FormItem>
@@ -73,7 +98,11 @@ export default function DrawerContentComponent({ form, onSubmit }: DialogContent
                                 render={({ field }) => (
                                     <FormItem>
                                         <FormControl>
-                                            <Input placeholder={t("ingredient")} onChange={field.onChange} />
+                                            <Input
+                                                value={field.value}
+                                                placeholder={t("ingredient")}
+                                                onChange={field.onChange}
+                                            />
                                         </FormControl>
                                         <FormMessage />
                                     </FormItem>
@@ -88,6 +117,7 @@ export default function DrawerContentComponent({ form, onSubmit }: DialogContent
                                     <FormItem>
                                         <FormControl>
                                             <Textarea
+                                                value={field.value}
                                                 rows={1}
                                                 placeholder={t("description")}
                                                 onChange={field.onChange}
@@ -106,7 +136,7 @@ export default function DrawerContentComponent({ form, onSubmit }: DialogContent
                                 render={({ field }) => (
                                     <FormItem>
                                         <FormControl>
-                                            <Select onValueChange={field.onChange}>
+                                            <Select value={field.value} onValueChange={field.onChange}>
                                                 <SelectTrigger>
                                                     <SelectValue placeholder={t("choose")} />
                                                 </SelectTrigger>
@@ -128,7 +158,11 @@ export default function DrawerContentComponent({ form, onSubmit }: DialogContent
                                 render={({ field }) => (
                                     <FormItem>
                                         <FormControl>
-                                            <Switch id="featured" onCheckedChange={field.onChange} />
+                                            <Switch
+                                                checked={field.value}
+                                                id="featured"
+                                                onCheckedChange={field.onChange}
+                                            />
                                         </FormControl>
                                         <FormMessage />
                                     </FormItem>
@@ -142,6 +176,15 @@ export default function DrawerContentComponent({ form, onSubmit }: DialogContent
                     <Button className="capitalize text-md font-semibold" type="submit">
                         {t("add_item")}
                     </Button>
+                    {isEdit && (
+                        <Button
+                            onClick={handleDelete}
+                            className="capitalize text-md font-semibold bg-red-600/75 hover:text-red-600 "
+                            id={"delete_item"}
+                        >
+                            {t("delete_item")}
+                        </Button>
+                    )}
                 </DrawerFooter>
             </form>
         </Form>

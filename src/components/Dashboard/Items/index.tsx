@@ -22,7 +22,7 @@ export function ItemsComponent() {
                             id={food.id}
                             key={index}
                             picture={food.image}
-                            title={food.name}
+                            title={food.name_fa}
                             description={food.description}
                             price={food.price}
                         />
