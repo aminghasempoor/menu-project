@@ -1,6 +1,4 @@
-import {
-    DrawerFooter,
-} from "@/components/ui/drawer";
+import { DrawerFooter } from "@/components/ui/drawer";
 import React from "react";
 import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/button";

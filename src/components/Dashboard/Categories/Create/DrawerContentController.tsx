@@ -1,10 +1,4 @@
-import {
-    Drawer,
-    DrawerContent,
-    DrawerDescription,
-    DrawerTitle,
-    DrawerTrigger,
-} from "@/components/ui/drawer";
+import { Drawer, DrawerContent, DrawerDescription, DrawerTitle, DrawerTrigger } from "@/components/ui/drawer";
 import React from "react";
 import { useTranslations } from "next-intl";
 import { CirclePlus } from "lucide-react";

@@ -1,7 +1,7 @@
-"use client"
-import useSWR from 'swr'
+"use client";
+import useSWR from "swr";
 
-const fetcher = (url: string) => fetch(url).then(res => res.json())
+const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
 export function useSwrHook<T = any>(url: string) {
     const { data, error, isLoading, mutate } = useSWR<T>(url, fetcher, {
@@ -9,10 +9,10 @@ export function useSwrHook<T = any>(url: string) {
         revalidateOnFocus: false,
         revalidateOnReconnect: true,
         keepPreviousData: true,
-    })
+    });
 
     async function refresh() {
-        await mutate()
+        await mutate();
     }
 
     return {
@@ -21,5 +21,5 @@ export function useSwrHook<T = any>(url: string) {
         isLoading,
         mutate,
         refresh,
-    }
+    };
 }
