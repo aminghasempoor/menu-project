@@ -21,7 +21,7 @@ export function Navbar() {
             <div className={"flex gap-x-3 justify-center items-center"}>
                 <ModeToggle />
                 <LanguageSwitcher />
-                {user ? (
+                {user.username ? (
                     <Link className={"text-md flex gap-x-1"} href={"/dashboard"}>
                         <p className={"p-0 text-sm sm:text-md"}>{t("dashboard")}</p>
                         <User className={"w-4 h-4 sm:w-5 sm:h-5"} />

@@ -25,7 +25,7 @@ export default function DrawerContentController({ form, onSubmit }: DialogConten
     const closeEditDialog = useEditItemStore((state) => state.closeEditDialog);
     return (
         <Drawer open={isOpen}>
-            <DrawerContent className="w-full max-w-md mx-auto rounded-t-3xl pb-6">
+            <DrawerContent className="w-full max-w-md mx-auto rounded-t-3xl">
                 <VisuallyHidden>
                     <DrawerTitle>{t("add_item")}</DrawerTitle>
                     <DrawerDescription>{t("add_item")}</DrawerDescription>

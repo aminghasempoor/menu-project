@@ -33,7 +33,7 @@ export default function DrawerContentComponent({ form, onSubmit, isEdit }: Dialo
     return (
         <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)}>
-                <div className={"max-h-[650px] overflow-y-scroll"}>
+                <div className={"max-h-[500px] overflow-y-scroll"}>
                     <div className="flex flex-col gap-4 py-1 px-5">
                         <div>
                             <Label>{t("upload_image")}</Label>

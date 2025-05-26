@@ -53,9 +53,7 @@ export default function DrawerContentComponent({ form, onSubmit, isEdit }: Dialo
                     </div>
                 </div>
                 <DrawerFooter>
-                    {isEdit && (
-                        <Button>hello</Button>
-                    )}
+                    {isEdit && <Button>hello</Button>}
                     <Button className="capitalize text-md font-semibold" type="submit">
                         {t("add_item")}
                     </Button>
