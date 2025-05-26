@@ -15,7 +15,7 @@ export function ItemsComponent() {
                 {loadingFoods ? (
                     <SkeletonCard />
                 ) : errorFoods ? (
-                    <>error</>
+                    <p className={"text-center font-bold text-red-700"}>{t("error")}</p>
                 ) : (
                     foods.map((food, index) => (
                         <ItemContent

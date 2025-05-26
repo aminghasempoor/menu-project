@@ -31,7 +31,7 @@ export function AddCategory() {
         resolver: zodResolver(schema),
         mode: "all",
         defaultValues: {
-            name: "",
+            name_fa: "",
             image: undefined,
         },
     });
@@ -39,7 +39,7 @@ export function AddCategory() {
     async function onSubmit(values: AddCategoryFormValues) {
         console.log(values);
         const formData = new FormData();
-        formData.append("name", values.name);
+        formData.append("name", values.name_fa);
         formData.append("image", values.image);
         try {
             const response = (await requestServer(CREATE_CATEGORIES, "post", {

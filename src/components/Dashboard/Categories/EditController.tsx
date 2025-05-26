@@ -1,14 +1,14 @@
-import { useEditItemStore } from "@/lib/utils/useEditItemStore";
-import { EditItem } from "./Edit";
-import { useGetEditItem } from "@/lib/hooks/useGetEditItem";
 import { useTranslations } from "next-intl";
 import { Loader2 } from "lucide-react";
+import { useGetEditCategory } from "@/lib/hooks/useGetEditCategory";
+import { useEditCategoryStore } from "@/lib/utils/useEditCategoryStore";
+import { EditItem } from "./Edit";
 
 export const EditController = () => {
-    const t = useTranslations("Items");
-    const isOpen = useEditItemStore((state) => state.isOpen);
-    const editID = useEditItemStore((state) => state.id);
-    const { loading: loadingEditContent, data } = useGetEditItem(editID);
+    const t = useTranslations("Categories");
+    const isOpen = useEditCategoryStore((state) => state.isOpen);
+    const editID = useEditCategoryStore((state) => state.id);
+    const { loading: loadingEditContent, data } = useGetEditCategory(editID);
 
     return (
         <>

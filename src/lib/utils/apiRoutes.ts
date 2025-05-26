@@ -8,3 +8,4 @@ export const DELETE_ITEM = api + "/foods";
 export const GET_CATEGORIES = api + "/categories";
 export const CREATE_CATEGORIES = api + "/categories";
 export const GET_EDIT_ITEM = api + "/foods";
+export const GET_EDIT_CATEGORY = api + "/categories";

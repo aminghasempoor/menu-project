@@ -38,6 +38,7 @@
     "description": "Description",
     "choose": "Choose",
     "name": "Name",
+    "error": "Error Fetch Data...",
     "choose_category": "Choose Category",
     "set_recommended": "Set As Recommended",
     "required": "Required",
@@ -48,6 +49,8 @@
   },
   "Categories": {
     "title": "Categories",
+    "error": "Error Fetch Data...",
+    "loading": "Loading...",
     "add_item": "add category",
     "hezar_toman": "Hezar Toman",
     "upload_image": "Upload Image",

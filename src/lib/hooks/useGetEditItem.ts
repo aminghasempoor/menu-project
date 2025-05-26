@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import useRequest from "@/lib/hooks/useRequest";
 import { GET_EDIT_ITEM } from "@/lib/utils/apiRoutes";
 
-export function useGetEditContent(id?: null | number) {
+export function useGetEditItem(id?: null | number) {
     const requestServer = useRequest({ auth: true, notification: false });
     const [state, setState] = useState({ data: null, loading: true });
 
