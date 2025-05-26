@@ -3,7 +3,6 @@ import React from "react";
 import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/button";
 import { Form, FormControl, FormField, FormItem, FormMessage } from "@/components/ui/form";
-import ImageUpload from "@/components/Dashboard/Items/ImageUpload";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { AddCategoryFormValues } from "./AddCategory";
@@ -21,21 +20,21 @@ export default function DrawerContentComponent({ form, onSubmit, isEdit }: Dialo
         <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)}>
                 <div className="gap-4 py-3 px-10">
-                    <div>
-                        <Label>{t("upload_image")}</Label>
-                        <FormField
-                            control={form.control}
-                            name="image"
-                            render={({ field }) => (
-                                <FormItem className={"border rounded-xl"}>
-                                    <FormControl>
-                                        <ImageUpload value={field.value} onChange={field.onChange} />
-                                    </FormControl>
-                                    <FormMessage className={"px-2"} />
-                                </FormItem>
-                            )}
-                        />
-                    </div>
+                    {/*<div>*/}
+                    {/*    <Label>{t("upload_image")}</Label>*/}
+                    {/*    <FormField*/}
+                    {/*        control={form.control}*/}
+                    {/*        name="image"*/}
+                    {/*        render={({ field }) => (*/}
+                    {/*            <FormItem className={"border rounded-xl"}>*/}
+                    {/*                <FormControl>*/}
+                    {/*                    <ImageUpload value={field.value} onChange={field.onChange} />*/}
+                    {/*                </FormControl>*/}
+                    {/*                <FormMessage className={"px-2"} />*/}
+                    {/*            </FormItem>*/}
+                    {/*        )}*/}
+                    {/*    />*/}
+                    {/*</div>*/}
                     <div>
                         <Label>{t("name")}</Label>
                         <FormField

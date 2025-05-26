@@ -42,15 +42,15 @@ export const addItemSchema = (t: (key: string, params?: TranslationValues) => st
 export const addCategorySchema = (t: (key: string, params?: TranslationValues) => string) =>
     z.object({
         name_fa: z.string().min(1, { message: t("required") }),
-        image: z.union([z.instanceof(File), z.string().url()]).refine(
-            (val) => {
-                if (typeof val === "string") return val.length > 0;
-                return val instanceof File;
-            },
-            {
-                message: t("upload_image_err"),
-            }
-        ),
+        // image: z.union([z.instanceof(File), z.string().url()]).refine(
+        //     (val) => {
+        //         if (typeof val === "string") return val.length > 0;
+        //         return val instanceof File;
+        //     },
+        //     {
+        //         message: t("upload_image_err"),
+        //     }
+        // ),
     });
 export const OtpFormSchema = (t: (key: string) => string) =>
     z.object({

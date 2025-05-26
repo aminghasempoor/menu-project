@@ -32,7 +32,7 @@ export function AddCategory() {
         mode: "all",
         defaultValues: {
             name_fa: "",
-            image: undefined,
+            // image: undefined,
         },
     });
 
@@ -40,7 +40,7 @@ export function AddCategory() {
         console.log(values);
         const formData = new FormData();
         formData.append("name", values.name_fa);
-        formData.append("image", values.image);
+        // formData.append("image", values.image);
         try {
             const response = (await requestServer(CREATE_CATEGORIES, "post", {
                 data: formData,

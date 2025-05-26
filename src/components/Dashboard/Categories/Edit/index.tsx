@@ -21,7 +21,7 @@ const DrawerContentController = dynamic(() => import("./DrawerContentController"
 export type EditItemFormValues = z.infer<ReturnType<typeof addCategorySchema>>;
 
 export interface EditItemProps {
-    image: string | File;
+    // image: string | File;
     name_fa: string;
     id?: number;
 }
@@ -40,16 +40,14 @@ export function EditItem({ data }: { data: EditItemProps }) {
         mode: "onBlur",
         defaultValues: {
             name_fa: data.name_fa || "",
-            image: data.image || undefined,
+            // image: data.image || undefined,
         },
     });
 
     async function onSubmit(values: EditItemFormValues) {
         const formData = new FormData();
         Object.entries(values).forEach(([key, value]) => {
-            if (value instanceof File) {
-                formData.append(key, value);
-            } else if (typeof value === "boolean") {
+            if (typeof value === "boolean") {
                 formData.append(key, value ? "1" : "0");
             } else if (value !== undefined && value !== null) {
                 formData.append(key, value);
