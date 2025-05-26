@@ -18,7 +18,7 @@ export function CategoryComponent() {
                     <p className={"text-center font-bold text-red-700"}>{t("error")}</p>
                 ) : (
                     categories.map((category, index) => (
-                        <CategoryContent key={index} id={category.id} title={category.name} />
+                        <CategoryContent key={index} id={category.id} title={category.name_fa} />
                     ))
                 )}
             </div>

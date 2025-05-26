@@ -5,7 +5,7 @@ import { GET_CATEGORIES } from "@/lib/utils/apiRoutes";
 
 interface Category {
     image: string;
-    name: string;
+    name_fa: string;
     id: number;
 }
 

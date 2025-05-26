@@ -43,7 +43,7 @@ export default function DrawerContentComponent({ form, onSubmit, isEdit }: Dialo
                             render={({ field }) => (
                                 <FormItem>
                                     <FormControl>
-                                        <Input placeholder={t("name")} onChange={field.onChange} />
+                                        <Input value={field.value} placeholder={t("name")} onChange={field.onChange} />
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>
@@ -51,7 +51,7 @@ export default function DrawerContentComponent({ form, onSubmit, isEdit }: Dialo
                         />
                     </div>
                 </div>
-                <DrawerFooter>
+                <DrawerFooter className={"py-0"}>
                     {isEdit && <Button>hello</Button>}
                     <Button className="capitalize text-md font-semibold" type="submit">
                         {t("add_item")}

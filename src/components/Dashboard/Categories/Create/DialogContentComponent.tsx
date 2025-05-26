@@ -44,7 +44,7 @@ export default function DialogContentComponent({ form, onSubmit, isEdit }: Dialo
                             render={({ field }) => (
                                 <FormItem>
                                     <FormControl>
-                                        <Input placeholder={t("name")} onChange={field.onChange} />
+                                        <Input value={field.value} placeholder={t("name")} onChange={field.onChange} />
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>
