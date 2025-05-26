@@ -54,6 +54,9 @@ export default function DialogContentComponent({ form, onSubmit, isEdit }: Dialo
                     </div>
                 </div>
                 <DialogFooter className={"items-start p-3"}>
+                    {isEdit && (
+                        <Button>hello</Button>
+                    )}
                     <Button className="capitalize text-md font-semibold" type="submit">
                         {t("add_item")}
                     </Button>
