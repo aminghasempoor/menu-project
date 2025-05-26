@@ -10,11 +10,11 @@ import { CREATE_CATEGORIES } from "@/lib/utils/apiRoutes";
 import useRequest from "@/lib/hooks/useRequest";
 import dynamic from "next/dynamic";
 
-const DialogContentComponent = dynamic(() => import("./DialogContentComponent"), {
+const DialogContentController = dynamic(() => import("./DialogContentController"), {
     ssr: false,
 });
 
-const DrawerContentComponent = dynamic(() => import("./DrawerContentComponent"), {
+const DrawerContentController = dynamic(() => import("./DrawerContentController"), {
     ssr: false,
 });
 export type AddCategoryFormValues = z.infer<ReturnType<typeof addCategorySchema>>;
@@ -55,8 +55,8 @@ export function AddCategory() {
     }
 
     if (isDesktop) {
-        return <DialogContentComponent form={form} onSubmit={onSubmit} />;
+        return <DialogContentController form={form} onSubmit={onSubmit} />;
     }
 
-    return <DrawerContentComponent form={form} onSubmit={onSubmit} />;
+    return <DrawerContentController form={form} onSubmit={onSubmit} />;
 }

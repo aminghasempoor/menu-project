@@ -19,7 +19,7 @@ import SidebarFooterComponent from "./SidebarFooter";
 import { useTranslations } from "next-intl";
 import { getDashboardSidebarItems } from "@/core/utils/dashboardSidebarItems";
 import Image from "next/image";
-import IconLogo from "../../../../public/icon-logo.svg";
+// import IconLogo from "../../../../public/icon-logo.svg";
 
 export function DashboardSidebar() {
     const t = useTranslations("Sidebar");
@@ -32,7 +32,7 @@ export function DashboardSidebar() {
             <SidebarContent>
                 <SidebarGroup>
                     <SidebarGroupLabel className={"text-2xl mb-2 capitalize mt-2"}>
-                        <Image src={IconLogo} alt={"logo"} width={20} height={20} className="pointer-events-none" />
+                        {/*<Image src={IconLogo} alt={"logo"} width={20} height={20} className="pointer-events-none" />*/}
                         <div className={"mx-2"}>{t("global_title")}</div>
                     </SidebarGroupLabel>
                     <SidebarGroupContent>
