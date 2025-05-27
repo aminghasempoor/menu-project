@@ -31,7 +31,7 @@ export function EditItem({ data }: { data: EditItemProps }) {
     const requestServer = useRequest({ notification: true, auth: true });
     const editID = useEditCategoryStore((state) => state.id);
     const isDesktop = useMediaQuery("(min-width: 768px)");
-
+    const setLoadingData = useEditCategoryStore((state) => state.setLoadingData);
     const schema = addCategorySchema(t);
     type EditItemFormValues = z.infer<typeof schema>;
 
@@ -45,6 +45,7 @@ export function EditItem({ data }: { data: EditItemProps }) {
     });
 
     async function onSubmit(values: EditItemFormValues) {
+        setLoadingData(true)
         const formData = new FormData();
         Object.entries(values).forEach(([key, value]) => {
             if (typeof value === "boolean") {
@@ -63,6 +64,8 @@ export function EditItem({ data }: { data: EditItemProps }) {
             console.log(response);
         } catch (error) {
             console.log(error);
+        }finally {
+            setLoadingData(false)
         }
     }
 

@@ -9,6 +9,7 @@ import { z } from "zod";
 import { CREATE_ITEM } from "@/lib/utils/apiRoutes";
 import useRequest from "@/lib/hooks/useRequest";
 import dynamic from "next/dynamic";
+import { useEditItemStore } from "@/lib/utils/useEditItemStore";
 
 const DialogContentController = dynamic(() => import("./DialogContentController"), {
     ssr: false,
@@ -23,7 +24,7 @@ export function AddItem() {
     const t = useTranslations("Items");
     const requestServer = useRequest({ notification: true, auth: true });
     const isDesktop = useMediaQuery("(min-width: 768px)");
-
+    const setLoadingData = useEditItemStore((state) => state.setLoadingData);
     const schema = addItemSchema(t);
     type AddItemFormValues = z.infer<typeof schema>;
 
@@ -42,7 +43,7 @@ export function AddItem() {
     });
 
     async function onSubmit(values: AddItemFormValues) {
-        console.log(values);
+        setLoadingData(true)
         const formData = new FormData();
         Object.entries(values).forEach(([key, value]) => {
             if (value instanceof File) {
@@ -63,6 +64,8 @@ export function AddItem() {
             console.log(response);
         } catch (error) {
             console.log(error);
+        }finally {
+            setLoadingData(false)
         }
     }
 

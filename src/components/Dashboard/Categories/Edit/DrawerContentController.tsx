@@ -31,7 +31,7 @@ export default function DrawerContentController({ form, onSubmit }: DialogConten
                     <DrawerDescription>{t("add_item")}</DrawerDescription>
                 </VisuallyHidden>
                 <DrawerContentComponent isEdit={true} form={form} onSubmit={onSubmit} />
-                <DrawerFooter>
+                <DrawerFooter className={"mx-4 py-0"}>
                     <DrawerClose asChild>
                         <Button
                             onClick={() => {

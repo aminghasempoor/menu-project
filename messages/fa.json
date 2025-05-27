@@ -53,6 +53,7 @@
     "error": "خطا در دریافت اطلاعات...",
     "add_item": "افزودن دسته بندی",
     "hezar_toman": "هزار تومان",
+    "delete_item": "حذف",
     "upload_image": "بارگذاری تصویر",
     "close": "بستن",
     "upload_image_err": "تصویر ضروریست",

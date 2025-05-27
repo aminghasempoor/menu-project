@@ -18,7 +18,10 @@ export default function DialogContentComponent({ form, onSubmit, isEdit }: Dialo
     const t = useTranslations("Items");
     const requestServer = useRequest({ notification: true, auth: true });
     const deleteID = useEditItemStore((state) => state.id);
+    const isLoadingData = useEditItemStore((state) => state.isLoadingData);
+    const setLoadingData = useEditItemStore((state) => state.setLoadingData);
     const handleDelete = async () => {
+        setLoadingData(true)
         try {
             const response = await requestServer(`${DELETE_ITEM}/${deleteID}`, "delete", {
                 success: {
@@ -28,6 +31,8 @@ export default function DialogContentComponent({ form, onSubmit, isEdit }: Dialo
             console.log(response);
         } catch (error) {
             console.log(error);
+        }finally {
+            setLoadingData(false)
         }
     };
     return (
@@ -177,6 +182,7 @@ export default function DialogContentComponent({ form, onSubmit, isEdit }: Dialo
                         <Button
                             onClick={handleDelete}
                             variant={"ghost"}
+                            disabled={isLoadingData}
                             className="capitalize text-md font-semibold text-red-500 hover:text-red-600 hover:bg-background"
                             id={"delete_item"}
                         >
@@ -184,7 +190,7 @@ export default function DialogContentComponent({ form, onSubmit, isEdit }: Dialo
                         </Button>
                     )}
                     <Button
-                        disabled={form.formState.isSubmitting}
+                        disabled={isLoadingData}
                         className="capitalize text-md font-semibold"
                         type="submit"
                     >

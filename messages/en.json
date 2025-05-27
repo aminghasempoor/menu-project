@@ -51,6 +51,7 @@
     "title": "Categories",
     "error": "Error Fetch Data...",
     "loading": "Loading...",
+    "delete_item": "Delete",
     "close": "close",
     "add_item": "add category",
     "hezar_toman": "Hezar Toman",

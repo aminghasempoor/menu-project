@@ -36,7 +36,7 @@ export function EditItem({ data }: { data: EditItemProps }) {
     const requestServer = useRequest({ notification: true, auth: true });
     const editID = useEditItemStore((state) => state.id);
     const isDesktop = useMediaQuery("(min-width: 768px)");
-
+    const setLoadingData = useEditItemStore((state) => state.setLoadingData);
     const schema = addItemSchema(t);
     type EditItemFormValues = z.infer<typeof schema>;
 
@@ -55,6 +55,7 @@ export function EditItem({ data }: { data: EditItemProps }) {
     });
 
     async function onSubmit(values: EditItemFormValues) {
+        setLoadingData(true)
         const formData = new FormData();
         Object.entries(values).forEach(([key, value]) => {
             if (value instanceof File) {
@@ -75,6 +76,8 @@ export function EditItem({ data }: { data: EditItemProps }) {
             console.log(response);
         } catch (error) {
             console.log(error);
+        }finally {
+            setLoadingData(false)
         }
     }
 

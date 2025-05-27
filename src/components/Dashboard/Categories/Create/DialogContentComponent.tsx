@@ -7,6 +7,9 @@ import { useTranslations } from "next-intl";
 import { Form, FormControl, FormField, FormItem, FormMessage } from "@/components/ui/form";
 import { UseFormReturn } from "react-hook-form";
 import { AddCategoryFormValues } from "./AddCategory";
+import useRequest from "@/lib/hooks/useRequest";
+import { useEditCategoryStore } from "@/lib/utils/useEditCategoryStore";
+import { DELETE_CATEGORY } from "@/lib/utils/apiRoutes";
 
 type DialogContentComponentProps = {
     form: UseFormReturn<AddCategoryFormValues>;
@@ -16,11 +19,29 @@ type DialogContentComponentProps = {
 
 export default function DialogContentComponent({ form, onSubmit, isEdit }: DialogContentComponentProps) {
     const t = useTranslations("Categories");
-
+    const requestServer = useRequest({ notification: true, auth: true });
+    const deleteID = useEditCategoryStore((state) => state.id);
+    const isLoadingData = useEditCategoryStore((state) => state.isLoadingData);
+    const setLoadingData = useEditCategoryStore((state) => state.setLoadingData);
+    const handleDelete = async () => {
+        setLoadingData(true)
+        try {
+            const response = await requestServer(`${DELETE_CATEGORY}/${deleteID}`, "delete", {
+                success: {
+                    notification: { show: true },
+                },
+            });
+            console.log(response);
+        } catch (error) {
+            console.log(error);
+        }finally {
+            setLoadingData(false)
+        }
+    };
     return (
         <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)}>
-                <div className=" w-full items-center justify-around gap-4 py-3 px-10">
+                <div className=" w-full items-center justify-around gap-4 py-3 px-5">
                     {/*<div>*/}
                     {/*    <Label>{t("upload_image")}</Label>*/}
                     {/*    <FormField*/}
@@ -52,9 +73,18 @@ export default function DialogContentComponent({ form, onSubmit, isEdit }: Dialo
                         />
                     </div>
                 </div>
-                <DialogFooter className={"items-start p-3"}>
-                    {isEdit && <Button>hello</Button>}
-                    <Button className="capitalize text-md font-semibold" type="submit">
+                <DialogFooter className={"items-start px-5 py-2"}>
+                    {isEdit && (
+                        <Button
+                            onClick={handleDelete}
+                            className="capitalize text-md mx-4 font-semibold bg-red-600/75 hover:bg-red-600 "
+                            id={"delete_item"}
+                            disabled={isLoadingData}
+                        >
+                            {t("delete_item")}
+                        </Button>
+                    )}
+                    <Button disabled={isLoadingData} className="capitalize text-md font-semibold" type="submit">
                         {t("add_item")}
                     </Button>
                 </DialogFooter>

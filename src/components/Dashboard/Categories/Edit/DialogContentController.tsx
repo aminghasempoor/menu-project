@@ -18,7 +18,7 @@ export default function DialogContentController({ form, onSubmit }: DialogConten
     const t = useTranslations("Categories");
     return (
         <Dialog open={isOpen}>
-            <DialogContent className="sm:max-w-[700px] px-2">
+            <DialogContent className="sm:max-w-[500px] px-2">
                 <DialogClose asChild>
                     <X
                         onClick={() => {

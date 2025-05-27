@@ -1,12 +1,20 @@
-import { Dialog, DialogContent, DialogDescription, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import {
+    Dialog,
+    DialogClose,
+    DialogContent,
+    DialogDescription,
+    DialogTitle,
+    DialogTrigger,
+} from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import { CirclePlus } from "lucide-react";
+import { CirclePlus, X } from "lucide-react";
 import React from "react";
 import { useTranslations } from "next-intl";
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 import { UseFormReturn } from "react-hook-form";
 import { AddCategoryFormValues } from "./AddCategory";
 import DialogContentComponent from "./DialogContentComponent";
+import { useEditCategoryStore } from "@/lib/utils/useEditCategoryStore";
 
 type DialogContentComponentProps = {
     form: UseFormReturn<AddCategoryFormValues>;
@@ -16,7 +24,7 @@ type DialogContentComponentProps = {
 
 export default function DialogContentController({ form, onSubmit }: DialogContentComponentProps) {
     const t = useTranslations("Categories");
-
+    const closeEditDialog = useEditCategoryStore((state) => state.closeEditDialog);
     return (
         <Dialog>
             <DialogTrigger asChild>
@@ -31,6 +39,15 @@ export default function DialogContentController({ form, onSubmit }: DialogConten
                 </Button>
             </DialogTrigger>
             <DialogContent className="sm:max-w-[500px]">
+                <DialogClose asChild>
+                    <X
+                        onClick={() => {
+                            closeEditDialog();
+                        }}
+                        size={20}
+                        className={"absolute top-2 end-2 cursor-pointer"}
+                    />
+                </DialogClose>
                 <VisuallyHidden>
                     <DialogTitle>{t("add_item")}</DialogTitle>
                     <DialogDescription>{t("add_item")}</DialogDescription>

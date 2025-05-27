@@ -7,6 +7,9 @@ import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { AddCategoryFormValues } from "./AddCategory";
 import { UseFormReturn } from "react-hook-form";
+import { DELETE_CATEGORY } from "@/lib/utils/apiRoutes";
+import useRequest from "@/lib/hooks/useRequest";
+import { useEditCategoryStore } from "@/lib/utils/useEditCategoryStore";
 
 type DialogContentComponentProps = {
     form: UseFormReturn<AddCategoryFormValues>;
@@ -16,6 +19,25 @@ type DialogContentComponentProps = {
 
 export default function DrawerContentComponent({ form, onSubmit, isEdit }: DialogContentComponentProps) {
     const t = useTranslations("Categories");
+    const requestServer = useRequest({ notification: true, auth: true });
+    const deleteID = useEditCategoryStore((state) => state.id);
+    const isLoadingData = useEditCategoryStore((state) => state.isLoadingData);
+    const setLoadingData = useEditCategoryStore((state) => state.setLoadingData);
+    const handleDelete = async () => {
+        setLoadingData(true)
+        try {
+            const response = await requestServer(`${DELETE_CATEGORY}/${deleteID}`, "delete", {
+                success: {
+                    notification: { show: true },
+                },
+            });
+            console.log(response);
+        } catch (error) {
+            console.log(error);
+        }finally {
+            setLoadingData(false)
+        }
+    };
     return (
         <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)}>
@@ -51,9 +73,18 @@ export default function DrawerContentComponent({ form, onSubmit, isEdit }: Dialo
                         />
                     </div>
                 </div>
-                <DrawerFooter className={"py-0"}>
-                    {isEdit && <Button>hello</Button>}
-                    <Button className="capitalize text-md font-semibold" type="submit">
+                <DrawerFooter className={"pb-2"}>
+                    {isEdit && (
+                        <Button
+                            onClick={handleDelete}
+                            className="capitalize text-md mx-4 font-semibold bg-red-600/75 hover:bg-red-600 "
+                            id={"delete_item"}
+                            disabled={isLoadingData}
+                        >
+                            {t("delete_item")}
+                        </Button>
+                    )}
+                    <Button disabled={isLoadingData} className="capitalize text-md font-semibold mx-4" type="submit">
                         {t("add_item")}
                     </Button>
                 </DrawerFooter>
