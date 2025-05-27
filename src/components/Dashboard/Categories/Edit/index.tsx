@@ -45,7 +45,7 @@ export function EditItem({ data }: { data: EditItemProps }) {
     });
 
     async function onSubmit(values: EditItemFormValues) {
-        setLoadingData(true)
+        setLoadingData(true);
         const formData = new FormData();
         Object.entries(values).forEach(([key, value]) => {
             if (typeof value === "boolean") {
@@ -64,8 +64,8 @@ export function EditItem({ data }: { data: EditItemProps }) {
             console.log(response);
         } catch (error) {
             console.log(error);
-        }finally {
-            setLoadingData(false)
+        } finally {
+            setLoadingData(false);
         }
     }
 

@@ -39,7 +39,7 @@ export function AddCategory() {
     });
 
     async function onSubmit(values: AddCategoryFormValues) {
-        setLoadingData(true)
+        setLoadingData(true);
         console.log(values);
         const formData = new FormData();
         formData.append("name_fa", values.name_fa);
@@ -54,8 +54,8 @@ export function AddCategory() {
             console.log(response);
         } catch (error) {
             console.log(error);
-        }finally {
-            setLoadingData(false)
+        } finally {
+            setLoadingData(false);
         }
     }
 

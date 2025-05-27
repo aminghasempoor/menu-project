@@ -21,7 +21,7 @@ export default function DialogContentComponent({ form, onSubmit, isEdit }: Dialo
     const isLoadingData = useEditItemStore((state) => state.isLoadingData);
     const setLoadingData = useEditItemStore((state) => state.setLoadingData);
     const handleDelete = async () => {
-        setLoadingData(true)
+        setLoadingData(true);
         try {
             const response = await requestServer(`${DELETE_ITEM}/${deleteID}`, "delete", {
                 success: {
@@ -31,8 +31,8 @@ export default function DialogContentComponent({ form, onSubmit, isEdit }: Dialo
             console.log(response);
         } catch (error) {
             console.log(error);
-        }finally {
-            setLoadingData(false)
+        } finally {
+            setLoadingData(false);
         }
     };
     return (
@@ -189,11 +189,7 @@ export default function DialogContentComponent({ form, onSubmit, isEdit }: Dialo
                             {t("delete_item")}
                         </Button>
                     )}
-                    <Button
-                        disabled={isLoadingData}
-                        className="capitalize text-md font-semibold"
-                        type="submit"
-                    >
+                    <Button disabled={isLoadingData} className="capitalize text-md font-semibold" type="submit">
                         {t("add_item")}
                     </Button>
                 </DialogFooter>

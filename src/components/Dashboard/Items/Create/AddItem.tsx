@@ -43,7 +43,7 @@ export function AddItem() {
     });
 
     async function onSubmit(values: AddItemFormValues) {
-        setLoadingData(true)
+        setLoadingData(true);
         const formData = new FormData();
         Object.entries(values).forEach(([key, value]) => {
             if (value instanceof File) {
@@ -64,8 +64,8 @@ export function AddItem() {
             console.log(response);
         } catch (error) {
             console.log(error);
-        }finally {
-            setLoadingData(false)
+        } finally {
+            setLoadingData(false);
         }
     }
 

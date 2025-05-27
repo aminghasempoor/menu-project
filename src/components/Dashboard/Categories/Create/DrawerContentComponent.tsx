@@ -24,7 +24,7 @@ export default function DrawerContentComponent({ form, onSubmit, isEdit }: Dialo
     const isLoadingData = useEditCategoryStore((state) => state.isLoadingData);
     const setLoadingData = useEditCategoryStore((state) => state.setLoadingData);
     const handleDelete = async () => {
-        setLoadingData(true)
+        setLoadingData(true);
         try {
             const response = await requestServer(`${DELETE_CATEGORY}/${deleteID}`, "delete", {
                 success: {
@@ -34,8 +34,8 @@ export default function DrawerContentComponent({ form, onSubmit, isEdit }: Dialo
             console.log(response);
         } catch (error) {
             console.log(error);
-        }finally {
-            setLoadingData(false)
+        } finally {
+            setLoadingData(false);
         }
     };
     return (
