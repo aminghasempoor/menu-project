@@ -31,7 +31,7 @@ const LoadingHardPage = ({
     return (
         <div
             className={cn(
-                "fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full px-4 max-w-md capitalize",
+                "fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full px-4 max-w-md capitalize z-50",
                 className
             )}
         >

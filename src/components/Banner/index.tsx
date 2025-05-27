@@ -12,7 +12,7 @@ export function Banner() {
                 <Input
                     type="text"
                     placeholder={t("search")}
-                    className="pr-12 text-base bg-white/30 backdrop-blur-md shadow-md border border-white/50 rounded-xl focus:ring-2 focus:ring-orange-300"
+                    className="pr-12 text-base bg-white/30 backdrop-blur-md shadow-md border border-white/50 rounded-xl focus:ring-2"
                 />
                 <Search className="absolute right-4 top-1/2 -translate-y-1/2" size={20} />
             </div>

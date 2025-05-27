@@ -1,6 +1,8 @@
 {
-  "unknown_error" : "something went wrong while authentication...",
-  "authenticating" : "authenticating...",
+  "unknown_error": "something went wrong while authentication...",
+  "authenticating": "authenticating...",
+  "unit": "hezar toman",
+  "logo": "Menulita",
   "HomePage": {
     "title": "Hello world!",
     "about": "Go to the about page"
@@ -11,31 +13,46 @@
     "motto": "great out",
     "language": "فا"
   },
+  "Statistics": {
+    "review": "Review",
+    "items": "Items",
+    "categories": "Categories"
+  },
   "NavBar": {
     "title": "menulita",
     "about": "Go to the about page",
-    "login" : "Login"
+    "dashboard": "Dashboard",
+    "login": "Login"
   },
   "Items": {
     "title": "Items",
+    "loading": "Loading...",
+    "delete_item": "Delete",
     "add_item": "add item",
     "hezar_toman": "Hezar Toman",
     "upload_image": "Upload Image",
     "upload_image_err": "Image Required",
     "price": "Price",
+    "close": "close",
     "ingredient": "Ingredient",
     "description": "Description",
     "choose": "Choose",
     "name": "Name",
+    "error": "Error Fetch Data...",
     "choose_category": "Choose Category",
     "set_recommended": "Set As Recommended",
     "required": "Required",
     "price_should_be_number": "Price Should Be Number",
     "error_max": "error_max",
-    "login" : "Login"
+    "unit": "hezar toman",
+    "login": "Login"
   },
   "Categories": {
     "title": "Categories",
+    "error": "Error Fetch Data...",
+    "loading": "Loading...",
+    "delete_item": "Delete",
+    "close": "close",
     "add_item": "add category",
     "hezar_toman": "Hezar Toman",
     "upload_image": "Upload Image",
@@ -50,13 +67,15 @@
     "required": "Required",
     "price_should_be_number": "Price Should Be Number",
     "error_max": "error_max",
-    "login" : "Login"
+    "unit": "hezar toman",
+    "login": "Login"
   },
   "Banner": {
     "title": "every choice, a delicious experience",
     "search": "search...",
     "pizza": "Pizza",
     "burger": "Burger",
+    "unit": "hezar toman",
     "sushi": "Sushi",
     "kebab": "Kebab",
     "seafood": "Seafood",
@@ -68,6 +87,7 @@
   "Main": {
     "pizza": "Pizza",
     "burger": "Burger",
+    "unit": "hezar toman",
     "sushi": "Sushi",
     "kebab": "Kebab",
     "seafood": "Seafood",
@@ -76,18 +96,20 @@
     "dessert": "Dessert",
     "milkshake": "Milkshake"
   },
-  "RecommendedItem" : {
-    "name" : "recommended item"
+  "RecommendedItem": {
+    "name": "recommended item",
+    "unit": "hezar toman"
   },
-  "Loading" : {
-    "title" : "Loading..."
+  "Loading": {
+    "title": "Loading..."
   },
-  "NotFound" : {
-    "title" : "Not Found..."
+  "NotFound": {
+    "title": "Not Found..."
   },
-  "Sidebar" : {
-    "sidebar" : "sidebar",
-    "title" : "dashboard",
+  "Sidebar": {
+    "sidebar": "sidebar",
+    "title": "dashboard",
+    "logo": "Menulita",
     "home": "Home",
     "profile": "Profile",
     "items": "Items",
@@ -98,28 +120,28 @@
     "global_title": "menulita",
     "footer": "Footer"
   },
-  "AuthMiddleware" : {
-    "title" : "you don not have permission to this page..."
+  "AuthMiddleware": {
+    "title": "you don not have permission to this page..."
   },
-  "NotAuthMiddleware" : {
-    "title" : "you have permission to this page don not need to login again..."
+  "NotAuthMiddleware": {
+    "title": "you have permission to this page don not need to login again..."
   },
-  "ScrollToTopButton" : {
-    "title" : "back to top"
+  "ScrollToTopButton": {
+    "title": "back to top"
   },
-  "CardItem" : {
-    "ingredient" : "ingredient :",
-    "description" : "Printers and texts, but also newspapers and magazines in columns and rows as necessary...",
+  "CardItem": {
+    "ingredient": "ingredient :",
+    "description": "Printers and texts, but also newspapers and magazines in columns and rows as necessary...",
     "items": "ingredient"
   },
-  "Dashboard" : {
-    "title" : "dashboard",
-    "most_view" : "most viewed items"
+  "Dashboard": {
+    "title": "dashboard",
+    "most_view": "most viewed items"
   },
-  "LineChart" : {
-    "title" : "total menu visit",
-    "description" : "from past days",
-    "label" : "num"
+  "LineChart": {
+    "title": "total menu visit",
+    "description": "from past days",
+    "label": "num"
   },
   "Notifications": {
     "code": "Code",

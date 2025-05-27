@@ -2,6 +2,7 @@ import Image from "next/image";
 import Picture from "../../../public/burger.jpg";
 import { Card, CardContent } from "@/components/ui/card";
 import React from "react";
+import { useTranslations } from "next-intl";
 
 export function CardContentComponent({
     title,
@@ -13,6 +14,7 @@ export function CardContentComponent({
     description: string;
     price: string;
 }) {
+    const t = useTranslations("Items");
     return (
         <Card className="transition-all duration-300 ease-in-out hover:shadow-xl hover:scale-[1.02] cursor-pointer">
             <CardContent className="p-0 flex flex-row items-stretch gap-x-2">
@@ -28,7 +30,9 @@ export function CardContentComponent({
                             {description}
                         </p>
                     </div>
-                    <h3 className="text-sm sm:text-md sm:font-semibold text-left mt-2 pb-2 px-2">{price}</h3>
+                    <h3 className="text-sm sm:text-md sm:font-semibold text-left mt-2 pb-2 px-2">
+                        {price} {t("unit")}
+                    </h3>
                 </div>
             </CardContent>
         </Card>

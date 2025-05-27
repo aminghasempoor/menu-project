@@ -32,7 +32,7 @@ export const ScrollToTopButton = () => {
     return (
         <Button
             onClick={scrollToTop}
-            style={{ bottom: "24px" }}
+            style={{ bottom: "15px" }}
             className={cn(
                 "fixed bottom-0 left-1/2 -translate-x-1/2 z-50 bg-primary text-white hover:bg-primary/90 transition-opacity duration-300",
                 visible ? "opacity-100" : "opacity-0 pointer-events-none"

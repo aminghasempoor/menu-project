@@ -4,7 +4,8 @@ import useRequest from "@/lib/hooks/useRequest";
 import { GET_FOODS } from "@/lib/utils/apiRoutes";
 interface Food {
     image: string;
-    name: string;
+    name_fa: string;
+    id: number;
     description: string;
     price: string;
 }

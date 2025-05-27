@@ -14,7 +14,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { LogIn } from "lucide-react";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { GET_LOGIN_ROUTE } from "@/lib/utils/apiRoutes";
-import { z } from "zod"; // اگر نداری اضافه کن
+import { z } from "zod";
 type LoginFormType = z.infer<ReturnType<typeof loginFormSchema>>;
 
 export function LoginForm() {
@@ -23,7 +23,7 @@ export function LoginForm() {
     const requestServer = useRequest({ notification: true });
     const form = useForm({
         resolver: zodResolver(loginFormSchema(t)),
-        mode: "all",
+        mode: "onChange",
         defaultValues: {
             user_name: "",
             password: "",
@@ -51,7 +51,7 @@ export function LoginForm() {
     return (
         <Form {...form}>
             <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full px-4 max-w-md capitalize">
-                <Card className="w-full">
+                <Card className="w-full shadow-2xl">
                     <CardHeader className="text-center space-y-2">
                         <CardTitle className="text-3xl font-black">{t("Global.appName")}</CardTitle>
                         <CardDescription>{t("Global.motto")}</CardDescription>
@@ -96,19 +96,10 @@ export function LoginForm() {
                         </CardContent>
 
                         <CardFooter className="flex flex-col gap-4">
-                            <Button type="submit" className="w-full">
+                            <Button disabled={form.formState.isSubmitting} type="submit" className="w-full">
                                 {t("LoginPage.login")}
                                 <LogIn className="ml-2" />
                             </Button>
-                            {/*
-                              <div className="text-sm text-center">
-                                <p>{t("LoginPage.noAccount")}{" "}
-                                  <Link href="/register" className="text-blue-600 dark:text-blue-400 hover:underline">
-                                    {t("LoginPage.createHere")}
-                                  </Link>
-                                </p>
-                              </div>
-                            */}
                         </CardFooter>
                     </form>
                 </Card>

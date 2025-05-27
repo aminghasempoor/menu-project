@@ -1,11 +1,14 @@
-version: "3.8"
-
 services:
-  app:
-    build: .
+  nextjs:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: nextjs-app
+    environment:
+      - NEXT_PUBLIC_VERSION=${NEXT_PUBLIC_VERSION}
+      - NEXT_PUBLIC_API_URL=${NEXT_PUBLIC_API_URL}
     ports:
       - "3000:3000"
-    volumes:
-      - .:/app
-      - /app/node_modules
-    command: ["pnpm", "dev"]
+    env_file:
+      - .env.local
+    restart: unless-stopped

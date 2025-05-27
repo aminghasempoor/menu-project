@@ -3,20 +3,28 @@ import { create } from "zustand";
 import axios from "axios";
 import { GET_USER_ROUTE } from "@/lib/utils/apiRoutes";
 
+interface User {
+    username: string;
+    email: string | null;
+    phone_number: string | null;
+    role: "admin" | "user" | "manager"; // یا هر نقش دیگه‌ای که داری
+}
+
 interface UserStoreState {
     isAuth: boolean;
     errorState: boolean;
     userChangedLanguage: boolean;
     initAuthState: boolean;
     token: string | null;
-    user: Record<string, string>;
+    user: User;
     clearUser: () => void;
-    changeUser: (user: Record<string, string>) => void;
+    changeUser: (user: User) => void;
     changeUserLanguage: (language: string) => void;
     changeAuthState: (isAuth: boolean) => void;
     changeInitAuth: (initAuthState: boolean) => void;
     changeLanguageState: (userChangedLanguage: boolean) => void;
     clearToken: () => void;
+    logout: () => Promise<void>;
     setToken: (token: string) => void;
     getUser: () => Promise<void>;
     initialize: () => Promise<void>;
@@ -28,11 +36,24 @@ const useUserStore = create<UserStoreState>((set, get) => ({
     initAuthState: false,
     errorState: false,
     token: localStorage.getItem("_token") || null,
-    user: {},
+    user: {
+        username: "",
+        email: "",
+        phone_number: "",
+        role: "user",
+    },
 
-    clearUser: () => set({ user: {} }),
+    clearUser: () =>
+        set({
+            user: {
+                username: "",
+                email: "",
+                phone_number: "",
+                role: "user",
+            },
+        }),
 
-    changeUser: (user: Record<string, string>) => set({ user }),
+    changeUser: (user: User) => set({ user }),
 
     changeUserLanguage: (language: string) =>
         set((state) => ({
@@ -57,7 +78,7 @@ const useUserStore = create<UserStoreState>((set, get) => ({
         set({ initAuthState: true });
     },
 
-    logout: () => {
+    logout: async () => {
         get().clearUser();
         get().changeAuthState(false);
         get().changeInitAuth(true);
@@ -70,7 +91,7 @@ const useUserStore = create<UserStoreState>((set, get) => ({
             const { data } = await axios.get(GET_USER_ROUTE, {
                 headers: { authorization: `Bearer ${token}` },
             });
-            set({ user: data, isAuth: true, initAuthState: true, errorState: false });
+            set({ user: data.data, isAuth: true, initAuthState: true, errorState: false });
         } catch (error: unknown) {
             if (axios.isAxiosError(error)) {
                 if (error.response && error.response.status === 401) {
@@ -78,7 +99,7 @@ const useUserStore = create<UserStoreState>((set, get) => ({
                 }
             }
             set({
-                isAuth: true,
+                isAuth: false,
                 initAuthState: true,
                 errorState: true,
             });

@@ -1,6 +1,6 @@
 import React from "react";
 import { CategoryComponent } from "@/components/Dashboard/Categories";
-import { AddCategory } from "@/components/Dashboard/Categories/AddCategory";
+import { AddCategory } from "@/components/Dashboard/Categories/Create/AddCategory";
 export const metadata = {
     title: "دسته بندی ها",
 };

@@ -10,6 +10,7 @@ import localFont from "next/font/local";
 import { ScrollToTopButton } from "@/core/ScrollToTopButton";
 import { Navbar } from "@/components/Navbar";
 import InitUser from "@/lib/utils/InitUser";
+import NextTopLoader from "nextjs-toploader";
 
 const pinar = localFont({
     src: "../../fonts/Pinar-Regular.woff2",
@@ -55,7 +56,8 @@ export default async function LocaleLayout(props: LocaleLayoutProps) {
             dir={isRtl ? "rtl" : "ltr"}
             suppressHydrationWarning
         >
-            <body className="font-doran">
+            <body className={`font-doran ${isRtl ? "fa_num" : ""}`}>
+                <NextTopLoader color="#283618" />
                 <NextIntlClientProvider messages={messages}>
                     <ThemeProvider
                         attribute="class"
