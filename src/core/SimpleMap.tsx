@@ -32,14 +32,9 @@ export default function ContactMapSection() {
                 </div>
             </div>
             <div className="w-full md:w-1/2 h-72 overflow-hidden rounded-lg">
-                <MapContainer
-                    center={[lat, lng]}
-                    zoom={16}
-                    scrollWheelZoom={false}
-                    className="w-full h-full z-10"
-                >
+                <MapContainer center={[lat, lng]} zoom={16} scrollWheelZoom={false} className="w-full h-full z-10">
                     <TileLayer
-                        attribution='&copy; OpenStreetMap contributors'
+                        attribution="&copy; OpenStreetMap contributors"
                         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                     />
                     <Marker position={[lat, lng]} icon={markerIcon} />
