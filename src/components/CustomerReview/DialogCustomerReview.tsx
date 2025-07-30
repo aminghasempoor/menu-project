@@ -28,7 +28,7 @@ const DialogCustomerReview = ({ form, onSubmit }: DialogCustomerReviewProps) => 
             <DialogTrigger asChild>
                 <Button
                     variant="secondary"
-                    className="w-full flex items-center justify-center capitalize text-xl font-semibold"
+                    className="w-full p-5 flex items-center justify-center capitalize text-xl font-semibold"
                 >
                     <div className="py-4 px-2 flex items-center justify-center gap-x-3">
                         {t("add_review")}

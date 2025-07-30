@@ -11,6 +11,7 @@ import {
 } from "@/core/utils/foodItems";
 import ContactMapSection from "@/core/SimpleMap";
 import CustomerReview from "@/components/CustomerReview";
+import { ScrollToTopButton } from "@/core/ScrollToTopButton";
 
 export function RestaurantMenuPage() {
 
@@ -40,7 +41,17 @@ export function RestaurantMenuPage() {
             />
             <div>
                 <div>
-                    <CustomerReview />
+                    <div className="flex items-center gap-x-2 px-4 pb-2">
+                        <div className="flex-[3]">
+                            <CustomerReview />
+                        </div>
+                        <div className="flex-1">
+                            <ScrollToTopButton />
+                        </div>
+                    </div>
+                    <div className="w-full px-4 z-20">
+                        <ContactMapSection />
+                    </div>
                 </div>
                 <div className="w-full px-4 z-20">
                     <ContactMapSection />

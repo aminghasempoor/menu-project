@@ -2,6 +2,7 @@
   "unknown_error": "something went wrong while authentication...",
   "authenticating": "authenticating...",
   "unit": "hezar toman",
+  "error": "Error Loading Data",
   "logo": "Menulita",
   "HomePage": {
     "title": "Hello world!",
@@ -137,6 +138,9 @@
     "address": "Address :",
     "customer_review": "Customers Review :",
     "Required": "Required",
+    "error": "Error Loading Data",
+    "loading": "Loading...",
+    "no_data": "No Data Here",
     "add_review": "Add Review",
     "number": "Number :"
   },

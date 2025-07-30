@@ -9,6 +9,8 @@ import { useTranslations } from "next-intl";
 import { CREATE_ITEM } from "@/lib/utils/apiRoutes";
 import { useCustomerReview } from "@/lib/utils/useCustomerReview";
 import useRequest from "@/lib/hooks/useRequest";
+import { useCustomerReviewData } from "@/hooks/useGetRating";
+import { SkeletonCard } from "@/core/SkeletonCard";
 export type CustomerReviewSchemaForm = z.infer<ReturnType<typeof CustomerReviewSchema>>;
 
 const DialogCustomerReview = dynamic(() => import("./DialogCustomerReview"), {
@@ -23,6 +25,7 @@ const CustomerReview = () => {
     const t = useTranslations("CustomerReview")
     const isDesktop = useMediaQuery("(min-width: 768px)");
     const schema = CustomerReviewSchema(t);
+    useCustomerReviewData()
     const requestServer = useRequest({ notification: true, auth: true });
     const setLoadingData = useCustomerReview((state) => state.setLoadingData);
     type CustomerReviewSchemaForm = z.infer<typeof schema>;
@@ -54,7 +57,6 @@ const CustomerReview = () => {
         //     setLoadingData(false);
         // }
     }
-
 
     if (isDesktop) {
         return <DialogCustomerReview form={form} onSubmit={onSubmit} />;

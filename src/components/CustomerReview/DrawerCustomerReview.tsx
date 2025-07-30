@@ -26,9 +26,9 @@ const DrawerCustomerReview = ({ form, onSubmit }: DrawerCustomerReviewProps) => 
             <DrawerTrigger asChild>
                 <Button
                     variant="secondary"
-                    className="w-full capitalize text-xl font-semibold"
+                    className="w-full p-5 capitalize text-xl font-semibold"
                 >
-                    <div className={"py-2 flex items-center justify-center gap-x-3"}>
+                    <div className="py-2 flex items-center justify-center gap-x-3">
                         {t("add_review")}
                         <CirclePlus />
                     </div>
