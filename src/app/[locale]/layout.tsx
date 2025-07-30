@@ -8,7 +8,6 @@ import { Toaster } from "@/components/ui/toaster";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import localFont from "next/font/local";
 import { ScrollToTopButton } from "@/core/ScrollToTopButton";
-import { Navbar } from "@/components/Navbar";
 import InitUser from "@/lib/utils/InitUser";
 import NextTopLoader from "nextjs-toploader";
 
@@ -70,7 +69,6 @@ export default async function LocaleLayout(props: LocaleLayoutProps) {
                         }}
                     >
                         <InitUser />
-                        <Navbar />
                         <main>{props.children}</main>
                         <ScrollToTopButton />
                         <Toaster />

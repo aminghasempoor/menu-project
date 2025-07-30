@@ -5,16 +5,13 @@ import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { KeyRound, User } from "lucide-react";
 import useUserStore from "@/lib/utils/userStore";
-import { useFirstPage } from "@/lib/utils/useFirstPage";
 
 export function Navbar() {
     const t = useTranslations("NavBar");
     const user = useUserStore((state) => state.user);
-    const { selectedMenu } = useFirstPage();
     return (
         <>
-            {selectedMenu === "firstPage" ? null : (
-                <div className={"flex mt-2 justify-between px-5 items-center py-6 sm:px-10 z-50"}>
+                <div className={"flex mt-2 justify-between px-5 items-center py-6 sm:px-10"}>
                     <Link
                         href={"/"}
                         className="scroll-m-20 capitalize text-2xl tracking-tight lg:text-4xl align-baseline cursor-pointer"
@@ -38,7 +35,6 @@ export function Navbar() {
                         )}
                     </div>
                 </div>
-            )}
         </>
     );
 }

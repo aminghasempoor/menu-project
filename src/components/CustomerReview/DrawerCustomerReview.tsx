@@ -1,0 +1,47 @@
+import { UseFormReturn } from "react-hook-form";
+import { CustomerReviewSchemaForm } from "./index";
+import {
+    Drawer,
+    DrawerContent,
+    DrawerDescription,
+    DrawerTitle, DrawerTrigger,
+} from "@/components/ui/drawer";
+import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
+import React from "react";
+import { useTranslations } from "next-intl";
+import { useCustomerReview } from "@/lib/utils/useCustomerReview";
+import DrawerCustomerReviewContent from "./DrawerCustomerReviewContent";
+import { Button } from "@/components/ui/button";
+import { CirclePlus } from "lucide-react";
+
+export type DrawerCustomerReviewProps = {
+    form: UseFormReturn<CustomerReviewSchemaForm>;
+    onSubmit: (values: CustomerReviewSchemaForm) => void;
+};
+const DrawerCustomerReview = ({ form, onSubmit }: DrawerCustomerReviewProps) => {
+    const t = useTranslations("CustomerReview")
+    const isOpenDrawer = useCustomerReview((state) => state.isOpenDrawer);
+    return (
+        <Drawer>
+            <DrawerTrigger asChild>
+                <Button
+                    variant="secondary"
+                    className="w-full capitalize text-xl font-semibold"
+                >
+                    <div className={"py-2 flex items-center justify-center gap-x-3"}>
+                        {t("add_review")}
+                        <CirclePlus />
+                    </div>
+                </Button>
+            </DrawerTrigger>
+            <DrawerContent className="w-full max-w-md mx-auto rounded-t-3xl">
+                <VisuallyHidden>
+                    <DrawerTitle>{t("add_review")}</DrawerTitle>
+                    <DrawerDescription>{t("add_review")}</DrawerDescription>
+                </VisuallyHidden>
+                <DrawerCustomerReviewContent />
+            </DrawerContent>
+        </Drawer>
+    )
+}
+export default DrawerCustomerReview;

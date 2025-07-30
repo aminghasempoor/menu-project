@@ -123,6 +123,23 @@
   "AuthMiddleware": {
     "title": "you don not have permission to this page..."
   },
+  "FirstPage": {
+    "caffe": "Caffe Menu",
+    "contact": "Contact Us :",
+    "number": "Number :",
+    "restaurant": "Restaurant Menu"
+  },
+  "ContactUs": {
+    "address": "Address :",
+    "number": "Number :"
+  },
+  "CustomerReview": {
+    "address": "Address :",
+    "customer_review": "Customers Review :",
+    "Required": "Required",
+    "add_review": "Add Review",
+    "number": "Number :"
+  },
   "NotAuthMiddleware": {
     "title": "you have permission to this page don not need to login again..."
   },

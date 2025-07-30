@@ -112,11 +112,26 @@
   "NotFound": {
     "title": "صفحه مورد نظر یافت نشد..."
   },
+  "FirstPage": {
+    "caffe": "منو کافه",
+    "contact": "راه ارتباطی :",
+    "number": "شماره تماس :",
+    "restaurant": "منو رستوران"
+  },
+  "CustomerReview": {
+    "customer_review": "نظرات مشتریان :",
+    "Required": "ضروری",
+    "add_review": "اضافه کردن نظر"
+  },
   "NotAuthMiddleware": {
     "title": "شما دسترسی لازم به این صفحه را دارید و نیاز به ورود مجدد نیست..."
   },
   "ScrollToTopButton": {
     "title": "بازگشت به بالا"
+  },
+  "ContactUs": {
+    "address": "آدرس :",
+    "number": "شماره تماس :"
   },
   "CardItem": {
     "ingredient": "محتویات :",

@@ -1,15 +1,48 @@
 "use client";
 import Image from "next/image";
 import backGround from "../../../public/random.jpg";
-import { useFirstPage } from "@/lib/utils/useFirstPage";
-import { MenuPage } from "@/components/MenuPage"; // حواست باشه مسیر درست باشه
+import { useTranslations } from "next-intl";
+import { Category, useUser } from "@/lib/utils/useUser";
+import { useEffect, useLayoutEffect } from "react";
+import useRequest from "@/lib/hooks/useRequest";
+import { GET_USER_HOME } from "@/lib/utils/apiRoutes";
+import { AxiosResponse } from "axios";
+import Link from "next/link";
 
 export default function FirstPage() {
-    const { selectMenu, selectedMenu } = useFirstPage();
-    if (selectedMenu === "cafe") return <MenuPage />;
-    if (selectedMenu === "restaurant") return <MenuPage />;
+    const t = useTranslations("FirstPage")
+    const { setUser, user, setCategories } = useUser();
+    const requestServer = useRequest({auth : false, notification: false});
+
+    useLayoutEffect(() => {
+        if (typeof window !== "undefined" && user === null) {
+            const hostname = window.location.hostname;
+            const firstPart = hostname.split(".")[0];
+            setUser(firstPart);
+        }
+    }, []);
+
+    useEffect(() => {
+        const fetchUserHome = async () => {
+            try {
+                // @ts-ignore - no type
+                const response: AxiosResponse<{ data: Category[] }> = await requestServer(`${GET_USER_HOME}${user}`);
+                if (response.data?.data) {
+                    setCategories(response.data.data);
+                }
+            } catch (error) {
+                console.error("API error:", error);
+            }
+        };
+
+        if (user) {
+            fetchUserHome();
+        }
+    }, [user]);
+
+
     return (
-        <div className="relative w-full h-screen overflow-hidden">
+        <div className="relative w-full h-screen overflow-hidden z-50">
             <Image
                 className="absolute top-0 left-0 w-full h-full object-cover z-0"
                 src={backGround}
@@ -24,23 +57,23 @@ export default function FirstPage() {
                 </h1>
 
                 <div className="flex gap-4 mt-6 flex-wrap justify-center">
-                    <button
-                        onClick={() => selectMenu("cafe")}
+                    <Link
+                        href={"/caffe-menu"}
                         className="border border-white rounded-lg px-6 py-3 hover:bg-white/10 transition"
                     >
-                        منوی کافه
-                    </button>
-                    <button
-                        onClick={() => selectMenu("restaurant")}
+                        {t("caffe")}
+                    </Link>
+                    <Link
+                        href={"/restaurant-menu"}
                         className="border border-white rounded-lg px-6 py-3 hover:bg-white/10 transition"
                     >
-                        منوی رستوران
-                    </button>
+                        {t("restaurant")}
+                    </Link>
                 </div>
 
                 <div className="absolute bottom-6 text-sm text-white/80">
-                    <p>menulita@gmail.com</p>
-                    <p className="mt-1">۰۹۱۲ ۳۴۵ ۶۷۸۹</p>
+                    <p>{t("contact")}</p>
+                    <p className="mt-1">{t("number")}</p>
                 </div>
             </div>
         </div>

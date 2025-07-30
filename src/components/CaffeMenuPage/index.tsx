@@ -1,3 +1,4 @@
+"use client"
 import { Banner } from "@/components/Banner";
 import { Main } from "@/components/Main";
 import {
@@ -9,8 +10,10 @@ import {
     sushiItems,
 } from "@/core/utils/foodItems";
 import ContactMapSection from "@/core/SimpleMap";
+import CustomerReview from "@/components/CustomerReview";
 
-export function MenuPage() {
+export function CaffeMenuPage() {
+
     return (
         <>
             <Banner />
@@ -36,7 +39,9 @@ export function MenuPage() {
                 isLast={true}
             />
             <div>
-                <div></div>
+                <div>
+                    <CustomerReview />
+                </div>
                 <div className="w-full px-4 z-20">
                     <ContactMapSection />
                 </div>

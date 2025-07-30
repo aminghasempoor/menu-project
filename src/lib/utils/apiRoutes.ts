@@ -1,8 +1,10 @@
 const api = process.env.NEXT_PUBLIC_API_URL;
 export const GET_USER_ROUTE = api + "/profile/info";
+export const GET_USER_HOME = api + "/home?username=";
 export const GET_LOGIN_ROUTE = api + "/auth/login";
 export const GET_LOGOUT_ROUTE = api + "/auth/logout";
 export const GET_FOODS = api + "/foods";
+export const GET_RATING = api + "/ratings?username=";
 export const CREATE_ITEM = api + "/foods";
 export const DELETE_ITEM = api + "/foods";
 export const DELETE_CATEGORY = api + "/categories";

@@ -18,6 +18,12 @@ export const RegisterFormSchema = (t: (key: string, params?: Record<string, unkn
             .min(1, { message: t("RegisterPage.Required") })
             .max(11, { message: t("RegisterPage.error_max", { max: 11 }) }),
     });
+export const CustomerReviewSchema = (t: (key: string) => string) =>
+    z.object({
+        star: z
+            .string(),
+        text : z.string().min(1, { message: t("Required") })
+    });
 export const addItemSchema = (t: (key: string, params?: TranslationValues) => string) =>
     z.object({
         name_fa: z.string().min(1, { message: t("required") }),
