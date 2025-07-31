@@ -28,7 +28,9 @@ const DrawerCustomerReviewForm = ({ form, onSubmit }: DialogCustomerReviewProps)
                                                 <Star
                                                     key={i}
                                                     className={`w-6 h-6 cursor-pointer transition ${
-                                                        i <= Number(field.value) ? "text-yellow-400 fill-yellow-400" : "text-gray-300"
+                                                        i <= Number(field.value)
+                                                            ? "text-yellow-400 fill-yellow-400"
+                                                            : "text-gray-300"
                                                     }`}
                                                     onClick={() => field.onChange(i)}
                                                 />
@@ -48,8 +50,11 @@ const DrawerCustomerReviewForm = ({ form, onSubmit }: DialogCustomerReviewProps)
                             render={({ field }) => (
                                 <FormItem>
                                     <FormControl>
-                                        <Textarea value={field.value} placeholder={t("description")}
-                                                  onChange={field.onChange} />
+                                        <Textarea
+                                            value={field.value}
+                                            placeholder={t("description")}
+                                            onChange={field.onChange}
+                                        />
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>
@@ -61,9 +66,14 @@ const DrawerCustomerReviewForm = ({ form, onSubmit }: DialogCustomerReviewProps)
                     <Button type="submit" className={"w-full mb-5"} disabled={form.formState.isSubmitting}>
                         {t("submit")}
                     </Button>
-                    <Button onClick={() => {
-                        closeDrawer();
-                    }} type="button" variant={"outline"} className={"w-full mb-5"}>
+                    <Button
+                        onClick={() => {
+                            closeDrawer();
+                        }}
+                        type="button"
+                        variant={"outline"}
+                        className={"w-full mb-5"}
+                    >
                         {t("close")}
                     </Button>
                 </div>

@@ -37,16 +37,11 @@ const DialogCustomerReviewContent = () => {
     return (
         <div className="w-full pt-5 h-[200px] overflow-y-auto">
             {ratings.length === 0 ? (
-                <p className="text-center text-muted-foreground my-4">
-                    {t("no_data")}
-                </p>
+                <p className="text-center text-muted-foreground my-4">{t("no_data")}</p>
             ) : (
                 <div className="space-y-4">
                     {ratings.map((item) => (
-                        <div
-                            key={item.id}
-                            className="border rounded-lg p-4 shadow-sm bg-white flex flex-col gap-2"
-                        >
+                        <div key={item.id} className="border rounded-lg p-4 shadow-sm bg-white flex flex-col gap-2">
                             <div className="flex items-center gap-2">
                                 <p className="font-medium text-zinc-800">{item.customer_name}</p>
                                 <div className="flex">

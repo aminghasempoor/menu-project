@@ -3,7 +3,7 @@ import { useTranslations } from "next-intl";
 import { Dialog, DialogClose, DialogContent, DialogDescription, DialogTitle } from "@/components/ui/dialog";
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 import React from "react";
-import { EditItemFormValues, EditItemProps } from "./index";
+import { EditItemFormValues } from "./index";
 import { useEditItemStore } from "@/lib/utils/useEditItemStore";
 import DialogContentComponent from "../Create/DialogContentComponent";
 import { X } from "lucide-react";

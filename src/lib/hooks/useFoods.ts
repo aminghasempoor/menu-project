@@ -23,12 +23,7 @@ const useFoods = () => {
     // @ts-ignore - no type for response
     const fetcher = (url: string) => requestServer(url).then((res: ApiResponse) => res.data.data);
 
-    const {
-        data,
-        error,
-        isLoading,
-        mutate,
-    } = useSWR<Food[]>(GET_FOODS, fetcher, {
+    const { data, error, isLoading, mutate } = useSWR<Food[]>(GET_FOODS, fetcher, {
         revalidateIfStale: true,
         revalidateOnFocus: false,
         revalidateOnReconnect: true,

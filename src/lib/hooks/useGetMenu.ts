@@ -13,11 +13,12 @@ export const useGetMenu = (username: string) => {
             setError(false);
 
             try {
-                const response = await requestServer(
-                    `${GET_COFFEE_MENU}?username=${username}&menu_type=1`,
-                ) as { data: { data: MenuCategory[] } };
+                const response = (await requestServer(`${GET_COFFEE_MENU}?username=${username}&menu_type=1`)) as {
+                    data: { data: MenuCategory[] };
+                };
                 setMenu(response.data.data);
             } catch (err) {
+                console.log(err);
                 setError(true);
             } finally {
                 setLoading(false);

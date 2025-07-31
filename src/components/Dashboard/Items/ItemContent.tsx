@@ -1,17 +1,16 @@
 import Image from "next/image";
-import Picture from "../../../../public/burger.jpg";
 import { Card, CardContent } from "@/components/ui/card";
 import React from "react";
 import { useTranslations } from "next-intl";
 import { useEditItemStore } from "@/lib/utils/useEditItemStore";
 
 export function ItemContent({
-                                title,
-                                picture,
-                                id,
-                                description,
-                                price,
-                            }: {
+    title,
+    picture,
+    id,
+    description,
+    price,
+}: {
     picture: string;
     title: string;
     id: number;

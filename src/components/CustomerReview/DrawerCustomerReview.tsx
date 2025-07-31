@@ -7,7 +7,7 @@ import { useTranslations } from "next-intl";
 import { useCustomerReview } from "@/lib/utils/useCustomerReview";
 import DrawerCustomerReviewContent from "./DrawerCustomerReviewContent";
 import { Button } from "@/components/ui/button";
-import { CirclePlus } from "lucide-react";
+import { ScrollText } from "lucide-react";
 import DrawerCustomerReviewForm from "@/components/CustomerReview/DrawerCustomerReviewForm";
 
 export type DrawerCustomerReviewProps = {
@@ -23,8 +23,8 @@ const DrawerCustomerReview = ({ form, onSubmit }: DrawerCustomerReviewProps) => 
             <DrawerTrigger asChild>
                 <Button variant="secondary" className="w-full p-5 capitalize text-xl font-semibold">
                     <div className="py-2 flex items-center justify-center gap-x-3">
-                        {t("add_review")}
-                        <CirclePlus />
+                        {t("review")}
+                        <ScrollText />
                     </div>
                 </Button>
             </DrawerTrigger>

@@ -41,7 +41,7 @@ export const addItemSchema = (t: (key: string, params?: TranslationValues) => st
             },
             {
                 message: t("upload_image_err"),
-            },
+            }
         ),
         category_id: z.string().min(1, { message: t("required") }),
     });
@@ -83,7 +83,7 @@ export const UserDataFormSchema = (t: (key: string) => string) =>
             })
             .refine(
                 (value) => !isNaN(Date.parse(value)), // Ensure it's a valid date string
-                { message: t("UserDataPage.birthday_invalid") },
+                { message: t("UserDataPage.birthday_invalid") }
             ),
         gender: z.string().min(1, {
             message: t("UserDataPage.gender_required"),

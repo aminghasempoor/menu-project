@@ -10,7 +10,7 @@ export interface ReportEntry {
 
 interface ApiResponse {
     data: {
-        data: { site_view: ReportEntry[] }
+        data: { site_view: ReportEntry[] };
     };
 }
 

@@ -1,13 +1,6 @@
-import {
-    Dialog,
-    DialogClose,
-    DialogContent,
-    DialogDescription,
-    DialogTitle,
-    DialogTrigger,
-} from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogDescription, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import { CirclePlus, X } from "lucide-react";
+import { ScrollText } from "lucide-react";
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 import React from "react";
 import { useTranslations } from "next-intl";
@@ -33,15 +26,12 @@ const DialogCustomerReview = ({ form, onSubmit }: DialogCustomerReviewProps) => 
                     className="w-full p-5 flex items-center justify-center capitalize text-xl font-semibold"
                 >
                     <div className="py-4 px-2 flex items-center justify-center gap-x-3">
-                        {t("add_review")}
-                        <CirclePlus />
+                        {t("review")}
+                        <ScrollText />
                     </div>
                 </Button>
             </DialogTrigger>
             <DialogContent className="sm:max-w-[700px] px-2 overflow-y-auto">
-                <DialogClose asChild>
-                    <X size={20} className={"absolute top-2 end-2 cursor-pointer"} />
-                </DialogClose>
                 <VisuallyHidden>
                     <DialogTitle>{t("add_review")}</DialogTitle>
                     <DialogDescription>{t("add_review")}</DialogDescription>

@@ -34,7 +34,7 @@ export default function FirstPage() {
             try {
                 // @ts-ignore – no types for next-pwa
                 const response: AxiosResponse<{
-                    data: User
+                    data: User;
                 }> = await requestServer(`${GET_USER_HOME}${userName}`);
                 if (response.data?.data) {
                     setUser(response.data?.data);
@@ -82,8 +82,7 @@ export default function FirstPage() {
                 fill
             />
             <div className="absolute inset-0 bg-black/70 z-10" />
-            <div
-                className="relative z-20 flex flex-col items-center justify-center h-full text-white text-center space-y-6 px-4">
+            <div className="relative z-20 flex flex-col items-center justify-center h-full text-white text-center space-y-6 px-4">
                 <h1 className="text-5xl font-bold">
                     <span className="text-primary">.</span>
                     {user?.name_fa}
@@ -113,8 +112,14 @@ export default function FirstPage() {
                 </div>
 
                 <div className="absolute bottom-6 text-sm text-white/80">
-                    <p>{t("contact")}{user?.email}</p>
-                    <p className="mt-1">{t("number")}{user?.telephone}</p>
+                    <p>
+                        {t("contact")}
+                        {user?.email}
+                    </p>
+                    <p className="mt-1">
+                        {t("number")}
+                        {user?.telephone}
+                    </p>
                 </div>
             </div>
         </div>

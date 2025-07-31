@@ -38,6 +38,6 @@ export const useUser = create<UserState>()(
         {
             name: "user-storage",
             partialize: (state) => ({ user: state.user }), // فقط user ذخیره شود
-        },
-    ),
+        }
+    )
 );

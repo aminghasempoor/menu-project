@@ -36,21 +36,14 @@ const DrawerCustomerReviewContent = () => {
 
     return (
         <div className="w-full py-5 h-[70vh] overflow-y-auto">
-            <h2 className="text-center text-xl font-semibold py-4 pt-6">
-                {t("customer_review")}
-            </h2>
+            <h2 className="text-center text-xl font-semibold py-4 pt-6">{t("customer_review")}</h2>
 
             {ratings.length === 0 ? (
-                <p className="text-center text-muted-foreground my-4">
-                    {t("no_data")}
-                </p>
+                <p className="text-center text-muted-foreground my-4">{t("no_data")}</p>
             ) : (
                 <div className="space-y-4">
                     {ratings.map((item) => (
-                        <div
-                            key={item.id}
-                            className="border rounded-lg p-4 shadow-sm bg-white flex flex-col gap-2"
-                        >
+                        <div key={item.id} className="border rounded-lg p-4 shadow-sm bg-white flex flex-col gap-2">
                             <div className="flex items-center gap-2">
                                 <p className="font-medium text-zinc-800">{item.customer_name}</p>
                                 <div className="flex">
