@@ -22,7 +22,12 @@ const useCategories = () => {
         // @ts-expect-error typing will be fixed later
         requestServer(url).then((res: ApiResponse) => res.data.data);
 
-    const { data, error, isLoading, mutate } = useSWR<Category[]>(GET_CATEGORIES, fetcher, {
+    const {
+        data,
+        error,
+        isLoading,
+        mutate,
+    } = useSWR<Category[]>(`${GET_CATEGORIES}?menu_type=${localStorage.getItem("menu_type")}`, fetcher, {
         revalidateIfStale: true,
         revalidateOnFocus: false,
         revalidateOnReconnect: true,

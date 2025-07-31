@@ -8,8 +8,11 @@ import useRequest from "@/lib/hooks/useRequest";
 import { GET_USER_HOME } from "@/lib/utils/apiRoutes";
 import { AxiosResponse } from "axios";
 import Link from "next/link";
+import AddresIconLight from "/public/AddressLight.svg";
+import { useTheme } from "next-themes";
 
 export default function FirstPage() {
+    const { theme } = useTheme();
     const [userName, setUserName] = useState<null | string>(null);
     const t = useTranslations("FirstPage");
     const setUser = useUser((state) => state.setUser);
@@ -81,11 +84,11 @@ export default function FirstPage() {
                 priority
                 fill
             />
-            <div className="absolute inset-0 bg-black/70 z-10" />
-            <div className="relative z-20 flex flex-col items-center justify-center h-full text-white text-center space-y-6 px-4">
+            <div className="absolute inset-0 bg-black/25 z-10" />
+            <div
+                className="relative z-20 flex flex-col items-center justify-center h-full text-white text-center space-y-6 px-4">
                 <h1 className="text-5xl font-bold">
-                    <span className="text-primary">.</span>
-                    {user?.name_fa}
+                    <Image src={AddresIconLight} alt="addres" width={400} height={400} />
                 </h1>
 
                 <div className="flex gap-4 mt-6 flex-wrap justify-center">
