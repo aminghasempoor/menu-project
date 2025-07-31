@@ -21,10 +21,11 @@ export function Navbar() {
                     href={"/"}
                     className="scroll-m-20 capitalize text-2xl tracking-tight lg:text-4xl align-baseline cursor-pointer"
                 >
-                    {theme === "dark" ? (<Image src={AddresIconLight} alt="addres" width={200} height={200} />) : (
+                    {theme === "dark" ? (
+                        <Image src={AddresIconLight} alt="addres" width={200} height={200} />
+                    ) : (
                         <Image src={AddresIcon} alt="addres" width={200} height={200} />
                     )}
-
                 </Link>
                 <div className={"flex gap-x-3 justify-center items-center"}>
                     <ModeToggle />

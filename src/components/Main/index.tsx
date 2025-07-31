@@ -3,12 +3,12 @@ import { CardItems } from "@/components/Main/CardItems";
 import { Food } from "@/lib/utils/useMenuStore ";
 
 export function Main({
-                         id,
-                         title,
-                         recommendedItems,
-                         foodItem,
-                         isLast,
-                     }: {
+    id,
+    title,
+    recommendedItems,
+    foodItem,
+    isLast,
+}: {
     id: string;
     title: string;
     recommendedItems: Food[];
