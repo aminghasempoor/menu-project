@@ -9,7 +9,7 @@ import DialogContentComponent from "../Create/DialogContentComponent";
 import { X } from "lucide-react";
 
 export type DialogContentComponentProps = {
-    form: UseFormReturn<EditItemProps>;
+    form: UseFormReturn<EditItemFormValues>;
     onSubmit: (values: EditItemFormValues) => void;
 };
 export default function DialogContentController({ form, onSubmit }: DialogContentComponentProps) {

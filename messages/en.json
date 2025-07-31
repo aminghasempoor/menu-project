@@ -126,6 +126,8 @@
   },
   "FirstPage": {
     "caffe": "Caffe Menu",
+    "error": "Error Loading Data",
+    "loading": "Loading...",
     "contact": "Contact Us :",
     "number": "Number :",
     "restaurant": "Restaurant Menu"
@@ -139,6 +141,10 @@
     "customer_review": "Customers Review :",
     "Required": "Required",
     "error": "Error Loading Data",
+    "stars": "Your Opinion",
+    "description": "Description",
+    "submit": "Submit",
+    "close": "Close",
     "loading": "Loading...",
     "no_data": "No Data Here",
     "add_review": "Add Review",

@@ -1,7 +1,8 @@
 "use client";
-import { useEffect, useState } from "react";
+import useSWR from "swr";
 import useRequest from "@/lib/hooks/useRequest";
 import { GET_FOODS } from "@/lib/utils/apiRoutes";
+
 interface Food {
     image: string;
     name_fa: string;
@@ -10,41 +11,36 @@ interface Food {
     price: string;
 }
 
-interface UseFoodsResponse {
-    foods: Food[];
-    loadingFoods: boolean;
-    errorFoods: boolean;
-}
 interface ApiResponse {
     data: {
         data: Food[];
     };
 }
 
-const useFoods = (): UseFoodsResponse => {
+const useFoods = () => {
     const requestServer = useRequest({ notification: false, auth: true });
-    const [foods, setFoods] = useState<Food[]>([]);
-    const [loadingFoods, setLoadingFoods] = useState<boolean>(true);
-    const [errorFoods, setErrorFoods] = useState<boolean>(false);
 
-    useEffect(() => {
-        const fetchProvinces = async () => {
-            try {
-                const response = (await requestServer(GET_FOODS)) as ApiResponse;
-                setFoods(response.data.data);
-                setLoadingFoods(false);
-            } catch (e: unknown) {
-                console.log(e);
-                setErrorFoods(true);
-                setLoadingFoods(false);
-            }
-        };
+    // @ts-ignore - no type for response
+    const fetcher = (url: string) => requestServer(url).then((res: ApiResponse) => res.data.data);
 
-        fetchProvinces();
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+    const {
+        data,
+        error,
+        isLoading,
+        mutate,
+    } = useSWR<Food[]>(GET_FOODS, fetcher, {
+        revalidateIfStale: true,
+        revalidateOnFocus: false,
+        revalidateOnReconnect: true,
+        keepPreviousData: true,
+    });
 
-    return { foods, loadingFoods, errorFoods };
+    return {
+        foods: data ?? [],
+        loadingFoods: isLoading,
+        errorFoods: !!error,
+        mutateFoods: mutate,
+    };
 };
 
 export default useFoods;

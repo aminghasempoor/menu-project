@@ -8,6 +8,7 @@ import { useCustomerReview } from "@/lib/utils/useCustomerReview";
 import DrawerCustomerReviewContent from "./DrawerCustomerReviewContent";
 import { Button } from "@/components/ui/button";
 import { CirclePlus } from "lucide-react";
+import DrawerCustomerReviewForm from "@/components/CustomerReview/DrawerCustomerReviewForm";
 
 export type DrawerCustomerReviewProps = {
     form: UseFormReturn<CustomerReviewSchemaForm>;
@@ -16,8 +17,9 @@ export type DrawerCustomerReviewProps = {
 const DrawerCustomerReview = ({ form, onSubmit }: DrawerCustomerReviewProps) => {
     const t = useTranslations("CustomerReview");
     const isOpenDrawer = useCustomerReview((state) => state.isOpenDrawer);
+    const openDrawer = useCustomerReview((state) => state.openDrawer);
     return (
-        <Drawer>
+        <Drawer onOpenChange={openDrawer} open={isOpenDrawer}>
             <DrawerTrigger asChild>
                 <Button variant="secondary" className="w-full p-5 capitalize text-xl font-semibold">
                     <div className="py-2 flex items-center justify-center gap-x-3">
@@ -26,12 +28,13 @@ const DrawerCustomerReview = ({ form, onSubmit }: DrawerCustomerReviewProps) => 
                     </div>
                 </Button>
             </DrawerTrigger>
-            <DrawerContent className="w-full max-w-md mx-auto rounded-t-3xl">
+            <DrawerContent className="w-full max-w-md mx-auto rounded-t-3xl px-4">
                 <VisuallyHidden>
                     <DrawerTitle>{t("add_review")}</DrawerTitle>
                     <DrawerDescription>{t("add_review")}</DrawerDescription>
                 </VisuallyHidden>
                 <DrawerCustomerReviewContent />
+                <DrawerCustomerReviewForm form={form} onSubmit={onSubmit} />
             </DrawerContent>
         </Drawer>
     );

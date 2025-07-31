@@ -6,11 +6,12 @@ import { useTranslations } from "next-intl";
 import { useEditItemStore } from "@/lib/utils/useEditItemStore";
 
 export function ItemContent({
-    title,
-    id,
-    description,
-    price,
-}: {
+                                title,
+                                picture,
+                                id,
+                                description,
+                                price,
+                            }: {
     picture: string;
     title: string;
     id: number;
@@ -27,7 +28,7 @@ export function ItemContent({
         >
             <CardContent className="p-0 flex flex-row items-stretch gap-x-2">
                 <div className="w-1/2 relative aspect-[4/3]">
-                    <Image loading="lazy" fill className="object-cover rounded-lg" src={Picture} alt="picture" />
+                    <Image loading="lazy" fill className="object-cover rounded-lg" src={picture} alt="picture" />
                 </div>
                 <div className="w-1/2 px-1 flex flex-col justify-between">
                     <div>

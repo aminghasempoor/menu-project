@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import useSWR from "swr";
 import useRequest from "@/lib/hooks/useRequest";
 import { GET_CATEGORIES } from "@/lib/utils/apiRoutes";
 
@@ -9,42 +9,37 @@ interface Category {
     id: number;
 }
 
-interface UseCategoriesResponse {
-    categories: Category[];
-    loadingCategories: boolean;
-    errorCategories: boolean;
-}
-
 interface ApiResponse {
     data: {
         data: Category[];
     };
 }
 
-const useCategories = (): UseCategoriesResponse => {
+const useCategories = () => {
     const requestServer = useRequest({ notification: false, auth: true });
-    const [categories, setCategories] = useState<Category[]>([]);
-    const [loadingCategories, setLoadingCategories] = useState<boolean>(true);
-    const [errorCategories, setErrorCategories] = useState<boolean>(false);
 
-    useEffect(() => {
-        const fetchCategories = async () => {
-            try {
-                const response = (await requestServer(GET_CATEGORIES)) as ApiResponse;
-                setCategories(response.data.data);
-                setLoadingCategories(false);
-            } catch (e: unknown) {
-                console.log(e);
-                setErrorCategories(true);
-                setLoadingCategories(false);
-            }
-        };
+    const fetcher = (url: string) =>
+        // @ts-expect-error typing will be fixed later
+        requestServer(url).then((res: ApiResponse) => res.data.data);
 
-        fetchCategories();
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+    const {
+        data,
+        error,
+        isLoading,
+        mutate,
+    } = useSWR<Category[]>(GET_CATEGORIES, fetcher, {
+        revalidateIfStale: true,
+        revalidateOnFocus: false,
+        revalidateOnReconnect: true,
+        keepPreviousData: true,
+    });
 
-    return { categories, loadingCategories, errorCategories };
+    return {
+        categories: data ?? [],
+        loadingCategories: isLoading,
+        errorCategories: !!error,
+        mutateCategories: mutate,
+    };
 };
 
 export default useCategories;

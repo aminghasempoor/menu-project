@@ -1,48 +1,43 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
+// تعریف ساختار اطلاعات کاربر
+export interface User {
+    id: number;
+    username: string;
+    name_fa: string;
+    email: string;
+    telephone: string | null;
+    has_restaurant: boolean;
+    lat: string;
+    lng: string;
+    address: string;
+}
+
 interface UserState {
-    user: string | null;
-    setUser: (username: string) => void;
-
-    categories: Category[];
-    setCategories: (categories: Category[]) => void;
-}
-
-export interface Category {
-    id: number;
-    name: string | null;
-    name_fa: string;
-    foods: Food[];
-}
-
-export interface Food {
-    id: number;
-    name: string | null;
-    name_fa: string;
-    price: string;
-    ingredients: string;
-    description: string;
-    is_recommended: boolean;
-    category_id: number;
-    category_name_fa: string | null;
-    user_id: number;
-    username: string | null;
-    image: string;
-    views: number;
+    user: User | null;
+    loading: boolean;
+    error: boolean;
+    setLoading: (loading: boolean) => void;
+    setError: (error: boolean) => void;
+    setUser: (user: User) => void;
+    clearUser: () => void;
 }
 
 export const useUser = create<UserState>()(
     persist(
         (set) => ({
             user: null,
+            loading: false,
+            error: false,
+            setLoading: (loading) => set({ loading: loading }),
+            setError: (error) => set({ error: error }),
             setUser: (user) => set({ user }),
-            categories: [],
-            setCategories: (categories) => set({ categories }),
+            clearUser: () => set({ user: null }),
         }),
         {
             name: "user-storage",
-            partialize: (state) => ({ user: state.user }), // فقط user را ذخیره می‌کند
-        }
-    )
+            partialize: (state) => ({ user: state.user }), // فقط user ذخیره شود
+        },
+    ),
 );

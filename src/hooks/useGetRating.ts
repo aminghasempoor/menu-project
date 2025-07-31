@@ -7,16 +7,17 @@ import { useUser } from "@/lib/utils/useUser";
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
 export const useCustomerReviewData = () => {
-    const { user } = useUser();
-    const { setRatings, setLoadingData } = useCustomerReview();
+    const user = useUser((state) => state.user);
+    const { setRatings, setLoadingData, setError } = useCustomerReview();
 
-    const { data, isLoading, mutate, error } = useSWR(`${GET_RATING}${user}`, fetcher, {
+    const { data, isLoading, mutate, error } = useSWR(`${GET_RATING}${user?.username}`, fetcher, {
         onSuccess: (data) => {
-            setRatings(data);
+            setRatings(data.data);
             setLoadingData(false);
         },
         onError: () => {
             setRatings([]);
+            setError(true);
             setLoadingData(false);
         },
         revalidateIfStale: true,

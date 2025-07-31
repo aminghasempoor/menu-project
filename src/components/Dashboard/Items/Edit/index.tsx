@@ -10,6 +10,7 @@ import { GET_EDIT_ITEM } from "@/lib/utils/apiRoutes";
 import useRequest from "@/lib/hooks/useRequest";
 import dynamic from "next/dynamic";
 import { useEditItemStore } from "@/lib/utils/useEditItemStore";
+import useFoods from "@/lib/hooks/useFoods";
 
 const DialogContentController = dynamic(() => import("./DialogContentController"), {
     ssr: false,
@@ -26,6 +27,7 @@ export interface EditItemProps {
     price: string;
     ingredients: string;
     description: string;
+    menu_type: string;
     is_recommended: boolean;
     image: string | File;
     category_id: string;
@@ -39,6 +41,7 @@ export function EditItem({ data }: { data: EditItemProps }) {
     const setLoadingData = useEditItemStore((state) => state.setLoadingData);
     const schema = addItemSchema(t);
     type EditItemFormValues = z.infer<typeof schema>;
+    const { mutateFoods } = useFoods();
 
     const form = useForm<EditItemFormValues>({
         resolver: zodResolver(schema),
@@ -50,6 +53,7 @@ export function EditItem({ data }: { data: EditItemProps }) {
             description: data.description || "",
             is_recommended: data.is_recommended || false,
             image: data.image || undefined,
+            menu_type: localStorage.getItem("menu_type"),
             category_id: String(data.category_id) || "",
         },
     });
@@ -57,15 +61,19 @@ export function EditItem({ data }: { data: EditItemProps }) {
     async function onSubmit(values: EditItemFormValues) {
         setLoadingData(true);
         const formData = new FormData();
+
         Object.entries(values).forEach(([key, value]) => {
-            if (value instanceof File) {
-                formData.append(key, value);
+            if (key === "image") {
+                if (value instanceof File && value.name !== data.image) {
+                    formData.append("image", value);
+                }
             } else if (typeof value === "boolean") {
                 formData.append(key, value ? "1" : "0");
             } else if (value !== undefined && value !== null) {
                 formData.append(key, value);
             }
         });
+
         try {
             const response = await requestServer(`${GET_EDIT_ITEM}/${editID}`, "post", {
                 data: formData,
@@ -74,6 +82,7 @@ export function EditItem({ data }: { data: EditItemProps }) {
                 },
             });
             console.log(response);
+            mutateFoods();
         } catch (error) {
             console.log(error);
         } finally {

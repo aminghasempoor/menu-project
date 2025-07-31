@@ -10,6 +10,7 @@ import { CREATE_ITEM } from "@/lib/utils/apiRoutes";
 import useRequest from "@/lib/hooks/useRequest";
 import dynamic from "next/dynamic";
 import { useEditItemStore } from "@/lib/utils/useEditItemStore";
+import useFoods from "@/lib/hooks/useFoods";
 
 const DialogContentController = dynamic(() => import("./DialogContentController"), {
     ssr: false,
@@ -27,6 +28,7 @@ export function AddItem() {
     const setLoadingData = useEditItemStore((state) => state.setLoadingData);
     const schema = addItemSchema(t);
     type AddItemFormValues = z.infer<typeof schema>;
+    const { mutateFoods } = useFoods();
 
     const form = useForm<AddItemFormValues>({
         resolver: zodResolver(schema),
@@ -39,6 +41,7 @@ export function AddItem() {
             is_recommended: false,
             image: undefined,
             category_id: "",
+            menu_type: localStorage.getItem("menu_type"),
         },
     });
 
@@ -62,6 +65,7 @@ export function AddItem() {
                 },
             })) as { data: { data: { token: string } } };
             console.log(response);
+            mutateFoods();
         } catch (error) {
             console.log(error);
         } finally {

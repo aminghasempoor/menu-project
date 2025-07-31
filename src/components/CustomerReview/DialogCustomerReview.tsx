@@ -13,7 +13,8 @@ import React from "react";
 import { useTranslations } from "next-intl";
 import { UseFormReturn } from "react-hook-form";
 import { CustomerReviewSchemaForm } from "./index";
-import DialogCustomerReviewContent from "@/components/CustomerReview/DialogCustomerReviewContent";
+import DialogCustomerReviewContent from "./DialogCustomerReviewContent";
+import DialogCustomerReviewForm from "./DialogCustomerReviewForm";
 import { useCustomerReview } from "@/lib/utils/useCustomerReview";
 
 export type DialogCustomerReviewProps = {
@@ -23,8 +24,9 @@ export type DialogCustomerReviewProps = {
 const DialogCustomerReview = ({ form, onSubmit }: DialogCustomerReviewProps) => {
     const t = useTranslations("CustomerReview");
     const isOpenDialog = useCustomerReview((state) => state.isOpenDialog);
+    const openDialog = useCustomerReview((state) => state.openDialog);
     return (
-        <Dialog>
+        <Dialog open={isOpenDialog} onOpenChange={openDialog}>
             <DialogTrigger asChild>
                 <Button
                     variant="secondary"
@@ -36,7 +38,7 @@ const DialogCustomerReview = ({ form, onSubmit }: DialogCustomerReviewProps) => 
                     </div>
                 </Button>
             </DialogTrigger>
-            <DialogContent className="sm:max-w-[700px] px-2">
+            <DialogContent className="sm:max-w-[700px] px-2 overflow-y-auto">
                 <DialogClose asChild>
                     <X size={20} className={"absolute top-2 end-2 cursor-pointer"} />
                 </DialogClose>
@@ -44,7 +46,9 @@ const DialogCustomerReview = ({ form, onSubmit }: DialogCustomerReviewProps) => 
                     <DialogTitle>{t("add_review")}</DialogTitle>
                     <DialogDescription>{t("add_review")}</DialogDescription>
                 </VisuallyHidden>
+                <DialogTitle className={"pt-5 text-center text-xl"}>{t("customer_review")}</DialogTitle>
                 <DialogCustomerReviewContent />
+                <DialogCustomerReviewForm form={form} onSubmit={onSubmit} />
             </DialogContent>
         </Dialog>
     );

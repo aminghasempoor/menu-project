@@ -10,6 +10,7 @@ import { UseFormReturn } from "react-hook-form";
 import { DELETE_CATEGORY } from "@/lib/utils/apiRoutes";
 import useRequest from "@/lib/hooks/useRequest";
 import { useEditCategoryStore } from "@/lib/utils/useEditCategoryStore";
+import useCategories from "@/lib/hooks/useCategories";
 
 type DialogContentComponentProps = {
     form: UseFormReturn<AddCategoryFormValues>;
@@ -22,6 +23,7 @@ export default function DrawerContentComponent({ form, onSubmit, isEdit }: Dialo
     const requestServer = useRequest({ notification: true, auth: true });
     const deleteID = useEditCategoryStore((state) => state.id);
     const isLoadingData = useEditCategoryStore((state) => state.isLoadingData);
+    const { mutateCategories } = useCategories();
     const setLoadingData = useEditCategoryStore((state) => state.setLoadingData);
     const handleDelete = async () => {
         setLoadingData(true);
@@ -32,6 +34,7 @@ export default function DrawerContentComponent({ form, onSubmit, isEdit }: Dialo
                 },
             });
             console.log(response);
+            mutateCategories();
         } catch (error) {
             console.log(error);
         } finally {

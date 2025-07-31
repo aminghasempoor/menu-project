@@ -20,8 +20,8 @@ export const RegisterFormSchema = (t: (key: string, params?: Record<string, unkn
     });
 export const CustomerReviewSchema = (t: (key: string) => string) =>
     z.object({
-        star: z.string(),
-        text: z.string().min(1, { message: t("Required") }),
+        stars: z.number(),
+        description: z.string().min(1, { message: t("Required") }),
     });
 export const addItemSchema = (t: (key: string, params?: TranslationValues) => string) =>
     z.object({
@@ -32,6 +32,7 @@ export const addItemSchema = (t: (key: string, params?: TranslationValues) => st
             .min(1, { message: t("required") }),
         ingredients: z.string().min(1, { message: t("required") }),
         description: z.string().min(1, { message: t("required") }),
+        menu_type: z.string().nullable(),
         is_recommended: z.boolean().or(z.string().transform((val) => val === "true" || val === "1")),
         image: z.union([z.instanceof(File), z.string().url()]).refine(
             (val) => {
@@ -40,13 +41,14 @@ export const addItemSchema = (t: (key: string, params?: TranslationValues) => st
             },
             {
                 message: t("upload_image_err"),
-            }
+            },
         ),
         category_id: z.string().min(1, { message: t("required") }),
     });
 export const addCategorySchema = (t: (key: string, params?: TranslationValues) => string) =>
     z.object({
         name_fa: z.string().min(1, { message: t("required") }),
+        menu_type: z.string().nullable(),
         // image: z.union([z.instanceof(File), z.string().url()]).refine(
         //     (val) => {
         //         if (typeof val === "string") return val.length > 0;
@@ -81,7 +83,7 @@ export const UserDataFormSchema = (t: (key: string) => string) =>
             })
             .refine(
                 (value) => !isNaN(Date.parse(value)), // Ensure it's a valid date string
-                { message: t("UserDataPage.birthday_invalid") }
+                { message: t("UserDataPage.birthday_invalid") },
             ),
         gender: z.string().min(1, {
             message: t("UserDataPage.gender_required"),
