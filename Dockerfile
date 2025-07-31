@@ -1,4 +1,4 @@
-FROM node:22-alpine AS builder
+FROM docker.arvancloud.ir/node:22-alpine AS builder
 
 WORKDIR /app
 
@@ -13,7 +13,7 @@ COPY . .
 
 RUN pnpm build
 
-FROM node:22-alpine AS runner
+FROM docker.arvancloud.ir/node:22-alpine AS runner
 
 WORKDIR /app
 

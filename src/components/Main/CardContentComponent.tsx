@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Picture from "../../../public/burger.jpg";
 import { Card, CardContent } from "@/components/ui/card";
 import React from "react";
 import { useTranslations } from "next-intl";
@@ -8,6 +7,7 @@ export function CardContentComponent({
     title,
     description,
     price,
+    picture,
 }: {
     picture: string;
     title: string;
@@ -19,7 +19,13 @@ export function CardContentComponent({
         <Card className="transition-all duration-300 ease-in-out hover:shadow-xl hover:scale-[1.02] cursor-pointer">
             <CardContent className="p-0 flex flex-row items-stretch gap-x-2">
                 <div className="w-1/2 relative aspect-[3/1.5]">
-                    <Image loading="lazy" fill className="object-cover rounded-lg" src={Picture} alt="picture" />
+                    <Image
+                        loading="lazy"
+                        fill
+                        className="object-cover rounded-lg w-36 h-36"
+                        src={picture}
+                        alt="picture"
+                    />
                 </div>
                 <div className="w-1/2 px-1 flex flex-col justify-between">
                     <div>
