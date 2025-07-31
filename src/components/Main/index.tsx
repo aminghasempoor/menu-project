@@ -42,19 +42,17 @@ export function Main({
                         )}
                     </>
                 )}
-                {foodItem.length > 0 && (
-                    <>
-                        {foodItem.map((item, index) => (
-                            <CardItems
-                                key={`food-${index}`}
-                                picture={item.image}
-                                title={item.name_fa}
-                                description={item.description}
-                                price={item.price}
-                            />
-                        ))}
-                    </>
-                )}
+                {foodItem
+                    .filter((item) => !item.is_recommended)
+                    .map((item, index) => (
+                        <CardItems
+                            key={`food-${index}`}
+                            picture={item.image}
+                            title={item.name_fa}
+                            description={item.description}
+                            price={item.price}
+                        />
+                    ))}
             </div>
         </div>
     );
