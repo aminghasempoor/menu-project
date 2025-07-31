@@ -18,6 +18,11 @@ export const RegisterFormSchema = (t: (key: string, params?: Record<string, unkn
             .min(1, { message: t("RegisterPage.Required") })
             .max(11, { message: t("RegisterPage.error_max", { max: 11 }) }),
     });
+export const CustomerReviewSchema = (t: (key: string) => string) =>
+    z.object({
+        stars: z.number(),
+        description: z.string().min(1, { message: t("Required") }),
+    });
 export const addItemSchema = (t: (key: string, params?: TranslationValues) => string) =>
     z.object({
         name_fa: z.string().min(1, { message: t("required") }),
@@ -27,6 +32,7 @@ export const addItemSchema = (t: (key: string, params?: TranslationValues) => st
             .min(1, { message: t("required") }),
         ingredients: z.string().min(1, { message: t("required") }),
         description: z.string().min(1, { message: t("required") }),
+        menu_type: z.string().nullable(),
         is_recommended: z.boolean().or(z.string().transform((val) => val === "true" || val === "1")),
         image: z.union([z.instanceof(File), z.string().url()]).refine(
             (val) => {
@@ -42,6 +48,7 @@ export const addItemSchema = (t: (key: string, params?: TranslationValues) => st
 export const addCategorySchema = (t: (key: string, params?: TranslationValues) => string) =>
     z.object({
         name_fa: z.string().min(1, { message: t("required") }),
+        menu_type: z.string().nullable(),
         // image: z.union([z.instanceof(File), z.string().url()]).refine(
         //     (val) => {
         //         if (typeof val === "string") return val.length > 0;

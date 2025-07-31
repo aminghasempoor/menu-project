@@ -10,6 +10,7 @@ import { AddCategoryFormValues } from "./AddCategory";
 import useRequest from "@/lib/hooks/useRequest";
 import { useEditCategoryStore } from "@/lib/utils/useEditCategoryStore";
 import { DELETE_CATEGORY } from "@/lib/utils/apiRoutes";
+import useCategories from "@/lib/hooks/useCategories";
 
 type DialogContentComponentProps = {
     form: UseFormReturn<AddCategoryFormValues>;
@@ -21,6 +22,7 @@ export default function DialogContentComponent({ form, onSubmit, isEdit }: Dialo
     const t = useTranslations("Categories");
     const requestServer = useRequest({ notification: true, auth: true });
     const deleteID = useEditCategoryStore((state) => state.id);
+    const { mutateCategories } = useCategories();
     const isLoadingData = useEditCategoryStore((state) => state.isLoadingData);
     const setLoadingData = useEditCategoryStore((state) => state.setLoadingData);
     const handleDelete = async () => {
@@ -32,6 +34,7 @@ export default function DialogContentComponent({ form, onSubmit, isEdit }: Dialo
                 },
             });
             console.log(response);
+            mutateCategories();
         } catch (error) {
             console.log(error);
         } finally {

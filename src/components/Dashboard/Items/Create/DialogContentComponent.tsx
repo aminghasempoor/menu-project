@@ -13,12 +13,17 @@ import { DialogContentComponentProps } from "./DialogContentController";
 import { DELETE_ITEM } from "@/lib/utils/apiRoutes";
 import useRequest from "@/lib/hooks/useRequest";
 import { useEditItemStore } from "@/lib/utils/useEditItemStore";
+import useCategories from "@/lib/hooks/useCategories";
+import useFoods from "@/lib/hooks/useFoods";
+import { Skeleton } from "@/components/ui/skeleton";
 
 export default function DialogContentComponent({ form, onSubmit, isEdit }: DialogContentComponentProps) {
     const t = useTranslations("Items");
     const requestServer = useRequest({ notification: true, auth: true });
     const deleteID = useEditItemStore((state) => state.id);
     const isLoadingData = useEditItemStore((state) => state.isLoadingData);
+    const { categories, loadingCategories, errorCategories } = useCategories();
+    const { mutateFoods } = useFoods();
     const setLoadingData = useEditItemStore((state) => state.setLoadingData);
     const handleDelete = async () => {
         setLoadingData(true);
@@ -29,6 +34,7 @@ export default function DialogContentComponent({ form, onSubmit, isEdit }: Dialo
                 },
             });
             console.log(response);
+            mutateFoods();
         } catch (error) {
             console.log(error);
         } finally {
@@ -146,8 +152,22 @@ export default function DialogContentComponent({ form, onSubmit, isEdit }: Dialo
                                                     <SelectValue className={"text-right"} placeholder={t("choose")} />
                                                 </SelectTrigger>
                                                 <SelectContent dir={"rtl"}>
-                                                    <SelectItem value="1">دسته ۱</SelectItem>
-                                                    <SelectItem value="2">دسته ۲</SelectItem>
+                                                    {loadingCategories ? (
+                                                        <div>
+                                                            <Skeleton className={"w-[100px] h-2 my-2"} />
+                                                            <Skeleton className={"w-[100px] h-2 my-2"} />
+                                                            <Skeleton className={"w-[100px] h-2 my-2"} />
+                                                            <Skeleton className={"w-[100px] h-2 my-2"} />
+                                                        </div>
+                                                    ) : errorCategories ? (
+                                                        <p className="text-red-500">{errorCategories}</p>
+                                                    ) : (
+                                                        categories.map((category) => (
+                                                            <SelectItem key={category.id} value={`${category.id}`}>
+                                                                {category.name_fa}
+                                                            </SelectItem>
+                                                        ))
+                                                    )}
                                                 </SelectContent>
                                             </Select>
                                         </FormControl>

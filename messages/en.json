@@ -2,6 +2,7 @@
   "unknown_error": "something went wrong while authentication...",
   "authenticating": "authenticating...",
   "unit": "hezar toman",
+  "error": "Error Loading Data",
   "logo": "Menulita",
   "HomePage": {
     "title": "Hello world!",
@@ -122,6 +123,33 @@
   },
   "AuthMiddleware": {
     "title": "you don not have permission to this page..."
+  },
+  "FirstPage": {
+    "caffe": "Caffe Menu",
+    "error": "Error Loading Data",
+    "loading": "Loading...",
+    "contact": "Contact Us :",
+    "number": "Number :",
+    "restaurant": "Restaurant Menu"
+  },
+  "ContactUs": {
+    "address": "Address :",
+    "number": "Number :"
+  },
+  "CustomerReview": {
+    "address": "Address :",
+    "review": "Customers Review",
+    "customer_review": "Customers Review :",
+    "Required": "Required",
+    "error": "Error Loading Data",
+    "stars": "Your Opinion",
+    "description": "Description",
+    "submit": "Submit",
+    "close": "Close",
+    "loading": "Loading...",
+    "no_data": "No Data Here",
+    "add_review": "Add Review",
+    "number": "Number :"
   },
   "NotAuthMiddleware": {
     "title": "you have permission to this page don not need to login again..."
