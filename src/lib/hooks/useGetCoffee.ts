@@ -19,7 +19,7 @@ export const useGetCoffee = () => {
                     data: { data: MenuCategory[] };
                 };
                 setMenu(response.data.data);
-                const namesFaArray = response.data.data.map(item => item.name_fa);
+                const namesFaArray = response.data.data.map((item) => item.name_fa);
                 localStorage.setItem("banner", JSON.stringify(namesFaArray));
             } catch (err) {
                 console.log(err);

@@ -9,23 +9,20 @@ import { useGetRestaurant } from "@/lib/hooks/useGetRestaurant";
 export function RestaurantMenuPage() {
     const { menu, isLoading, error } = useGetRestaurant();
     if (isLoading) {
-        return <div className="space-y-8 p-4">
-            {[1, 2, 3].map((_) => (
-                <div key={_}>
-                    <div
-                        className={`animate-pulse bg-gray-200 dark:bg-gray-700 rounded-md h-8 w-48 mb-4`}
-                    />
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                        {[1, 2, 3, 4].map((__, i) => (
-                            <div
-                                key={i}
-                                className={`animate-pulse bg-gray-200 dark:bg-gray-700 h-40 rounded-lg`}
-                            />
-                        ))}
+        return (
+            <div className="space-y-8 p-4">
+                {[1, 2, 3].map((_) => (
+                    <div key={_}>
+                        <div className={`animate-pulse bg-gray-200 dark:bg-gray-700 rounded-md h-8 w-48 mb-4`} />
+                        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                            {[1, 2, 3, 4].map((__, i) => (
+                                <div key={i} className={`animate-pulse bg-gray-200 dark:bg-gray-700 h-40 rounded-lg`} />
+                            ))}
+                        </div>
                     </div>
-                </div>
-            ))}
-        </div>;
+                ))}
+            </div>
+        );
     }
 
     if (error) {

@@ -13,11 +13,11 @@ import React from "react";
 import { useTranslations } from "next-intl";
 
 export function DrawerContentComponent({
-                                           picture,
-                                           title,
-                                           description,
-                                           price,
-                                       }: {
+    picture,
+    title,
+    description,
+    price,
+}: {
     picture: string;
     title: string;
     description: string;
@@ -31,8 +31,13 @@ export function DrawerContentComponent({
             </DrawerTrigger>
             <DrawerContent className="w-full max-w-md mx-auto rounded-t-3xl pb-6">
                 <DrawerHeader className="flex items-center justify-around text-center">
-                    <Image src={picture} width={26} height={26} alt={title}
-                           className="w-36 h-36 rounded-xl object-cover mb-4 shadow-md" />
+                    <Image
+                        src={picture}
+                        width={26}
+                        height={26}
+                        alt={title}
+                        className="w-36 h-36 rounded-xl object-cover mb-4 shadow-md"
+                    />
                     <DrawerTitle className="text-xl font-normal">{title}</DrawerTitle>
                 </DrawerHeader>
                 <div className="px-10 space-y-4">

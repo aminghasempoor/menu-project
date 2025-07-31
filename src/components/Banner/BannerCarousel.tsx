@@ -3,11 +3,9 @@ import { useEffect, useRef, useState } from "react";
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import { Card, CardContent } from "@/components/ui/card";
 import { usePathname } from "next/navigation";
-import { useTranslations } from "next-intl";
 import clsx from "clsx";
 
 export function BannerCarousel() {
-    const t = useTranslations("Banner");
     const pathname = usePathname();
     const locales = ["en", "fa"];
     const segments = pathname.split("/").filter(Boolean);
@@ -57,7 +55,7 @@ export function BannerCarousel() {
                 ref={ref}
                 className={clsx(
                     "transition-all duration-300 w-full z-20",
-                    isSticky ? "fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-md shadow-md" : "",
+                    isSticky ? "fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-md shadow-md" : ""
                 )}
             >
                 <Carousel

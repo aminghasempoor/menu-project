@@ -6,11 +6,11 @@ import React from "react";
 import { useTranslations } from "next-intl";
 
 export function DialogContentComponent({
-                                           picture,
-                                           title,
-                                           description,
-                                           price,
-                                       }: {
+    picture,
+    title,
+    description,
+    price,
+}: {
     picture: string;
     title: string;
     description: string;
@@ -31,8 +31,13 @@ export function DialogContentComponent({
                     <DialogDescription>{description}</DialogDescription>
                 </VisuallyHidden>
                 <div className="flex flex-col md:flex-row items-center gap-8">
-                    <Image src={picture} width={26} height={26} alt={title}
-                           className="w-36 h-36 rounded-xl object-cover shadow-md" />
+                    <Image
+                        src={picture}
+                        width={26}
+                        height={26}
+                        alt={title}
+                        className="w-36 h-36 rounded-xl object-cover shadow-md"
+                    />
                     <div className="flex-1">
                         <h2 className="text-2xl font-bold mb-4">{title}</h2>
                         <p className="text-md font-semibold text-muted-foreground mb-2">

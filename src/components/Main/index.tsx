@@ -1,22 +1,20 @@
-import { useTranslations } from "next-intl";
 import { RecommendedItem } from "./RecommendedItem";
 import { CardItems } from "@/components/Main/CardItems";
 import { Food } from "@/lib/utils/useMenuStore ";
 
 export function Main({
-                         id,
-                         title,
-                         recommendedItems,
-                         foodItem,
-                         isLast,
-                     }: {
+    id,
+    title,
+    recommendedItems,
+    foodItem,
+    isLast,
+}: {
     id: string;
     title: string;
     recommendedItems: Food[];
     foodItem: Food[];
     isLast: boolean;
 }) {
-    const t = useTranslations("Main");
     return (
         <div id={id} className={`mx-5 ${isLast ? "mb-20" : "mb-10"}`}>
             <div className="flex items-center pb-5">
@@ -30,7 +28,7 @@ export function Main({
                         {recommendedItems.length > 0 && (
                             <>
                                 {recommendedItems
-                                    .filter(item => item.is_recommended)  // فقط اونایی که true هستن
+                                    .filter((item) => item.is_recommended) // فقط اونایی که true هستن
                                     .map((item, index) => (
                                         <RecommendedItem
                                             key={`recommended-${index}`}
