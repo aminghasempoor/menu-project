@@ -1,6 +1,4 @@
 const DialogCustomerReviewForm = () => {
-    return (
-        <></>
-    )
-}
+    return <></>;
+};
 export default DialogCustomerReviewForm;

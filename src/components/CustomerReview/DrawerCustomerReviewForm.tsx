@@ -1,6 +1,4 @@
 const DrawerCustomerReviewForm = () => {
-    return (
-        <></>
-    )
-}
+    return <></>;
+};
 export default DrawerCustomerReviewForm;

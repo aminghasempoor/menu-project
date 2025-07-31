@@ -47,6 +47,6 @@ const DialogCustomerReview = ({ form, onSubmit }: DialogCustomerReviewProps) => 
                 <DialogCustomerReviewContent />
             </DialogContent>
         </Dialog>
-    )
-}
+    );
+};
 export default DialogCustomerReview;

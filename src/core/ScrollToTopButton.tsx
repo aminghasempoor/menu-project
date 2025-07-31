@@ -1,5 +1,4 @@
 "use client";
-import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowUp } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -18,9 +17,7 @@ export const ScrollToTopButton = () => {
     return (
         <Button
             onClick={scrollToTop}
-            className={cn(
-                "w-full p-5 bg-primary text-white hover:bg-primary/90 transition-opacity duration-300",
-            )}
+            className={cn("w-full p-5 bg-primary text-white hover:bg-primary/90 transition-opacity duration-300")}
             variant="secondary"
         >
             {t("title")}

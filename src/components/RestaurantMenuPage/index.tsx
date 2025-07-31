@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { Banner } from "@/components/Banner";
 import { Main } from "@/components/Main";
 import {
@@ -14,7 +14,6 @@ import CustomerReview from "@/components/CustomerReview";
 import { ScrollToTopButton } from "@/core/ScrollToTopButton";
 
 export function RestaurantMenuPage() {
-
     return (
         <>
             <Banner />

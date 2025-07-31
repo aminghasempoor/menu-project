@@ -10,9 +10,9 @@ import { AxiosResponse } from "axios";
 import Link from "next/link";
 
 export default function FirstPage() {
-    const t = useTranslations("FirstPage")
+    const t = useTranslations("FirstPage");
     const { setUser, user, setCategories } = useUser();
-    const requestServer = useRequest({auth : false, notification: false});
+    const requestServer = useRequest({ auth: false, notification: false });
 
     useLayoutEffect(() => {
         if (typeof window !== "undefined" && user === null) {
@@ -25,7 +25,7 @@ export default function FirstPage() {
     useEffect(() => {
         const fetchUserHome = async () => {
             try {
-                // @ts-ignore - no type
+                // @ts-ignore – no types for next-pwa
                 const response: AxiosResponse<{ data: Category[] }> = await requestServer(`${GET_USER_HOME}${user}`);
                 if (response.data?.data) {
                     setCategories(response.data.data);
@@ -39,7 +39,6 @@ export default function FirstPage() {
             fetchUserHome();
         }
     }, [user]);
-
 
     return (
         <div className="relative w-full h-screen overflow-hidden z-50">

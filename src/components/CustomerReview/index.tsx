@@ -22,10 +22,10 @@ const DrawerCustomerReview = dynamic(() => import("./DrawerCustomerReview"), {
 });
 
 const CustomerReview = () => {
-    const t = useTranslations("CustomerReview")
+    const t = useTranslations("CustomerReview");
     const isDesktop = useMediaQuery("(min-width: 768px)");
     const schema = CustomerReviewSchema(t);
-    useCustomerReviewData()
+    useCustomerReviewData();
     const requestServer = useRequest({ notification: true, auth: true });
     const setLoadingData = useCustomerReview((state) => state.setLoadingData);
     type CustomerReviewSchemaForm = z.infer<typeof schema>;
@@ -34,7 +34,7 @@ const CustomerReview = () => {
         mode: "onChange",
         defaultValues: {
             star: "",
-            text: ""
+            text: "",
         },
     });
 
@@ -63,5 +63,5 @@ const CustomerReview = () => {
     }
 
     return <DrawerCustomerReview form={form} onSubmit={onSubmit} />;
-}
+};
 export default CustomerReview;

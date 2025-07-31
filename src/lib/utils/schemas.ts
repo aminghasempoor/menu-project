@@ -20,9 +20,8 @@ export const RegisterFormSchema = (t: (key: string, params?: Record<string, unkn
     });
 export const CustomerReviewSchema = (t: (key: string) => string) =>
     z.object({
-        star: z
-            .string(),
-        text : z.string().min(1, { message: t("Required") })
+        star: z.string(),
+        text: z.string().min(1, { message: t("Required") }),
     });
 export const addItemSchema = (t: (key: string, params?: TranslationValues) => string) =>
     z.object({

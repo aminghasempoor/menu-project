@@ -3,9 +3,9 @@ import { useCustomerReview } from "@/lib/utils/useCustomerReview";
 import { Skeleton } from "@/components/ui/skeleton";
 
 const DialogCustomerReviewContent = () => {
-    const t = useTranslations("CustomerReview")
-    const ratings = useCustomerReview((state) => state.ratings)
-    const isLoadingData = useCustomerReview((state) => state.isLoadingData)
+    const t = useTranslations("CustomerReview");
+    const ratings = useCustomerReview((state) => state.ratings);
+    const isLoadingData = useCustomerReview((state) => state.isLoadingData);
     return (
         <>
             {isLoadingData ? (
@@ -27,14 +27,12 @@ const DialogCustomerReviewContent = () => {
                                 {t("no_data")} {/* در فایل ترجمه، کلید no_data باید وجود داشته باشه */}
                             </p>
                         ) : (
-                            ratings.map((item, index) => (
-                                <div key={index}>asdas</div>
-                            ))
+                            ratings.map((item, index) => <div key={index}>asdas</div>)
                         )}
                     </div>
                 </div>
             )}
         </>
-    )
-}
+    );
+};
 export default DialogCustomerReviewContent;

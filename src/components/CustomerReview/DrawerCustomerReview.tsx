@@ -1,11 +1,6 @@
 import { UseFormReturn } from "react-hook-form";
 import { CustomerReviewSchemaForm } from "./index";
-import {
-    Drawer,
-    DrawerContent,
-    DrawerDescription,
-    DrawerTitle, DrawerTrigger,
-} from "@/components/ui/drawer";
+import { Drawer, DrawerContent, DrawerDescription, DrawerTitle, DrawerTrigger } from "@/components/ui/drawer";
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 import React from "react";
 import { useTranslations } from "next-intl";
@@ -19,15 +14,12 @@ export type DrawerCustomerReviewProps = {
     onSubmit: (values: CustomerReviewSchemaForm) => void;
 };
 const DrawerCustomerReview = ({ form, onSubmit }: DrawerCustomerReviewProps) => {
-    const t = useTranslations("CustomerReview")
+    const t = useTranslations("CustomerReview");
     const isOpenDrawer = useCustomerReview((state) => state.isOpenDrawer);
     return (
         <Drawer>
             <DrawerTrigger asChild>
-                <Button
-                    variant="secondary"
-                    className="w-full p-5 capitalize text-xl font-semibold"
-                >
+                <Button variant="secondary" className="w-full p-5 capitalize text-xl font-semibold">
                     <div className="py-2 flex items-center justify-center gap-x-3">
                         {t("add_review")}
                         <CirclePlus />
@@ -42,6 +34,6 @@ const DrawerCustomerReview = ({ form, onSubmit }: DrawerCustomerReviewProps) => 
                 <DrawerCustomerReviewContent />
             </DrawerContent>
         </Drawer>
-    )
-}
+    );
+};
 export default DrawerCustomerReview;

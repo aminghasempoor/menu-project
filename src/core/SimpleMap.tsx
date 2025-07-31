@@ -16,7 +16,7 @@ const markerIcon = new L.Icon({
 });
 
 export default function ContactMapSection() {
-    const t = useTranslations("ContactUs")
+    const t = useTranslations("ContactUs");
     const lat = 32.3265;
     const lng = 50.8645;
 

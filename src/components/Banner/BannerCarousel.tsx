@@ -2,10 +2,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import { Card, CardContent } from "@/components/ui/card";
-import {
-    Pizza, IceCream, Salad, CupSoda,
-    Sandwich, Fish, Drumstick, Beef
-} from "lucide-react";
+import { Pizza, IceCream, Salad, CupSoda, Sandwich, Fish, Drumstick, Beef } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { useTranslations } from "next-intl";
 import clsx from "clsx"; // اگر clsx یا classnames داری بهتره استفاده کنی
@@ -60,9 +57,7 @@ export function BannerCarousel() {
                 ref={ref}
                 className={clsx(
                     "transition-all duration-300 w-full z-20",
-                    isSticky
-                        ? "fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-md shadow-md"
-                        : ""
+                    isSticky ? "fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-md shadow-md" : ""
                 )}
             >
                 <Carousel
@@ -100,4 +95,3 @@ export function BannerCarousel() {
         </>
     );
 }
-
