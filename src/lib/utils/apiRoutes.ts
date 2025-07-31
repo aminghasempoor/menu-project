@@ -1,7 +1,7 @@
 const api = process.env.NEXT_PUBLIC_API_URL;
 export const GET_USER_ROUTE = api + "/profile/info";
 export const GET_USER_HOME = api + "/home/menu_types?username=";
-export const GET_COFFEE_MENU = api + "/home/menu_types";
+export const GET_COFFEE_MENU = api + "/home/menu_items";
 export const GET_LOGIN_ROUTE = api + "/auth/login";
 export const GET_LOGOUT_ROUTE = api + "/auth/logout";
 export const GET_FOODS = api + "/foods";

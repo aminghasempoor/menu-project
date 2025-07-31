@@ -2,22 +2,9 @@
 import { useEffect, useRef, useState } from "react";
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import { Card, CardContent } from "@/components/ui/card";
-import { Pizza, IceCream, Salad, CupSoda, Sandwich, Fish, Drumstick, Beef } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { useTranslations } from "next-intl";
-import clsx from "clsx"; // اگر clsx یا classnames داری بهتره استفاده کنی
-
-const items = [
-    { icon: <Pizza className="w-6 h-6" />, labelKey: "pizza" },
-    { icon: <Beef className="w-6 h-6" />, labelKey: "burger" },
-    { icon: <Sandwich className="w-6 h-6" />, labelKey: "sushi" },
-    { icon: <Drumstick className="w-6 h-6" />, labelKey: "kebab" },
-    { icon: <Fish className="w-6 h-6" />, labelKey: "seafood" },
-    { icon: <Salad className="w-6 h-6" />, labelKey: "salad" },
-    { icon: <Sandwich className="w-6 h-6" />, labelKey: "sandwich" },
-    { icon: <IceCream className="w-6 h-6" />, labelKey: "dessert" },
-    { icon: <CupSoda className="w-6 h-6" />, labelKey: "milkshake" },
-];
+import clsx from "clsx";
 
 export function BannerCarousel() {
     const t = useTranslations("Banner");
@@ -29,6 +16,8 @@ export function BannerCarousel() {
     const ref = useRef<HTMLDivElement>(null);
     const [isSticky, setIsSticky] = useState(false);
     const [height, setHeight] = useState(0);
+
+    const [menuNames, setMenuNames] = useState<string[]>([]);
 
     useEffect(() => {
         if (ref.current) {
@@ -48,16 +37,27 @@ export function BannerCarousel() {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
+    useEffect(() => {
+        // خواندن داده‌ها از localStorage
+        const stored = localStorage.getItem("banner");
+        if (stored) {
+            try {
+                const parsed = JSON.parse(stored) as string[];
+                setMenuNames(parsed);
+            } catch {
+                setMenuNames([]);
+            }
+        }
+    }, []);
+
     return (
         <>
-            {/* وقتی fixed شد، این div جای خالیشو می‌گیره */}
             {isSticky && <div style={{ height }} />}
-
             <div
                 ref={ref}
                 className={clsx(
                     "transition-all duration-300 w-full z-20",
-                    isSticky ? "fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-md shadow-md" : ""
+                    isSticky ? "fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-md shadow-md" : "",
                 )}
             >
                 <Carousel
@@ -70,25 +70,30 @@ export function BannerCarousel() {
                     className="w-full max-w-4xl lg:max-w-7xl mx-auto px-4 py-2"
                 >
                     <CarouselContent className="-ml-2">
-                        {items.map((item, index) => (
-                            <CarouselItem
-                                key={index}
-                                className="basis-1/3 tablet:basis-1/3 tablet_big:basis-1/4 lg:basis-1/6 pl-2"
-                            >
-                                <Card
-                                    onClick={() => {
-                                        const section = document.getElementById(item.labelKey);
-                                        section?.scrollIntoView({ behavior: "smooth" });
-                                    }}
-                                    className="rounded-xl border bg-white/40 backdrop-blur-md shadow-sm hover:shadow-md transition cursor-pointer"
+                        {menuNames.length > 0 ? (
+                            menuNames.map((nameFa, index) => (
+                                <CarouselItem
+                                    key={index}
+                                    className="basis-1/3 tablet:basis-1/3 tablet_big:basis-1/4 lg:basis-1/6 pl-2"
                                 >
-                                    <CardContent className="flex items-center justify-center gap-1 p-2">
-                                        {item.icon}
-                                        <span className="text-sm font-medium">{t(item.labelKey)}</span>
-                                    </CardContent>
-                                </Card>
-                            </CarouselItem>
-                        ))}
+                                    <Card
+                                        onClick={() => {
+                                            const section = document.getElementById(nameFa);
+                                            section?.scrollIntoView({ behavior: "smooth" });
+                                        }}
+                                        className="rounded-xl border bg-white/40 backdrop-blur-md shadow-sm hover:shadow-md transition cursor-pointer"
+                                    >
+                                        <CardContent className="flex items-center justify-center gap-1 p-2">
+                                            {/* فقط متن بدون آیکون */}
+                                            <span className="text-sm font-medium">{nameFa}</span>
+                                        </CardContent>
+                                    </Card>
+                                </CarouselItem>
+                            ))
+                        ) : (
+                            // اگر داده نبود می‌تونی یه پیام یا Skeleton اینجا بذاری
+                            <p className="p-4 text-center w-full">دسته بندی موجود نیست.</p>
+                        )}
                     </CarouselContent>
                 </Carousel>
             </div>

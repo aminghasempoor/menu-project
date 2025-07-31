@@ -9,16 +9,15 @@ import {
 } from "@/components/ui/drawer";
 import { CardContentComponent } from "@/components/Main/CardContentComponent";
 import Image from "next/image";
-import Picture from "../../../public/burger.jpg";
 import React from "react";
 import { useTranslations } from "next-intl";
 
 export function DrawerContentComponent({
-    picture,
-    title,
-    description,
-    price,
-}: {
+                                           picture,
+                                           title,
+                                           description,
+                                           price,
+                                       }: {
     picture: string;
     title: string;
     description: string;
@@ -32,7 +31,8 @@ export function DrawerContentComponent({
             </DrawerTrigger>
             <DrawerContent className="w-full max-w-md mx-auto rounded-t-3xl pb-6">
                 <DrawerHeader className="flex items-center justify-around text-center">
-                    <Image src={Picture} alt={title} className="w-36 h-36 rounded-xl object-cover mb-4 shadow-md" />
+                    <Image src={picture} width={26} height={26} alt={title}
+                           className="w-36 h-36 rounded-xl object-cover mb-4 shadow-md" />
                     <DrawerTitle className="text-xl font-normal">{title}</DrawerTitle>
                 </DrawerHeader>
                 <div className="px-10 space-y-4">
@@ -43,7 +43,7 @@ export function DrawerContentComponent({
                     <DrawerDescription className="text-sm leading-relaxed">{t("description")}</DrawerDescription>
                     <DrawerFooter className="flex justify-between items-center pt-4">
                         <div className="bg-gray-100 text-green-700 px-4 py-2 rounded-lg text-lg font-bold">
-                            {parseInt(price).toLocaleString()}
+                            {parseInt(price).toLocaleString()}هزارتومان
                         </div>
                     </DrawerFooter>
                 </div>

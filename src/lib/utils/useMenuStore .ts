@@ -1,7 +1,7 @@
 // lib/utils/useMenuStore.ts
 import { create } from "zustand";
 
-type Food = {
+export type Food = {
     id: number;
     name: string | null;
     name_fa: string;
