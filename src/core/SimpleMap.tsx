@@ -14,7 +14,6 @@ const markerIcon = new L.Icon({
     iconSize: [50, 82], // ← بزرگ‌تر از [25, 41]
     iconAnchor: [25, 82], // ← تنظیم درست محل قرارگیری
     popupAnchor: [0, -82], // ← مکان قرارگیری پاپ‌آپ روی مارکر
-    shadowSize: [41, 41], // ← سایز سایه (اختیاری)
 });
 
 export default function ContactMapSection() {
@@ -27,7 +26,7 @@ export default function ContactMapSection() {
         <div className="w-full p-4 rounded-xl shadow-md flex flex-col md:flex-row items-center mb-16 gap-6 md:gap-12">
             <div className="w-full md:w-1/2 text-right text-zinc-800 space-y-12">
                 <div className="flex items-center gap-2">
-                    <MapPin className="w-11 h-11 text-orange-500 mt-1" />
+                    <MapPin className="w-8 h-8 text-orange-500 mt-1" />
                     <p className={"flex text-foreground text-md md:text-lg gap-x-2 line-clamp-1"}>
                         {t("address")} {user?.address}
                     </p>

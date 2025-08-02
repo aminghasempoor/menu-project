@@ -127,7 +127,9 @@
   "FirstPage": {
     "caffe": "Caffe Menu",
     "error": "Error Loading Data",
+    "no_data": "No Data",
     "loading": "Loading...",
+    "retry": "Retry",
     "contact": "Contact Us :",
     "number": "Number :",
     "restaurant": "Restaurant Menu"

@@ -26,18 +26,20 @@ export function DrawerContentComponent({
     const t = useTranslations("CardItem");
     return (
         <Drawer>
-            <DrawerTrigger>
+            <DrawerTrigger className={"w-full"}>
                 <CardContentComponent picture={picture} title={title} description={description} price={price} />
             </DrawerTrigger>
             <DrawerContent className="w-full max-w-md mx-auto rounded-t-3xl pb-6">
                 <DrawerHeader className="flex items-center justify-around text-center">
-                    <Image
-                        src={picture}
-                        width={26}
-                        height={26}
-                        alt={title}
-                        className="w-36 h-36 rounded-xl object-cover mb-4 shadow-md"
-                    />
+                    <div className="w-1/2 relative aspect-[3/1.5]">
+                        <Image
+                            loading="lazy"
+                            fill
+                            className="object-cover rounded-lg w-36 h-36"
+                            src={picture}
+                            alt="picture"
+                        />
+                    </div>
                     <DrawerTitle className="text-xl font-normal">{title}</DrawerTitle>
                 </DrawerHeader>
                 <div className="px-10 space-y-4">
