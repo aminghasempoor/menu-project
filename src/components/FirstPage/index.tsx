@@ -41,9 +41,8 @@ export default function FirstPage() {
             } catch (error) {
                 console.error("API error:", error);
                 setError(true);
-            }finally
-            {
-                setLoading(false)
+            } finally {
+                setLoading(false);
             }
         };
 
@@ -52,9 +51,9 @@ export default function FirstPage() {
         }
     }, [userName]);
 
-    if (loading) return <LoadingComponent />
+    if (loading) return <LoadingComponent />;
 
-    if (error || !user) return <ErrorComponent />
+    if (error || !user) return <ErrorComponent />;
 
-    return <FirstPageContent />
+    return <FirstPageContent />;
 }

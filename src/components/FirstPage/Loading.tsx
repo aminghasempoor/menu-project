@@ -45,6 +45,6 @@ const LoadingComponent = () => {
                 </motion.div>
             </div>
         </>
-    )
-}
-export default LoadingComponent
+    );
+};
+export default LoadingComponent;

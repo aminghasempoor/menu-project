@@ -5,11 +5,11 @@ import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 
 export function CardContentComponent({
-                                         title,
-                                         description,
-                                         price,
-                                         picture,
-                                     }: {
+    title,
+    description,
+    price,
+    picture,
+}: {
     picture: string;
     title: string;
     description: string;

@@ -79,6 +79,6 @@ const FirstPageContent = () => {
                 </motion.div>
             </div>
         </motion.div>
-    )
-}
-export default FirstPageContent
+    );
+};
+export default FirstPageContent;

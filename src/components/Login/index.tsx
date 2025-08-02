@@ -59,13 +59,7 @@ export function LoginForm() {
                 transition={{ duration: 1.5 }}
                 className="fixed inset-0 z-0"
             >
-                <Image
-                    className="object-cover"
-                    src={backGround}
-                    alt="background"
-                    priority
-                    fill
-                />
+                <Image className="object-cover" src={backGround} alt="background" priority fill />
             </motion.div>
             <motion.div
                 initial={{ opacity: 0 }}
