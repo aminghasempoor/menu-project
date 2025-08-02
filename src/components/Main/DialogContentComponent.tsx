@@ -31,13 +31,15 @@ export function DialogContentComponent({
                     <DialogDescription>{description}</DialogDescription>
                 </VisuallyHidden>
                 <div className="flex flex-col md:flex-row items-center gap-8">
-                    <Image
-                        src={picture}
-                        width={26}
-                        height={26}
-                        alt={title}
-                        className="w-36 h-36 rounded-xl object-cover shadow-md"
-                    />
+                    <div className="w-1/2 relative aspect-[3/1.5]">
+                        <Image
+                            loading="lazy"
+                            fill
+                            className="object-cover rounded-lg w-36 h-36"
+                            src={picture}
+                            alt="picture"
+                        />
+                    </div>
                     <div className="flex-1">
                         <h2 className="text-2xl font-bold mb-4">{title}</h2>
                         <p className="text-md font-semibold text-muted-foreground mb-2">

@@ -36,7 +36,6 @@ export function BannerCarousel() {
     }, []);
 
     useEffect(() => {
-        // خواندن داده‌ها از localStorage
         const stored = localStorage.getItem("banner");
         if (stored) {
             try {
@@ -55,13 +54,13 @@ export function BannerCarousel() {
                 ref={ref}
                 className={clsx(
                     "transition-all duration-300 w-full z-20",
-                    isSticky ? "fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-md shadow-md" : ""
+                    isSticky ? "fixed top-0 left-0 right-0 backdrop-blur-md shadow-md" : ""
                 )}
             >
                 <Carousel
                     opts={{
                         align: "start",
-                        loop: true,
+                        loop: false,
                         direction: currentDirection === "fa" ? "rtl" : "ltr",
                         dragFree: true,
                     }}

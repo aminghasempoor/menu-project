@@ -15,6 +15,9 @@ import { LogIn } from "lucide-react";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { GET_LOGIN_ROUTE } from "@/lib/utils/apiRoutes";
 import { z } from "zod";
+import Image from "next/image";
+import { motion } from "framer-motion";
+import backGround from "/public/random.jpg";
 type LoginFormType = z.infer<ReturnType<typeof loginFormSchema>>;
 
 export function LoginForm() {
@@ -50,7 +53,27 @@ export function LoginForm() {
 
     return (
         <Form {...form}>
-            <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full px-4 max-w-md capitalize">
+            <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1.5 }}
+                className="fixed inset-0 z-0"
+            >
+                <Image
+                    className="object-cover"
+                    src={backGround}
+                    alt="background"
+                    priority
+                    fill
+                />
+            </motion.div>
+            <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 0.25 }}
+                transition={{ duration: 1.5 }}
+                className="absolute inset-0 bg-black z-10"
+            />
+            <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full px-4 max-w-md capitalize z-50">
                 <Card className="w-full shadow-2xl">
                     <CardHeader className="text-center space-y-2">
                         <CardTitle className="text-3xl font-black">{t("Global.appName")}</CardTitle>
