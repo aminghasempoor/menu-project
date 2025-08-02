@@ -7,6 +7,8 @@ export default createMiddleware({
 });
 
 export const config = {
-    // مسیرهایی که باید بررسی بشن
-    matcher: ["/((?!_next|favicon.ico).*)"],
+    matcher: [
+        // بررسی همه‌ی مسیرها به جز:
+        "/((?!_next|favicon.ico|telescope).*)",
+    ],
 };
