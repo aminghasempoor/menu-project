@@ -2,11 +2,11 @@ import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
 
 export function RecommendedItem({
-                                    picture,
-                                    title,
-                                    description,
-                                    price,
-                                }: {
+    picture,
+    title,
+    description,
+    price,
+}: {
     picture: string;
     title: string;
     description: string;
@@ -17,8 +17,7 @@ export function RecommendedItem({
 
     const t = useTranslations("RecommendedItem");
     return (
-        <div
-            className="relative cursor-pointer w-full h-[120px] rounded-xl overflow-hidden shadow-md hover:scale-[1.02] transition-transform duration-300 bg-cover bg-center">
+        <div className="relative cursor-pointer w-full h-[120px] rounded-xl overflow-hidden shadow-md hover:scale-[1.02] transition-transform duration-300 bg-cover bg-center">
             <Image src={picture} alt="picture" fill className="object-cover rounded-lg" />
             <div
                 className={`absolute inset-0 ${

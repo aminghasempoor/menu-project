@@ -24,8 +24,7 @@ const FirstPageContent = () => {
                 fill
             />
             <div className="absolute inset-0 bg-black/25 z-10" />
-            <div
-                className="relative z-20 flex flex-col items-center justify-center h-full text-white text-center space-y-6 px-4">
+            <div className="relative z-20 flex flex-col items-center justify-center h-full text-white text-center space-y-6 px-4">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
