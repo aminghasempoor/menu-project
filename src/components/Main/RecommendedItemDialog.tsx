@@ -1,0 +1,63 @@
+import { Dialog, DialogContent, DialogDescription, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
+import Image from "next/image";
+import React from "react";
+import { useTranslations } from "next-intl";
+import { RecommendedItem } from "@/components/Main/RecommendedItem";
+
+const RecommendedItemDialog = ({
+    picture,
+    title,
+    description,
+    price,
+    ingredients,
+}: {
+    picture: string;
+    title: string;
+    description: string;
+    price: string;
+    ingredients: string;
+}) => {
+    const t = useTranslations("RecommendedItem");
+    const [open, setOpen] = React.useState(false);
+    return (
+        <>
+            <Dialog open={open} onOpenChange={setOpen}>
+                <DialogTrigger asChild>
+                    <div onClick={() => setOpen(true)}>
+                        <RecommendedItem picture={picture} title={title} description={description} price={price} />
+                    </div>
+                </DialogTrigger>
+                <DialogContent className="max-w-3xl rounded-2xl p-8 shadow-lg">
+                    <VisuallyHidden>
+                        <DialogTitle>{title}</DialogTitle>
+                        <DialogDescription>{description}</DialogDescription>
+                    </VisuallyHidden>
+                    <div className="flex flex-col md:flex-row items-center gap-8">
+                        <div className="w-1/2 relative aspect-[3/1.5]">
+                            <Image
+                                loading="lazy"
+                                fill
+                                className="object-cover rounded-lg w-36 h-36"
+                                src={picture}
+                                alt="picture"
+                            />
+                        </div>
+                        <div className="flex-1">
+                            <h2 className="text-2xl font-bold mb-4">{title}</h2>
+                            <p className="text-md font-semibold text-muted-foreground mb-2">
+                                {t("ingredient")} : {ingredients}
+                            </p>
+                            <div className="flex items-center justify-between mt-auto">
+                                <div className="bg-gray-100 text-green-700 px-4 py-2 rounded-lg text-xl font-bold">
+                                    {price} هزارتومان
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </DialogContent>
+            </Dialog>
+        </>
+    );
+};
+export default RecommendedItemDialog;

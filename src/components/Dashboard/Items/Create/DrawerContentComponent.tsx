@@ -194,7 +194,7 @@ export default function DrawerContentComponent({ form, onSubmit, isEdit }: Dialo
                 </div>
                 <DrawerFooter className={"pb-0"}>
                     <Button className="capitalize text-md font-semibold" type="submit">
-                        {t("add_item")}
+                        {isEdit ? t("edit") : t("add_item")}
                     </Button>
                     {isEdit && (
                         <Button

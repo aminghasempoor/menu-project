@@ -18,8 +18,6 @@ import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/component
 import SidebarFooterComponent from "./SidebarFooter";
 import { useTranslations } from "next-intl";
 import { getDashboardSidebarItems } from "@/core/utils/dashboardSidebarItems";
-// import Image from "next/image";
-// import IconLogo from "../../../../public/icon-logo.svg";
 
 export function DashboardSidebar() {
     const t = useTranslations("Sidebar");

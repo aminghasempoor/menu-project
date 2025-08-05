@@ -27,6 +27,7 @@
   },
   "Items": {
     "title": "Items",
+    "edit": "Edit",
     "loading": "Loading...",
     "delete_item": "Delete",
     "add_item": "add item",
@@ -50,6 +51,7 @@
   },
   "Categories": {
     "title": "Categories",
+    "edit": "Edit",
     "error": "Error Fetch Data...",
     "loading": "Loading...",
     "delete_item": "Delete",
@@ -99,7 +101,38 @@
   },
   "RecommendedItem": {
     "name": "recommended item",
+    "ingredient": "Ingredient",
     "unit": "hezar toman"
+  },
+  "UserManagement": {
+    "password": "Password",
+    "role_id": "Role",
+    "lat": "Latitude",
+    "lng": "Longitude",
+    "address": "Address",
+    "telephone": "Telephone",
+    "icon": "Icon",
+    "name_fa": "Username",
+    "required": "Required",
+    "invalid_email": "Invalid Email",
+    "invalid_phone": "Invalid Phone",
+    "username": "User Name: ",
+    "email": "Email: ",
+    "user_management": "User Management",
+    "add_user": "Add User",
+    "edit_success": "Edited Successfully",
+    "edit_failed": "Error On Editing User",
+    "deleting": "Deleting...",
+    "delete_description": "Are you sure Deleting : «{username}»",
+    "edit_description": "Edit User Info",
+    "edit": "Edit",
+    "previous": "Previous",
+    "next": "Next",
+    "delete": "Delete",
+    "description": "Are You Sure ?",
+    "cancel": "Cancel",
+    "phone_number": "Phone: ",
+    "save_change": "Save Change"
   },
   "Loading": {
     "title": "Loading..."
@@ -111,7 +144,9 @@
     "sidebar": "sidebar",
     "title": "dashboard",
     "logo": "Menulita",
+    "user-management": "User Management",
     "home": "Home",
+    "customer_review": "Customers Review",
     "profile": "Profile",
     "items": "Items",
     "category": "Category",
@@ -123,6 +158,24 @@
   },
   "AuthMiddleware": {
     "title": "you don not have permission to this page..."
+  },
+  "Settings": {
+    "title": "Settings",
+    "user_name": "Username",
+    "required": "Required",
+    "email": "Email",
+    "invalid_format": "Invalid Format",
+    "phone_number": "Phone Number",
+    "enter_phone_number": "Enter Phone Number",
+    "submit": "Submit",
+    "success_msg" : "Successfully Saved",
+    "current_password" : "Current Password",
+    "new_password" : "New Password",
+    "confirm_password" : "Confirm Password",
+    "password_min_length" : "Password Min Length is 6 Character",
+    "password_changed_successfully" : "Password Changed Successfully",
+    "passwords_do_not_match" : "Passwords Do Not Match",
+    "error_msg" : "Error Saving Data"
   },
   "FirstPage": {
     "caffe": "Caffe Menu",
@@ -141,6 +194,7 @@
   "CustomerReview": {
     "address": "Address :",
     "review": "Customers Review",
+    "error_loading_data": "Error Loading Data",
     "customer_review": "Customers Review :",
     "Required": "Required",
     "error": "Error Loading Data",

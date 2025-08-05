@@ -3,7 +3,7 @@ import { create } from "zustand";
 import axios from "axios";
 import { GET_USER_ROUTE } from "@/lib/utils/apiRoutes";
 
-interface User {
+export interface User {
     username: string;
     email: string | null;
     phone_number: string | null;

@@ -1,4 +1,4 @@
-import { Calendar, Home, Inbox, WalletCards, Settings } from "lucide-react";
+import { Calendar, Home, Inbox, WalletCards, Settings, ScrollText, UserIcon } from "lucide-react";
 export function getDashboardSidebarItems(t: (key: string) => string) {
     return [
         {
@@ -22,8 +22,18 @@ export function getDashboardSidebarItems(t: (key: string) => string) {
             icon: WalletCards,
         },
         {
+            title: t("user-management"),
+            url: "/dashboard/user-management",
+            icon: UserIcon,
+        },
+        {
+            title: t("customer_review"),
+            url: "/dashboard/customer-review",
+            icon: ScrollText,
+        },
+        {
             title: t("settings"),
-            url: "#",
+            url: "/dashboard/settings",
             icon: Settings,
         },
     ];

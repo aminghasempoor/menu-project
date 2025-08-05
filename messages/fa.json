@@ -27,6 +27,7 @@
   },
   "Items": {
     "title": "آیتم ها",
+    "edit": "ویرایش",
     "loading": "درحال دریافت اطلاعات...",
     "delete_item": "حذف",
     "add_item": "افزودن آیتم",
@@ -50,6 +51,7 @@
   },
   "Categories": {
     "title": "دسته بندی ها",
+    "edit": "ویرایش",
     "loading": "درحال دریافت اطلاعات...",
     "error": "خطا در دریافت اطلاعات...",
     "add_item": "افزودن دسته بندی",
@@ -87,7 +89,38 @@
   },
   "RecommendedItem": {
     "name": "آیتم پیشنهادی",
+    "ingredient": "محتویات",
     "unit": "هزار تومان"
+  },
+  "UserManagement": {
+    "password": "رمز عبور",
+    "role_id": "نقش کاربر",
+    "lat": "عرض جغرافیایی",
+    "lng": "طول جغرافیایی",
+    "address": "آدرس",
+    "name_fa": "نام کاربر",
+    "telephone": "تلفن ثابت",
+    "icon": "آیکن",
+    "required": "این فیلد الزامی است",
+    "invalid_email": "ایمیل وارد شده معتبر نیست",
+    "invalid_phone": "شماره تماس معتبر نیست",
+    "username": "نام کاربر: ",
+    "email": "ایمیل: ",
+    "edit_success": "کاربر با موفقیت ویرایش شد.",
+    "edit_failed": "خطا در ویرایش کاربر",
+    "edit_description": "اطلاعات کاربر را ویرایش کنید.",
+    "user_management": "مدیریت کاربران",
+    "add_user": "اضافه کردن کاربر",
+    "delete": "حذف کاربر",
+    "description": "آیا اطمینان دارید ؟",
+    "cancel": "لغو",
+    "previous": "قبلی",
+    "next": "بعدی",
+    "deleting": "در حال حذف...",
+    "delete_description": "آیا از حذف کاربر «{username}» مطمئن هستید؟",
+    "edit": "ویرایش کاربر",
+    "phone_number": "شماره تلفن: ",
+    "save_change": "ذخیره تغییرات"
   },
   "AuthMiddleware": {
     "title": "شما دسترسی لازم به این صفحه را ندارید..."
@@ -98,7 +131,9 @@
     "home": "خانه",
     "profile": "پروفایل",
     "items": "آیتم ها",
+    "user-management": "مدیریت کاربران",
     "logo": "منولیتا",
+    "customer_review": "نظرات مشتریان",
     "unit": "هزار تومان",
     "category": "دسته بندی ها",
     "log_out": "خروج",
@@ -112,6 +147,24 @@
   },
   "NotFound": {
     "title": "صفحه مورد نظر یافت نشد..."
+  },
+  "Settings": {
+    "title": "تنظیمات کاربر",
+    "user_name": "نام کاربری",
+    "required": "الزامی",
+    "email": "ایمیل",
+    "invalid_format" : "فرمت قابل قبول نیست",
+    "phone_number": "تلفن همراه",
+    "enter_phone_number": "تلفن همراه را وارد کنید",
+    "submit": "ذخیره تغییرات",
+    "success_msg" : "تنظیمات با موفقیت ذخیره شد",
+    "current_password" : "رمزعبور فعلی",
+    "new_password" : "رمزعبور جدید",
+    "confirm_password" : "تایید رمزعبور",
+    "password_changed_successfully" : "رمزعبور تغییر کرد",
+    "passwords_do_not_match" : "رمزعبور مطابقت ندارد",
+    "password_min_length" : "حداقل رمزعبور 6 کلمه میباشد",
+    "error_msg" : "خطا در ذخیره تنظیمات. لطفا دوباره تلاش کنید."
   },
   "FirstPage": {
     "caffe": "منو کافه",
@@ -127,6 +180,7 @@
     "customer_review": "نظرات مشتریان :",
     "Required": "ضروری",
     "stars": "تجربه شما",
+    "error_loading_data": "خطا در دریافت داده",
     "review": "نظرات مشتریان",
     "description": "توضیحات",
     "submit": "ثبت نظر",
