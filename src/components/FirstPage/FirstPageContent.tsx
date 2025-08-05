@@ -5,10 +5,12 @@ import Link from "next/link";
 import { useTranslations } from "next-intl";
 import { useUser } from "@/lib/utils/useUser";
 import AddresIconLight from "/public/AddressLight.svg";
+import { useTheme } from "next-themes";
 
 const FirstPageContent = () => {
     const t = useTranslations("FirstPage");
     const user = useUser((state) => state.user);
+    const {theme} = useTheme()
     return (
         <motion.div
             className="relative w-full h-screen overflow-hidden z-50"
@@ -30,7 +32,7 @@ const FirstPageContent = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.3, duration: 0.6 }}
                 >
-                    <img src={user?.icon || AddresIconLight} alt="addres" width={300} height={300} />
+                    <img src={theme === "light" ? (user?.icon_dark) : (user?.icon)  || AddresIconLight} alt="addres" width={300} height={300} />
                 </motion.div>
 
                 <motion.div

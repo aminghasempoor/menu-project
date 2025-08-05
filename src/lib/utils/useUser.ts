@@ -5,6 +5,7 @@ export interface User {
     id: number;
     username: string;
     icon: string;
+    icon_dark: string;
     name_fa: string;
     email: string;
     telephone: string | null;
