@@ -1,7 +1,9 @@
-import { RecommendedItem } from "./RecommendedItem";
 import { CardItems } from "@/components/Main/CardItems";
 import { Food } from "@/lib/utils/useMenuStore ";
 import { motion } from "framer-motion";
+import { useMediaQuery } from "@/hooks/use-media-query";
+import RecommendedItemDialog from "@/components/Main/RecommendedItemDialog";
+import RecommendedItemDrawer from "@/components/Main/RecommendedItemDrawer";
 
 const itemVariants = {
     hidden: { opacity: 0, y: 20 },
@@ -9,7 +11,7 @@ const itemVariants = {
         opacity: 1,
         y: 0,
         transition: {
-            delay: i * 0.1, // تاخیر بر اساس ایندکس برای انیمیشن ترتیب دار
+            delay: i * 0.1,
         },
     }),
 };
@@ -27,6 +29,7 @@ export function Main({
     foodItem: Food[];
     isLast: boolean;
 }) {
+    const isDesktop = useMediaQuery("(min-width: 768px)");
     return (
         <div id={id} className={`mx-5 ${isLast ? "mb-20" : "mb-10"}`}>
             <div className="flex items-center pb-5">
@@ -46,12 +49,19 @@ export function Main({
                                 animate="visible"
                                 variants={itemVariants}
                             >
-                                <RecommendedItem
+                                {isDesktop ? (<RecommendedItemDialog
+                                    ingredients={item.ingredients}
                                     title={item.name_fa}
                                     description={item.description}
                                     price={item.price}
                                     picture={item.image}
-                                />
+                                />) : (<RecommendedItemDrawer
+                                    ingredients={item.ingredients}
+                                    title={item.name_fa}
+                                    description={item.description}
+                                    price={item.price}
+                                    picture={item.image}
+                                />)}
                             </motion.div>
                         ))}
                 {foodItem

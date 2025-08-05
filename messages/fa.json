@@ -89,7 +89,20 @@
   },
   "RecommendedItem": {
     "name": "آیتم پیشنهادی",
+    "ingredient": "محتویات",
     "unit": "هزار تومان"
+  },
+  "UserManagement": {
+    "username": "نام کاربر: ",
+    "email": "ایمیل: ",
+    "user_management": "مدیریت کاربران",
+    "add_user": "اضافه کردن کاربر",
+    "delete": "حذف کاربر",
+    "description": "آیا اطمینان دارید ؟",
+    "cancel": "لغو",
+    "edit": "ویرایش کاربر",
+    "phone_number": "شماره تلفن: ",
+    "save_change": "ذخیره تغییرات"
   },
   "AuthMiddleware": {
     "title": "شما دسترسی لازم به این صفحه را ندارید..."

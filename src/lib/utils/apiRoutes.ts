@@ -15,4 +15,5 @@ export const CREATE_CATEGORIES = api + "/categories";
 export const GET_EDIT_ITEM = api + "/foods";
 export const GET_EDIT_CATEGORY = api + "/categories";
 export const GET_REPORTS = api + "/reports/views";
+export const GET_USERS = api + "/users";
 export const CHANGE_PASSWORD = api + "/profile/changePassword";

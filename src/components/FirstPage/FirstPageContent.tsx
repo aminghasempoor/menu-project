@@ -30,7 +30,7 @@ const FirstPageContent = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.3, duration: 0.6 }}
                 >
-                    <Image src={AddresIconLight} alt="addres" width={300} height={300} />
+                    <img src={user?.icon || AddresIconLight} alt="addres" width={300} height={300} />
                 </motion.div>
 
                 <motion.div

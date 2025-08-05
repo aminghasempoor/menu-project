@@ -101,7 +101,20 @@
   },
   "RecommendedItem": {
     "name": "recommended item",
+    "ingredient": "Ingredient",
     "unit": "hezar toman"
+  },
+  "UserManagement": {
+    "username": "User Name: ",
+    "email": "Email: ",
+    "user_management": "User Management",
+    "add_user": "Add User",
+    "edit": "Edit",
+    "delete": "Delete",
+    "description": "Are You Sure ?",
+    "cancel": "Cancel",
+    "phone_number": "Phone: ",
+    "save_change": "Save Change"
   },
   "Loading": {
     "title": "Loading..."

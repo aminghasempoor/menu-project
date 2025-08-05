@@ -1,10 +1,10 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
-// تعریف ساختار اطلاعات کاربر
 export interface User {
     id: number;
     username: string;
+    icon:string;
     name_fa: string;
     email: string;
     telephone: string | null;
