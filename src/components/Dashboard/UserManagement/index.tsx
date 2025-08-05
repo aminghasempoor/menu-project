@@ -4,6 +4,7 @@ import { useUserManagement } from "@/lib/hooks/useUserManagement";
 import { DataTable } from "./DataTable";
 import { columns } from "./columns";
 import { motion, AnimatePresence } from "framer-motion";
+import { SkeletonCard } from "@/core/SkeletonCard";
 
 const UserManagementComponent = () => {
     const { data, loading, error } = useUserManagement();
@@ -22,7 +23,7 @@ const UserManagementComponent = () => {
                         transition={{ duration: 0.3 }}
                         className="text-center text-gray-500 py-4"
                     >
-                        در حال بارگذاری...
+                        <SkeletonCard />
                     </motion.div>
                 ) : error ? (
                     <motion.div

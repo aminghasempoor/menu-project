@@ -4,9 +4,16 @@ import RowActions from "./RowActions";
 
 export type User = {
     username: string;
+    id?: number;
     email: string | null;
     phone_number: string | null;
     role: string | null;
+    lat :string;
+    lng : string;
+    address : string;
+    telephone : string;
+    icon : string;
+    name_fa: string;
 };
 
 export const columns: ColumnDef<User>[] = [
