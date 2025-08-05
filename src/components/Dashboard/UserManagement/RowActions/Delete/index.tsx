@@ -12,9 +12,9 @@ import { RowActionsProps } from "@/components/Dashboard/UserManagement/RowAction
 import { useTranslations } from "next-intl";
 
 const DeleteForm = ({ user }: RowActionsProps) => {
-    const t = useTranslations("UserManagement")
+    const t = useTranslations("UserManagement");
     const [openDelete, setOpenDelete] = useState(false);
-    return(
+    return (
         <>
             <Dialog open={openDelete} onOpenChange={setOpenDelete}>
                 <DialogTrigger asChild>
@@ -25,9 +25,7 @@ const DeleteForm = ({ user }: RowActionsProps) => {
                 <DialogContent className={"text-start p-5"}>
                     <DialogHeader>
                         <DialogTitle className={"text-start"}>{t("delete")}</DialogTitle>
-                        <DialogDescription className={"text-start"}>
-                            {t("description")}
-                        </DialogDescription>
+                        <DialogDescription className={"text-start"}>{t("description")}</DialogDescription>
                     </DialogHeader>
                     <div className="flex justify-end gap-2">
                         <Button variant="ghost" onClick={() => setOpenDelete(false)}>
@@ -46,6 +44,6 @@ const DeleteForm = ({ user }: RowActionsProps) => {
                 </DialogContent>
             </Dialog>
         </>
-    )
-}
-export default DeleteForm
+    );
+};
+export default DeleteForm;

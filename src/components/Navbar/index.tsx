@@ -4,7 +4,6 @@ import { ModeToggle } from "@/core/ThemeToggleButton";
 import Link from "next/link";
 import AddresIcon from "/public/Addres.svg";
 import AddresIconLight from "/public/AddressLight.svg";
-import Image from "next/image";
 import { useTheme } from "next-themes";
 import { useUser } from "@/lib/utils/useUser";
 

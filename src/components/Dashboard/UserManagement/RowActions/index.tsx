@@ -8,14 +8,13 @@ export interface RowActionsProps {
 }
 
 const RowActions = ({ user }: RowActionsProps) => {
-
     return (
         <div className="flex justify-center gap-2">
             {/* Edit */}
-            <EditForm user={user}/>
+            <EditForm user={user} />
 
             {/* Delete */}
-            <DeleteForm user={user}/>
+            <DeleteForm user={user} />
         </div>
     );
 };

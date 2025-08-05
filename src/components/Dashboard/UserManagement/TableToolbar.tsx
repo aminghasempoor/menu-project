@@ -8,7 +8,7 @@ import { User } from "@/components/Dashboard/UserManagement/columns";
 import { useTranslations } from "next-intl";
 
 const TableToolbar = () => {
-    const t = useTranslations("UserManagement")
+    const t = useTranslations("UserManagement");
     const [openAdd, setOpenAdd] = useState(false);
 
     const [newUser, setNewUser] = useState<User>({
@@ -47,9 +47,7 @@ const TableToolbar = () => {
                                 <Input
                                     id="username"
                                     value={newUser.username}
-                                    onChange={(e) =>
-                                        setNewUser({ ...newUser, username: e.target.value })
-                                    }
+                                    onChange={(e) => setNewUser({ ...newUser, username: e.target.value })}
                                 />
                             </div>
 
@@ -59,9 +57,7 @@ const TableToolbar = () => {
                                     id="email"
                                     type="email"
                                     value={newUser.email || ""}
-                                    onChange={(e) =>
-                                        setNewUser({ ...newUser, email: e.target.value })
-                                    }
+                                    onChange={(e) => setNewUser({ ...newUser, email: e.target.value })}
                                 />
                             </div>
 
@@ -71,17 +67,12 @@ const TableToolbar = () => {
                                     id="phone"
                                     type="tel"
                                     value={newUser.phone_number || ""}
-                                    onChange={(e) =>
-                                        setNewUser({ ...newUser, phone_number: e.target.value })
-                                    }
+                                    onChange={(e) => setNewUser({ ...newUser, phone_number: e.target.value })}
                                 />
                             </div>
 
                             <div className="pt-4 flex justify-end gap-2">
-                                <Button
-                                    variant="ghost"
-                                    onClick={() => setOpenAdd(false)}
-                                >
+                                <Button variant="ghost" onClick={() => setOpenAdd(false)}>
                                     {t("cancel")}
                                 </Button>
                                 <Button onClick={handleAddUser}>{t("add_user")}</Button>
@@ -91,6 +82,6 @@ const TableToolbar = () => {
                 </Dialog>
             </div>
         </>
-    )
-}
+    );
+};
 export default TableToolbar;

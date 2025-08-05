@@ -12,9 +12,9 @@ import { RowActionsProps } from "@/components/Dashboard/UserManagement/RowAction
 import { useTranslations } from "next-intl";
 
 const EditForm = ({ user }: RowActionsProps) => {
-    const t = useTranslations("UserManagement")
+    const t = useTranslations("UserManagement");
     const [openEdit, setOpenEdit] = useState(false);
-    return(
+    return (
         <>
             <Dialog open={openEdit} onOpenChange={setOpenEdit}>
                 <DialogTrigger asChild>
@@ -25,13 +25,18 @@ const EditForm = ({ user }: RowActionsProps) => {
                 <DialogContent className={"p-5"}>
                     <DialogHeader>
                         <DialogTitle className={"text-start"}>{t("edit")}</DialogTitle>
-                        <DialogDescription className={"text-start py-0"}>
-                        </DialogDescription>
+                        <DialogDescription className={"text-start py-0"}></DialogDescription>
                     </DialogHeader>
                     <div className="space-y-3">
-                        <p>{t("username")} {user.username || "ندارد"}</p>
-                        <p>{t("email")} {user.email || "ندارد"}</p>
-                        <p>{t("phone_number")} {user.phone_number || "ندارد"}</p>
+                        <p>
+                            {t("username")} {user.username || "ندارد"}
+                        </p>
+                        <p>
+                            {t("email")} {user.email || "ندارد"}
+                        </p>
+                        <p>
+                            {t("phone_number")} {user.phone_number || "ندارد"}
+                        </p>
                     </div>
                     <div className="flex justify-end gap-2">
                         <Button variant="ghost" onClick={() => setOpenEdit(false)}>
@@ -42,6 +47,6 @@ const EditForm = ({ user }: RowActionsProps) => {
                 </DialogContent>
             </Dialog>
         </>
-    )
-}
-export default EditForm
+    );
+};
+export default EditForm;

@@ -6,12 +6,12 @@ import { useTranslations } from "next-intl";
 import { RecommendedItem } from "@/components/Main/RecommendedItem";
 
 const RecommendedItemDialog = ({
-                                   picture,
-                                   title,
-                                   description,
-                                   price,
-                                   ingredients
-                               }: {
+    picture,
+    title,
+    description,
+    price,
+    ingredients,
+}: {
     picture: string;
     title: string;
     description: string;
@@ -58,6 +58,6 @@ const RecommendedItemDialog = ({
                 </DialogContent>
             </Dialog>
         </>
-    )
-}
-export default RecommendedItemDialog
+    );
+};
+export default RecommendedItemDialog;

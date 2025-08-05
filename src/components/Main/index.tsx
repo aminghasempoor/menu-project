@@ -49,19 +49,23 @@ export function Main({
                                 animate="visible"
                                 variants={itemVariants}
                             >
-                                {isDesktop ? (<RecommendedItemDialog
-                                    ingredients={item.ingredients}
-                                    title={item.name_fa}
-                                    description={item.description}
-                                    price={item.price}
-                                    picture={item.image}
-                                />) : (<RecommendedItemDrawer
-                                    ingredients={item.ingredients}
-                                    title={item.name_fa}
-                                    description={item.description}
-                                    price={item.price}
-                                    picture={item.image}
-                                />)}
+                                {isDesktop ? (
+                                    <RecommendedItemDialog
+                                        ingredients={item.ingredients}
+                                        title={item.name_fa}
+                                        description={item.description}
+                                        price={item.price}
+                                        picture={item.image}
+                                    />
+                                ) : (
+                                    <RecommendedItemDrawer
+                                        ingredients={item.ingredients}
+                                        title={item.name_fa}
+                                        description={item.description}
+                                        price={item.price}
+                                        picture={item.image}
+                                    />
+                                )}
                             </motion.div>
                         ))}
                 {foodItem

@@ -44,9 +44,9 @@ export default function UserSettings() {
 
         try {
             await requestServer(CHANGE_PASSWORD, "post", {
-                data : {
-                    new_password : data.new_password,
-                    current_password : data.current_password,
+                data: {
+                    new_password: data.new_password,
+                    current_password: data.current_password,
                 },
             });
             setSuccessMsg(t("password_changed_successfully"));
@@ -54,8 +54,7 @@ export default function UserSettings() {
         } catch (error) {
             console.log(error);
             setApiError(t("error_msg"));
-        } finally
-        {
+        } finally {
             throw new Error("error");
         }
     };

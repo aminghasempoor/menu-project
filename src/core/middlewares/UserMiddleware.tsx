@@ -1,7 +1,7 @@
-'use client';
-import React, { useEffect, useState } from 'react';
-import { useRouter } from 'next/navigation';
-import { motion, AnimatePresence } from 'framer-motion';
+"use client";
+import React, { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+import { motion, AnimatePresence } from "framer-motion";
 import useUserStore from "@/lib/utils/userStore";
 
 interface Props {
@@ -16,12 +16,12 @@ const UserMiddleware = ({ children }: Props) => {
     useEffect(() => {
         if (!user) return;
 
-        if (user.role === 'admin') {
+        if (user.role === "admin") {
             setIsAuthorized(true);
         } else {
             setIsAuthorized(false);
             setTimeout(() => {
-                router.replace('/dashboard');
+                router.replace("/dashboard");
             }, 1500);
         }
     }, [user]);
@@ -29,12 +29,7 @@ const UserMiddleware = ({ children }: Props) => {
     return (
         <AnimatePresence>
             {isAuthorized === null ? (
-                <motion.div
-                    key="loading"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                >
+                <motion.div key="loading" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
                     در حال بررسی دسترسی...
                 </motion.div>
             ) : isAuthorized ? (

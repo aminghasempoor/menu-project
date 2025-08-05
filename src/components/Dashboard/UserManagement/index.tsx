@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import { useUserManagement } from '@/lib/hooks/useUserManagement';
-import { DataTable } from './DataTable';
-import { columns } from './columns';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useUserManagement } from "@/lib/hooks/useUserManagement";
+import { DataTable } from "./DataTable";
+import { columns } from "./columns";
+import { motion, AnimatePresence } from "framer-motion";
 
 const UserManagementComponent = () => {
     const { data, loading, error } = useUserManagement();

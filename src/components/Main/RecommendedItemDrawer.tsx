@@ -5,12 +5,12 @@ import { Drawer, DrawerContent, DrawerFooter, DrawerHeader, DrawerTitle, DrawerT
 import { RecommendedItem } from "@/components/Main/RecommendedItem";
 
 const RecommendedItemDrawer = ({
-                                   picture,
-                                   title,
-                                   description,
-                                   price,
-                                   ingredients
-                               }: {
+    picture,
+    title,
+    description,
+    price,
+    ingredients,
+}: {
     picture: string;
     title: string;
     description: string;
@@ -52,6 +52,6 @@ const RecommendedItemDrawer = ({
                 </DrawerContent>
             </Drawer>
         </>
-    )
-}
-export default RecommendedItemDrawer
+    );
+};
+export default RecommendedItemDrawer;
