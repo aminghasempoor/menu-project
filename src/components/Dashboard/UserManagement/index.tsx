@@ -44,6 +44,7 @@ const UserManagementComponent = () => {
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.3 }}
                     >
+                        {/* @ts-ignore - no type for request */}
                         <DataTable data={data} columns={columns} />
                     </motion.div>
                 ) : (

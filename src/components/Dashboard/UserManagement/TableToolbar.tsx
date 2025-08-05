@@ -1,12 +1,6 @@
 "use client";
 
-import {
-    Dialog,
-    DialogContent,
-    DialogHeader,
-    DialogTitle,
-    DialogTrigger,
-} from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Plus } from "lucide-react";
 import { Label } from "@/components/ui/label";
@@ -67,7 +61,7 @@ const TableToolbar = () => {
     const onSubmit = async (data: AddUserFormValues) => {
         try {
             // @ts-ignore - no type for request
-            await requestServer(GET_USERS, "post", { data: { ...data }});
+            await requestServer(GET_USERS, "post", { data: { ...data } });
             setOpenAdd(false);
             reset();
         } catch (error) {
@@ -79,10 +73,13 @@ const TableToolbar = () => {
         <div className="mb-4 flex items-center justify-between">
             <h2 className="text-xl font-semibold">{t("user_management")}</h2>
 
-            <Dialog open={openAdd} onOpenChange={(open) => {
-                setOpenAdd(open);
-                if (!open) reset();
-            }}>
+            <Dialog
+                open={openAdd}
+                onOpenChange={(open) => {
+                    setOpenAdd(open);
+                    if (!open) reset();
+                }}
+            >
                 <DialogTrigger asChild>
                     <Button size="sm" className="gap-2">
                         <Plus className="h-4 w-4" />
@@ -92,9 +89,7 @@ const TableToolbar = () => {
 
                 <DialogContent className="text-start p-5 max-h-[90vh] w-[500px] overflow-y-auto">
                     <DialogHeader>
-                        <DialogTitle className="text-start">
-                            {t("add_user")}
-                        </DialogTitle>
+                        <DialogTitle className="text-start">{t("add_user")}</DialogTitle>
                     </DialogHeader>
 
                     <motion.form

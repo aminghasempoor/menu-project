@@ -68,7 +68,7 @@ const EditForm = ({ user }: RowActionsProps) => {
         try {
             await requestServer(`${GET_USERS}/${user.id}`, "post", {
                 // @ts-ignore - no type for request
-                data : {...data},
+                data: { ...data },
             });
             setOpenEdit(false);
         } catch (error) {
@@ -77,22 +77,26 @@ const EditForm = ({ user }: RowActionsProps) => {
     };
 
     return (
-        <Dialog open={openEdit} onOpenChange={(open) => {
-            setOpenEdit(open);
-            if (open) reset({
-                username: user.username ?? "",
-                email: user.email ?? "",
-                phone_number: user.phone_number ?? "",
-                password: "",
-                role: user.role ?? "",
-                lat: user.lat ?? "",
-                lng: user.lng ?? "",
-                address: user.address ?? "",
-                telephone: user.telephone ?? "",
-                icon: user.icon ?? "",
-                name_fa: user.name_fa ?? "",
-            });
-        }}>
+        <Dialog
+            open={openEdit}
+            onOpenChange={(open) => {
+                setOpenEdit(open);
+                if (open)
+                    reset({
+                        username: user.username ?? "",
+                        email: user.email ?? "",
+                        phone_number: user.phone_number ?? "",
+                        password: "",
+                        role: user.role ?? "",
+                        lat: user.lat ?? "",
+                        lng: user.lng ?? "",
+                        address: user.address ?? "",
+                        telephone: user.telephone ?? "",
+                        icon: user.icon ?? "",
+                        name_fa: user.name_fa ?? "",
+                    });
+            }}
+        >
             <DialogTrigger asChild>
                 <Button variant="outline" size="sm">
                     {t("edit")}
@@ -102,9 +106,7 @@ const EditForm = ({ user }: RowActionsProps) => {
             <DialogContent className="p-5">
                 <DialogHeader>
                     <DialogTitle className="text-start">{t("edit")}</DialogTitle>
-                    <DialogDescription className="text-start py-0 pt-2">
-                        {t("edit_description")}
-                    </DialogDescription>
+                    <DialogDescription className="text-start py-0 pt-2">{t("edit_description")}</DialogDescription>
                 </DialogHeader>
 
                 <motion.form

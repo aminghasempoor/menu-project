@@ -58,20 +58,10 @@ const DeleteForm = ({ user }: RowActionsProps) => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.25 }}
                 >
-                    <Button
-                        type="button"
-                        variant="ghost"
-                        onClick={() => setOpenDelete(false)}
-                        disabled={loading}
-                    >
+                    <Button type="button" variant="ghost" onClick={() => setOpenDelete(false)} disabled={loading}>
                         {t("cancel")}
                     </Button>
-                    <Button
-                        type="button"
-                        variant="destructive"
-                        onClick={handleDelete}
-                        disabled={loading}
-                    >
+                    <Button type="button" variant="destructive" onClick={handleDelete} disabled={loading}>
                         {loading ? t("deleting") : t("delete")}
                     </Button>
                 </motion.div>
