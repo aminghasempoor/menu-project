@@ -27,6 +27,7 @@
   },
   "Items": {
     "title": "Items",
+    "edit": "Edit",
     "loading": "Loading...",
     "delete_item": "Delete",
     "add_item": "add item",
@@ -50,6 +51,7 @@
   },
   "Categories": {
     "title": "Categories",
+    "edit": "Edit",
     "error": "Error Fetch Data...",
     "loading": "Loading...",
     "delete_item": "Delete",
@@ -112,6 +114,7 @@
     "title": "dashboard",
     "logo": "Menulita",
     "home": "Home",
+    "customer_review": "Customers Review",
     "profile": "Profile",
     "items": "Items",
     "category": "Category",
@@ -123,6 +126,18 @@
   },
   "AuthMiddleware": {
     "title": "you don not have permission to this page..."
+  },
+  "Settings": {
+    "title": "Settings",
+    "user_name": "Username",
+    "required": "Required",
+    "email": "Email",
+    "invalid_format": "Invalid Format",
+    "phone_number": "Phone Number",
+    "enter_phone_number": "Enter Phone Number",
+    "submit": "Submit",
+    "success_msg" : "Successfully Saved",
+    "error_msg" : "Error Saving Data"
   },
   "FirstPage": {
     "caffe": "Caffe Menu",
@@ -141,6 +156,7 @@
   "CustomerReview": {
     "address": "Address :",
     "review": "Customers Review",
+    "error_loading_data": "Error Loading Data",
     "customer_review": "Customers Review :",
     "Required": "Required",
     "error": "Error Loading Data",

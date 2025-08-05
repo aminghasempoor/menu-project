@@ -34,7 +34,7 @@ export function Main({
                 <h1 className="scroll-m-20 text-3xl font-bold tracking-tight lg:text-4xl px-4">{title}</h1>
                 <div className="border-t-2 flex-grow ml-2 border-black" />
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 items-stretch">
                 {recommendedItems.length > 0 &&
                     recommendedItems
                         .filter((item) => item.is_recommended)

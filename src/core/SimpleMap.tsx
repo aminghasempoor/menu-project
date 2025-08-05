@@ -6,14 +6,12 @@ import { MapPin, Phone } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useUser } from "@/lib/utils/useUser";
 import markerIconPng from "/public/marker.svg";
-import markerShadowPng from "/public/marker-shadow.png";
 
 const markerIcon = new L.Icon({
     iconUrl: markerIconPng.src,
-    shadowUrl: markerShadowPng.src,
-    iconSize: [50, 82], // ← بزرگ‌تر از [25, 41]
-    iconAnchor: [25, 82], // ← تنظیم درست محل قرارگیری
-    popupAnchor: [0, -82], // ← مکان قرارگیری پاپ‌آپ روی مارکر
+    iconSize: [25, 41],
+    iconAnchor: [12.5, 41],
+    popupAnchor: [0, -82],
 });
 
 export default function ContactMapSection() {
@@ -44,6 +42,8 @@ export default function ContactMapSection() {
                     zoom={16}
                     scrollWheelZoom={true}
                     className="w-full h-full z-10"
+                    attributionControl={false}
+                    zoomControl={false}
                 >
                     <TileLayer
                         attribution="&copy; OpenStreetMap contributors"

@@ -22,16 +22,16 @@ export function CardContentComponent({
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.3 }}
-            whileHover={{ scale: 1.03, boxShadow: "0 10px 20px rgba(0,0,0,0.2)" }}
+            whileHover={{ scale: 1.03 }}
             className="cursor-pointer"
         >
             <Card className="transition-none">
-                <CardContent className="p-0 flex flex-row items-stretch gap-x-2">
-                    <div className="w-1/2 relative aspect-[3/1.5]">
+                <CardContent className="p-0 h-[120px] flex flex-row items-stretch gap-x-2">
+                    <div className="w-1/2 relative aspect-[5/1.5]">
                         <Image
                             loading="lazy"
                             fill
-                            className="object-cover rounded-lg w-36 h-36"
+                            className="object-cover rounded-lg w-48 h-48"
                             src={picture}
                             alt="picture"
                         />

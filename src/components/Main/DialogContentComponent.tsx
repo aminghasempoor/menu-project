@@ -45,7 +45,6 @@ export function DialogContentComponent({
                         <p className="text-md font-semibold text-muted-foreground mb-2">
                             {t("ingredient")} {description}
                         </p>
-                        <p className="text-sm leading-relaxed mb-6">{t("description")}</p>
                         <div className="flex items-center justify-between mt-auto">
                             <div className="bg-gray-100 text-green-700 px-4 py-2 rounded-lg text-xl font-bold">
                                 {price} هزارتومان
