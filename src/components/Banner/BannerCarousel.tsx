@@ -66,7 +66,7 @@ export function BannerCarousel() {
                     }}
                     className="w-full max-w-4xl lg:max-w-7xl mx-auto px-4 py-2"
                 >
-                    <CarouselContent className="flex items-center justify-center -ml-2">
+                    <CarouselContent className="-ml-2">
                         {menuNames.length > 0 ? (
                             menuNames.map((nameFa, index) => (
                                 <CarouselItem

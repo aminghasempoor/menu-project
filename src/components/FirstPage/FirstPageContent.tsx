@@ -29,8 +29,17 @@ const FirstPageContent = () => {
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.3, duration: 0.6 }}
+                    className={"mb-10"}
                 >
-                    <img src={user?.icon || AddresIconLight} alt="addres" width={300} height={300} />
+                    <Image
+                        src={user?.icon || AddresIconLight}
+                        alt="address"
+                        width={200}
+                        height={200}
+                        quality={100}
+                        priority
+                        unoptimized={false}
+                    />
                 </motion.div>
 
                 <motion.div
