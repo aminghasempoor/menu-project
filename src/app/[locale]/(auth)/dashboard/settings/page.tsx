@@ -4,7 +4,5 @@ export const metadata = {
     title: "تنظیمات",
 };
 export default function Settings() {
-    return (
-        <SettingsComponent />
-    );
+    return <SettingsComponent />;
 }

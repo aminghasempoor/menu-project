@@ -35,9 +35,7 @@ export function ItemsComponent() {
     };
     return (
         <>
-            <h1 className="text-center scroll-m-20 text-2xl font-bold tracking-tight capitalize py-5">
-                {t("title")}
-            </h1>
+            <h1 className="text-center scroll-m-20 text-2xl font-bold tracking-tight capitalize py-5">{t("title")}</h1>
 
             <motion.div
                 className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-16"

@@ -44,11 +44,7 @@ export function LineChartComponent() {
                             </CardHeader>
                             <CardContent>
                                 <ChartContainer config={chartConfig} className="w-full h-[300px]">
-                                    <LineChart
-                                        accessibilityLayer
-                                        data={chartData}
-                                        margin={{ left: 12, right: 12 }}
-                                    >
+                                    <LineChart accessibilityLayer data={chartData} margin={{ left: 12, right: 12 }}>
                                         <CartesianGrid vertical={false} />
                                         <XAxis
                                             dataKey="month"

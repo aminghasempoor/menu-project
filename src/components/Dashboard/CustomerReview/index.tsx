@@ -69,7 +69,7 @@ const CustomerReviewComponent = () => {
                         <p>{t("error_loading_data")}</p>
                     </div>
                 ) : (
-                    ratings.map((rating, index: number) => (
+                    ratings.map((rating) => (
                         <motion.div
                             key={rating.id}
                             variants={itemVariants}
@@ -77,22 +77,16 @@ const CustomerReviewComponent = () => {
                         >
                             <div className="flex items-center gap-3 mb-2">
                                 <div className="h-12 w-12 flex items-center justify-center rounded-full bg-orange-100 text-orange-600 font-semibold text-lg select-none">
-                                    {rating.customer_name
-                                        ? rating.customer_name[0]
-                                        : rating.username[0]}
+                                    {rating.customer_name ? rating.customer_name[0] : rating.username[0]}
                                 </div>
                                 <div>
-                                    <p className="font-semibold">
-                                        {rating.customer_name || rating.username}
-                                    </p>
+                                    <p className="font-semibold">{rating.customer_name || rating.username}</p>
                                     <div className="flex items-center gap-1">
                                         {[...Array(5)].map((_, i) => (
                                             <Star
                                                 key={i}
                                                 className={`w-4 h-4 ${
-                                                    i < rating.stars
-                                                        ? "text-yellow-400"
-                                                        : "text-gray-300"
+                                                    i < rating.stars ? "text-yellow-400" : "text-gray-300"
                                                 }`}
                                             />
                                         ))}

@@ -2,14 +2,13 @@
 import React, { useState } from "react";
 import { useForm, Controller } from "react-hook-form";
 import { motion } from "framer-motion";
-import axios from "axios";
 import useUserStore, { User } from "@/lib/utils/userStore";
 import { useTranslations } from "next-intl";
 import useRequest from "@/lib/hooks/useRequest";
 
 export default function UserSettings() {
-    const t = useTranslations("Settings")
-    const requestServer = useRequest({auth : true, notification : true})
+    const t = useTranslations("Settings");
+    const requestServer = useRequest({ auth: true, notification: true });
     const user = useUserStore((state) => state.user);
     const userForForm = {
         username: user.username || "",
@@ -28,20 +27,19 @@ export default function UserSettings() {
     const [apiError, setApiError] = useState<string | null>(null);
     const [successMsg, setSuccessMsg] = useState<string | null>(null);
 
-
     const onSubmit = async (data: User) => {
         setApiError(null);
         setSuccessMsg(null);
         try {
             await requestServer("/api/user/settings", "post", {
-                data : {
+                data: {
                     username: data.username,
                     email: data.email!,
                     phone_number: data.phone_number!,
-                }
+                },
             });
-                setSuccessMsg(t("success_msg"));
-                reset(data);
+            setSuccessMsg(t("success_msg"));
+            reset(data);
         } catch (error) {
             console.log(error);
             setApiError(t("error_msg"));
@@ -79,9 +77,7 @@ export default function UserSettings() {
                                     }`}
                                 />
                                 {fieldState.error && (
-                                    <p className="text-red-600 text-sm mt-1">
-                                        {fieldState.error.message}
-                                    </p>
+                                    <p className="text-red-600 text-sm mt-1">{fieldState.error.message}</p>
                                 )}
                             </>
                         )}
@@ -115,9 +111,7 @@ export default function UserSettings() {
                                     }`}
                                 />
                                 {fieldState.error && (
-                                    <p className="text-red-600 text-sm mt-1">
-                                        {fieldState.error.message}
-                                    </p>
+                                    <p className="text-red-600 text-sm mt-1">{fieldState.error.message}</p>
                                 )}
                             </>
                         )}
@@ -143,20 +137,12 @@ export default function UserSettings() {
                     />
                 </div>
                 {apiError && (
-                    <motion.p
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        className="text-red-600 text-center"
-                    >
+                    <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-red-600 text-center">
                         {apiError}
                     </motion.p>
                 )}
                 {successMsg && (
-                    <motion.p
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        className="text-green-600 text-center"
-                    >
+                    <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-green-600 text-center">
                         {successMsg}
                     </motion.p>
                 )}
@@ -165,9 +151,7 @@ export default function UserSettings() {
                     type="submit"
                     disabled={!isDirty || isSubmitting}
                     className={`w-full py-2 rounded text-white font-semibold transition-colors ${
-                        !isDirty || isSubmitting
-                            ? "bg-gray-400 cursor-not-allowed"
-                            : "bg-blue-600 hover:bg-blue-700"
+                        !isDirty || isSubmitting ? "bg-gray-400 cursor-not-allowed" : "bg-blue-600 hover:bg-blue-700"
                     }`}
                 >
                     {t("submit")}
