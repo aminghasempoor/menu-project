@@ -126,6 +126,12 @@
     "enter_phone_number": "تلفن همراه را وارد کنید",
     "submit": "ذخیره تغییرات",
     "success_msg" : "تنظیمات با موفقیت ذخیره شد",
+    "current_password" : "رمزعبور فعلی",
+    "new_password" : "رمزعبور جدید",
+    "confirm_password" : "تایید رمزعبور",
+    "password_changed_successfully" : "رمزعبور تغییر کرد",
+    "passwords_do_not_match" : "رمزعبور مطابقت ندارد",
+    "password_min_length" : "حداقل رمزعبور 6 کلمه میباشد",
     "error_msg" : "خطا در ذخیره تنظیمات. لطفا دوباره تلاش کنید."
   },
   "FirstPage": {

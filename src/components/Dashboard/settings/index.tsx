@@ -2,47 +2,61 @@
 import React, { useState } from "react";
 import { useForm, Controller } from "react-hook-form";
 import { motion } from "framer-motion";
-import useUserStore, { User } from "@/lib/utils/userStore";
+import useUserStore from "@/lib/utils/userStore";
 import { useTranslations } from "next-intl";
 import useRequest from "@/lib/hooks/useRequest";
+import { CHANGE_PASSWORD } from "@/lib/utils/apiRoutes";
+
+interface PasswordForm {
+    current_password: string;
+    new_password: string;
+    confirm_password: string;
+}
 
 export default function UserSettings() {
     const t = useTranslations("Settings");
     const requestServer = useRequest({ auth: true, notification: true });
     const user = useUserStore((state) => state.user);
-    const userForForm = {
-        username: user.username || "",
-        email: user.email || "",
-        phone_number: user.phone_number || "",
-    };
     const {
         control,
         handleSubmit,
         formState: { isDirty, isSubmitting },
         reset,
-    } = useForm<User>({
-        defaultValues: userForForm,
+    } = useForm<PasswordForm>({
+        defaultValues: {
+            current_password: "",
+            new_password: "",
+            confirm_password: "",
+        },
     });
 
     const [apiError, setApiError] = useState<string | null>(null);
     const [successMsg, setSuccessMsg] = useState<string | null>(null);
 
-    const onSubmit = async (data: User) => {
+    const onSubmit = async (data: PasswordForm) => {
         setApiError(null);
         setSuccessMsg(null);
+
+        if (data.new_password !== data.confirm_password) {
+            setApiError(t("passwords_do_not_match"));
+            return;
+        }
+
         try {
-            await requestServer("/api/user/settings", "post", {
-                data: {
-                    username: data.username,
-                    email: data.email!,
-                    phone_number: data.phone_number!,
+            await requestServer(CHANGE_PASSWORD, "post", {
+                data : {
+                    new_password : data.new_password,
+                    current_password : data.current_password,
                 },
             });
-            setSuccessMsg(t("success_msg"));
-            reset(data);
+            setSuccessMsg(t("password_changed_successfully"));
+            reset();
         } catch (error) {
             console.log(error);
             setApiError(t("error_msg"));
+        } finally
+        {
+            throw new Error("error");
         }
     };
 
@@ -51,26 +65,41 @@ export default function UserSettings() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: "easeOut" }}
-            className="max-w-md mx-auto p-6 bg-card rounded-lg shadow-md"
+            className="max-w-md mx-auto p-6 bg-card rounded-lg shadow-md mt-8"
         >
             <h2 className="text-xl font-bold mb-6 text-center">{t("title")}</h2>
 
+            <div className="mb-6 space-y-3 text-center">
+                <div className={"flex gap-x-5 items-center justify-center"}>
+                    <span className="font-medium">{t("user_name")} : </span>
+                    <p className="mt-1">{user.username || "-"}</p>
+                </div>
+                <div className={"flex gap-x-5 items-center justify-center"}>
+                    <span className="font-medium">{t("email")} : </span>
+                    <p className="mt-1">{user.email || "-"}</p>
+                </div>
+                <div className={"flex gap-x-5 items-center justify-center"}>
+                    <span className="font-medium">{t("phone_number")} : </span>
+                    <p className="mt-1">{user.phone_number || "-"}</p>
+                </div>
+            </div>
+
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
                 <div>
-                    <label htmlFor="username" className="block mb-1 font-medium">
-                        {t("user_name")}
+                    <label htmlFor="current_password" className="block mb-1 font-medium">
+                        {t("current_password")}
                     </label>
                     <Controller
-                        name="username"
+                        name="current_password"
                         control={control}
                         rules={{ required: t("required") }}
                         render={({ field, fieldState }) => (
                             <>
                                 <input
                                     {...field}
-                                    id="username"
-                                    type="text"
-                                    className={`w-full rounded border px-3 py-2 focus:outline-none focus:ring ${
+                                    id="current_password"
+                                    type="password"
+                                    className={`w-full rounded px-3 py-2 focus:outline-none focus:ring ${
                                         fieldState.error
                                             ? "border-red-500 focus:ring-red-400"
                                             : "border-gray-300 focus:ring-blue-400"
@@ -83,28 +112,25 @@ export default function UserSettings() {
                         )}
                     />
                 </div>
+
                 <div>
-                    <label htmlFor="email" className="block mb-1 font-medium">
-                        {t("email")}
+                    <label htmlFor="new_password" className="block mb-1 font-medium">
+                        {t("new_password")}
                     </label>
                     <Controller
-                        name="email"
+                        name="new_password"
                         control={control}
                         rules={{
                             required: t("required"),
-                            pattern: {
-                                value: /^\S+@\S+$/i,
-                                message: t("invalid_format"),
-                            },
+                            minLength: { value: 6, message: t("password_min_length") },
                         }}
                         render={({ field, fieldState }) => (
                             <>
-                                {/* @ts-ignore - no type for input */}
                                 <input
                                     {...field}
-                                    id="email"
-                                    type="email"
-                                    className={`w-full rounded border px-3 py-2 focus:outline-none focus:ring ${
+                                    id="new_password"
+                                    type="password"
+                                    className={`w-full rounded px-3 py-2 focus:outline-none focus:ring ${
                                         fieldState.error
                                             ? "border-red-500 focus:ring-red-400"
                                             : "border-gray-300 focus:ring-blue-400"
@@ -117,25 +143,35 @@ export default function UserSettings() {
                         )}
                     />
                 </div>
+
                 <div>
-                    <label htmlFor="phone_number" className="block mb-1 font-medium">
-                        {t("phone_number")}
+                    <label htmlFor="confirm_password" className="block mb-1 font-medium">
+                        {t("confirm_password")}
                     </label>
                     <Controller
-                        name="phone_number"
+                        name="confirm_password"
                         control={control}
-                        render={({ field }) => (
-                            // @ts-ignore - no type for input
-                            <input
-                                {...field}
-                                id="phone_number"
-                                type="tel"
-                                placeholder={t("enter_phone_number")}
-                                className="w-full rounded border border-gray-300 px-3 py-2 focus:outline-none focus:ring focus:ring-blue-400"
-                            />
+                        rules={{ required: t("required") }}
+                        render={({ field, fieldState }) => (
+                            <>
+                                <input
+                                    {...field}
+                                    id="confirm_password"
+                                    type="password"
+                                    className={`w-full rounded px-3 py-2 focus:outline-none focus:ring ${
+                                        fieldState.error
+                                            ? "border-red-500 focus:ring-red-400"
+                                            : "border-gray-300 focus:ring-blue-400"
+                                    }`}
+                                />
+                                {fieldState.error && (
+                                    <p className="text-red-600 text-sm mt-1">{fieldState.error.message}</p>
+                                )}
+                            </>
                         )}
                     />
                 </div>
+
                 {apiError && (
                     <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-red-600 text-center">
                         {apiError}
@@ -150,8 +186,8 @@ export default function UserSettings() {
                 <button
                     type="submit"
                     disabled={!isDirty || isSubmitting}
-                    className={`w-full py-2 rounded text-white font-semibold transition-colors ${
-                        !isDirty || isSubmitting ? "bg-gray-400 cursor-not-allowed" : "bg-blue-600 hover:bg-blue-700"
+                    className={`w-full py-2 rounded font-semibold transition-colors ${
+                        !isDirty || isSubmitting ? " cursor-not-allowed" : "bg-muted"
                     }`}
                 >
                     {t("submit")}
