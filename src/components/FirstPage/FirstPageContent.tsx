@@ -5,12 +5,10 @@ import Link from "next/link";
 import { useTranslations } from "next-intl";
 import { useUser } from "@/lib/utils/useUser";
 import AddresIconLight from "/public/AddressLight.svg";
-import { useTheme } from "next-themes";
 
 const FirstPageContent = () => {
     const t = useTranslations("FirstPage");
     const user = useUser((state) => state.user);
-    const { theme } = useTheme();
     return (
         <motion.div
             className="relative w-full h-screen overflow-hidden z-50"
@@ -26,17 +24,22 @@ const FirstPageContent = () => {
                 fill
             />
             <div className="absolute inset-0 bg-black/25 z-10" />
-            <div className="relative z-20 flex flex-col items-center justify-center h-full text-white text-center space-y-6 px-4">
+            <div
+                className="relative z-20 flex flex-col items-center justify-center h-full text-white text-center space-y-6 px-4">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.3, duration: 0.6 }}
+                    className={"mb-10"}
                 >
-                    <img
-                        src={theme === "light" ? user?.icon_dark : user?.icon || AddresIconLight}
-                        alt="addres"
-                        width={300}
-                        height={300}
+                    <Image
+                        src={user?.icon || AddresIconLight}
+                        alt="address"
+                        width={200}
+                        height={200}
+                        quality={100}
+                        priority
+                        unoptimized={false}
                     />
                 </motion.div>
 
