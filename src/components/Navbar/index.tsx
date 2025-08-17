@@ -42,20 +42,12 @@ export function Navbar() {
             <div className="flex gap-x-3 justify-center items-center">
                 {user?.has_restaurant && menuType === "2" && (
                     <>
-                        <button
-                            onClick={() => switchMenu("1", "/caffe-menu")}
-                        >
-                            ☕ منو کافه
-                        </button>
+                        <button onClick={() => switchMenu("1", "/caffe-menu")}>☕ منو کافه</button>
                     </>
                 )}
                 {user?.has_restaurant && menuType === "1" && (
                     <>
-                        <button
-                            onClick={() => switchMenu("2", "/restaurant-menu")}
-                        >
-                            🍽️ منو رستوران
-                        </button>
+                        <button onClick={() => switchMenu("2", "/restaurant-menu")}>🍽️ منو رستوران</button>
                     </>
                 )}
                 <ModeToggle />
