@@ -6,7 +6,6 @@ import React from "react";
 import { useTranslations } from "next-intl";
 import { UseFormReturn } from "react-hook-form";
 import { CustomerReviewSchemaForm } from "./index";
-import DialogCustomerReviewContent from "./DialogCustomerReviewContent";
 import DialogCustomerReviewForm from "./DialogCustomerReviewForm";
 import { useCustomerReview } from "@/lib/utils/useCustomerReview";
 
@@ -18,8 +17,18 @@ const DialogCustomerReview = ({ form, onSubmit }: DialogCustomerReviewProps) => 
     const t = useTranslations("CustomerReview");
     const isOpenDialog = useCustomerReview((state) => state.isOpenDialog);
     const openDialog = useCustomerReview((state) => state.openDialog);
+    const closeDialog = useCustomerReview((state) => state.closeDialog);
+
+    const handleOpenChange = (open: boolean) => {
+        if (open) {
+            openDialog();
+        } else {
+            closeDialog();
+        }
+    };
+
     return (
-        <Dialog open={isOpenDialog} onOpenChange={openDialog}>
+        <Dialog open={isOpenDialog} onOpenChange={handleOpenChange}>
             <DialogTrigger asChild>
                 <Button
                     variant="secondary"
@@ -37,7 +46,6 @@ const DialogCustomerReview = ({ form, onSubmit }: DialogCustomerReviewProps) => 
                     <DialogDescription>{t("add_review")}</DialogDescription>
                 </VisuallyHidden>
                 <DialogTitle className={"pt-5 text-center text-xl"}>{t("customer_review")}</DialogTitle>
-                <DialogCustomerReviewContent />
                 <DialogCustomerReviewForm form={form} onSubmit={onSubmit} />
             </DialogContent>
         </Dialog>
