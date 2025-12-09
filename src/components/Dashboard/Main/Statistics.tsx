@@ -14,11 +14,7 @@ export function Statistics({ view }: { view: number }) {
     ];
 
     return (
-        <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, ease: "easeOut" }}
-        >
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
             <Card className="w-full max-w-xl mx-auto rounded-2xl shadow-md mt-5">
                 <CardContent className="flex justify-between items-center p-4 gap-4 text-center text-sm font-medium">
                     {stats.map((stat, index) => (

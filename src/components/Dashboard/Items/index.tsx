@@ -17,7 +17,6 @@ export function ItemsComponent() {
             transition: {
                 staggerChildren: 0.2,
                 delayChildren: 0.3,
-                ease: "easeOut",
             },
         },
     };
@@ -29,7 +28,6 @@ export function ItemsComponent() {
             y: 0,
             transition: {
                 duration: 0.6,
-                ease: "easeOut",
             },
         },
     };

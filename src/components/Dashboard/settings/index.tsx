@@ -63,7 +63,7 @@ export default function UserSettings() {
         <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, ease: "easeOut" }}
+            transition={{ duration: 0.5 }}
             className="max-w-md mx-auto p-6 bg-card rounded-lg shadow-md mt-8"
         >
             <h2 className="text-xl font-bold mb-6 text-center">{t("title")}</h2>
