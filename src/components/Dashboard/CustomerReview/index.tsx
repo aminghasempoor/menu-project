@@ -13,7 +13,6 @@ const containerVariants = {
         transition: {
             staggerChildren: 0.2,
             delayChildren: 0.3,
-            ease: "easeOut",
         },
     },
 };
@@ -26,7 +25,6 @@ const itemVariants = {
         scale: 1,
         transition: {
             duration: 0.6,
-            ease: "easeOut",
         },
     },
 };

@@ -8,7 +8,7 @@ const PoweredBy = () => {
             className="flex justify-end items-center mt-8 text-gray-500 dark:text-gray-400 text-sm px-10"
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
+            transition={{ duration: 0.6 }}
         >
             <span className={"px-2"}>توسعه داده شده توسط </span>
             <motion.a
